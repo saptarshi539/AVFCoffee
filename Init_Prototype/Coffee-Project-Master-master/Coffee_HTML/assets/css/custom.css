@@ -1,0 +1,384 @@
+/* Add here all your css styles (customizations) */
+
+.backgroundback {
+    background-color: #878C6C;
+}
+
+
+.mainpartbackground {
+    background-color: #EFEFEF;
+}
+
+.top {
+    background-color: #373B22;
+    width: 100%;
+}
+@import 'https://raw.githubusercontent.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
+
+body  {
+font-family: "Raleway", Arial, sans-serif; 
+        font-feature-settings: 'lnum' 1;
+
+
+}
+/*
+.lnum {
+    font-variant-numeric: lining-nums;
+    -moz-font-feature-settings:"lnum" 1; 
+    -moz-font-feature-settings:"lnum=1"; 
+    -ms-font-feature-settings:"lnum" 1; 
+    -o-font-feature-settings:"lnum" 1; 
+    -webkit-font-feature-settings:"lnum" 1; 
+    font-feature-settings:"lnum" 1;
+}
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poly", Arial, serif;
+}
+
+.menu {
+    color: #EFEFEF;
+}
+
+.centerbox {
+    position: relative;
+}
+
+.questionlist {
+    text-align: center;
+}
+
+.iconw_title {
+    display: inline-block;
+}
+
+.icon {
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.caption {
+    display: block;
+    color: #4B2636;
+}
+
+.inputfield {
+    margin: 20px 10px 10px 10px;
+    float: left;
+}
+
+.margincenter {
+    margin-left: -130px;
+}
+
+.iconblock {
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+.questionlist2 {
+    margin: 20px 20px 20px 20px;
+}
+
+
+/*
+ul li:hover {
+    color: white;
+    
+}
+*/
+
+.floatleft {
+    float: left;
+    margin-top: 25px;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+alignleft: {
+    display: inline;
+}
+
+.sidebox {
+    float: left;
+    border: 1px solid black;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 2%;
+    
+}
+.sidebox2 {
+    float: left;
+    border: 1px solid black;
+    padding: 15px 15px 5px 15px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 2%;
+    
+}
+
+.iconpadding {
+    padding: 10px;
+}
+.iconpadding2 {
+    padding: 10px 0 10px 10px;
+}
+
+.maincontent {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+}
+
+.questiontext {
+    padding-top: 30px;
+    padding-bottom: 18px;
+}
+
+.questiontext2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.leftpadding {
+    padding-left: 10px;
+}
+
+.rightpadding {
+    padding-right:30px;
+}
+
+.padding20 {
+    padding: 20px 20px 20px 20px;
+}
+
+.chart {
+    height: 700px;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.chart2 {
+    height: 700px;
+    width: 850px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+.chart3 {
+    height: 800px;
+    width: 850px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px 10px 10px 10px;
+}
+
+.pushback {
+    margin-left: -30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    /* hide the inputs */
+    opacity: 0;
+}
+
+
+/* style your lables/button */
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    /* keep pointer so that you get the little hand showing when you are on a button */
+    cursor: pointer;
+    /* the following are the styles */
+    padding: 4px 10px;
+    border: .5px solid #ccc;
+    background: #efefef;
+    color: #aaa;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0);
+}
+
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
+    /* style for the checked/selected state */
+    background: white;
+    border: .5px solid #444;
+    color: white;
+}
+
+
+
+.shortinput {
+    width: 60px;
+}
+
+.container .thischart {
+    width: 100%;
+}
+
+.sidechart {
+    float: right;
+    background-color: #EFEFEF;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 55%;
+    height: 600px;
+    /*    border: solid 1px black;*/
+}
+
+.sidequestions {
+    float: left;
+    max-width: 400px;
+}
+
+.rowlength {
+    max-width: 85%;
+}
+
+.toppadding {
+    padding-top: 20px;
+}
+
+.flexiblemargintop {
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+.loginfont {
+    font-size: 1.8em;
+}
+
+.center {
+    float: right;
+}
+
+.selected {
+    background: white;
+    border: .5px solid #444;
+}
+.selectedfarm {
+    background: white;
+   border: .25px dotted #444;
+ 
+}
+.farmicon{
+    height: 140px;
+    width: 140px;
+    padding: 5px;
+}
+.farmtext{
+    color:#4B2636;
+}
+
+.farmtext a {
+    color:#4B2636;
+    
+}
+.farmtext:hover, {
+    color:#4B2636;
+    text-decoration: underline;
+    
+}
+.addit
+{  
+    padding:10px;
+    float:right;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-left: -20%;
+}
+
+.toppadding5{
+    padding-top: 5px;
+}
+.hidden{
+    display: none;
+}
+.info{
+    height: 20px;
+    width:20px;
+    margin-right: 5px;
+    margin-top: 25px;
+    display: block;
+    float: left;
+}
+.infoleft{
+    height: 20px;
+    width:20px;
+    margin-right:0;
+    margin-top: 25px;
+    margin-left: 18px;
+    display: block;
+    float: left;
+}
+ .tooltip {
+    background-color: #78435A; 
+     opacity: 35%;
+    color: #fff; 
+    font-size: 10x;
+    position: absolute;
+    z-index: 2;
+    border-bottom: none;
+
+}
+.tooltip > .tooltip-inner {
+    background: none;
+    color: none;
+    
+}
+.tooltip > .tooltip-arrow {
+      border: none;
+  }
+.english{
+display: none;
+
+}
+.spanish{
+/*    display:none;*/
+    
+}
+.lightgrey{
+    color:blue;
+}
+.lightgreen{
+    background-color: aquamarine;
+}
+.smaller{
+    max-width: 95%;
+}
+.selectedtopbar{
+    background-color:#EFEFEF;
+    color:#373B22;
+}
+.footericon{
+    height: 50px;
+    width: 50px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+.footericon2{
+    height: 50px;
+    width: 40px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+

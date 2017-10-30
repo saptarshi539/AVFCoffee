@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>Inicio - Costo de Producción de Café</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <link href="https://fonts.googleapis.com/css?family=Poly|Raleway" rel="stylesheet">
+        <link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="../../../assets/plugins/animate.css">
+    <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../../../assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="../assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="../assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/gym.style.css">
+
+    <!-- JS Chartist -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        var x = "5";
+        $(document).ready(function () {
+            $("#compare").click(function () {
+                ////            $(this).css({"background":"white","border": ".5px solid #444"}); 
+                $(this).toggleClass("selected");
+                $("#hiddenbutton").toggle();
+                //this should really be a loop
+                $("#farm1").removeClass("selected");
+                $("#farm2").removeClass("selected");
+                $("#farm3").removeClass("selected");
+            });
+
+        });
+        $(document).ready(function () {
+            $("#farm1").click(function () {
+                if ($("#compare").hasClass("selected")) {
+                    $("#farm1").toggleClass("selectedfarm");
+                }
+                timeToCompare();
+
+            });
+
+            $("#farm2").click(function () {
+                if ($("#compare").hasClass("selected")) {
+                    $("#farm2").toggleClass("selectedfarm");
+                }
+                timeToCompare();
+            });
+
+            $("#farm3").click(function () {
+                if ($("#compare").hasClass("selected")) {
+
+                    $("#farm3").toggleClass("selectedfarm");
+                }
+                timeToCompare();
+            });
+
+            
+ function timeToCompare( ){
+                var clickedfarms = document.getElementsByClassName("selectedfarm");
+                if(clickedfarms.length > 1){
+                  $("#comparebutton").removeClass("btn-u-base--outline2");
+                $("#comparebutton").addClass("btn-u-base--account2 ");
+                }
+                else{
+                    $("#comparebutton").addClass("btn-u-base--outline2");
+                $("#comparebutton").removeClass("btn-u-base--account2 ");
+                    
+                }
+                if(clickedfarms.length == 2){
+                    $("#comparebutton").attr("href", "compare2.html");  
+                }
+                if(clickedfarms.length == 3){
+                    $("#comparebutton").attr("href", "compare3.html");  
+                }
+            }
+        });
+               
+        //    $("#farm1").hide();
+        
+    </script>
+
+</head>
+
+<body class="boxed-layout container backgroundback" id="body" data-spy="scroll" data-target=".one-page-header">
+    <!--=== Header ===-->
+    <div class="header top topbartext ">
+        <div class="container ">
+
+            <!-- Topbar -->
+            <div class="topbar topbartext">
+                        <ul class="loginbar rightpadding pull-right">              
+                            <li>
+                                <a class="spanish" href="index.html">Cerrar Sessión</a>
+                                <a class="english" href="index.html">Log-Out </a>
+                                </li>
+                            <li class="topbar-devider"></li>
+                        </ul>
+                    </div>
+            <!-- End Topbar -->
+
+            <!-- Toggle get grouped for better mobile display -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <!-- End Toggle -->
+        </div>
+        <!--/end container-->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class=" collapse navbar-collapse mega-menu navbar-responsive-collapse top pull-left">
+            <div class="container pull-left">
+                 <ul class="nav navbar-nav menubuttons">
+                <!-- Home -->
+                    <li class="selectedtopbar">
+                    <a href="techall.html">
+                        <h4 class="  selectedtopbar english"> Home </h4>
+                        <h4 class=" selectedtopbar spanish"> Inicio </h4>
+                    </a>
+                    <li>
+                        <a href="coopavg.html">
+                            <h4 class="english"> Co-op Average </h4>
+                            <h4 class="spanish"> Cifras de la Cooperativa </h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="techall-compare.html">
+                            <h4 class="english"> Compare </h4>
+                            <h4 class="spanish"> Comparaciones </h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="techall-whatif.html">
+                            <h4 class="english"> Simulations</h4>
+                            <h4 class="spanish"> Simulaciones</h4>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!--/end container-->
+        </div>
+        <!--/navbar-collapse-->
+    </div>
+    <!--=== End Header ===-->
+    <!-- Main -->
+    <div class=" content maincontent  mainpartbackground ">
+        <!-- Add farms button -->
+           <div class="iconblock addit textcenter">      
+                <a href="tech_addaccount.html"> <img class = "icon" src=assets/img/plusicon.svg title="add"/> 
+                <span class="english caption toppadding5"> Add Farm</span>
+               <span class="spanish caption toppadding5"> Añadir Productor</span>
+                    </a>
+                    </div> 
+               
+        <h1 class="english tech-heading g-mt-20">Farmers</h1>  
+        <h1 class="spanish tech-heading g-mt-20">Productores</h1>
+        
+<!--
+        <div class="sidebox">
+            <div class="iconpadding">
+                <a href="inputs.html">
+                    <img class="icon " src=assets/img/plusicon.svg>
+                    <span class="caption"> Add Farm</span>
+                </a>
+            </div>
+            <div class="iconpadding">
+                <a href="coopavg.html">
+                    <img class="icon " src=assets/img/charticon.svg>
+                    <span class="caption"> Co-op Average</span>
+                </a>
+            </div>
+            <div id="compare" class="iconpadding">
+                <img class="icon " src=assets/img/compareicon.svg>
+                <span class="caption"> Compare Farms</span>
+            </div>
+        </div> 
+-->
+        <!-- end sidebar -->
+
+        <div class="container">
+           <table class="table my-table table-responsive ">
+    <tbody class="farmtext">
+        <tr>
+            <th scope="row"></th>
+            <td >  <a  id="farm1"  href="Farm1.html" > <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+               <p  class="english">Farm 1 </p> 
+                <p class="spanish"> Productor 1 </p> 
+                </a></td>
+            <td id="farm2"> <a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm2">
+                 <p class="english">Farm 2 </p> 
+                 <p class="spanish"> Productor 2 </p> 
+                </a></td>
+            <td id="farm3"><a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm3">
+                <p class="english">Farm 3 </p> 
+                <p class="spanish"> Productor 3 </p> 
+                </a></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td><a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm4">
+             <p class="english">Farm 4 </p> 
+            <p class="spanish"> Productor 4 </p> 
+                </a></td>
+            <td> <a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm5">
+            <p class="english">Farm 5 </p> 
+            <p class="spanish"> Productor 5 </p> 
+                </a></td>
+            <td><a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm6">
+            <p class="english">Farm 6 </p> 
+            <p class="spanish"> Productor 6 </p> 
+               </a></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td><a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm7">
+            <p class="english">Farm 7 </p> 
+            <p class="spanish"> Productor 7 </p>
+                </a></td>
+            <td><a href="Farm1.html"><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm8">
+            <p class="english">Farm 8 </p> 
+            <p class="spanish"> Productor 8</p>
+                </a></td>
+            <!--<td><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm9">Farm 9</td>-->
+        </tr>
+    </tbody>
+</table>
+        </div>
+<div>
+        
+     </div>
+        <!-- End Contacts -->
+    </div>
+    <!-- End Content-->
+    <!--=== Footer Version 1 ===-->
+   <div class=" footer-v1 ">
+    <div class="  copyright  ">
+        <div class="container top  ">
+            <div class="row">
+                <div class="col-md-6">
+                    <p> <img class="footericon" src="assets/img/cornell.svg"> <img class="footericon2" src="assets/img/FairTradeCertifiedLogo-Greyscalecopy.png"> 2017 &copy; All Rights Reserved. <a href="citationstech.html">Citations</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/copyright-->
+</div>
+    <!--=== End Footer Version 1 ===-->
+    <!-- End Footer -->
+
+    <!-- Custom page js --> 
+    <script type="text/javascript" src="Scripts/techall.js"></script>
+
+    <!-- JS Global Compulsory -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="../assets/plugins/smoothScroll.js"></script>
+    <script src="../assets/plugins/pace/pace.min.js"></script>
+    <script src="../assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
+    <script src="../assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+    <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&amp;callback=initMap" async defer></script>
+    <script src="assets/js/plugins/gmaps-ini.js"></script>
+
+    <!-- JS Page Level-->
+    <script src="../assets/js/one.app.js"></script>
+    <script src="assets/js/plugins/promo.js"></script>
+    <script src="assets/js/forms/contact.js"></script>
+    <script src="assets/js/plugins/pace-loader.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v6.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v7.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v8.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            ContactForm.initContactForm();
+            Owl2Carouselv6.initOwl2Carouselv6();
+            Owl2Carouselv7.initOwl2Carouselv7();
+            Owl2Carouselv8.initOwl2Carouselv8();
+            $('.cbp-lightbox-wrapper').cubeportfolio({
+                lightboxGallery: false,
+                lightboxCounter: '',
+            });
+        });
+    </script>
+
+    <!--[if lt IE 9]>
+<script src="../assets/plugins/html5shiv.js"></script>
+<![endif]-->
+</body>
+
+</html>

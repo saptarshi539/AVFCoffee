@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <title>Simulaciones - Coffee Cost of Production</title>
+
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <!-- Web Fonts -->
+   <link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poly" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- CSS Header and Footer -->
+        <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+        <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="../../../assets/plugins/animate.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="../../../assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+    
+        <!-- CSS Theme -->
+        <link rel="stylesheet" href="../assets/css/theme-colors/default.css" id="style_color">
+        <link rel="stylesheet" href="../assets/css/theme-skins/dark.css">
+
+        <!-- CSS Customization -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <link rel="stylesheet" href="assets/css/gym.style.css">
+        
+        <!-- JAVA Chart -->
+        <!-- Modal 2-->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Export Options</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped" id="tblGrid">
+                            <tbody>
+                                <tr><td><a href="#print">Print</a></td>
+                                </tr>
+                                <tr><td><a href="#pdf">Download as pdf</a></td>
+                                </tr>
+                                <tr><td><a href="#excel">Export as Excel doc</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal javascript code-->
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var exp = document.getElementById("myExport");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            exp.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+      
+<script>
+    //Moves graph when a button is clicked 
+    function graphSwitch(){
+        $("#chartdiv1").toggle();
+        $("#chartdiv2").toggleClass("hidden");
+        
+    }    
+          </script>  
+        
+        
+    
+        
+
+       
+        <div> 
+            <!-- amCharts javascript sources -->
+            <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+            <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+        
+ <!-- Spanish  charts-->
+            <div id="chart1"> 
+            <!-- amCharts javascript code -->
+            <script type="text/javascript">
+                var pvari= .82;
+                var chart1 = AmCharts.makeChart("chartdiv1",
+                                                {
+                    "type": "serial",
+                    "addClassNames":true,
+                    "marginRight": 20,
+                    "marginTop": 30,
+
+                    "categoryField": "category",
+                    "colors": [
+                        "#B9A5AE",
+                        "#9D6D82",
+                        "#754A5D",
+                        "#0D8ECF",
+                        "#2A0CD0",
+                        "#CD0D74",
+                        "#CC0000",
+                        "#00CC00",
+                        "#0000CC",
+                        "#DDDDDD",
+                        "#999999",
+                        "#333333",
+                        "#990000"
+                    ],
+                    "sequencedAnimation": false,
+                    "fontFamily": "rawline",
+                    "usePrefixes": true,                     "fontSize":22,
+                    "categoryAxis": {
+                        "gridPosition": "start"
+                    },
+                    "trendLines": [],
+                    "graphs": [
+                        {
+                            "balloonText": "Los costos variables son aquellos asociados a las cantidades de café producidas en la finca o parcela. Estos incluyen mano de obra y otros insumos necesarios para la producción de cantidades específicas de café.",
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Variable",
+                            "labelText": "[[value]]",
+                            "showBalloonAt": "open",
+                            "title": "Variables",
+                            "type": "column",
+                            "valueField": "Variable"
+                        },
+                        {
+                            "balloonText": "Los costos fijos tienen que ser pagados sin importar el nivel de producción de café. Estos incluyen impuestos, membresías a cooperativa entre otros.",
+                            "showBalloonAt": "open",
+
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Fixed",
+                            "labelOffset": -15,
+                            "labelPosition": "top",
+                            "labelText": "[[value]]",
+                            "title": "Fijos",
+                            "type": "column",
+                            "valueField": "Fixed"
+                        },
+                        {   "balloonText": "Los costos de depreciación y totales incluyen la depreciación de herramientas y equipos que se usan por más de un periodo así como el costo de oportunidad de los costos iniciales de establecimiento y de la tierra .",
+                         "columnWidth": 0.48,
+                         "fillAlphas": 1,
+                         "fontSize": 22,
+                         "id": "Additional",
+                         "labelText": "[[value]]",
+                         "showBalloonAt": "close",
+                         "title": "Adicionales",
+                         "type": "column",
+                         "valueField": "Additional"
+                        },
+                        {
+                            "dashLength": 4,
+                            "fontSize": 30,
+                            "id": "Total",
+                            "labelText": "[[value]]",
+                            "lineThickness": 0,
+                            "title": "Total",
+                            "type": "step",
+                            "valueField": "Total",
+                            "visibleInLegend": false
+                        }
+                    ],
+                    "guides": [
+                        {
+                            "angle": 0,
+                            "color": "#00000",
+                            "dashLength": 3,
+                            "fillAlpha": 0,
+                            "fillColor": "#FF8000",
+                            "fontSize": 18,
+                            "id": "Guide-1",
+                            "label": "Precio Actual",
+                            "lineAlpha": 1,
+                            "lineColor": "#000000",
+                            "lineThickness": 2,
+                            "position": "left",
+                            "value": 1.11
+                        }
+                    ],
+                    "valueAxes": [
+                        {
+                            "id": "Price",
+                            "stackType": "regular",
+                            "title": "Precio por kilogramo",
+                            "titleBold": false,
+                            "titleColor": "#000000"
+                        }
+                    ],
+                    "allLabels": [],
+                                    "balloon": {
+                    fontSize: 18,
+                    maxWidth: 400,
+                     fillAlpha: 1,
+                     fixedPosition: false,
+                     offsetX: 2,
+                     offsetY: 2,
+                },
+                    "legend": {
+                        "enabled": true,
+                        "align": "center",
+                        "marginBottom": 20,
+                        "marginTop": 2,
+                        "width": 700,
+                        "labelWidth": 200,
+                        "horizontalGap": 0,
+                       "valueWidth": 12,
+
+                        //                        "position": "left",
+                        "useGraphSettings": true
+                    },
+                    "titles": [
+                        {
+                            "id": "main",
+                            "size": 25,
+                            "padding-bottom":10,
+                            "text": " Ajuste sus datos para ver como el analsis cambia"
+
+                        }
+                    ],
+                    "dataProvider": [
+                        {
+                            "category": "Productor",
+                            "Variable": ".84",
+                            "Fixed": ".06",
+                            "Additional": ".41",
+                            "Total": "1.31"
+                        },
+                        {
+                            "category": "Simulación",
+                            "Variable": pvari,
+                            "Fixed": ".04",
+                            "Additional": ".42",
+                            "Total": "1.30"
+                        },
+                        {
+                            "category": "Cooperativa",
+                            "Variable": ".89",
+                            "Fixed": ".04",
+                            "Additional": ".44",
+                            "Total": "1.37"
+                        }
+                    ]
+                }
+                                               );
+
+                chart1.addListener("drawn", function() {
+                    $(".amcharts-title-main").css("font-family", "Poly");
+                });
+            </script>
+                
+                </div>
+            
+            
+            <div id="chart2"> 
+                <script type="text/javascript">
+                var pvari= .82;
+                var chart1 = AmCharts.makeChart("chartdiv2",
+                                                {
+                    "type": "serial",
+                    "addClassNames":true,
+                    "marginRight": 20,
+                    "marginTop": 30,
+
+                    "categoryField": "category",
+                    "colors": [
+                        "#B9A5AE",
+                        "#9D6D82",
+                        "#754A5D",
+                        "#0D8ECF",
+                        "#2A0CD0",
+                        "#CD0D74",
+                        "#CC0000",
+                        "#00CC00",
+                        "#0000CC",
+                        "#DDDDDD",
+                        "#999999",
+                        "#333333",
+                        "#990000"
+                    ],
+                    "sequencedAnimation": false,
+                    "fontFamily": "rawline",
+                    "usePrefixes": true,                     "fontSize":22,
+                    "categoryAxis": {
+                        "gridPosition": "start"
+                    },
+                    "trendLines": [],
+                    "balloon": {
+                        "adjustBorderColor": true,
+                        "color": "#000000",
+                        "cornerRadius": 5,
+                        "fillColor": "#FFFFFF",
+                      },
+                
+                    "graphs": [
+                        {
+                            "balloonText": "Los costos variables son aquellos asociados a las cantidades de café producidas en la finca o parcela. Estos incluyen mano de obra y otros insumos necesarios para la producción de cantidades específicas de café.",
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Variable",
+                            "labelText": "[[value]]",
+                            "showBalloonAt": "open",
+                            "title": "Variables",
+                            "type": "column",
+                            "valueField": "Variable"
+                        },
+                        {
+                            "balloonText": "Los costos fijos tienen que ser pagados sin importar el nivel de producción de café. Estos incluyen impuestos, membresías a cooperativa entre otros.",
+                            "showBalloonAt": "open",
+
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Fixed",
+                            "labelOffset": -15,
+                            "labelPosition": "top",
+                            "labelText": "[[value]]",
+                            "title": "Fijos",
+                            "type": "column",
+                            "valueField": "Fixed"
+                        },
+                        {   "balloonText": "Las costas completas incluyen la depreciacion de herramientas que son usado por más un año, las costas inciales, y la costa de opportunidad de la tierra.",
+                         "columnWidth": 0.48,
+                         "fillAlphas": 1,
+                         "fontSize": 22,
+                         "id": "Additional",
+                         "labelText": "[[value]]",
+                         "showBalloonAt": "close",
+                         "title": "Adicionales",
+                         "type": "column",
+                         "valueField": "Additional"
+                        },
+                        {
+                            "dashLength": 4,
+                            "fontSize": 30,
+                            "id": "Total",
+                            "labelText": "[[value]]",
+                            "lineThickness": 0,
+                            "title": "Total",
+                            "type": "step",
+                            "valueField": "Total",
+                            "visibleInLegend": false
+                        }
+                    ],
+                    "guides": [
+                        {
+                            "angle": 0,
+                            "color": "#00000",
+                            "dashLength": 3,
+                            "fillAlpha": 0,
+                            "fillColor": "#FF8000",
+                            "fontSize": 18,
+                            "id": "Guide-1",
+                            "label": "Precio Actual",
+                            "lineAlpha": 1,
+                            "lineColor": "#000000",
+                            "lineThickness": 2,
+                            "position": "left",
+                            "value": 1.11
+                        }
+                    ],
+                    "valueAxes": [
+                        {
+                            "id": "Price",
+                            "stackType": "regular",
+                            "title": "Precio por kilogramo",
+                            "titleBold": false,
+                            "titleColor": "#000000"
+                        }
+                    ],
+                    "allLabels": [],
+                    "balloon": {
+                        
+                    fontSize: 18,
+                    maxWidth: 400,
+                     fillAlpha: 1,
+                     fixedPosition: false,
+                     offsetX: 2,
+                     offsetY: 2,
+               
+                        
+                    },
+                    "legend": {
+                        "enabled": true,
+                        "align": "center",
+                        "marginBottom": 20,
+                        "marginTop": 2,
+                        "width": 700,
+                        "labelWidth": 200,
+                        "horizontalGap": 0,
+                       "valueWidth": 12,
+                        //                        "position": "left",
+                        "useGraphSettings": true
+                    },
+                    "titles": [
+                        {
+                            "id": "main",
+                            "size": 25,
+                            "padding-bottom":10,
+                            "text": "Ajuste sus datos para ver como el analsis cambia"
+
+                        }
+                    ],
+                    "dataProvider": [
+                        {
+                            "category": "Productor",
+                            "Variable": ".84",
+                            "Fixed": ".06",
+                            "Additional": ".41",
+                            "Total": "1.31"
+                        },
+                        {
+                            "category": "Simulación",
+                            "Variable": ".65",
+                            "Fixed": ".04",
+                            "Additional": ".42",
+                            "Total": "1.12"
+                        },
+                        {
+                            "category": "Cooperativa",
+                            "Variable": ".89",
+                            "Fixed": ".04",
+                            "Additional": ".44",
+                            "Total": "1.37"
+                        }
+                    ]
+                }
+                                               );
+
+                chart1.addListener("drawn", function() {
+                    $(".amcharts-title-main").css("font-family", "Poly");
+                    
+                var bal =chart1.balloon;
+                bal.color = "#000000";
+                    
+                });
+            </script>
+                
+                </div>
+        </div>
+    </head>
+
+    <body class="boxed-layout container backgroundback">
+        <div class="wrapper">
+            <!--=== Header ===-->
+            <div class="header top topbartext ">
+                <div class="container ">
+
+                    <!-- Topbar -->
+                    <div class="topbar topbartext">
+                        <ul class="loginbar rightpadding pull-right">              
+                            <li>
+                                <a class="spanish" href="index.html">Cerrar Sessión</a>
+                                <a class="english" href="index.html">Log-Out </a>
+                                </li>
+                            <li class="topbar-devider"></li>
+                        </ul>
+                    </div>
+                    <!-- End Topbar -->
+
+                    <!-- Toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <!-- End Toggle -->
+                </div><!--/end container-->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class=" collapse navbar-collapse mega-menu navbar-responsive-collapse top pull-left">
+                    <div class="container pull-left">
+                        <ul class="nav navbar-nav menubuttons">
+                    <!-- Home -->
+                    <li>
+                            <a href="techall.html">
+                                <h4 class=" english"> Home </h4>
+                                <h4 class="spanish"> Inicio </h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="coopavg.html">
+                                <h4 class="english"> Co-op Average </h4>
+                                <h4 class="spanish"> Cifras de la Cooperativa </h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="techall-compare.html">
+                                <h4 class="english"> Compare </h4>
+                                <h4 class="spanish"> Comparaciones </h4>
+                            </a>
+                        </li>
+                        <li  >
+                            <a href="techall-whatif.html">
+                                <h4 class="english"> Simulations</h4>
+                                <h4 class="spanish"> Simulaciones</h4>
+                            </a>
+                        </li>
+                </ul>
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            </div>
+            <!--=== End Header ===-->
+
+
+
+
+
+            <!--=== Content Part ===-->
+           <!--=== Content Part ===-->
+                <div class="content mainpartbackground maincontent">
+                    <!--        <h2 class="textcenter"> Possibilites</h2>-->
+                    <!--        <h3 class="textcenter"> Adjust your inputs to see how your price breakdwon changes</h3>-->
+                    <div class="sidequestions  ">
+
+                        <!-- First Question -->
+                        <div class=" container  ">
+                            <div class="english"><h3 class="questiontext2"> Tree Acreage </h3></div>
+                            <div class="spanish"><h3 class="questiontext2"> Hectáreas </h3></div>
+                            <div class="row textcenter rowlength   " > 
+                                <div class="col-md-2  container" > 
+                                    <div class="iconblock"> 
+                                        <img class= "icon" src=assets/img/smoltree.png> 
+                                        <div class="english"><span class="caption"> Young </span></div>
+                                        <div class="spanish"><span class="caption"> Joven </span></div>
+                                    </div> 
+                                    <input placeholder="5" class="inputfield shortinput" type="text" name="youngtrees">  
+                                </div>
+                                <div class= "col-md-2 container" > 
+                                    <div class="iconblock">    
+                                        <img class="icon" src=assets/img/medtree.png>
+                                        <div class="english"><span class="caption"> Mature </span></div>
+                                        <div class="spanish"><span class="caption"> Maduro </span></div>
+                                    </div>    
+                                    <input  placeholder="8" class="inputfield shortinput" type="text" name="maturetrees">
+                                </div>
+                                <div class= "col-md-2 container"> 
+                                    <div class="iconblock "> 
+                                        <img class="icon" src=assets/img/oldtree.png>
+                                        <div class="english"><span class="caption"> Old </span></div>
+                                        <div class="spanish"><span class="caption"> Viejo </span></div>
+                                    </div> 
+                                    <input  placeholder="3" class="inputfield shortinput" type="text" name="oldtrees"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container"> 
+                            <!--<div class="english"><h3 class="questiontext" >  Method</h3></div>--> 
+                            <div class="spanish"><h3 class="questiontext" >  Método</h3></div>
+                            <div class="row rowlength ">        
+
+                                <span class="spanbutton col-md-2">
+                                    <input id="Radio1" name="Radios" type="radio"  value="Organic" checked="checked">
+                                    <label for="Radio1">
+                                        <img class="icon" src=assets/img/bugicon.svg>
+                                        <div class="english"><span class="caption"> Organic </span></div>
+                                        <div class="spanish"><span class="caption"> Orgánico </span></div>
+                                    </label>
+
+                                </span>
+
+                                <span class="spanbutton col-md-2 ">
+                                    <input id="Radio2" name="Radios" type="radio" value="Chemical " >
+                                    <label for="Radio2">
+                                        <img class="icon" src=assets/img/spraybottleicon.svg>
+                                        <div class="english"><span class="caption"> Chemical </span></div>
+                                        <div class="spanish"><span class="caption"> Químico </span></div>
+                                    </label>
+                                </span>
+
+                                <span class="spanbutton col-md-2 textcenter">
+                                    <input id="Radio3" name="Radios" type="radio" value="Transitioning" >
+                                    <label for="Radio3">
+                                        <img class="icon" src=assets/img/transitionicon.svg>
+                                        <div class="english"><span class="caption"> Transitioning </span></div>
+                                        <div class="spanish"><span class="caption"> En Transición </span></div>
+                                    </label>
+                                </span>
+                            </div> 
+                        </div>
+
+                        <!-- Third Question -->
+
+                        <div class="container "> 
+                            <div class="english"><h3 class="questiontext2"> Labor </h3></div>
+                            <div class="spanish"><h3 class="questiontext2"> Trabajo </h3></div>
+                            <div class=" row textcenter col-md-3 ">
+                                <div class="iconblock"> 
+                                    <img class="icon" src=assets/img/laborericon.png>
+                                </div> 
+
+                                <span class="floatleft leftpadding"> $ </span>
+                                <input placeholder="20" class="inputfield shortinput " type="text" name="labor"> 
+                                <div class="english"><span class="floatleft"> soles/day </span></div>
+                                <div class="spanish"><span class="floatleft"> soles/día </span></div>
+
+                            </div>
+                        </div>
+
+                        <!-- Fourth Question -->
+                        <div class="container">
+                            <div class="english"><h3 class="questiontext2"> Productivity </h3></div>
+                            <div class="spanish"><h3 class="questiontext2"> Productividad </h3></div>
+                            <div class=" row col-md-3">
+                                <div class="iconw_title ">
+
+                                    <div class="iconblock leftpadding"> 
+                                        <img class="icon" src=assets/img/2beansicon.png>
+
+                                    </div> 
+                                    <div class="container" > 
+                                        <input placeholder="25" class="inputfield shortinput " type="text" name="productivity">
+                                        <div class="english"><span class="floatleft"> pounds/day </span></div>
+                                        <div class="spanish"><span class="floatleft"> kilogramos/día </span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end side questions-->
+                    <div class=" container thischart"> <!--start chart -->
+                        <div class="sidechart" id="chartdiv1" >
+                        </div>
+                        <div class="sidechart hidden" id="chartdiv2" >
+                        </div>
+                    </div>
+
+                    <!-- start button-->
+                    <div class="row toppadding">
+                        <div class="col-md-10 col-md-offset-1 ">
+                            <div class="english"><a  onclick="graphSwitch()" class="btn-u btn-block btn-u-base--account g-rounded-50" ><h3 class=" textcenter u-heading-v1 g-color-white ">Enter</h3></a></div>
+                            <div class="spanish"><a  onclick="graphSwitch()" class="btn-u btn-block btn-u-base--account g-rounded-50" ><h3 class=" textcenter u-heading-v1 g-color-white ">Entregar</h3></a></div>
+                        </div>
+                    </div> <!-- end button -->
+                </div> <!--end questions-->
+
+            <!-- End Owl Clients v1 -->
+            <!-- End Content -->
+
+            <!-- End Content Part -->
+
+            <!--=== Footer Version 1 ===-->
+            		<div class=" footer-v1 ">
+    <div class="  copyright  ">
+        <div class="container top  ">
+            <div class="row">
+                <div class="col-md-6">
+                    <p> <img class="footericon" src="assets/img/cornell.svg"> <img class="footericon2" src="assets/img/FairTradeCertifiedLogo-Greyscalecopy.png"> 2017 &copy; All Rights Reserved. <a href="citationstech.html">Citations</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/copyright-->
+</div>
+            <!--=== End Footer Version 1 ===-->
+        </div><!-- End Wrapper -->
+
+
+
+        <!-- JS Global Compulsory -->
+        <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- JS Implementing Plugins -->
+        <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+        <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+        <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+        <script type="text/javascript" src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <!-- JS Customization -->
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+        <!-- JS Page Level -->
+        <script type="text/javascript" src="assets/js/app.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/revolution-slider.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                App.init();
+                OwlCarousel.initOwlCarousel();
+                StyleSwitcher.initStyleSwitcher();
+                RevolutionSlider.initRSfullWidth();
+            });
+        </script>
+        <!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+    </body>
+</html>

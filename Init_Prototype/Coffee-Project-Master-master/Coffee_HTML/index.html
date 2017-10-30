@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <title>Bienvenidos - Costo de Producción de Café</title>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../favicon.ico">
+
+        <!-- Web Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Poly|Raleway" rel="stylesheet">
+        <link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/app.css">
+        <link rel="stylesheet" href="../assets/css/blocks.css">
+
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="../assets/plugins/animate.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/plugins/pace/pace-flash.css">
+        <link rel="stylesheet" href="../assets/plugins/owl-carousel2/assets/owl.carousel.css">
+        <link rel="stylesheet" href="../assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+        <link rel="stylesheet" href="../assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+        <link rel="stylesheet" href="../assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+        <link rel="stylesheet" href="../assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms-v2.css">
+
+        <!-- CSS Thematic Theme -->
+        <link rel="stylesheet" href="assets/css/gym.style.css">
+        <link rel="stylesheet" href="assets/css/global.css">
+
+        <!-- CSS Customization -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+
+
+        <script>
+            //changes sign-up based on occupation
+            function setSignUp(){
+                    
+                 $("#signup").attr("href",  $("#occupation").val()); 
+            }
+        </script>
+        <script>
+            function scrollDown (){  
+                //        $('html,body').animate({ scrollTop: 850 }, 600);
+                var divPosition = $('#contact').offset();
+                $('html, body').animate({scrollTop: divPosition.top}, "slow")
+            }
+        </script>
+        <script>
+            function activateButton(){
+                $("#signup").removeClass("btn-u-base--outline3");
+                $("#signup").addClass("btn-u-base--account")
+            }
+        </script>
+
+
+
+
+    </head>
+
+    <body class=" " id="body" data-spy="scroll" data-target="#contact">
+        <!-- Promo -->
+        <section id="promo" class="g-bg-color-base--dark">
+            <div class="u-promo-block__image u-promo-block--cover g-height-100x g-min-height-500px">
+                <img class="u-promo-block-image" src="assets/img/coffeeberries.jpg" alt="coffee-berries">
+
+                <div class="text-center g-block-middle g-padding-40">
+                    
+                        <h1 class=" english u-heading-v1 u-heading-v1--promo g-color-white">
+                            Welcome
+                        </h1>
+                        <h1 class=" spanish u-heading-v1 u-heading-v1--promo g-color-white">
+                            Bienvenidos
+                        </h1>
+                        
+                        <div class=" spanish u-list-style-v1__item u-list-style-v1 g-color-white g-mb-30">
+                      
+                          <h3 class="  u-heading-v1__sub  g-color-white">
+                            Calculadora de Costos:
+                        </h3>     Una herramienta para determinar los costos de producción 
+                        </div>
+                         <div class=" english u-list-style-v1__item u-list-style-v1 g-color-white g-mb-30">
+                      
+                          <h3 class="  u-heading-v1__sub  g-color-white">
+                            Cost Calculator 
+                        </h3>     A Coffee Cost of Production Tool
+                        </div>
+                 
+                    
+                    
+<!--
+                    <ul class="list-inline u-list-style-v1 g-color-white g-mb-30">
+                      
+                        <li class=" u-list-style-v1__item">
+                            <div class="english">   A Coffee Cost of Production Tool</div>
+                            <div class="spanish">  Una herramienta para determinar los costos de producción </div>
+                        </li>
+                    </ul>
+-->
+
+
+                        <!--
+<li class="u-list-style-v1__item">
+<i class="u-list-style-v1__item-icon fa fa-cutlery"></i>
+<strong>2150</strong> Kkal
+</li>
+<li class="u-list-style-v1__item">
+<i class="u-list-style-v1__item-icon fa fa-calendar"></i>
+<strong>7</strong> weeks
+</li>
+<li class="u-list-style-v1__item">
+<i class="u-list-style-v1__item-icon fa fa-clock-o"></i>
+<strong>1.5h</strong> per/day
+</li>
+<li class="u-list-style-v1__item">
+<i class="u-list-style-v1__item-icon fa fa-universal-access"></i>
+<strong>3</strong> times/week
+</li>
+-->
+                        <!--                         href="#contact"-->
+                    
+                    <div class="page-scroll">
+                        <a class=" english btn-u btn-u-base btn-u-base--outline g-rounded-50" 
+                           onclick="scrollDown()"
+                           >Learn More</a>
+                        <a class=" spanish btn-u btn-u-base btn-u-base--outline g-rounded-50" 
+                           onclick="scrollDown()"
+                           >Aprenda más</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Promo -->
+
+        <!-- Registration -->
+        <section class="boxed-layout backgroundback"  id="contact" style="#D4D1D1">
+            <div>
+                <div class="container g-pt-100 g-pb-100">
+                    <header class="text-center g-mb-60">
+                        <a class="btn-u btn-block btn-u-base--account g-rounded-50" href="login.html"><h3 class=" english u-heading-v1 g-color-white">Log in</h3> <h3 class=" spanish u-heading-v1 g-color-white">Entrar</h3> </a>
+
+                        <table width="100%">
+                            <tr>
+                                <td><hr /></td>
+                                <td style="width:1px; padding: 0 10px; white-space: nowrap"><p class=" english u-feature-box-v1__title g-color-white g-mb-0">or</p>
+                                    <p class="spanish u-feature-box-v1__title g-color-white g-mb-0">o</p>
+
+                                </td>
+                                <!-- g-color-base--dark  -->
+                                <td><hr /></td>
+                            </tr>
+                        </table>
+
+
+
+
+                        <!-- Sign Up Form -->
+                        <form action="../assets/php/sky-forms-pro/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form u-contact-wrapper">
+                            <fieldset style="#FFF">
+                                <p class="spanish">
+                                    <input class="form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" type="text" id="name" placeholder="Nombre">
+                                </p>
+                                 <p class="english">
+                                    <input class="form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" type="text" id="name" placeholder="Name">
+                                </p>
+
+                                <div class="dropdown" style="margin-bottom: 2%;">
+                                    <select class="form-control g-rounded-50 g-mb-20 g-mt-20 english" id="country">
+                                        <option selected disabled id="country">--Select a Country--</option>
+                                        <option href="#" id="Houndras" class="text-left  ">Honduras</option>
+                                        <option href="#" id="Mexico" class="text-left ">México</option>
+                                        <option href="#" id="Peru" class="text-left ">Perú</option><option id="US" value="US">United States</option>
+                                    </select>
+                                    <select class="form-control g-rounded-50 g-mb-20 g-mt-20 spanish" id="country">
+                                        <option selected disabled id="country">--Elija País --</option>
+                                        <option href="#" id="Houndras" class="text-left  ">Honduras</option>
+                                        <option href="#" id="Mexico" class="text-left ">México</option>
+                                        <option href="#" id="Peru" class="text-left ">Perú</option><option id="US" value="US">Estados Unidos </option>
+                                    </select>
+                                </div>
+
+                                <p>
+                                <div class="dropdown">
+                                      <select  onchange="activateButton()" id="occupation"   class=" form-control g-rounded-50 spanish">
+                                        <option class="text-left"  selected disabled>--Elija Ocupación---</option>
+                                        <option  value="inputs.html" id="farm" class="text-left">Productor</option>
+                                        <option   value="techall.html" id="tech" class="text-left">Técnico</option>
+                                    </select>
+                                  
+                                    <select  onchange="activateButton()" id="occupation" class="form-control g-rounded-50 english">
+                                        <option class="text-left" value="index.html" selected disabled>--Select Occupation--</option>
+                                        <option  value="inputs.html" id="farm" class="text-left">Farmer</option>
+                                        <option   value="techall.html" id="tech" class="text-left">Technician</option>
+                                    </select>
+                                </div>
+
+                                <p>
+                                    <input class="english form-control u-subscribe-block-v1 g-rounded-50 g-mb-20 g-mt-20" id="phone" placeholder="phone">
+                                    <input class=" spanish form-control u-subscribe-block-v1 g-rounded-50 g-mb-20 g-mt-20" id="phone" placeholder="Número de Teléfono">
+                                </p>
+                                <p>
+                                    <input class="english form-control u-subscribe-block-v1 g-rounded-50 g-mb-20 g-mt-20" id="location" placeholder="Location">
+                                    <input class="spanish form-control u-subscribe-block-v1 g-rounded-50 g-mb-20 g-mt-20" id="location" placeholder="Ubicación">
+                                </p>
+
+                                <p>
+
+                                <p>
+                                    <input class="english form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Username">
+                                    <input class=" spanish form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Nombre de Usuario">
+                                </p>
+
+                                <p>
+                                    <input id="userPassword" type="password" required class="english form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Password">
+                                    <input id="userPassword" type="password" required class="spanish form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Contraseña">
+                                </p>
+                                <p>
+                                    <input id="confirmPassword" type="password" required class=" english form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Confirm Password">
+                                    <input id="confirmPassword" type="password" required class="spanish form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" placeholder="Confirme Contrasena">
+                                </p>
+
+
+                                <a  id="signup" class="btn-u btn-u-base--outline3 g-rounded-50">
+                                    <h3 class="u-heading-v1 g-color-white english">Sign up</h3>
+                                    <h3 class="u-heading-v1 g-color-white spanish">Ingresar</h3>
+                                </a>
+
+
+                            </fieldset>
+                        </form>
+                        <!-- End Sign Up Form -->
+                    </header>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts -->
+        <!--
+<div class="container g-pt-60 g-pb-60">
+<div class="row">
+<div class="col-md-4 col-sm-6">
+<h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Contact Us</h2>
+<p class="g-opacity-avg g-mb-20">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+<address class="g-line-height--lg">
+<span class="g-opacity-avg"><i class="fa fa-home g-mr-5"></i> Address:</span> In sed lectus tincidunt <br>
+<span class="g-opacity-avg"><i class="fa fa-phone g-mr-5"></i>  Phone Number:</span> <strong>+48 555 2566 112</strong> <br>
+<span class="g-opacity-avg"><i class="fa fa-envelope g-mr-5"></i>  Email:</span> <strong>marketing@unify.com</strong>
+</address>
+
+<ul class="list-inline">
+<li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-pinterest"></i></a></li>
+<li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-linkedin"></i></a></li>
+</ul>
+</div>
+
+<div class="col-md-4 col-sm-6">
+<h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Usefull Links</h2>
+<div class="row">
+<div class="col-xs-6">
+<ul class="u-list-style-v1 g-opacity-avg">
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Proin vitae est lorem</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Aenean imperdiet nisi</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent pulvinar</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Integer commodo est</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Morbi massa justo</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Fusce mollis eros</a></li>
+</ul>
+</div>
+
+<div class="col-xs-6">
+<ul class="u-list-style-v1 g-opacity-avg">
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Morbi massa justo</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent necdo</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Fusce blandit eros</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Rnteger commodo</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Aenean imperdiet nisi</a></li>
+<li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent gravida</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Subscribe</h2>
+<p class="g-opacity-avg g-mb-20">Dolor sit amet, consectetur adipiscing elit. Proin vitae est lorem. Aenean imperdiet nisi a dolor condimentum.</p>
+<div class="text-center">
+<input class="form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" type="text" placeholder="Your Email">
+<a class="btn-u btn-block btn-u-base btn-u-base g-rounded-50" href="techall.html">View Our Best Offers</a>
+</div>
+</div>
+</div>
+-->
+        <!-- End Contacts -->
+
+        <!-- End Footer -->
+
+        <!-- JS Global Compulsory -->
+        <script src="../assets/plugins/jquery/jquery.min.js"></script>
+        <script src="../assets/plugins/jquery/jquery-migrate.min.js"></script>
+        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        
+          <!-- Custom page js --> 
+    <script type="text/javascript" src="Scripts/index_add.js"></script>
+
+        <!-- JS Implementing Plugins -->
+        <script src="../assets/plugins/smoothScroll.js"></script>
+        <script src="../assets/plugins/pace/pace.min.js"></script>
+        <script src="../assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+        <script src="../assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
+        <script src="../assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+        <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+
+        <!-- Google Map -->
+        <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&amp;callback=initMap" async defer></script>
+        <script src="assets/js/plugins/gmaps-ini.js"></script>
+
+        <!-- JS Page Level-->
+        <script src="../assets/js/one.app.js"></script>
+        <script src="assets/js/plugins/promo.js"></script>
+        <script src="assets/js/forms/contact.js"></script>
+        <script src="assets/js/plugins/pace-loader.js"></script>
+        <script src="assets/js/plugins/owl2-carousel-v6.js"></script>
+        <script src="assets/js/plugins/owl2-carousel-v7.js"></script>
+        <script src="assets/js/plugins/owl2-carousel-v8.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                App.init();
+                ContactForm.initContactForm();
+                Owl2Carouselv6.initOwl2Carouselv6();
+                Owl2Carouselv7.initOwl2Carouselv7();
+                Owl2Carouselv8.initOwl2Carouselv8();
+                $('.cbp-lightbox-wrapper').cubeportfolio({
+                    lightboxGallery: false,
+                    lightboxCounter: '',
+                });
+            });
+        </script>
+        <!--[if lt IE 9]>
+<script src="../assets/plugins/html5shiv.js"></script>
+<![endif]-->
+    </body>
+
+</html>

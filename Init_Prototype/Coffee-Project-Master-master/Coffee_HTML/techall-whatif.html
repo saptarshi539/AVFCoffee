@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>Simulaciones - Costo de Producción de Café</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <link href="https://fonts.googleapis.com/css?family=Poly|Raleway" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="../../../assets/plugins/animate.css">
+    <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../../../assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="../assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="../assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/gym.style.css">
+
+    <!-- JS Chartist -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        var x = "5";
+        $(document).ready(function () {
+            $("#compare").click(function () {
+                ////            $(this).css({"background":"white","border": ".5px solid #444"}); 
+                $(this).toggleClass("selected");
+                $("#hiddenbutton").toggle();
+                //this should really be a loop
+                $("#farm1").removeClass("selected");
+                $("#farm2").removeClass("selected");
+                $("#farm3").removeClass("selected");
+            });
+
+        });
+        $(document).ready(function () {
+//            $("#farm1").click(function () {
+//                    $("#farm1").toggleClass("selectedfarm");
+//                $("#comparebutton").removeClass("btn-u-base--outline2");
+//                $("#comparebutton").addClass("btn-u-base--account");
+//                $("#comparebutton").attr("href", "compare2.html");  
+//
+//            });
+
+//            $("#farm2").click(function () {
+//                    $("#farm2").toggleClass("selectedfarm");
+//                timeToCompare();
+//            });
+
+//            $("#farm3").click(function () {
+//                    $("#farm3").toggleClass("selectedfarm");
+//                timeToCompare();
+//            });
+
+//            
+// function timeToCompare( ){
+//                var clickedfarms = document.getElementsByClassName("selectedfarm");
+//                if(clickedfarms.length > 1){
+//                  $("#comparebutton").removeClass("btn-u-base--outline2");
+//                $("#comparebutton").addClass("btn-u-base--account");
+//                }
+//                else{
+//                    $("#comparebutton").addClass("btn-u-base--outline2");
+//                $("#comparebutton").removeClass("btn-u-base--account");
+//                    
+//                }
+//                if(clickedfarms.length == 2){
+//                    $("#comparebutton").attr("href", "compare2.html");  
+//                }
+//                if(clickedfarms.length == 3){
+//                    $("#comparebutton").attr("href", "compare3.html");  
+//                }  
+//            }   
+            
+        });
+
+    </script>
+
+</head>
+
+<body class="boxed-layout container backgroundback" id="body" data-spy="scroll" data-target=".one-page-header">
+    <!--=== Header ===-->
+    <div class="header top topbartext ">
+                <div class="container ">
+
+                    <!-- Topbar -->
+                 <div class="topbar topbartext">
+                        <ul class="loginbar rightpadding pull-right">              
+                            <li>
+                                <a class="spanish" href="index.html">Cerrar Sessión</a>
+                                <a class="english" href="index.html">Log-Out </a>
+                                </li>
+                            <li class="topbar-devider"></li>
+                        </ul>
+                    </div>
+                    <!-- End Topbar -->
+
+                    <!-- Toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <!-- End Toggle -->
+                </div><!--/end container-->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class=" collapse navbar-collapse mega-menu navbar-responsive-collapse top pull-left">
+                    <div class="container pull-left">
+                        <ul class="nav navbar-nav menubuttons">
+                <!-- Home -->
+                    <li>
+                    <a href="techall.html">
+                        <h4 class=" english"> Home </h4>
+                        <h4 class="spanish"> Inicio </h4>
+                    </a>
+                    <li>
+                        <a href="coopavg.html">
+                            <h4 class="english"> Co-op Average </h4>
+                            <h4 class="spanish"> Cifras de la Cooperativa </h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="techall-compare.html">
+                            <h4 class="english"> Compare </h4>
+                            <h4 class="spanish"> Comparaciones </h4>
+                        </a>
+                    </li>
+                    <li class="selectedtopbar">
+                        <a href="techall-whatif.html">
+                            <h4 class="english selectedtopbar"> Simulations</h4>
+                            <h4 class="spanish selectedtopbar"> Simulaciones</h4>
+                        </a>
+                    </li>
+
+                </ul>
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            </div>
+    <!--=== End Header ===-->
+    <!-- Main -->
+    <div class=" content maincontent  mainpartbackground ">
+        <h1 class="english tech-heading g-mt-20">Choose a Farm to See Possibilites </h1>
+        <h1 class=" spanish tech-heading g-mt-20"> Elija un productor para ver simulaciones </h1>
+<!--
+        <div class="sidebox">
+            <div class="iconpadding">
+                <a href="inputs.html">
+                    <img class="icon " src=assets/img/plusicon.svg>
+                    <span class="caption"> Add Farm</span>
+                </a>
+            </div>
+            <div class="iconpadding">
+                <a href="coopavg.html">
+                    <img class="icon " src=assets/img/charticon.svg>
+                    <span class="caption"> Co-op Average</span>
+                </a>
+            </div>
+            <div id="compare" class="iconpadding">
+                <img class="icon " src=assets/img/compareicon.svg>
+                <span class="caption"> Compare Farms</span>
+            </div>
+        </div> 
+-->
+        <!-- end sidebar -->
+
+        <div class="container">
+<table class="table my-table table-responsive ">
+    <tbody class="farmtext">
+        <tr>
+            <th scope="row"></th>
+            <td id="farm1">               
+                <a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 1 </p>
+                    <p class="spanish" > Productor 1 </p> 
+                </a>
+                </td>
+            <td id="farm2"> 
+               <a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 2 </p>
+                    <p class="spanish" > Productor 2 </p> 
+                </a>
+                </td>
+            <td id="farm3">  
+                <a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 3 </p>
+                    <p class="spanish" > Productor 3 </p> 
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td><a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 4 </p>
+                    <p class="spanish" > Productor 4 </p> 
+                </a>
+            </td>
+            <td><a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 5 </p>
+                    <p class="spanish" > Productor 5 </p> 
+                </a>
+            </td>
+            <td><a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 6 </p>
+                    <p class="spanish" > Productor 6 </p> 
+                </a> 
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td><a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 7 </p>
+                    <p class="spanish" > Productor 7 </p> 
+                </a>
+            <td><a href="what-if-tech.html">  
+                    <img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm1">
+                    <p class="english" >Farm 8 </p>
+                    <p class="spanish" > Productor 8 </p> 
+                </a>
+            </td>
+            <!--<td><img class="img-responsive text-center farmicon" src="assets/img/farmicon.svg" alt="farm9">Farm 9</td>-->
+        </tr>
+    </tbody>
+</table>
+</div>
+        <!-- Button-->
+
+<!--
+        <div class="row  ">
+            <div id="hiddenbutton" class=" toppadding center col-md-9">
+                <a id="comparebutton" class=" btn-u btn-block btn-u-base--outline2 g-rounded-50" ><h3 class="u-heading-v1 g-color-white textcenter  "> See What if</h3></a>
+            </div>
+        </div>
+-->
+
+        <!-- Contacts -->
+        <!--
+        <div class="container g-pt-60 g-pb-60">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Contact Us</h2>
+                    <p class="g-opacity-avg g-mb-20">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <address class="g-line-height--lg">
+                        <span class="g-opacity-avg"><i class="fa fa-home g-mr-5"></i> Address:</span> In sed lectus tincidunt <br>
+                        <span class="g-opacity-avg"><i class="fa fa-phone g-mr-5"></i>  Phone Number:</span> <strong>+48 555 2566 112</strong> <br>
+                        <span class="g-opacity-avg"><i class="fa fa-envelope g-mr-5"></i>  Email:</span> <strong>marketing@unify.com</strong>
+                    </address>
+
+                    <ul class="list-inline">
+                        <li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="u-social-icons-v1 u-social-icons-v1--dark g-rounded-50x" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Usefull Links</h2>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <ul class="u-list-style-v1 g-opacity-avg">
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Proin vitae est lorem</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Aenean imperdiet nisi</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent pulvinar</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Integer commodo est</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Morbi massa justo</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Fusce mollis eros</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <ul class="u-list-style-v1 g-opacity-avg">
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Morbi massa justo</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent necdo</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Fusce blandit eros</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Rnteger commodo</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Aenean imperdiet nisi</a></li>
+                                <li class="g-mb-10"><a class="u-list-style-v1__link" href="#">Praesent gravida</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="u-feature-box-v1__title g-color-base--dark g-mb-20">Subscribe</h2>
+                    <p class="g-opacity-avg g-mb-20">Dolor sit amet, consectetur adipiscing elit. Proin vitae est lorem. Aenean imperdiet nisi a dolor condimentum.</p>
+                    <div class="text-center">
+                        <input class="form-control u-subscribe-block-v1 g-rounded-50 g-mb-20" type="text" placeholder="Your Email">
+                        <a class="btn-u btn-block btn-u-base btn-u-base g-rounded-50" href="index.html">View Our Best Offers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+-->
+        <!-- End Contacts -->
+    </div>
+    <!-- End Content-->
+    <!--=== Footer Version 1 ===-->
+ <div class=" footer-v1 ">
+    <div class="  copyright  ">
+        <div class="container top  ">
+            <div class="row">
+                <div class="col-md-6">
+                    <p> <img class="footericon" src="assets/img/cornell.svg"> <img class="footericon2" src="assets/img/FairTradeCertifiedLogo-Greyscalecopy.png"> 2017 &copy; All Rights Reserved. <a href="citationstech.html">Citations</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/copyright-->
+</div>
+    <!--=== End Footer Version 1 ===-->
+    <!-- End Footer -->
+
+
+
+    <!-- JS Global Compulsory -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="../assets/plugins/smoothScroll.js"></script>
+    <script src="../assets/plugins/pace/pace.min.js"></script>
+    <script src="../assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
+    <script src="../assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+    <script src="../assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&amp;callback=initMap" async defer></script>
+    <script src="assets/js/plugins/gmaps-ini.js"></script>
+
+    <!-- JS Page Level-->
+    <script src="../assets/js/one.app.js"></script>
+    <script src="assets/js/plugins/promo.js"></script>
+    <script src="assets/js/forms/contact.js"></script>
+    <script src="assets/js/plugins/pace-loader.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v6.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v7.js"></script>
+    <script src="assets/js/plugins/owl2-carousel-v8.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            ContactForm.initContactForm();
+            Owl2Carouselv6.initOwl2Carouselv6();
+            Owl2Carouselv7.initOwl2Carouselv7();
+            Owl2Carouselv8.initOwl2Carouselv8();
+            $('.cbp-lightbox-wrapper').cubeportfolio({
+                lightboxGallery: false,
+                lightboxCounter: '',
+            });
+        });
+    </script>
+
+    <!--[if lt IE 9]>
+<script src="../assets/plugins/html5shiv.js"></script>
+<![endif]-->
+</body>
+
+</html>

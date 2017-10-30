@@ -1,0 +1,599 @@
+<!DOCTYPE html> 
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+    <head>
+        <title>Inicio - Costo de Producción de Café</title>
+
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <!-- Web Fonts -->
+        <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+        <link href="https://fonts.googleapis.com/css?family=Poly|Raleway" rel="stylesheet">
+        <link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- CSS Header and Footer -->
+        <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+        <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="assets/plugins/animate.css">
+        <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+
+        <!-- CSS Page Style -->    
+        <link rel="stylesheet" href="assets/css/gym.style.css">
+        <link rel="stylesheet" href="assets/css/pages/page_job_inner2.css">
+
+
+        <!-- CSS Theme -->    
+        <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+        <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+
+        <!-- CSS Customization -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+        <!-- CSS Header and Footer -->
+        <link rel="stylesheet" href="../assets/css/headers/header-default.css">
+        <link rel="stylesheet" href="../assets/css/footers/footer-v1.css">
+
+
+        <!-- JAVA Chart -->
+        <!-- amCharts javascript sources -->
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+        <!-- Modal 2-->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title english">Export Options</h4>
+
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped" id="tblGrid">
+                            <tbody class="english">
+                                <tr><td><a href="#print">Print</a></td>
+                                </tr>
+                                <tr><td><a href="#pdf">Download as .pdf</a></td>
+                                </tr>
+                                <tr><td><a href="#excel">Export as .xlsx </a></td></tr>
+                            </tbody>
+                            <tbody class="spanish">
+                                <tr><td><a href="#print">Imprimir</a></td>
+                                </tr>
+                                <tr><td><a href="assets/doc4export.pdf">Descargar como .pdf</a></td>
+                                </tr>
+                                <tr><td><a href="#excel">Descargar como .xlsx </a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal javascript code-->
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var exp = document.getElementById("myExport");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            exp.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("#myExport").click(function(){
+                    $("#myModal").modal();
+                });
+            });
+        </script>
+
+        <!-- English Chart -->
+        <div> 
+        <script type="text/javascript">
+           var chart1= AmCharts.makeChart("chartdiv1",
+                               {
+                "type": "serial",
+                "marginRight": 80,
+                "marginTop": 30,
+                "categoryField": "category",
+                "colors": [
+                    "#B9A5AE",
+                    "#9D6D82",
+                    "#754A5D",
+                    "#0D8ECF",
+                    "#2A0CD0",
+                    "#CD0D74",
+                    "#CC0000",
+                    "#00CC00",
+                    "#0000CC",
+                    "#DDDDDD",
+                    "#999999",
+                    "#333333",
+                    "#990000"
+                ],
+                "sequencedAnimation": false,
+                "fontFamily": "rawline",
+                "usePrefixes": true,                     "fontSize":22,
+                "categoryAxis": {
+                    "gridPosition": "start"
+                },
+                "trendLines": [],
+                "graphs": [
+                        {
+                            "balloonText": "Variable Costs are directly related to coffee farm output. These include hired labor and production inputs such as fertilizer or pesticides.",
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Variable",
+                            "labelText": "[[value]]",
+                            "showBalloonAt": "open",
+                            "title": "Variable",
+                            "type": "column",
+                            "valueField": "Variable"
+                        },
+                        {
+                            "balloonText": "Fixed costs must be paid whether or not any coffee is produced. These include cooperative memberships costs, taxes, and supplies.",
+                            "showBalloonAt": "open",
+
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 28,
+                            "id": "Fixed",
+                            "labelOffset": -15,
+                            "labelPosition": "top",
+                            "labelText": "[[value]]",
+                            "title": "Fixed",
+                            "type": "column",
+                            "valueField": "Fixed"
+                        },
+                        {   "balloonText": "Total costs includes the depreciation for assets used in more than one harvest cycles, start-up costs,and the opportunity costs of land and farm management.",
+                         "columnWidth": 0.48,
+                         "fillAlphas": 1,
+                         "fontSize": 22,
+                         "id": "Additional",
+                         "labelText": "[[value]]",
+                         "showBalloonAt": "close",
+                         "title": "Additional",
+                         "type": "column",
+                         "valueField": "Additional"
+                        },
+                        {
+                            "dashLength": 4,
+                            "fontSize": 22,
+                            "id": "Total",
+                            "labelText": "[[value]]",
+                            "lineThickness": 0,
+                            "title": "Total",
+                            "type": "step",
+                            "valueField": "Total",
+                            "visibleInLegend": false
+                        }
+                    ],
+                "guides": [
+                    {
+                        "angle": 0,
+                        "color": "#00000",
+                        "dashLength": 3,
+                        "fillAlpha": 0,
+                        "fillColor": "#FF8000",
+                        "fontSize": 18,
+                        "id": "Guide-1",
+                        "label": "Current Price",
+                        "lineAlpha": 1,
+                        "lineColor": "#000000",
+                        "lineThickness": 2,
+                        "position": "right",
+                        "value": 1.11
+                    }
+                ],
+                "valueAxes": [
+                    {
+                        "id": "Price",
+                        "stackType": "regular",
+                        "title": "Price per Pound",
+                        "titleBold": false,
+                        "titleColor": "#000000"
+                    }
+                ],
+                "allLabels": [],
+                "balloon": {},
+                "legend": {
+                    "enabled": true,
+                    "align": "center",
+                    "width":900,
+                    "marginBottom": 20,
+                    "marginTop": 2,
+                    //                        "position": "top",
+                    "useGraphSettings": true
+                },
+                "titles": [
+                    {
+                        "id": "Title-1",
+                        "size": 30,
+                        "fontFamily": "Poly",
+                        "text": "Your Farm"
+
+                    }
+                ],
+                "dataProvider": [
+                    {
+                        "category": "Your Farm",
+                        "Variable": ".84",
+                        "Fixed": ".06",
+                        "Additional": ".41",
+                        "Total": "1.31"
+                    },
+                    {
+                        "category": "Co-op Average",
+                        "Variable": ".89",
+                        "Fixed": ".04",
+                        "Additional": ".44",
+                        "Total": "1.37"
+                    }
+                ]
+            }
+                              );
+            
+        chart1.addListener("drawn", function() {
+	$(".amcharts-title-main").css("font-family", "Poly");
+});
+        </script>
+</div>
+
+ <!-- spanish chart code -->
+        <div> 
+        <script type="text/javascript">
+          var chart1= AmCharts.makeChart("chartdiv2",
+                               {
+                "type": "serial",
+                "marginTop": 30,
+                "marginRight": 120,
+                "addClassNames": true,
+                "categoryField": "category",
+                "colors": [
+                    "#B9A5AE",
+                    "#9D6D82",
+                    "#754A5D",
+                    "#0D8ECF",
+                    "#2A0CD0",
+                    "#CD0D74",
+                    "#CC0000",
+                    "#00CC00",
+                    "#0000CC",
+                    "#DDDDDD",
+                    "#999999",
+                    "#333333",
+                    "#990000"
+                ],
+                "sequencedAnimation": false,
+                "fontFamily": "rawline",
+                "usePrefixes": true,                     "fontSize":22,
+                "categoryAxis": {
+                    "gridPosition": "start"
+                },
+                "trendLines": [],
+                 "balloon": {
+                    fontSize: 18,
+                    maxWidth: 400,
+                     fillAlpha: 1,
+                     fixedPosition: false,
+                     offsetX: 2,
+                     offsetY: 2,
+                },
+                "graphs": [
+                        {
+                            "balloonText": "Los costos variables son aquellos asociados a las cantidades de café producidas en la finca o parcela. Estos incluyen mano de obra y otros insumos necesarios para la producción de cantidades específicas de café.",
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Variable",
+                            "labelText": "[[value]]",
+                            "showBalloonAt": "open",
+                            "title": "Variables",
+                            "type": "column",
+                            "valueField": "Variable"
+                        },
+                        {
+                            "balloonText": 
+                            "Los costos fijos tienen que ser pagados sin importaS el nivel de producción de café. Estos incluyen impuestos, membresías a cooperativa entre otros.",
+                            "showBalloonAt": "open",
+
+                            "columnWidth": 0.48,
+                            "fillAlphas": 1,
+                            "fontSize": 22,
+                            "id": "Fixed",
+                            "labelOffset": -15,
+                            "labelPosition": "top",
+                            "labelText": "[[value]]",
+                            "title": "Fijos",
+                            "type": "column",
+                            "valueField": "Fixed"
+                        },
+                        {   "balloonText": 
+                         "Los costos de depreciación y totales incluyen la depreciación de herramientas y equipos que se usan por más de un periodo así como el costo de oportunidad de los costos iniciales de establecimiento y de la tierra.",
+                         "columnWidth": 0.48,
+                         "fillAlphas": 1,
+                         "fontSize": 22,
+                         "id": "Additional",
+                         "labelText": "[[value]]",
+                         "showBalloonAt": "close",
+                         "title": "Adicionales",
+                         "type": "column",
+                         "valueField": "Additional"
+                        },
+                        {
+                            "dashLength": 4,
+                            "fontSize": 30,
+                            "id": "Total",
+                            "labelText": "[[value]]",
+                            "lineThickness": 0,
+                            "title": "Total",
+                            "type": "step",
+                            "valueField": "Total",
+                            "visibleInLegend": false
+                        }
+                    ],
+                "guides": [
+                    {
+                        "angle": 0,
+                        "color": "#00000",
+                        "dashLength": 3,
+                        "fillAlpha": 0,
+                        "fillColor": "#FF8000",
+                        "fontSize": 18,
+                        "id": "Guide-1",
+                        "label": "Precio Actual",
+                        "lineAlpha": 1,
+                        "lineColor": "#000000",
+                        "lineThickness": 2,
+                        "position": "right",
+                        "value": 1.11
+                    }
+                ],
+                "valueAxes": [
+                    {
+                        "id": "Price",
+                        "stackType": "regular",
+                        "title": "Precio por kilogramo",
+                        "titleBold": false,
+                        "titleColor": "#000000"
+                    }
+                ],
+                "allLabels": [],
+                "legend": {
+                    "enabled": true,
+                    "align": "center",
+                    "marginBottom": 20,
+                    "width":900,
+                    "marginTop": 2,
+                    //                        "position": "top",
+                    "useGraphSettings": true
+                },
+                "titles": [
+                    {
+                        "id": "main",
+                        "size": 40,
+                        "fontFamily": "Poly",
+                        "text": "Desglose de costos"
+
+                    }
+                ],
+                "dataProvider": [
+                    {
+                        "category": "Productor",
+                        "Variable": ".84",
+                        "Fixed": ".06",
+                        "Additional": ".41",
+                        "Total": "1.31"
+                    },
+                    {
+                        "category": "Cooperativa",
+                        "Variable": ".89",
+                        "Fixed": ".04",
+                        "Additional": ".44",
+                        "Total": "1.37"
+                    }
+                ]
+            }
+                              );
+            
+        chart1.addListener("drawn", function() {
+	$(".amcharts-title-main").css("font-family", "Poly");
+    $(".amcharts-title-main").css("font-weight", "normal");
+
+});
+        </script>
+</div>
+
+    </head> 
+
+    <body class="boxed-layout container  backgroundback">
+
+        <!--
+<div class="topnav" id="myTopnav">
+<a href="Results.html">Home</a>
+<a href="input.html">Inputs</a>
+<a href="#whatifs">What If?</a>
+</div>
+-->
+        <div class="wrapper"> 
+            <!--=== Header ===-->
+            <div class="header top topbartext ">
+                <div class="container ">
+
+                    <!-- Topbar -->
+                    <div class="topbar topbartext">
+                        <ul class="loginbar rightpadding pull-right">              
+                            <li>
+                                <a class="spanish" href="index.html">Cerrar Sessión</a>
+                                <a class="english" href="index.html">Log-Out </a>
+                                </li>
+                            <li class="topbar-devider"></li>
+                        </ul>
+                    </div>
+                    <!-- End Topbar -->
+
+                    <!-- Toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <!-- End Toggle -->
+                </div><!--/end container-->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class=" collapse navbar-collapse mega-menu navbar-responsive-collapse top pull-left">
+                    <div class="container pull-left">
+                        <ul class="nav navbar-nav menubuttons">
+                            <!-- Home -->
+                            <li class="selectedtopbar">
+                                <a href=" Results.html">
+                                    <h4 class="english selectedtopbar"> Home </h4>
+                                    <h4 class="spanish selectedtopbar"> Inicio </h4>
+                                </a>
+                            <li  > 
+                                <a href="inputs.html"  > 
+                                    <h4 class="english"> Inputs </h4>
+                                    <h4 class="spanish"> Datos </h4>
+                                </a>
+                            </li>  
+                            <li  > 
+                                <a href="what-if.html" > 
+                                    <h4 class="english"> Simulations </h4>
+                                    <h4 class="spanish"> Simulaciones </h4>
+                                </a>
+                            </li> 
+                        </ul>	
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            </div>
+            <!--=== End Header ===-->
+
+            <!--<div class=" content mainpartbackground container"> -->
+
+            <!--=== Job Description ===-->
+            <!--
+<div class="Results">
+<div class="container content">
+<div class="title-box-v2">
+<h1>Farm Name</h1>
+<p></p>
+</div>  
+</div>
+</div>
+-->
+            <div class=" content mainpartbackground"> 
+                    <div class="sidebox2">
+            <div id="compare" class="iconpadding">
+                <a data-toggle="modal" href="#myModal">
+                <img class="icon " src=assets/img/exporticon.svg>
+                <span class="caption"> 
+                    <p class="english"> Export </p>  
+                    <p class="spanish"> Descargar </p>
+                </span>
+                    </a>
+            </div>
+        </div> 
+                <!-- Begin Overview -->
+                <!-- Chart -->
+
+                <div class=" chart2" >
+<!--
+                    <div class="english" id="chartdiv1" style="width: 100%; height: 0px; background-color: #EFEFEF;" >
+                    </div>
+           
+-->
+                 <div class="spanish" id="chartdiv2" style="width: 100%; height: 650px; background-color: #EFEFEF;" ></div>
+                
+               
+            </div>          
+
+</div>
+
+            <!-- JS Global Compulsory -->           
+            <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+            <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <!-- JS Implementing Plugins -->
+            <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+            <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+            <script type="text/javascript" src="assets/plugins/circles-master/circles.js"></script>
+            <!-- JS Customization -->
+            <script type="text/javascript" src="assets/js/custom.js"></script>
+            <!-- JS Page Level -->           
+            <script type="text/javascript" src="assets/js/app.js"></script>
+            <script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    App.init();
+                    StyleSwitcher.initStyleSwitcher();      
+                });
+            </script>
+            <!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+            <!--=== Footer Version 1 ===-->
+    <div class=" footer-v1 ">
+    <div class="  copyright  ">
+        <div class="container top  ">
+            <div class="row">
+                <div class="col-md-6">
+                    <p> <img class="footericon" src="assets/img/cornell.svg"> <img class="footericon2" src="assets/img/FairTradeCertifiedLogo-Greyscalecopy.png"> 2017 &copy; All Rights Reserved. <a href="citationsfarmer.html">Citations</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/copyright-->
+</div>
+            <!--=== End Footer Version 1 ===-->
+            <!--end content-->
+        </div> <!--end wrappper-->
+    </body>
+</html> 
