@@ -31,7 +31,7 @@ namespace AVFCoffeeWebApp.Controllers
         public IActionResult SignIn()
         {
             return Challenge(
-                new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectDefaults.AuthenticationScheme);
+                new AuthenticationProperties { RedirectUri = "/input" }, OpenIdConnectDefaults.AuthenticationScheme);
         }
 
         [HttpGet]

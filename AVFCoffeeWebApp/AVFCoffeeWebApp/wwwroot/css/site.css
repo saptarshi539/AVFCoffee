@@ -35,3 +35,11 @@ textarea {
         display: none;
     }
 }
+
+.spanish{
+    display:none;
+}
+
+.english {
+    display: block;
+}

@@ -1,5 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "View";
 }
+<head>
+    <title>CalcuCafé</title>
 
-<div>Blank Project</div>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+       
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap/bootstrap.min.css" asp-append-version="true">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="/lib/unify/assets/css/unify.css" asp-append-version="true">
+</head>
+
+<body>
+    <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/coffeeberries.jpg);">
+        <div class="container g-color-white text-center g-z-index-1">
+            <a class="g-font-size-24 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-24 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-24 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
+              <div class="mb-5">
+                <h2 class="g-font-weight-700 g-font-size-40 g-font-size-70--md text-uppercase g-mb-30" data-tag="home-header">
+                    Welcome
+                </h2>
+                <p class="english g-font-size-24" data-tag="home-subheader"> Cost Calculator:  A Coffee Cost of Production Tool</p>
+            </div>
+            <a class="js-go-to btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13 animated u-animation-was-fired undefined" href="Account/SignIn" data-target="#content" style="display: inline-block;">Get Started</a>
+        </div>
+    </section>
+</body>
+
+ <!-- JS Global Compulsory -->
+<script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+
+<!-- JS Custom -->
+<script src="/js/language/translate.js" asp-append-version="true"></script>
