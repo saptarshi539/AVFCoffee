@@ -8,7 +8,7 @@ namespace Domain.Flexcel
 {
     public class Flexcelsum
     {
-        public int sumcells()
+        public String sumcells()
         {
             XlsFile xls = new XlsFile(1, TExcelFileFormat.v2016, true);
 
@@ -31,7 +31,7 @@ namespace Domain.Flexcel
             //Saves the file to the "Documents" folder.
             xls.Save(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "test.xlsx"));
 
-            return 2;
+            return Convert.ToString(xls.GetCellValue(4,1));
         }
     }
 }
