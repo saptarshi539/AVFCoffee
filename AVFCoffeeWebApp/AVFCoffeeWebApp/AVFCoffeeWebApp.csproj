@@ -28,4 +28,9 @@
     <Folder Include="wwwroot\pages\results\css\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppCore\CoffeeCore.csproj" />
+    <ProjectReference Include="..\Domain\CoffeeInfrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

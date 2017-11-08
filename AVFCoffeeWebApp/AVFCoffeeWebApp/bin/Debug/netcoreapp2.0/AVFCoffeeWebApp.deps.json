@@ -23,6 +23,8 @@
     ".NETCoreApp,Version=v2.0": {
       "AVFCoffeeWebApp/1.0.0": {
         "dependencies": {
+          "CoffeeCore": "1.0.0",
+          "CoffeeInfrastructure": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.0-preview2-final",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.0-preview2-final",
           "Microsoft.NETCore.App": "2.0.0-preview2-25407-01",
@@ -4151,6 +4153,26 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "CoffeeCore/1.0.0": {
+        "runtime": {
+          "CoffeeCore.dll": {}
+        },
+        "compile": {
+          "CoffeeCore.dll": {}
+        }
+      },
+      "CoffeeInfrastructure/1.0.0": {
+        "dependencies": {
+          "CoffeeCore": "1.0.0",
+          "TMS.FlexCel": "6.17.3"
+        },
+        "runtime": {
+          "CoffeeInfrastructure.dll": {}
+        },
+        "compile": {
+          "CoffeeInfrastructure.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0-preview2-25407-01": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0-preview2-25407-01",
@@ -6442,6 +6464,16 @@
       "sha512": "sha512-wzGCikAHcxXayzbxrXrbq/eRqxHAV3pT0McJO8SWHEuM4dJRIbg20LDGW4LTs43WPtLbods6+Tp+ECa10DeVJQ==",
       "path": "windowsazure.storage/8.1.1",
       "hashPath": "windowsazure.storage.8.1.1.nupkg.sha512"
+    },
+    "CoffeeCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoffeeInfrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.NETCore.App/2.0.0-preview2-25407-01": {
       "type": "package",

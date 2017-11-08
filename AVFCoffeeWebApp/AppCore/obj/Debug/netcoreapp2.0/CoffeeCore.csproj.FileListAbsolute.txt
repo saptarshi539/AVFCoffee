@@ -1,0 +1,8 @@
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\bin\Debug\netcoreapp2.0\CoffeeCore.deps.json
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\bin\Debug\netcoreapp2.0\CoffeeCore.dll
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\bin\Debug\netcoreapp2.0\CoffeeCore.pdb
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\obj\Debug\netcoreapp2.0\CoffeeCore.csproj.CoreCompileInputs.cache
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\obj\Debug\netcoreapp2.0\CoffeeCore.AssemblyInfoInputs.cache
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\obj\Debug\netcoreapp2.0\CoffeeCore.AssemblyInfo.cs
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\obj\Debug\netcoreapp2.0\CoffeeCore.dll
+E:\AVFCoffee\AVFCoffeeWebApp\AppCore\obj\Debug\netcoreapp2.0\CoffeeCore.pdb

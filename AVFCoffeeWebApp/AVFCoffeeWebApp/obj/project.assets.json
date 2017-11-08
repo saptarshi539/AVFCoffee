@@ -5137,6 +5137,30 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "CoffeeCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/CoffeeCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoffeeCore.dll": {}
+        }
+      },
+      "CoffeeInfrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "CoffeeCore": "1.0.0",
+          "TMS.FlexCel": "6.17.3"
+        },
+        "compile": {
+          "bin/placeholder/CoffeeInfrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoffeeInfrastructure.dll": {}
+        }
       }
     }
   },
@@ -14002,10 +14026,22 @@
         "windowsazure.storage.8.1.1.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "CoffeeCore/1.0.0": {
+      "type": "project",
+      "path": "../AppCore/CoffeeCore.csproj",
+      "msbuildProject": "../AppCore/CoffeeCore.csproj"
+    },
+    "CoffeeInfrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Domain/CoffeeInfrastructure.csproj",
+      "msbuildProject": "../Domain/CoffeeInfrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "CoffeeCore >= 1.0.0",
+      "CoffeeInfrastructure >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0-preview2-final",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.0-preview2-final",
       "Microsoft.NETCore.App >= 2.0.0-preview2-25407-01",
@@ -14045,7 +14081,14 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj": {
+              "projectPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj"
+            },
+            "E:\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj": {
+              "projectPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
 
-namespace CofeeWebAPI.Controllers
+namespace API.Controllers
 {
     [Route("api/[controller]")]
     public class CellSumController :Controller

@@ -33,9 +33,14 @@ E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\AVFCoffeeWe
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\AVFCoffeeWebApp.runtimeconfig.dev.json
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\AVFCoffeeWebApp.dll
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\AVFCoffeeWebApp.pdb
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeCore.dll
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeCore.pdb
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.csprojResolveAssemblyReference.cache
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.csproj.CoreCompileInputs.cache
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.AssemblyInfoInputs.cache
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.AssemblyInfo.cs
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.dll
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.pdb
-E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
+E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb

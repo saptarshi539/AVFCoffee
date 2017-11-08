@@ -1,13 +1,15 @@
-﻿using FlexCel.Core;
+﻿using CoffeeCore.Interfaces;
+using FlexCel.Core;
 using FlexCel.XlsAdapter;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Flexcel
+namespace CoffeeInfrastructure.Flexcel
 {
-    public class Flexcelsum
+    public class Flexcelsum : IFlexcelsum
     {
+
         public String sumcells()
         {
             XlsFile xls = new XlsFile(1, TExcelFileFormat.v2016, true);

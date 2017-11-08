@@ -1,0 +1,16 @@
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\x86\e_sqlite3.dll
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\x64\e_sqlite3.dll
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Coffee.deps.json
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Coffee.runtimeconfig.json
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Coffee.runtimeconfig.dev.json
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Coffee.dll
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.csprojResolveAssemblyReference.cache
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.csproj.CoreCompileInputs.cache
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.AssemblyInfoInputs.cache
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.AssemblyInfo.cs
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Coffee.pdb
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Domain.dll
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\bin\Debug\netcoreapp2.0\Domain.pdb
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.dll
+E:\AVFCoffee\AVFCoffeeWebApp\Coffee\obj\Debug\netcoreapp2.0\Coffee.pdb
