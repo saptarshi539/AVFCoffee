@@ -21,8 +21,7 @@ namespace Coffee.APIControllers
         {
             try
             {
-                
-                var sContent = flexcelsum.sumcells();
+                String sContent = flexcelsum.sumcells();
                 return Ok(sContent);
             }
             catch (Exception e)

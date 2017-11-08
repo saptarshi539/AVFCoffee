@@ -6,6 +6,6 @@ namespace CoffeeCore.Interfaces
 {
     public interface IFlexcelsum
     {
-        string sumcells();
+        String sumcells();
     }
 }

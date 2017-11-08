@@ -27,15 +27,13 @@ namespace AVFCoffeeWebApp
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddAzureAdB2CAuthentication();
 
             services.AddMvc().AddControllersAsServices();
 
-            var serviceProvider = services.BuildServiceProvider();
             services.AddTransient<IFlexcelsum, Flexcelsum>();
-            return serviceProvider;
             }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
