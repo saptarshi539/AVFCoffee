@@ -4,14 +4,14 @@
 }
 
 <body class="g-bg-lightbeige">
-    <div class="container g-pt-50">
+    <div class="container g-mt-100">
      
         <!-- First Question -->
         <div class="container">
             <div class="english"><h3 class="questiontext" data-tag="input-question1"> 1. How many hectares of each tree do you have? </h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Trees that are not yet producing beans." data-tag="input-question1-option1">
                             Young  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -19,12 +19,12 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
-                            <input class="inputfield" type="text" name="youngtrees">
+                            <input id="earlyHectares" class="inputfield" type="text" name="youngtrees">
                         </span>
                     </div>
                 </div>
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Trees that are fully producing." data-tag="input-question1-option2">
                             Mature  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -32,12 +32,12 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
-                            <input class="inputfield" type="text" name="maturetrees">
+                            <input id="peakHectares" class="inputfield" type="text" name="maturetrees">
                         </span>
                     </div>
                 </div>
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Trees that are past peak production." data-tag="input-question1-option3">
                             Old  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -45,7 +45,7 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
-                            <input class="inputfield" type="text" name="oldtrees">
+                            <input id="oldHectares" class="inputfield" type="text" name="oldtrees">
                         </span>
                     </div>
                 </div>
@@ -60,10 +60,9 @@
         <!-- start second question-->
         <div class="container g-mt-50">
             <div class="english"><h3 class="questiontext" data-tag="input-question2">2. What is your method of Farming?</h3></div>
-            <div class="spanish"><h3 class="questiontext">2. ¿Cuál es su método de cultivo?</h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Organic production methods." data-tag="input-question2-option1">
                             Organic  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -71,12 +70,12 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/bugicon.svg title="organic" />
-                            <input id="methodOrganic" name="Radios" type="radio" value="Organic">
+                            <input id="organic" name="Radios" type="radio" value="organic">
                         </span>
                     </div>
                 </div>
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Chemical methods of production." data-tag="input-question2-option2">
                             Chemical  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -84,12 +83,12 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/spraybottleicon.svg title="Chemical" />
-                            <input id="Radio2" name="Radios" type="radio" value="Chemical">
+                            <input id="conventional" name="Radios" type="radio" value="Chemical">
                         </span>
                     </div>
                 </div>
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Transitioning to organic production methods." data-tag="input-question2-option3">
                             Transitioning  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -97,7 +96,7 @@
                     <div>
                         <span>
                             <img class="icon" style="width:28px; height:28px;" src=/images/transitionicon.svg title="Transition" />
-                            <input id="Radio3" name="Radios" type="radio" value="Transitioning">
+                            <input id="transition" name="Radios" type="radio" value="Transitioning">
                         </span>
                     </div>
                 </div>
@@ -114,7 +113,7 @@
             <div class="english"><h3 class="questiontext" data-tag="input-question3">3. How much do you pay day laborers?</h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="How much do you pay for labor." data-tag="input-question3-label">
                             Laborers  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -122,7 +121,7 @@
                     <div>
                         <img class="icon float-left g-pr-5" style="width:28px; height:28px;" src=/images/laborericon.png title="labor" />
                         <div class="form-group float-left">
-                            <input class="inputfield " type="text" name="labor">
+                            <input id="workerSalarySoles" class="inputfield " type="text" name="labor">
                             <p class="english" data-tag="input-question3-units">soles/day</p>
                         </div>
                     </div>
@@ -140,7 +139,7 @@
             <div class="english"><h3 class="questiontext" data-tag="input-question4"> 4. What is your Productivity? </h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Enter your yield in pounds/day." data-tag="input-question4-label">
                             Production  <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -148,7 +147,7 @@
                     <div>
                         <img class="icon float-left g-pr-5" style="width:28px; height:28px;" src=/images/2beansicon.png title="production" />
                         <div class="form-group float-left">
-                            <input class="inputfield" type="text" name="productivity">
+                            <input id="productionQuintales" class="inputfield" type="text" name="productivity">
                             <p class="english" data-tag="input-question4-units">pounds/day</p>
                         </div>
                     </div>
@@ -166,7 +165,7 @@
             <div class="english"><h3 class="questiontext" data-tag="input-question5"> 5. How​ ​much​ ​do​ ​you​ ​pay​ ​in​ ​soles​ ​to​ ​transport​ ​your​ ​coffee ​from​ ​the​ ​farm​ ​to the​ ​collection​ ​center​ ​in​ ​one​ ​year?​  </h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Enter transport costs." data-tag="input-question5-label">
                             Transport <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -174,7 +173,7 @@
                     <div>
                         <img class="icon float-left g-pr-5" style="width:28px; height:28px;" src=/images/2beansicon.png title="transport" />
                         <div class="form-group float-left">
-                            <input class="inputfield" type="text" name="transport">
+                            <input id="transportCostSoles" class="inputfield" type="text" name="transport">
                             <p class="english" data-tag="input-question5-units">soles</p>
                         </div>
                     </div>
@@ -191,7 +190,7 @@
             <div class="english"><h3 class="questiontext" data-tag="input-question6"> 6. What​ ​price​ ​did​ ​you​ ​receive​ ​per​ ​quintal​ ​of​ ​coffee?</h3></div>
             <div class="row">
                 <div class="col-md-4 g-mt-15">
-                    <label class="english h4 g-color-purple-dark-v1">
+                    <label class="english h4 g-color-darkpurple2">
                         <a class="english" data-toggle="tooltip" title="" data-original-title="Enter price recieved." data-tag="input-question6-label">
                             Price <span class="fa fa-info-circle g-color-gray-dark-v1--active"></span>
                         </a>
@@ -199,7 +198,7 @@
                     <div>
                         <img class="icon float-left g-pr-5" style="width:28px; height:28px;" src=/images/2beansicon.png title="price" />
                         <div class="form-group float-left">
-                            <input class="inputfield" type="text" name="price">
+                            <input id="costPriceSolesPerQuintal" class="inputfield" type="text" name="price">
                             <p class="english" data-tag="input-question5-units">soles</p>
                         </div>
                     </div>
@@ -211,7 +210,14 @@
             <i class="fa fa-circle u-divider__icon g-bg-lightbeige g-color-white"></i>
         </div>
 
-        <a href="Results" class="english btn btn-xl u-btn-outline-darkpurple g-rounded-50 g-mr-10 g-mb-15" data-tag="input-submit">Submit</a>
-        <a href="Results" class="spanish btn btn-xl u-btn-outline-darkpurple g-rounded-50 g-mr-10 g-mb-15">Ingresar</a>
+        <button id="submitInput" class="btn btn-block btn-xl u-btn-darkpurple2 g-rounded-50 g-mr-10 g-mb-15" data-tag="input-submit">Submit</button>
+       
     </div>
 </body>
+
+@section Scripts{
+
+    <!-- JS Custom -->
+    <script type="text/javascript" src="~/pages/input/js/input.js"></script>
+
+}

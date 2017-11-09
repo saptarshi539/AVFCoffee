@@ -6,8 +6,9 @@ $('#demo-screen1').fadeIn(1000);
 
 $('.slide').click(function () {
     var next = $(this).attr("href");
-    console.log(next);
-    $('.demo-screen').hide();
-    $(next).fadeIn(1000)
+    if (next.startsWith("#")) {
+        $('.demo-screen').hide();
+        $(next).fadeIn(1000)
+    }
 });
 

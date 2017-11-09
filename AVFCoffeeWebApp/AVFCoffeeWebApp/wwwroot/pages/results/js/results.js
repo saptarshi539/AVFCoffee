@@ -1,7 +1,9 @@
 ﻿// get language object for rendering chart 
 var selected = localStorage.getItem("selectedLanguage")
 var chartLanguage = language[selected]["chart"]
+var chartData = JSON.parse(localStorage.getItem("chartDataObject"))
 
+console.log(chartData)
 Highcharts.chart('chartdiv1', {
     exporting: {
         chartOptions: { // specific options for the exported image
@@ -27,7 +29,7 @@ Highcharts.chart('chartdiv1', {
     },
     xAxis: {
         categories: chartLanguage.categories
-     
+
     },
     yAxis: {
         min: 0,
@@ -83,7 +85,8 @@ Highcharts.chart('chartdiv1', {
             }
         }
     },
-    series: chartLanguage.data
+    series: chartData
 });
+
 
 
