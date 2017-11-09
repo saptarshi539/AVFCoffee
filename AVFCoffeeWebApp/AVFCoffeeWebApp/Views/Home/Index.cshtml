@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-       
+
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap/bootstrap.min.css" asp-append-version="true">
 
@@ -20,20 +20,36 @@
 <body>
     <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/coffeeberries.jpg);">
         <div class="container g-color-white text-center g-z-index-1">
-            <a class="g-font-size-24 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-24 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-24 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
-              <div class="mb-5">
-                <h2 class="g-font-weight-700 g-font-size-40 g-font-size-70--md text-uppercase g-mb-30" data-tag="home-header">
-                    Welcome
-                </h2>
-                <p class="english g-font-size-24" data-tag="home-subheader"> Cost Calculator:  A Coffee Cost of Production Tool</p>
+            <a class="g-font-size-20 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-20 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-20 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
+            <!--welcome -->
+            <div class="g-px-30">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 g-bg-white-opacity-0_5 g-mb-60">
+                        <div id="" class="g-px-10">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-mt-30 g-color-black g-line-height-1 text-center" data-tag="home-header">
+                                Welcome to Calcucafé
+                            </h2>
+                            <p class="g-color-darkpurple2 g-font-weight-500 g-line-height-1_5 g-letter-spacing-0_5 g-font-size-30 g-mb-30 text-center" data-tag="home-subheader"> A tool to help you calculate your cost of coffee production</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a class="js-go-to btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13 animated u-animation-was-fired undefined" href="Account/SignIn" data-target="#content" style="display: inline-block;">Get Started</a>
+            <!--end welcome message-->
+            <a class="slide btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="Demo" data-target="#content" style="display: inline-block;">Demo</a>
+            <a class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="Account/SignIn" data-target="#content" style="display: inline-block;">Login</a>
         </div>
     </section>
+
+
+
+
+
 </body>
 
- <!-- JS Global Compulsory -->
+<!-- JS Global Compulsory -->
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
 
 <!-- JS Custom -->
 <script src="/js/language/translate.js" asp-append-version="true"></script>
+<script src="~/pages/home/js/home.js" asp-append-version="true"></script>

@@ -36,10 +36,7 @@ textarea {
     }
 }
 
-.spanish{
-    display:none;
+.hidden{
+    display: none;
 }
 
-.english {
-    display: block;
-}

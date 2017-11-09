@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+}
+<head>
+    <title>CalcuCafé</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap/bootstrap.min.css" asp-append-version="true">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="/lib/unify/assets/css/unify.css" asp-append-version="true">
+</head>
+<body>
+    <section class="g-bg-beige g-min-height-100vh g-flex-centered">
+        <div class="container g-color-white text-center g-z-index-1">
+            <!--screen1 -->
+            <div class="g-px-30">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 g-mb-60">
+                        <div id="demo-screen1" class="demo-screen g-px-10" style="display:none">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-font-size-30--md g-mt-30 g-color-darkpurple2 g-line-height-1 text-left" data-tag="demo-screen1">
+                                Start by inputting some basic information
+                            </h2>
+                            <a class="slide g-mt-70 btn u-btn-outline-black g-color-black g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="#demo-screen2">Next</a> <br />
+                            <a class="g-color-darkpurple2" href="#" data-target="#content">Skip</a>
+                        </div>
+                        <!--end screen1-->
+                        <div id="demo-screen2" class="demo-screen g-px-10" style="display:none">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-font-size-30--md g-mt-30 g-color-darkpurple2 g-line-height-1 text-left" data-tag="demo-screen2">
+                                Then you will see your cost breakdown
+                            </h2>
+                            
+                            <a class="slide g-mt-70 btn u-btn-outline-black g-color-black g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="#demo-screen3">Next</a> <br />
+                            <a class="g-color-darkpurple2" href="#" data-target="#content">Skip</a>
+                        </div>
+                        <!--end screen2-->
+                        <div id="demo-screen3" class="demo-screen g-px-10" style="display:none">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-font-size-30--md g-mt-30 g-color-darkpurple2 g-line-height-1 text-left" data-tag="demo-screen3">
+                                Your Cost Breakdown
+                            </h2>
+                            <img src="~/images/chart1.png" style="max-height:100%; max-width:100%" />
+                            <a class="slide g-mt-70 btn u-btn-outline-black g-color-black g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="#demo-screen4">Next</a> <br />
+                            <a class="g-color-darkpurple2" href="#" data-target="#content">Skip</a>
+                        </div>
+                        <!--end screen3-->
+                        <div id="demo-screen4" class="demo-screen g-px-10" style="display:none">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-font-size-30--md g-mt-30 g-color-darkpurple2 g-line-height-1 text-left" data-tag="demo-screen4">
+                                Your Cost Breakdown
+                            </h2>
+                            <img src="~/images/chart2.png" style="max-height:100%; max-width:100%" />
+                            <a class="slide g-mt-70 btn u-btn-outline-black g-color-black g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="#demo-screen5">Next</a> <br />
+                            <a class="g-color-darkpurple2" href="#" data-target="#content">Skip</a>
+                        </div>
+                        <!--end screen4-->
+                        <div id="demo-screen5" class="demo-screen g-px-10" style="display:none">
+                            <h2 class="g-font-weight-500 g-font-size-50 g-font-size-30--md g-mt-30 g-color-darkpurple2 g-line-height-1 text-left" data-tag="demo-screen4">
+                                Your Cost Breakdown
+                            </h2>
+                            <img src="~/images/chart3.png" style="max-height:100%; max-width:100%" />
+                            <a class="slide g-mt-70 btn u-btn-outline-black g-color-black g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" href="Account/SignIn">Next</a> <br />
+                            <a class="g-color-darkpurple2" href="#" data-target="#content">Skip</a>
+                        </div>
+                        <!--end screen5-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<!-- JS Global Compulsory -->
+<script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+
+<!-- JS Custom -->
+<script src="/js/language/translate.js" asp-append-version="true"></script>
+<script src="~/pages/demo/js/demo.js" asp-append-version="true"></script>
