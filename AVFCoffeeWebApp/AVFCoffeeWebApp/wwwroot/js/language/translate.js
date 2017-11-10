@@ -3,8 +3,8 @@ var language = {
     "spanish": {
         "langLink1": "Inglés",
         "langLink2": "Español",
-        "home-header": "Bienvenidos",
-        "home-subheader": "Calculadora de Costos:  Una herramienta para determinar los costos de producción",
+        "home-header": "Bienvenido a Calcucafé",
+        "home-subheader": "Una herramienta para ayudarlo a calcular su costo de producción de café",
         "input-question1": "1. ¿Cuántas hectáreas de café tiene de acuerdo la edad de los árboles en su finca?",
         "input-question1-option1": "Producción​ ​inicial",
         "input-question1-option2": "Producción​ ​máximo",
@@ -52,8 +52,8 @@ var language = {
     "english": {
         "langLink1": "English",
         "langLink2": "Spanish",
-        "home-header": "Welcome",
-        "home-subheader": "Cost Calculator:  A Coffee Cost of Production Tool",
+        "home-header": "Welcome to Calcucafé",
+        "home-subheader": "A tool to help you calculate your cost of coffee production",
         "input-question1": "1. How many hectares of each tree do you have?",
         "input-question1-option1": "Young",
         "input-question1-option2": "Mature",
@@ -84,20 +84,11 @@ var language = {
                 "Additional": "Total costs includes the depreciation for assets used in more than one harvest cycles, start-up costs,and the opportunity costs of land and farm management."
             },
             yaxisLabel: "Price per pound",
-            plotLineLabel: "Current<br/>Price",
-            data: [{
-                name: 'Variable',
-                data: [.84, .89]
-            }, {
-                name: 'Fixed',
-                data: [.06, .04],
-            }, {
-                name: 'Additional',
-                data: [.41, .44],
-            }]
+            plotLineLabel: "Current<br/>Price"
         }
     }
 }
+
 
 
 function translate() { 
