@@ -5,6 +5,13 @@ var language = {
         "langLink2": "Español",
         "home-header": "Bienvenido a Calcucafé",
         "home-subheader": "Una herramienta para ayudarlo a calcular su costo de producción de café",
+        "demo-screen1": "Comience ingresando información básica",
+        "demo-screen2": "Entonces verá su desglose de costos",
+        "demo-screen3": "Su desglose de costos",
+        "demo-screen4": "Su desglose de costos",
+        "demo-screen5": "Su desglose de costos",
+        "demo-next": "Siguiente",
+        "demo-skip":"Omitir",
         "input-question1": "1. ¿Cuántas hectáreas de café tiene de acuerdo la edad de los árboles en su finca?",
         "input-question1-option1": "Producción​ ​inicial",
         "input-question1-option2": "Producción​ ​máximo",
@@ -36,16 +43,6 @@ var language = {
             },
             yaxisLabel: "Precio por kilogramo",
             plotLineLabel: "Precio<br/> Actual",
-            data: [{
-                name: 'Variables',
-                data: [.84, .89]
-            }, {
-                name: 'Fijos',
-                data: [.06, .04],
-            }, {
-                name: 'Adicionales',
-                data: [.41, .44],
-            }]
         }
     },
 
@@ -54,6 +51,13 @@ var language = {
         "langLink2": "Spanish",
         "home-header": "Welcome to Calcucafé",
         "home-subheader": "A tool to help you calculate your cost of coffee production",
+        "demo-screen": "Start by inputting some basic information",
+        "demo-screen2": "Then you will see your cost breakdown",
+        "demo-screen3": "Your Cost Breakdown",
+        "demo-screen4": "Your Cost Breakdown",
+        "demo-screen5": "Your Cost Breakdown",
+        "demo-next": "Next",
+        "demo-skip": "Skip",
         "input-question1": "1. How many hectares of each tree do you have?",
         "input-question1-option1": "Young",
         "input-question1-option2": "Mature",
