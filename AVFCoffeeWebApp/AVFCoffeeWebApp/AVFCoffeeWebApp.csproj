@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AppCore\CoffeeCore.csproj" />
-    <ProjectReference Include="..\Domain\CoffeeInfrastructure.csproj" />
+    <ProjectReference Include="..\CoffeeCore\CoffeeCore.csproj" />
+    <ProjectReference Include="..\CoffeeInfrastructure\CoffeeInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>

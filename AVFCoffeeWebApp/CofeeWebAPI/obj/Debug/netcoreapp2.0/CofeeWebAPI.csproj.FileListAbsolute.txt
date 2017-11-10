@@ -1,8 +1,0 @@
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\bin\Debug\netcoreapp2.0\CofeeWebAPI.deps.json
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\bin\Debug\netcoreapp2.0\CofeeWebAPI.dll
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\obj\Debug\netcoreapp2.0\CofeeWebAPI.csprojResolveAssemblyReference.cache
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\obj\Debug\netcoreapp2.0\CofeeWebAPI.csproj.CoreCompileInputs.cache
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\obj\Debug\netcoreapp2.0\CofeeWebAPI.AssemblyInfoInputs.cache
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\obj\Debug\netcoreapp2.0\CofeeWebAPI.AssemblyInfo.cs
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\bin\Debug\netcoreapp2.0\x86\e_sqlite3.dll
-E:\AVFCoffee\AVFCoffeeWebApp\CofeeWebAPI\bin\Debug\netcoreapp2.0\x64\e_sqlite3.dll
