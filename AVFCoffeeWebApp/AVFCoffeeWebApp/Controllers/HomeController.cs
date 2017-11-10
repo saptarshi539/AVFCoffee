@@ -13,9 +13,16 @@ namespace AVFCoffeeWebApp.Controllers
 
         public IActionResult Index()
         {
-            return PartialView();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("", "Input");
+            }
+            else
+            {
+                return PartialView();
+            }
         }
 
-       
+     
     }
 }
