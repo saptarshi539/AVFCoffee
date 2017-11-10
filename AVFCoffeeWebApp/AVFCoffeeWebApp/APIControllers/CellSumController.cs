@@ -36,8 +36,7 @@ namespace Coffee.APIControllers
 
         }
 
-        [Route("calculate/earlyHectares/{earlyHectares}/peakHectares/{peakHectares}/oldHectares/{oldHectares}/conventional/{conventional}/organic/{organic}/transition/{transition}/workerSalarySoles" +
-            "/{workerSalarySoles}/productionQuintales/{productionQuintales}/transportCostSoles/{transportCostSoles}/costPriceSolesPerQuintal/{costPriceSolesPerQuintal}")]
+        [Route("calculate")]
         [HttpGet]
         [Produces("application/json")]
         public IActionResult GetChartValues(Double earlyHectares = 0.2, Double peakHectares = 0.31, Double oldHectares = 0.37, bool conventional = true, bool organic = true, 

@@ -14,15 +14,15 @@ $("#submitInput").click(function () {
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44317/api/CellSum/sum",
+        url: "https://localhost:44317/api/CellSum/calculate",
         data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares + 
         "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition + 
         "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +  
         "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal,
         contentType: "application/json; charset=utf-8",
-        success: function (content, status) {
+        success: function (result, status) {
             chartDataObject = [];
-            result = { "producer": [.41, .06, .84], "cooperative": [.44, .04, .89] }
+            //result = { "producer": [.41, .06, .84], "cooperative": [.44, .04, .89] }
             //different ways to work with data, chart wants format below. Will depend on what comes back from server 
             /*chartDataObject = {
                 data: [{
