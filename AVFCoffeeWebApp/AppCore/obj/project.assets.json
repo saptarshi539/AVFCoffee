@@ -1519,7 +1519,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sm954\\.nuget\\packages\\": {},
+    "C:\\Users\\mb992\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -1528,17 +1528,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj",
+      "projectUniqueName": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj",
       "projectName": "CoffeeCore",
-      "projectPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj",
-      "packagesPath": "C:\\Users\\sm954\\.nuget\\packages\\",
-      "outputPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\obj\\",
+      "projectPath": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj",
+      "packagesPath": "C:\\Users\\mb992\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sm954\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mb992\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1546,7 +1546,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\sm954\\Documents\\TMSSoftware\\FlexCelNET\\nuget": {},
+        "C:\\Users\\mb992\\.dotnet\\NuGetFallbackFolder": {},
+        "C:\\Users\\mb992\\Documents\\TMSSoftware\\FlexCelNET\\nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

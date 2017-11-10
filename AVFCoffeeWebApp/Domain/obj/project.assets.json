@@ -3726,7 +3726,7 @@
       ]
     },
     "System.Text.Encoding.CodePages/4.4.0": {
-      "sha512": "aGwM40CXiz6n3GVOqFqQQA0/ZF8VosX5jwVwYU09ZsAETmailxKAdbNPgN2JFWe7ftUuWAdMNN2i5Hdgx0UJyA==",
+      "sha512": "6JX7ZdaceBiLKLkYt8zJcp4xTJd1uYyXXEkPw6mnlUIjh1gZPIVKPtRXPmY5kLf6DwZmf5YLwR3QUrRonl7l0A==",
       "type": "package",
       "path": "system.text.encoding.codepages/4.4.0",
       "files": [
@@ -4366,7 +4366,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sm954\\.nuget\\packages\\": {},
+    "C:\\Users\\mb992\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -4375,17 +4375,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj",
       "projectName": "CoffeeInfrastructure",
-      "projectPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj",
-      "packagesPath": "C:\\Users\\sm954\\.nuget\\packages\\",
-      "outputPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\CoffeeInfrastructure.csproj",
+      "packagesPath": "C:\\Users\\mb992\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sm954\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mb992\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4393,14 +4393,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\sm954\\Documents\\TMSSoftware\\FlexCelNET\\nuget": {},
+        "C:\\Users\\mb992\\.dotnet\\NuGetFallbackFolder": {},
+        "C:\\Users\\mb992\\Documents\\TMSSoftware\\FlexCelNET\\nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj": {
-              "projectPath": "E:\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj"
+            "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj": {
+              "projectPath": "C:\\Users\\mb992\\Documents\\GitHub\\AVFCoffee\\AVFCoffeeWebApp\\AppCore\\CoffeeCore.csproj"
             }
           }
         }

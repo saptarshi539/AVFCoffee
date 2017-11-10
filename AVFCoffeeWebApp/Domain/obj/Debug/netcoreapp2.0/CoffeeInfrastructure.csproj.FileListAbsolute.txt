@@ -9,3 +9,14 @@ E:\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure
 E:\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.AssemblyInfo.cs
 E:\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
 E:\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.deps.json
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\bin\Debug\netcoreapp2.0\CoffeeCore.dll
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\bin\Debug\netcoreapp2.0\CoffeeCore.pdb
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.csprojResolveAssemblyReference.cache
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.csproj.CoreCompileInputs.cache
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.AssemblyInfoInputs.cache
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.AssemblyInfo.cs
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\Domain\obj\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb

@@ -44,3 +44,7 @@ E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWe
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\obj\Debug\netcoreapp2.0\AVFCoffeeWebApp.pdb
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
 E:\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeCore.dll
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.dll
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeCore.pdb
+C:\Users\mb992\Documents\GitHub\AVFCoffee\AVFCoffeeWebApp\AVFCoffeeWebApp\bin\Debug\netcoreapp2.0\CoffeeInfrastructure.pdb
