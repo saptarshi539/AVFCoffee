@@ -6,8 +6,8 @@ namespace CoffeeInfrastructure.Flexcel
     public class ChartDataDTO
     {
 
-        public List<Double> producer { get; set; }
-        public List<Double> cooperative { get; set; }
+        public List<object> producer { get; set; }
+        //public List<Double> cooperative { get; set; }
 
     }
 }

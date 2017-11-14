@@ -39,8 +39,8 @@ namespace Coffee.APIControllers
         [Route("calculate")]
         [HttpGet]
         [Produces("application/json")]
-        public IActionResult GetChartValues(Double earlyHectares = 0.2, Double peakHectares = 0.31, Double oldHectares = 0.37, bool conventional = true, bool organic = true, 
-            bool transition = true, Double workerSalarySoles = 225, Double productionQuintales = 23, Double transportCostSoles = 235, Double costPriceSolesPerQuintal = 256)
+        public IActionResult GetChartValues(Double earlyHectares = 1.03, Double peakHectares = 1.94, Double oldHectares = 1.97, bool conventional = true, bool organic = false, 
+            bool transition = false, Double workerSalarySoles = 16.16, Double productionQuintales = 14, Double transportCostSoles = 235.22, Double costPriceSolesPerQuintal = 556.51)
         {
             try
             {

@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVFCoffeeWebApp", "AVFCoffeeWebApp\AVFCoffeeWebApp.csproj", "{A2DC1F53-0AAD-4A1A-955E-26BCBA409B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeCore", "CoffeeCore\CoffeeCore.csproj", "{DBE9ADFB-7710-4910-9683-7200323124C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeCore", "CoffeeCore\CoffeeCore.csproj", "{DBE9ADFB-7710-4910-9683-7200323124C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeInfrastructure", "CoffeeInfrastructure\CoffeeInfrastructure.csproj", "{990DE0D4-9155-4B21-BC68-9F0C16544750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeInfrastructure", "CoffeeInfrastructure\CoffeeInfrastructure.csproj", "{990DE0D4-9155-4B21-BC68-9F0C16544750}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
