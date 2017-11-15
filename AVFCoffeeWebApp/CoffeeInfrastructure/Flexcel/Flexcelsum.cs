@@ -85,22 +85,17 @@ namespace CoffeeInfrastructure.Flexcel
             
             var op = output.Outcome(xls, workspace);
 
-            //CreateFileForSheet2(xls, peakHectares, oldHectares);
             coopOutputDTO coopOutputDTO = new coopOutputDTO();
             coopOutputDTO.variableCostUSPound = 1.05;
             coopOutputDTO.fixedCostUSPound = 0.06;
             coopOutputDTO.totalCostAndDeprUSPound = 0.8;
             coopOutputDTO.totalCostUSPound = 1.91;
             coopOutputDTO.breakEvenCostUSPound = 1.34;
-            //ChartDataDTO calculatedValue = CreateFileForSheet3(xls);
-
-            //CreateFileForSheet1(xls, earlyHectares);
-
-            List<object> l1 = new List<object>();
-            l1.Add(coopOutputDTO);
-            l1.AddRange(op.producer);
+            Dictionary<String, object> outputDict = new Dictionary<String, object>();
+            outputDict = op.Output;
+            outputDict.Add("Coop", coopOutputDTO);
             ChartDataDTO cdata = new ChartDataDTO();
-            cdata.producer = l1;
+            cdata.Output = outputDict;
             //Save the file as XLS
             //xls.Save(openFileDialog1.FileName);
             return cdata;

@@ -723,11 +723,12 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
-            List<object> list = new List<object>();
-            list.Add(producerOutputSpanishDTO);
-            list.Add(producerOutputEnglishDTO);
+            //List<object> list = new List<object>();
+            Dictionary<String, object> dictionaryOutput = new Dictionary<string, object>();
+            dictionaryOutput.Add("ProducerOutputSpanish", producerOutputSpanishDTO);
+            dictionaryOutput.Add("ProducerOutputEnglish", producerOutputEnglishDTO);
             ChartDataDTO cDTO = new ChartDataDTO();
-            cDTO.producer = list;
+            cDTO.Output = dictionaryOutput;
             return cDTO;
 
         }
