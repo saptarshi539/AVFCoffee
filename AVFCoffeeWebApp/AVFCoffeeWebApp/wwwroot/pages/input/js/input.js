@@ -15,9 +15,9 @@ $("#submitInput").click(function () {
     $.ajax({
         type: "GET",
         url: "https://localhost:44317/api/CellSum/calculate",
-        data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares + 
-        "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition + 
-        "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +  
+        data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares +
+        "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition +
+        "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +
         "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal,
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
@@ -36,31 +36,33 @@ $("#submitInput").click(function () {
                     data: [.41, .44],
                 }]
             } */
-            var variableData = { name: 'Variable', data: [] }
-            var fixedData = { name: 'Fixed', data: [] }
-            var additionalData = { name: 'Additional', data: [] }
+            var variableData = { name: 'Variable', data: [] };
+            var fixedData = { name: 'Fixed', data: [] };
+            var additionalData = { name: 'Additional', data: [] };
 
-            variableData.data.push(result.producer[0])
-            fixedData.data.push(result.producer[1])
-            additionalData.data.push(result.producer[2])
-            variableData.data.push(result.cooperative[0])
-            fixedData.data.push(result.cooperative[1])
-            additionalData.data.push(result.cooperative[2])
+            variableData.data.push(Math.round(result.output.ProducerOutputEnglish.variableCostUSPound * 100) /100);
+            fixedData.data.push(Math.round(result.output.ProducerOutputEnglish.fixedCostUSPound * 100) /100);
+            additionalData.data.push(Math.round(result.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) /100);
+            variableData.data.push(result.output.Coop.variableCostUSPound);
+            fixedData.data.push(result.output.Coop.fixedCostUSPound);
+            additionalData.data.push(result.output.Coop.totalCostAndDeprUSPound);
 
-            chartDataObject.push(variableData)
-            chartDataObject.push(fixedData)
-            chartDataObject.push(additionalData) 
+            chartDataObject.push(variableData);
+            chartDataObject.push(fixedData);
+            chartDataObject.push(additionalData);
 
-            localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject))
+            localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
+            localStorage.setItem("chartCurrentPrice", );
+            console.log(chartDataObject);
 
             //go to chart page
             window.location.href = '/Results';
         },
         error: function (res, status) {
             if (status === "error") {
-                console.log("error")
+                console.log("error");
             }
         }
     });
-})
+});
 
