@@ -335,3 +335,4 @@ AVFCoffeeWebApp/AVFCoffeeWebApp/obj/Debug/netcoreapp2.0/AVFCoffeeWebApp.csproj.F
 AVFCoffeeWebApp/.vs/config/applicationhost.config
 *.dll
 AVFCoffeeWebApp/AVFCoffeeWebApp/bin/Debug/netcoreapp2.0/x86/e_sqlite3.dll
+AVFCoffeeWebApp/AVFCoffeeWebApp/AVFCoffeeWebApp.csproj.user
