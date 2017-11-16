@@ -52,8 +52,6 @@ $("#submitInput").click(function () {
             chartDataObject.push(additionalData);
 
             localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
-            localStorage.setItem("chartCurrentPrice", );
-            console.log(chartDataObject);
 
             //go to chart page
             window.location.href = '/Results';
