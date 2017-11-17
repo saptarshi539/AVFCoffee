@@ -5,6 +5,8 @@ using FlexCel.XlsAdapter;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
 namespace CoffeeInfrastructure.Flexcel
@@ -14,6 +16,7 @@ namespace CoffeeInfrastructure.Flexcel
         
         public ChartDataDTO getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional, bool organic, bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal)
         {
+            
             //Excel sheet inputs from Juan
             Inputs inputs = new Inputs();
             AdvancedInputs advancedInputs = new AdvancedInputs();
