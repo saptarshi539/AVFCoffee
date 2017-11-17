@@ -5,6 +5,8 @@ using System;
 
 using CoffeeCore.Interfaces;
 using CoffeeInfrastructure.Flexcel;
+using CoffeeCore.DTO;
+using CoffeeInfrastructure.Helpers;
 
 namespace Coffee.APIControllers
 {
@@ -46,6 +48,29 @@ namespace Coffee.APIControllers
             {
                 ChartDataDTO sContent = flexcelsum.getOutputFromExcel(earlyHectares,peakHectares,oldHectares,conventional, organic, transition, workerSalarySoles, productionQuintales,
                     transportCostSoles, costPriceSolesPerQuintal);
+                return Ok(sContent);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("saveinput")]
+        [HttpPost]
+        [Produces("application/json")]
+        public IActionResult PostInputs([FromBody] ChartInputDTO chartInputDTO)
+        {
+            try
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var id = User.GetId();
+                    flexcelsum.SaveUserInputs(id, chartInputDTO);
+                }
+                ChartDataDTO sContent = null;
                 return Ok(sContent);
             }
             catch (Exception e)
