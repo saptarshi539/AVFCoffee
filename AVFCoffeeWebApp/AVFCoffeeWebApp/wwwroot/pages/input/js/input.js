@@ -14,7 +14,7 @@ $("#submitInput").click(function () {
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44317/api/CellSum/calculate",
+        url: apiURL + "CellSum/calculate",
         data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares +
         "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition +
         "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +
