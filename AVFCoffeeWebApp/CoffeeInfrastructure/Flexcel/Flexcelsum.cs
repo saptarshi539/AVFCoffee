@@ -271,7 +271,7 @@ namespace CoffeeInfrastructure.Flexcel
         public void SaveUserInputs(string id, ChartInputDTO chartInputDTO)
         {
             
-            //var conn = iConfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value
+            //var conn = configuration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value
             throw new NotImplementedException();
         }
     }
