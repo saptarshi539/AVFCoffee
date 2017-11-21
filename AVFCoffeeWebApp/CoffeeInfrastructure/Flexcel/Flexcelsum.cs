@@ -8,12 +8,20 @@ using System.IO;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
+using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 
 namespace CoffeeInfrastructure.Flexcel
 {
     public class Flexcelsum : IFlexcelsum
     {
-        
+        private readonly IConfiguration _iconfiguration;
+
+        public Flexcelsum(IConfiguration configuration)
+        {
+            _iconfiguration = configuration;
+        }
+
         public ChartDataDTO getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional, bool organic, bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal)
         {
             //working in the develop branch
@@ -267,31 +275,59 @@ namespace CoffeeInfrastructure.Flexcel
             return cd;//Convert.ToDouble(xls.GetCellValue(9, 12));
         }
 
-
-        public String sumcells()
+        public void SaveUserInputs(string id, ChartInputDTO chartInputDTO)
         {
-            XlsFile xls = new XlsFile(1, TExcelFileFormat.v2016, true);
 
-            //Enters a string into A1.
-
-            xls.SetCellValue(1, 1, "Hello from FlexCel!");
-
-            //Enters a number into A2.
-            //Note that xls.SetCellValue(2, 1, "7") would enter a string.
-            xls.SetCellValue(2, 1, 7);
-
-            //Enter another floating point number.
-            //All numbers in Excel are floating point,
-            //so even if you enter an integer, it will be stored as double.
-            xls.SetCellValue(3, 1, 11.3);
-
-            //Enters a formula into A4.
-            xls.SetCellValue(4, 1, new TFormula("=Sum(A2:A3)"));
-
-            //Saves the file to the "Documents" folder.
-            xls.Save(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "test.xlsx"));
-
-            return Convert.ToString(xls.GetCellValue(4, 1));
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput] VALUES " +
+                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID" +
+                   "@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID)");
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(sqlQuery);
+                command.Parameters.AddWithValue("@HectEarly", chartInputDTO.earlyHectares);
+                command.Parameters.AddWithValue("@HectPeak", chartInputDTO.peakHectares);
+                command.Parameters.AddWithValue("@HectOld", chartInputDTO.oldHectares);
+                command.Parameters.AddWithValue("@Conv", chartInputDTO.conventional);
+                command.Parameters.AddWithValue("@Org", chartInputDTO.organic);
+                command.Parameters.AddWithValue("@Trans", chartInputDTO.transition);
+                command.Parameters.AddWithValue("@Wpd", chartInputDTO.workerSalarySoles);
+                command.Parameters.AddWithValue("@YieldHect", chartInputDTO.productionQuintales);
+                command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
+                command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
+                command.Parameters.AddWithValue("@UserID", id);
+                command.Connection = connect;
+                int result = command.ExecuteNonQuery();
+                connect.Close();
+                // Check Error
+                if (result < 0)
+                    Console.WriteLine("Error inserting data into Database!");
+            }
         }
+
+        public ChartInputDTO GetUserInputs(String id)
+        {
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                SqlCommand comm = new SqlCommand("Select HectTreesEarly from [AVFCoffee].[dbo].[UserInput] where UserID = @userid", con);
+                comm.Parameters.AddWithValue("@userid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        var output = String.Format("{0}", reader["HectTreesEarly"]);
+                    }
+                }
+
+                con.Close();
+            }
+            return null;
+        }
+        
     }
 }
