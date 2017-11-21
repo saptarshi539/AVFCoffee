@@ -67,7 +67,7 @@ namespace Coffee.APIControllers
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    var id = User.GetId();
+                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
                     flexcelsum.SaveUserInputs(id, chartInputDTO);
                 }
                 //ChartDataDTO sContent = null;

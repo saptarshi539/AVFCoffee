@@ -279,9 +279,9 @@ namespace CoffeeInfrastructure.Flexcel
         {
 
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
-            string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput] VALUES " +
-                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID" +
-                   "@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID)");
+            string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput]" +
+                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID) VALUES" +
+                   "(@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
