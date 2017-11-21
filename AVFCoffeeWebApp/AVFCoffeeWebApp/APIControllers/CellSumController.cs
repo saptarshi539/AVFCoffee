@@ -20,23 +20,23 @@ namespace Coffee.APIControllers
             flexcelsum = _flexcelsum;
         }
 
-        [Route("sum/{cellId:long}")]
-        [HttpGet]
-        public IActionResult CalculateSum(long cellId)
-        {
-            try
-            {
-                var l = cellId;
-                String sContent = flexcelsum.sumcells();
-                return Ok(sContent);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.InnerException);
-                return StatusCode(500);
-            }
+        //[Route("sum/{cellId:long}")]
+        //[HttpGet]
+        //public IActionResult CalculateSum(long cellId)
+        //{
+        //    try
+        //    {
+        //        var l = cellId;
+        //        String sContent = flexcelsum.sumcells();
+        //        return Ok(sContent);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.InnerException);
+        //        return StatusCode(500);
+        //    }
 
-        }
+        //}
 
         [Route("calculate")]
         [HttpGet]
@@ -70,8 +70,31 @@ namespace Coffee.APIControllers
                     var id = User.GetId();
                     flexcelsum.SaveUserInputs(id, chartInputDTO);
                 }
-                ChartDataDTO sContent = null;
-                return Ok(sContent);
+                //ChartDataDTO sContent = null;
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("getinput")]
+        [HttpPost]
+        [Produces("application/json")]
+        public IActionResult GetInputs(string userid)
+        {
+            try
+            {
+                //if (User.Identity.IsAuthenticated)
+                //{
+                    //var id = User.GetId();
+                    var output = flexcelsum.GetUserInputs(userid);
+                //}
+                //ChartDataDTO sContent = null;
+                return Ok();
             }
             catch (Exception e)
             {

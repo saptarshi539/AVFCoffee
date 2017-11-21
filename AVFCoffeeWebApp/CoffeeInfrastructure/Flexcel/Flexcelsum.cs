@@ -9,12 +9,19 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 
 namespace CoffeeInfrastructure.Flexcel
 {
     public class Flexcelsum : IFlexcelsum
     {
-        
+        private readonly IConfiguration _iconfiguration;
+
+        public Flexcelsum(IConfiguration configuration)
+        {
+            _iconfiguration = configuration;
+        }
+
         public ChartDataDTO getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional, bool organic, bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal)
         {
             //working in the develop branch
@@ -270,9 +277,57 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void SaveUserInputs(string id, ChartInputDTO chartInputDTO)
         {
-            
-            //var conn = configuration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value
-            throw new NotImplementedException();
+
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput] VALUES " +
+                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID" +
+                   "@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID)");
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(sqlQuery);
+                command.Parameters.AddWithValue("@HectEarly", chartInputDTO.earlyHectares);
+                command.Parameters.AddWithValue("@HectPeak", chartInputDTO.peakHectares);
+                command.Parameters.AddWithValue("@HectOld", chartInputDTO.oldHectares);
+                command.Parameters.AddWithValue("@Conv", chartInputDTO.conventional);
+                command.Parameters.AddWithValue("@Org", chartInputDTO.organic);
+                command.Parameters.AddWithValue("@Trans", chartInputDTO.transition);
+                command.Parameters.AddWithValue("@Wpd", chartInputDTO.workerSalarySoles);
+                command.Parameters.AddWithValue("@YieldHect", chartInputDTO.productionQuintales);
+                command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
+                command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
+                command.Parameters.AddWithValue("@UserID", id);
+                command.Connection = connect;
+                int result = command.ExecuteNonQuery();
+                connect.Close();
+                // Check Error
+                if (result < 0)
+                    Console.WriteLine("Error inserting data into Database!");
+            }
         }
+
+        public ChartInputDTO GetUserInputs(String id)
+        {
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                SqlCommand comm = new SqlCommand("Select HectTreesEarly from [AVFCoffee].[dbo].[UserInput] where UserID = @userid", con);
+                comm.Parameters.AddWithValue("@userid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        var output = String.Format("{0}", reader["HectTreesEarly"]);
+                    }
+                }
+
+                con.Close();
+            }
+            return null;
+        }
+        
     }
 }

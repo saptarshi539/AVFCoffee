@@ -6,15 +6,15 @@ namespace CoffeeCore.DTO
 {
     public class ChartInputDTO
     {
-        Double earlyHectares { get; set; }
-        Double peakHectares { get; set; }
-        Double oldHectares { get; set; }
-        bool conventional { get; set; }
-        bool organic { get; set; }
-        bool transition { get; set; }
-        Double workerSalarySoles { get; set; }
-        Double productionQuintales { get; set; }
-        Double transportCostSoles { get; set; }
-        Double costPriceSolesPerQuintal { get; set; }
+        public Double earlyHectares { get; set; }
+        public Double peakHectares { get; set; }
+        public Double oldHectares { get; set; }
+        public bool conventional { get; set; }
+        public bool organic { get; set; }
+        public bool transition { get; set; }
+        public Double workerSalarySoles { get; set; }
+        public Double productionQuintales { get; set; }
+        public Double transportCostSoles { get; set; }
+        public Double costPriceSolesPerQuintal { get; set; }
     }
 }

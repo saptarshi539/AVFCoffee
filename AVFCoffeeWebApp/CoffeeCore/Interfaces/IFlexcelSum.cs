@@ -13,5 +13,7 @@ namespace CoffeeCore.Interfaces
             Double productionQuintales, Double transportCostSoles, Double costPriceSolesPerQuintal);
 
         void SaveUserInputs(string id, ChartInputDTO chartInputDTO);
+
+        ChartInputDTO GetUserInputs(String id);
     }
 }
