@@ -87,8 +87,9 @@ $("#submitInput").click(function () {
 function saveUserInput(userData) {
     $.ajax({
         type: "POST",
-        url: apiURL + "saveinput",
+        url: apiURL + "CellSum/saveinput",
         data: userData,
+        contentType: "application/json; charset=utf-8",
         success: function (result, status) {
             console.log(result)
         },
@@ -100,7 +101,8 @@ function saveUserInput(userData) {
 function saveUserOutput(outputData) {
     $.ajax({
         type: "POST",
-        url: apiURL + "saveoutput",
+        url: apiURL + "CellSum/saveoutput",
+        contentType: "application/json; charset=utf-8",
         data: outputData,
         success: function (result, status) {
             console.log(result)
