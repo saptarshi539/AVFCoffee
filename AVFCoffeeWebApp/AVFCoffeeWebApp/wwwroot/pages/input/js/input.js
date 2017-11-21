@@ -12,6 +12,20 @@ $("#submitInput").click(function () {
     var transportCostSoles = $("#transportCostSoles").val();
     var costPriceSolesPerQuintal = $("#costPriceSolesPerQuintal").val();
 
+    //make user inputs object 
+    var userInputs = {
+        "earlyHectares": earlyHectares ,
+        "peakHectares": peakHectares,
+        "oldHectares": oldHectares,
+        "conventional": conventional , 
+        "organic": organic ,
+        "transition": transition,
+        "workerSalarySoles": workerSalarySoles,
+        "productionQuintales": productionQuintales ,
+        "transportCostSoles": transportCostSoles ,
+        "costPriceSolesPerQuintal": costPriceSolesPerQuintal
+    }
+
     $.ajax({
         type: "GET",
         url: apiURL + "CellSum/calculate",
@@ -54,7 +68,11 @@ $("#submitInput").click(function () {
             localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
 
             //go to chart page
-            window.location.href = '/Results';
+            //save user input
+            saveUserInput(userInputs)
+
+            // save input and output .then
+            //window.location.href = '/Results';
         },
         error: function (res, status) {
             if (status === "error") {
@@ -64,3 +82,16 @@ $("#submitInput").click(function () {
     });
 });
 
+
+function saveUserInput(userData) {
+    $.ajax({
+        type: "POST",
+        url: apiURL + "saveinput",
+        data: userData,
+        success: function (result, status) {
+            console.log(result)
+        },
+        error: function (res, status) {
+        }
+    });
+}
