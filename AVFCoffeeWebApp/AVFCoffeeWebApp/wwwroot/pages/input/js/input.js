@@ -70,6 +70,7 @@ $("#submitInput").click(function () {
             //go to chart page
             //save user input
             saveUserInput(userInputs)
+            saveUserOutput(result.output.ProducerOutputEnglish)
 
             // save input and output .then
             //window.location.href = '/Results';
@@ -88,6 +89,19 @@ function saveUserInput(userData) {
         type: "POST",
         url: apiURL + "saveinput",
         data: userData,
+        success: function (result, status) {
+            console.log(result)
+        },
+        error: function (res, status) {
+        }
+    });
+}
+
+function saveUserOutput(outputData) {
+    $.ajax({
+        type: "POST",
+        url: apiURL + "saveoutput",
+        data: outputData,
         success: function (result, status) {
             console.log(result)
         },
