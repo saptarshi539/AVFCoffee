@@ -134,12 +134,13 @@ namespace Coffee.APIControllers
         {
             try
             {
-                //if (User.Identity.IsAuthenticated)
-                //{
-                //var id = User.GetId();
-                var id = "e661c05f-dc88-48c3-8026-3718143c56d8";
-                var output = flexcelsum.GetUserInputs(id);
-                //}
+                LoginInfoDTO output = new LoginInfoDTO();
+                if (User.Identity.IsAuthenticated)
+                {
+                    var id = User.GetId();
+                    //var id = "e661c05f-dc88-48c3-8026-3718143c56d8";
+                    output = flexcelsum.GetUserInputs(id);
+                }
                 //ChartDataDTO sContent = null;
                 return Ok(output);
             }
