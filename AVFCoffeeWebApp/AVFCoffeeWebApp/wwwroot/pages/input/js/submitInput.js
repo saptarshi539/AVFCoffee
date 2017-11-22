@@ -3,7 +3,7 @@ $("#submitInput").click(function () {
     //get user inputs
     var earlyHectares = $("#earlyHectares").val();
     var peakHectares = $("#peakHectares").val();
-    var oldHectares = $("#oldHectares").val();
+    var oldHectares =  $("#oldHectares").val();
     var conventional = $("#conventional").prop("checked");
     var organic = $("#organic").prop("checked");
     var transition = $("#transition").prop("checked");
@@ -14,15 +14,15 @@ $("#submitInput").click(function () {
 
     //make user inputs object 
     var userInputs = {
-        "earlyHectares": earlyHectares ,
+        "earlyHectares": earlyHectares,
         "peakHectares": peakHectares,
         "oldHectares": oldHectares,
-        "conventional": conventional , 
-        "organic": organic ,
+        "conventional": conventional, 
+        "organic": organic,
         "transition": transition,
         "workerSalarySoles": workerSalarySoles,
-        "productionQuintales": productionQuintales ,
-        "transportCostSoles": transportCostSoles ,
+        "productionQuintales": productionQuintales,
+        "transportCostSoles": transportCostSoles,
         "costPriceSolesPerQuintal": costPriceSolesPerQuintal
     }
 
@@ -69,8 +69,10 @@ $("#submitInput").click(function () {
 
             //go to chart page
             //save user input
+
+            console.log(userInputs)
             saveUserInput(userInputs)
-            saveUserOutput(result.output.ProducerOutputEnglish)
+            saveUserOutput(result)
 
             // save input and output .then
             //window.location.href = '/Results';
@@ -85,10 +87,11 @@ $("#submitInput").click(function () {
 
 
 function saveUserInput(userData) {
+    var request = JSON.stringify(userData)
     $.ajax({
         type: "POST",
         url: apiURL + "CellSum/saveinput",
-        data: userData,
+        data: request,
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
             console.log(result)
@@ -99,11 +102,12 @@ function saveUserInput(userData) {
 }
 
 function saveUserOutput(outputData) {
+    var request = JSON.stringify(outputData)
     $.ajax({
         type: "POST",
         url: apiURL + "CellSum/saveoutput",
         contentType: "application/json; charset=utf-8",
-        data: outputData,
+        data: request,
         success: function (result, status) {
             console.log(result)
         },
