@@ -307,27 +307,89 @@ namespace CoffeeInfrastructure.Flexcel
             }
         }
 
-        public ChartInputDTO GetUserInputs(String id)
+        public LoginInfoDTO GetUserInputs(String id)
         {
+            UserInfoDTO uInfo = new UserInfoDTO();
+            Dictionary<String, object> cOut = new Dictionary<String, object>();
+            ChartDataDTO cData = new ChartDataDTO();
+            ChartInputDTO chInput = new ChartInputDTO();
+            ProducerOutputEnglishDTO pOutEnglishDTO = new ProducerOutputEnglishDTO();
+            ProducerOutputSpanishDTO pOutSpanishDTO = new ProducerOutputSpanishDTO();
+            LoginInfoDTO lInfo = new LoginInfoDTO();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             using (SqlConnection con = new SqlConnection(conn))
             {
                 con.Open();
 
-                SqlCommand comm = new SqlCommand("Select HectTreesEarly from [AVFCoffee].[dbo].[UserInput] where UserID = @userid", con);
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInput] where UserID = @userid", con);
                 comm.Parameters.AddWithValue("@userid", id);
                 // int result = command.ExecuteNonQuery();
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        var output = String.Format("{0}", reader["HectTreesEarly"]);
+                        //var output = String.Format("{0}", reader["HectTreesEarly"]);
+                        chInput.earlyHectares = Convert.ToDouble(reader["HectTreesEarly"].ToString());
+                        chInput.peakHectares = Convert.ToDouble(reader["HectTreesPeak"].ToString());
+                        chInput.oldHectares = Convert.ToDouble(reader["HectTreesOld"].ToString());
+                        chInput.conventional = Convert.ToBoolean(reader["Conventional"].ToString());
+                        chInput.organic = Convert.ToBoolean(reader["Organic"].ToString());
+                        chInput.transition = Convert.ToBoolean(reader["Transition"].ToString());
+                        chInput.workerSalarySoles = Convert.ToDouble(reader["WagePerDay"].ToString());
+                        chInput.productionQuintales = Convert.ToDouble(reader["YieldPerHect"].ToString());
+                        chInput.transportCostSoles = Convert.ToDouble(reader["TransportCost"].ToString());
+                        chInput.costPriceSolesPerQuintal = Convert.ToDouble(reader["FinalPrice"].ToString());
                     }
                 }
 
                 con.Close();
             }
-            return null;
+
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[OutputProducer] where UserID = @userid", con);
+                comm.Parameters.AddWithValue("@userid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        //var output = String.Format("{0}", reader["HectTreesEarly"]);
+                        pOutEnglishDTO.variableCostUSPound = Convert.ToDouble(reader["VariableCostUSPund"].ToString());
+                        pOutEnglishDTO.fixedCostUSPound = Convert.ToDouble(reader["FixedCostUSPound"].ToString());
+                        pOutEnglishDTO.totalCostAndDeprUSPound = Convert.ToDouble(reader["TotalCostAndDeprUSPound"].ToString());
+                        pOutEnglishDTO.totalCostUSPound = Convert.ToDouble(reader["TotalCostUSPound"].ToString());
+                        pOutEnglishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
+                        pOutSpanishDTO.variableCostSolesHect = Convert.ToDouble(reader["VariableCostSolesHect"].ToString());
+                        pOutSpanishDTO.variableCostUSHect = Convert.ToDouble(reader["VariableCostUSHect"].ToString());
+                        pOutSpanishDTO.totalCostUSHect = Convert.ToDouble(reader["TotalCostUSHect"].ToString());
+                        pOutSpanishDTO.totalCostSolesHect = Convert.ToDouble(reader["TotalCostSolesHect"].ToString());
+                        pOutSpanishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
+                    }
+                }
+
+                con.Close();
+            }
+
+            coopOutputDTO coopOutputDTO = new coopOutputDTO();
+            coopOutputDTO.variableCostUSPound = 1.05;
+            coopOutputDTO.fixedCostUSPound = 0.06;
+            coopOutputDTO.totalCostAndDeprUSPound = 0.8;
+            coopOutputDTO.totalCostUSPound = 1.91;
+            coopOutputDTO.breakEvenCostUSPound = 1.34;
+
+            cOut.Add("ProducerOutputEnglish", pOutEnglishDTO);
+            cOut.Add("ProducerOutputSpanish", pOutSpanishDTO);
+            cOut.Add("Coop", coopOutputDTO);
+            cData.Output = cOut;
+            Dictionary<String, object> outDict = new Dictionary<String, object>();
+            outDict.Add("Inputs", chInput);
+            outDict.Add("Outputs", cOut);
+            outDict.Add("User", null);
+            lInfo.loginfo = outDict;
+            return lInfo;
         }
 
         public ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO)
@@ -393,7 +455,7 @@ namespace CoffeeInfrastructure.Flexcel
             {
                 connect.Open();
                 SqlCommand command = new SqlCommand(sqlQueryCoop);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", CoopId);
                 command.Parameters.AddWithValue("@variableCostUSPound", coopVariableUSPound);
                 command.Parameters.AddWithValue("@fixedCostUSPound", coopFixedUSPound);
                 command.Parameters.AddWithValue("@totalCostAndDeprUSPound", coopTotalCostAndDeprUSPound);

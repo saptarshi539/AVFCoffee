@@ -60,8 +60,8 @@ namespace Coffee.APIControllers
 
         [Route("saveinput")]
         [HttpPost]
-        [Produces("application/json")]
-        public IActionResult PostInputs([FromBody] ChartInputDTO chartInputDTO)
+        [Produces("application/json; charset=utf-8")]
+        public IActionResult PostInputs(ChartInputDTO chartInputDTO)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Coffee.APIControllers
 
         [Route("saveoutput")]
         [HttpPost]
-        [Produces("application/json")]
+        [Produces("application/json; charset=utf-8")]
         public IActionResult PostOutputs([FromBody] ChartDataDTO chartDataDTO)
         {
             try
@@ -128,7 +128,7 @@ namespace Coffee.APIControllers
         }
 
         [Route("getinput")]
-        [HttpPost]
+        [HttpGet]
         [Produces("application/json")]
         public IActionResult GetInputs(string userid)
         {
@@ -136,11 +136,12 @@ namespace Coffee.APIControllers
             {
                 //if (User.Identity.IsAuthenticated)
                 //{
-                    //var id = User.GetId();
-                    var output = flexcelsum.GetUserInputs(userid);
+                //var id = User.GetId();
+                var id = "e661c05f-dc88-48c3-8026-3718143c56d8";
+                var output = flexcelsum.GetUserInputs(id);
                 //}
                 //ChartDataDTO sContent = null;
-                return Ok();
+                return Ok(output);
             }
             catch (Exception e)
             {
