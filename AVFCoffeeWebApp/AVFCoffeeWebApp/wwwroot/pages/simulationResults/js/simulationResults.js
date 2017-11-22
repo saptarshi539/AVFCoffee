@@ -1,8 +1,7 @@
 ﻿// get language object for rendering chart 
 var selected = localStorage.getItem("selectedLanguage")
 var chartLanguage = language[selected]["chart"]
-var chartData = JSON.parse(localStorage.getItem("chartDataObject"))
-
+var chartData = JSON.parse(localStorage.getItem("simulationChartDataObject"))
 
 Highcharts.chart('chartdiv2', {
     exporting: {
@@ -85,16 +84,7 @@ Highcharts.chart('chartdiv2', {
             }
         }
     },
-    series: [{
-            name: 'Variable',
-            data: [.84, .81, .89]
-        }, {
-            name: 'Fixed',
-            data: [.06, .03, .04],
-        }, {
-            name: 'Additional',
-            data: [.41, .40, .38],
-        }]
+    series: chartData
     
     
 });
