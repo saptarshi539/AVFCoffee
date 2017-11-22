@@ -88,11 +88,11 @@ namespace Coffee.APIControllers
         {
             try
             {
-                //if (User.Identity.IsAuthenticated)
-                //{
-                var id = "e661c05f-dc88-48c3-8026-3718143c56d8";//User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+                if (User.Identity.IsAuthenticated)
+                {
+                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
                     flexcelsum.SaveUserOutputs(id, chartDataDTO);
-                //}
+                }
                 //ChartDataDTO sContent = null;
                 return Ok();
             }
