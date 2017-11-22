@@ -61,7 +61,7 @@ namespace Coffee.APIControllers
         [Route("saveinput")]
         [HttpPost]
         [Produces("application/json; charset=utf-8")]
-        public IActionResult PostInputs(ChartInputDTO chartInputDTO)
+        public IActionResult PostInputs([FromBody]ChartInputDTO chartInputDTO)
         {
             try
             {
