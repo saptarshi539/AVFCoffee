@@ -81,6 +81,52 @@ namespace Coffee.APIControllers
 
         }
 
+        [Route("saveoutput")]
+        [HttpPost]
+        [Produces("application/json")]
+        public IActionResult PostOutputs([FromBody] ChartDataDTO chartDataDTO)
+        {
+            try
+            {
+                //if (User.Identity.IsAuthenticated)
+                //{
+                var id = "e661c05f-dc88-48c3-8026-3718143c56d8";//User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+                    flexcelsum.SaveUserOutputs(id, chartDataDTO);
+                //}
+                //ChartDataDTO sContent = null;
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("saveuser")]
+        [HttpPost]
+        [Produces("application/json")]
+        public IActionResult PostUserData([FromBody] UserInfoDTO userInfoDTO)
+        {
+            try
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+                    flexcelsum.SaveUserInfo(id, userInfoDTO);
+                }
+                //ChartDataDTO sContent = null;
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
         [Route("getinput")]
         [HttpPost]
         [Produces("application/json")]

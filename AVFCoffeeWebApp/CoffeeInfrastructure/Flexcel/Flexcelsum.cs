@@ -10,6 +10,7 @@ using System.Security.Principal;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace CoffeeInfrastructure.Flexcel
 {
@@ -328,6 +329,91 @@ namespace CoffeeInfrastructure.Flexcel
             }
             return null;
         }
-        
+
+        public ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO)
+        {
+            int resultProd, resultCoop;
+            Dictionary<String, object> dict = new Dictionary<String, object>();
+            dict = chartDataDTO.Output;
+            Double variableCostUSpund, fixedCostUSPound, totalCostAndDeprUSPound, totalCostUSPound, variableCostUSHect, variableCostSolesHect, totalCostUSHect, totalCostSolesHect, breakEvenCostUSPound,
+                coopVariableUSPound, coopFixedUSPound, coopTotalCostAndDeprUSPound, coopTotalCostUSPound, coopBreakEvenCostUSPound;
+            String CoopId;
+            var prod = dict["ProducerOutputEnglish"];
+            ProducerOutputEnglishDTO producerEnglish = JsonConvert.DeserializeObject<ProducerOutputEnglishDTO>(prod.ToString());
+            //JsonConvert.DeserializeObject<producerEnglish>;
+            variableCostUSpund = producerEnglish.variableCostUSPound;
+            fixedCostUSPound = producerEnglish.fixedCostUSPound;
+            totalCostAndDeprUSPound = producerEnglish.totalCostAndDeprUSPound;
+            totalCostUSPound = producerEnglish.totalCostUSPound;
+            var prodSpan = dict["ProducerOutputSpanish"];
+            ProducerOutputSpanishDTO producerSpanish = JsonConvert.DeserializeObject<ProducerOutputSpanishDTO>(prodSpan.ToString());
+            variableCostUSHect = producerSpanish.variableCostUSHect;
+            variableCostSolesHect = producerSpanish.variableCostSolesHect;
+            totalCostUSHect = producerSpanish.totalCostUSHect;
+            totalCostSolesHect = producerSpanish.totalCostSolesHect;
+            breakEvenCostUSPound = producerSpanish.breakEvenCostUSPound;
+            var coop1 = dict["Coop"];
+            coopOutputDTO coop = JsonConvert.DeserializeObject<coopOutputDTO>(coop1.ToString());
+            CoopId = Guid.NewGuid().ToString();
+            coopVariableUSPound = coop.variableCostUSPound;
+            coopFixedUSPound = coop.fixedCostUSPound;
+            coopTotalCostAndDeprUSPound = coop.totalCostAndDeprUSPound;
+            coopTotalCostUSPound = coop.totalCostUSPound;
+            coopBreakEvenCostUSPound = coop.breakEvenCostUSPound;
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputProducer]" +
+                   "(UserID, VariableCostUSPund, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, VariableCostUSHect, VariableCostSolesHect, TotalCostUSHect, " +
+                   "TotalCostSolesHect, BreakEvenCostUSPound) VALUES" +
+                   "(@id, @variableCostUSPund, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @variableCostUSHect, @variableCostSolesHect, @totalCostUSHect, @totalCostSolesHect" +
+                   ", @breakEvenCostUSPound)");
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(sqlQuery);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@variableCostUSPund", variableCostUSpund);
+                command.Parameters.AddWithValue("@fixedCostUSPound", fixedCostUSPound);
+                command.Parameters.AddWithValue("@totalCostAndDeprUSPound", totalCostAndDeprUSPound);
+                command.Parameters.AddWithValue("@totalCostUSPound", totalCostUSPound);
+                command.Parameters.AddWithValue("@variableCostUSHect", variableCostUSHect);
+                command.Parameters.AddWithValue("@variableCostSolesHect", variableCostSolesHect);
+                command.Parameters.AddWithValue("@totalCostUSHect", totalCostUSHect);
+                command.Parameters.AddWithValue("@totalCostSolesHect", totalCostSolesHect);
+                command.Parameters.AddWithValue("@breakEvenCostUSPound", breakEvenCostUSPound);
+                command.Connection = connect;
+                resultProd = command.ExecuteNonQuery();
+                connect.Close();
+            }
+
+            string sqlQueryCoop = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputCoop]" +
+                   "(CoopID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, BreakEvenCostUSPound) VALUES" +
+                   "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @breakEvenCostUSPound)");
+
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(sqlQueryCoop);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@variableCostUSPound", coopVariableUSPound);
+                command.Parameters.AddWithValue("@fixedCostUSPound", coopFixedUSPound);
+                command.Parameters.AddWithValue("@totalCostAndDeprUSPound", coopTotalCostAndDeprUSPound);
+                command.Parameters.AddWithValue("@totalCostUSPound", coopTotalCostUSPound);
+                command.Parameters.AddWithValue("@breakEvenCostUSPound", coopBreakEvenCostUSPound);
+                command.Connection = connect;
+                resultCoop = command.ExecuteNonQuery();
+                connect.Close();
+                
+            }
+
+            if (resultCoop < 0 || resultProd < 0)
+                Console.WriteLine("Error inserting data into Database!");
+            return null;
+            //throw new NotImplementedException();
+        }
+
+        public UserInfoDTO SaveUserInfo(string id, UserInfoDTO userInfoDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

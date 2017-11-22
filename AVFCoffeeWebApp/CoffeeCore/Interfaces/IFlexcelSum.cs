@@ -15,5 +15,9 @@ namespace CoffeeCore.Interfaces
         void SaveUserInputs(string id, ChartInputDTO chartInputDTO);
 
         ChartInputDTO GetUserInputs(String id);
+
+        ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO);
+
+        UserInfoDTO SaveUserInfo(string id, UserInfoDTO userInfoDTO);
     }
 }
