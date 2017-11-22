@@ -179,14 +179,19 @@
         <!--End Sixth Question -->
     
 
-        <a id="submitInput2" class="btn btn-block btn-xl u-btn-darkpurple2 g-rounded-50 g-mr-10 g-mb-15 g-mt-50" data-tag="input-submit" href="SimulationResults">Submit</a>
+        <button id="submitInput2" class="btn btn-block btn-xl u-btn-darkpurple2 g-rounded-50 g-mr-10 g-mb-15 g-mt-50" data-tag="input-submit">Submit</button>
 
     </div>
 </body>
 
 @section Scripts{
+      <!--api url-->
+    <script>
+        var apiURL = "@ViewData["apiURL"]";
+    </script>
 
     <!-- JS Custom -->
-    <script type="text/javascript" src="~/pages/input/js/input.js"></script>
+    <script src="~/js/globalUserObject.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/pages/simulation/js/simulation.js"></script>
 
 }

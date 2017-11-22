@@ -34,7 +34,7 @@
         "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal,
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
-            chartDataObject = [];
+            var chartDataObject = [];
             //result = { "producer": [.41, .06, .84], "cooperative": [.44, .04, .89] }
             //different ways to work with data, chart wants format below. Will depend on what comes back from server 
             /*chartDataObject = {
@@ -53,28 +53,28 @@
             var fixedData = { name: 'Fixed', data: [] };
             var additionalData = { name: 'Additional', data: [] };
 
+            //producer - from UserDataObject
+            variableData.data.push(Math.round(UserData.output.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
+            fixedData.data.push(Math.round(UserData.output.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
+            additionalData.data.push(Math.round(UserData.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
+
+            //simulation
             variableData.data.push(Math.round(result.output.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
             fixedData.data.push(Math.round(result.output.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
             additionalData.data.push(Math.round(result.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
+
+            //coop
             variableData.data.push(result.output.Coop.variableCostUSPound);
             fixedData.data.push(result.output.Coop.fixedCostUSPound);
             additionalData.data.push(result.output.Coop.totalCostAndDeprUSPound);
-
+           
             chartDataObject.push(variableData);
             chartDataObject.push(fixedData);
             chartDataObject.push(additionalData);
 
-            localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
+            localStorage.setItem("simulationChartDataObject", JSON.stringify(chartDataObject));
 
-            //go to chart page
-            //save user input
-
-            console.log(userInputs)
-            //saveUserInput(userInputs)
-            //saveUserOutput(result.output.ProducerOutputEnglish)
-
-            // save input and output .then
-            //window.location.href = '/Results';
+            window.location.href = '/SimulationResults';
         },
         error: function (res, status) {
             if (status === "error") {

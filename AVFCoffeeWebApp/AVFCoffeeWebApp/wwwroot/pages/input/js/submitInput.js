@@ -67,15 +67,14 @@ $("#submitInput").click(function () {
 
             localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
 
-            //go to chart page
-            //save user input
 
-            console.log(userInputs)
-            saveUserInput(userInputs)
-            saveUserOutput(result)
+            //save user input then save user output
+            var promiseSaveInput = saveUserInput(userInputs)
+            var promiseSaveOutput = saveUserOutput(result)
+
 
             // save input and output .then
-            //window.location.href = '/Results';
+            window.location.href = '/Results';
         },
         error: function (res, status) {
             if (status === "error") {
@@ -88,7 +87,7 @@ $("#submitInput").click(function () {
 
 function saveUserInput(userData) {
     var request = JSON.stringify(userData)
-    $.ajax({
+    var promise = $.ajax({
         type: "POST",
         url: apiURL + "CellSum/saveinput",
         data: request,
@@ -99,6 +98,7 @@ function saveUserInput(userData) {
         error: function (res, status) {
         }
     });
+    return promise;
 }
 
 function saveUserOutput(outputData) {
