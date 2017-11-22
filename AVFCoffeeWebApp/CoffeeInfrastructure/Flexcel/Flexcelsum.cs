@@ -397,13 +397,13 @@ namespace CoffeeInfrastructure.Flexcel
             int resultProd, resultCoop;
             Dictionary<String, object> dict = new Dictionary<String, object>();
             dict = chartDataDTO.Output;
-            Double variableCostUSpund, fixedCostUSPound, totalCostAndDeprUSPound, totalCostUSPound, variableCostUSHect, variableCostSolesHect, totalCostUSHect, totalCostSolesHect, breakEvenCostUSPound,
+            Double variableCostUSpound, fixedCostUSPound, totalCostAndDeprUSPound, totalCostUSPound, variableCostUSHect, variableCostSolesHect, totalCostUSHect, totalCostSolesHect, breakEvenCostUSPound,
                 coopVariableUSPound, coopFixedUSPound, coopTotalCostAndDeprUSPound, coopTotalCostUSPound, coopBreakEvenCostUSPound;
             String CoopId;
             var prod = dict["ProducerOutputEnglish"];
             ProducerOutputEnglishDTO producerEnglish = JsonConvert.DeserializeObject<ProducerOutputEnglishDTO>(prod.ToString());
             //JsonConvert.DeserializeObject<producerEnglish>;
-            variableCostUSpund = producerEnglish.variableCostUSPound;
+            variableCostUSpound = producerEnglish.variableCostUSPound;
             fixedCostUSPound = producerEnglish.fixedCostUSPound;
             totalCostAndDeprUSPound = producerEnglish.totalCostAndDeprUSPound;
             totalCostUSPound = producerEnglish.totalCostUSPound;
@@ -424,16 +424,16 @@ namespace CoffeeInfrastructure.Flexcel
             coopBreakEvenCostUSPound = coop.breakEvenCostUSPound;
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputProducer]" +
-                   "(UserID, VariableCostUSPund, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, VariableCostUSHect, VariableCostSolesHect, TotalCostUSHect, " +
+                   "(UserID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, VariableCostUSHect, VariableCostSolesHect, TotalCostUSHect, " +
                    "TotalCostSolesHect, BreakEvenCostUSPound) VALUES" +
-                   "(@id, @variableCostUSPund, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @variableCostUSHect, @variableCostSolesHect, @totalCostUSHect, @totalCostSolesHect" +
+                   "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @variableCostUSHect, @variableCostSolesHect, @totalCostUSHect, @totalCostSolesHect" +
                    ", @breakEvenCostUSPound)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
                 SqlCommand command = new SqlCommand(sqlQuery);
                 command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@variableCostUSPund", variableCostUSpund);
+                command.Parameters.AddWithValue("@variableCostUSPound", variableCostUSpound);
                 command.Parameters.AddWithValue("@fixedCostUSPound", fixedCostUSPound);
                 command.Parameters.AddWithValue("@totalCostAndDeprUSPound", totalCostAndDeprUSPound);
                 command.Parameters.AddWithValue("@totalCostUSPound", totalCostUSPound);
