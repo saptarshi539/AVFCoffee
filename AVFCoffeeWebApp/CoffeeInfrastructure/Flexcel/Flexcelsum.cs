@@ -365,11 +365,15 @@ namespace CoffeeInfrastructure.Flexcel
                             pOutEnglishDTO.totalCostAndDeprUSPound = Convert.ToDouble(reader["TotalCostAndDeprUSPound"].ToString());
                             pOutEnglishDTO.totalCostUSPound = Convert.ToDouble(reader["TotalCostUSPound"].ToString());
                             pOutEnglishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
+                            pOutEnglishDTO.status = true;
                             pOutSpanishDTO.variableCostSolesHect = Convert.ToDouble(reader["VariableCostSolesHect"].ToString());
                             pOutSpanishDTO.variableCostUSHect = Convert.ToDouble(reader["VariableCostUSHect"].ToString());
                             pOutSpanishDTO.totalCostUSHect = Convert.ToDouble(reader["TotalCostUSHect"].ToString());
                             pOutSpanishDTO.totalCostSolesHect = Convert.ToDouble(reader["TotalCostSolesHect"].ToString());
                             pOutSpanishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
+                        } else
+                        {
+                            pOutEnglishDTO.status = false;
                         }
                     }
 
