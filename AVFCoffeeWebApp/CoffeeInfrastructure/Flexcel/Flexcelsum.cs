@@ -278,11 +278,11 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void SaveUserInputs(string id, ChartInputDTO chartInputDTO)
         {
-
+            String timeStamp = DateTime.Now.ToString();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput]" +
-                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID) VALUES" +
-                   "(@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID)");
+                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID, TimeStamp) VALUES" +
+                   "(@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID, @TimeStamp)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
@@ -298,6 +298,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
                 command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
                 command.Parameters.AddWithValue("@UserID", id);
+                command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 int result = command.ExecuteNonQuery();
                 connect.Close();
@@ -323,7 +324,7 @@ namespace CoffeeInfrastructure.Flexcel
                 {
                     con.Open();
 
-                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInput] where UserID = @userid", con);
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInput] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[UserInput])", con);
                     comm.Parameters.AddWithValue("@userid", id);
                     // int result = command.ExecuteNonQuery();
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -351,7 +352,7 @@ namespace CoffeeInfrastructure.Flexcel
                 {
                     con.Open();
 
-                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[OutputProducer] where UserID = @userid", con);
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[OutputProducer] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[OutputProducer])", con);
                     comm.Parameters.AddWithValue("@userid", id);
                     // int result = command.ExecuteNonQuery();
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -401,6 +402,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         public ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO)
         {
+            String timeStamp = DateTime.Now.ToString();
             int resultProd, resultCoop;
             Dictionary<String, object> dict = new Dictionary<String, object>();
             dict = chartDataDTO.Output;
@@ -432,9 +434,9 @@ namespace CoffeeInfrastructure.Flexcel
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputProducer]" +
                    "(UserID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, VariableCostUSHect, VariableCostSolesHect, TotalCostUSHect, " +
-                   "TotalCostSolesHect, BreakEvenCostUSPound) VALUES" +
+                   "TotalCostSolesHect, BreakEvenCostUSPound, TimeStamp) VALUES" +
                    "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @variableCostUSHect, @variableCostSolesHect, @totalCostUSHect, @totalCostSolesHect" +
-                   ", @breakEvenCostUSPound)");
+                   ", @breakEvenCostUSPound, @TimeStamp)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
@@ -449,14 +451,15 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@totalCostUSHect", totalCostUSHect);
                 command.Parameters.AddWithValue("@totalCostSolesHect", totalCostSolesHect);
                 command.Parameters.AddWithValue("@breakEvenCostUSPound", breakEvenCostUSPound);
+                command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 resultProd = command.ExecuteNonQuery();
                 connect.Close();
             }
 
             string sqlQueryCoop = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputCoop]" +
-                   "(CoopID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, BreakEvenCostUSPound) VALUES" +
-                   "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @breakEvenCostUSPound)");
+                   "(CoopID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, BreakEvenCostUSPound, TimeStamp) VALUES" +
+                   "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @breakEvenCostUSPound, @TimeStamp)");
 
             using (SqlConnection connect = new SqlConnection(conn))
             {
@@ -468,6 +471,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@totalCostAndDeprUSPound", coopTotalCostAndDeprUSPound);
                 command.Parameters.AddWithValue("@totalCostUSPound", coopTotalCostUSPound);
                 command.Parameters.AddWithValue("@breakEvenCostUSPound", coopBreakEvenCostUSPound);
+                command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 resultCoop = command.ExecuteNonQuery();
                 connect.Close();
