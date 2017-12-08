@@ -152,18 +152,19 @@ namespace Coffee.APIControllers
         }
 
 
-        public IActionResult GetOutputStatus(string userid)
+        public LoginInfoDTO GetOutputStatus(string userid)
         {
             try
             {
                 LoginInfoDTO output = new LoginInfoDTO();
                 output = flexcelsum.GetUserInputs(userid);
-                return Ok(output);
+                return output;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.InnerException);
-                return StatusCode(500);
+                return null;
+                //return StatusCode(500);
             }
 
         }
