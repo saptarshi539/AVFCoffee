@@ -130,7 +130,7 @@ namespace Coffee.APIControllers
         [Route("getinput")]
         [HttpGet]
         [Produces("application/json")]
-        public IActionResult GetInputs(string userid)
+        public IActionResult GetInputs()
         {
             try
             {
@@ -138,10 +138,26 @@ namespace Coffee.APIControllers
                 if (User.Identity.IsAuthenticated)
                 {
                     var id = User.GetId();
-                    //var id = "e661c05f-dc88-48c3-8026-3718143c56d8";
                     output = flexcelsum.GetUserInputs(id);
                 }
                 //ChartDataDTO sContent = null;
+                return Ok(output);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+
+        public IActionResult GetOutputStatus(string userid)
+        {
+            try
+            {
+                LoginInfoDTO output = new LoginInfoDTO();
+                output = flexcelsum.GetUserInputs(userid);
                 return Ok(output);
             }
             catch (Exception e)
