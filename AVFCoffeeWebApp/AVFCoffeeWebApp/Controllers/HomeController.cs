@@ -34,8 +34,20 @@ namespace AVFCoffeeWebApp.Controllers
                 var prodOutput = prod["ProducerOutputEnglish"];
                 ProducerOutputEnglishDTO producerEnglish = JsonConvert.DeserializeObject<ProducerOutputEnglishDTO>(prodOutput.ToString());
                 var stats = producerEnglish.status;
-                return RedirectToAction("", "Results");
-            }
+                if (stats == true)
+                 {
+                     return RedirectToAction("", "Results");
+                 }
+                 else if ( stats == false)
+                 {
+                     return RedirectToAction("", "Input");
+                 }
+                 else
+                 {
+                     return PartialView();
+                 }
+             }
+
             else
             {
                 return PartialView();
