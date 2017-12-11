@@ -324,7 +324,7 @@ namespace CoffeeInfrastructure.Flexcel
                 {
                     con.Open();
 
-                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInput] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[UserInput])", con);
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInput] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[UserInput] where UserID = @userid)", con);
                     comm.Parameters.AddWithValue("@userid", id);
                     // int result = command.ExecuteNonQuery();
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -352,7 +352,7 @@ namespace CoffeeInfrastructure.Flexcel
                 {
                     con.Open();
 
-                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[OutputProducer] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[OutputProducer])", con);
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[OutputProducer] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[OutputProducer] where UserID = @userid)", con);
                     comm.Parameters.AddWithValue("@userid", id);
                     // int result = command.ExecuteNonQuery();
                     using (SqlDataReader reader = comm.ExecuteReader())
