@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AVFCoffeeWebApp.Controllers
 {
@@ -18,7 +19,7 @@ namespace AVFCoffeeWebApp.Controllers
             _iconfiguration = iconfiguration;
             _env = env;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;
