@@ -8,6 +8,7 @@
         public string Domain { get; set; }
         public string EditProfilePolicyId { get; set; }
         public string SignUpSignInPolicyId { get; set; }
+        public string SpanishSignUpSignInPolicyId { get; set; }
         public string ResetPasswordPolicyId { get; set; }
         public string CallbackPath { get; set; }
         public string DefaultPolicy => SignUpSignInPolicyId;

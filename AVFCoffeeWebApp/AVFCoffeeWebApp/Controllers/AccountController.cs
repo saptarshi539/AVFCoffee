@@ -28,10 +28,20 @@ namespace AVFCoffeeWebApp.Controllers
         //
         // GET: /Account/SignIn
         [HttpGet]
-        public IActionResult SignIn()
+        public IActionResult SignIn(string lang)
         {
-            return Challenge(
-                new AuthenticationProperties { RedirectUri = "/input" }, OpenIdConnectDefaults.AuthenticationScheme);
+            if(lang == "ES")
+            {
+                var properties = new AuthenticationProperties() { RedirectUri = "/input" };
+                properties.Items[AzureAdB2COptions.PolicyAuthenticationProperty] = Options.SpanishSignUpSignInPolicyId;
+                return Challenge(properties, OpenIdConnectDefaults.AuthenticationScheme);
+                
+            }
+            else //(lang == "EN")
+            {
+                return Challenge(
+                    new AuthenticationProperties { RedirectUri = "/input" }, OpenIdConnectDefaults.AuthenticationScheme);
+            }
         }
 
         [HttpGet]
