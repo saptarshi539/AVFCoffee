@@ -26,6 +26,15 @@ namespace AVFCoffeeWebApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                var username = User.GetGivenName();
+                var userID = User.GetId();
+                var language = User.GetSiupinPolicyName();
+                UserInfoDTO user = new UserInfoDTO();
+                user.Language = language;
+                user.UserID = userID;
+                user.UserName = username;
+
+                cellSumController.SaveUser(user);
                 //make call to service
                 var inputOutputObject = cellSumController.GetOutputStatus(User.GetId());
                 var outp = inputOutputObject.loginfo["Outputs"];

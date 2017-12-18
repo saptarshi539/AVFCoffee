@@ -308,6 +308,8 @@ namespace CoffeeInfrastructure.Flexcel
             }
         }
 
+        
+
         public LoginInfoDTO GetUserInputs(String id)
         {
             try
@@ -488,9 +490,63 @@ namespace CoffeeInfrastructure.Flexcel
             //throw new NotImplementedException();
         }
 
-        public UserInfoDTO SaveUserInfo(string id, UserInfoDTO userInfoDTO)
+        public UserInfoDTO SaveUserInfo(UserInfoDTO userInfoDTO)
         {
-            throw new NotImplementedException();
+            int resultUser;
+
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @userid", con);
+                comm.Parameters.AddWithValue("@userid", userInfoDTO.UserID);
+                //comm.Parameters.AddWithValue("@language", userInfoDTO.Language);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        string sqlQueryUser = String.Format("Insert INTO [AVFCoffee].[dbo].[User]" +
+                    "(UserID, CoopID, UserName, Language) VALUES" +
+                    "(@id, @CoopID, @UserName, @Language)");
+                        //var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+                        using (SqlConnection connect = new SqlConnection(conn))
+                        {
+                            connect.Open();
+                            SqlCommand command = new SqlCommand(sqlQueryUser);
+                            command.Parameters.AddWithValue("@id", userInfoDTO.UserID);
+                            command.Parameters.AddWithValue("@CoopID", 0);
+                            command.Parameters.AddWithValue("@UserName", userInfoDTO.UserName);
+                            command.Parameters.AddWithValue("@Language", userInfoDTO.Language);
+                            command.Connection = connect;
+                            resultUser = command.ExecuteNonQuery();
+                            connect.Close();
+
+                        }
+                    } else
+                    {
+                        string sqlQueryUser = String.Format("Update [AVFCoffee].[dbo].[User]" +
+                   "Set [Language] = @language Where UserID = @userid");
+                        //var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+                        using (SqlConnection connect = new SqlConnection(conn))
+                        {
+                            connect.Open();
+                            SqlCommand command = new SqlCommand(sqlQueryUser);
+                            command.Parameters.AddWithValue("@language", userInfoDTO.Language);
+                            command.Parameters.AddWithValue("@userid", userInfoDTO.UserID);
+                            command.Connection = connect;
+                            resultUser = command.ExecuteNonQuery();
+                            connect.Close();
+
+                        }
+                    }
+                }
+
+                con.Close();
+            }
+            
+            return userInfoDTO;
         }
     }
 }

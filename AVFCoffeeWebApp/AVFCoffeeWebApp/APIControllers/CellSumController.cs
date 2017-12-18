@@ -104,28 +104,28 @@ namespace Coffee.APIControllers
 
         }
 
-        [Route("saveuser")]
-        [HttpPost]
-        [Produces("application/json")]
-        public IActionResult PostUserData([FromBody] UserInfoDTO userInfoDTO)
-        {
-            try
-            {
-                if (User.Identity.IsAuthenticated)
-                {
-                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
-                    flexcelsum.SaveUserInfo(id, userInfoDTO);
-                }
-                //ChartDataDTO sContent = null;
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.InnerException);
-                return StatusCode(500);
-            }
+        //[Route("saveuser")]
+        //[HttpPost]
+        //[Produces("application/json")]
+        //public IActionResult PostUserData([FromBody] UserInfoDTO userInfoDTO)
+        //{
+        //    try
+        //    {
+        //        if (User.Identity.IsAuthenticated)
+        //        {
+        //            var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+        //            flexcelsum.SaveUserInfo(id, userInfoDTO);
+        //        }
+        //        //ChartDataDTO sContent = null;
+        //        return Ok();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.InnerException);
+        //        return StatusCode(500);
+        //    }
 
-        }
+        //}
 
         [Route("getinput")]
         [HttpGet]
@@ -158,6 +158,22 @@ namespace Coffee.APIControllers
             {
                 LoginInfoDTO output = new LoginInfoDTO();
                 output = flexcelsum.GetUserInputs(userid);
+                return output;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return null;
+                //return StatusCode(500);
+            }
+
+        }
+
+        public UserInfoDTO SaveUser(UserInfoDTO user)
+        {
+            try
+            {
+                var output = flexcelsum.SaveUserInfo(user);
                 return output;
             }
             catch (Exception e)
