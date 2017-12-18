@@ -96,7 +96,7 @@ var language = {
 }
 
 // default to english
-localStorage.setItem("selectedLanguage", "EN")
+//localStorage.setItem("selectedLanguage", "EN")
 
 
 function translate() { 

@@ -40,7 +40,7 @@ namespace AVFCoffeeWebApp.Controllers
             else //(lang == "EN")
             {
                 return Challenge(
-                    new AuthenticationProperties { RedirectUri = "/input" }, OpenIdConnectDefaults.AuthenticationScheme);
+                    new AuthenticationProperties { RedirectUri = "/home" }, OpenIdConnectDefaults.AuthenticationScheme);
             }
         }
 
