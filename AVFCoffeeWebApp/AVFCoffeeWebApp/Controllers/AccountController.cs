@@ -32,7 +32,7 @@ namespace AVFCoffeeWebApp.Controllers
         {
             if(lang == "ES")
             {
-                var properties = new AuthenticationProperties() { RedirectUri = "/input" };
+                var properties = new AuthenticationProperties() { RedirectUri = "/home" };
                 properties.Items[AzureAdB2COptions.PolicyAuthenticationProperty] = Options.SpanishSignUpSignInPolicyId;
                 return Challenge(properties, OpenIdConnectDefaults.AuthenticationScheme);
                 
