@@ -50,5 +50,10 @@ namespace CoffeeInfrastructure.Helpers
             var claim = ((ClaimsIdentity)user.Identity).FindFirst(B2cClaims.Emails);
             return claim == null ? null : claim.Value;
         }
+        public static string GetSiupinPolicyName(this IPrincipal user)
+        {
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst(B2cClaims.SiupinPolicy);
+            return claim == null ? null : claim.Value;
+        }
     }
 }

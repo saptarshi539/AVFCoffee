@@ -26,7 +26,6 @@
     <Folder Include="Views\Account\" />
     <Folder Include="wwwroot\lib\highcharts\" />
     <Folder Include="wwwroot\pages\home\css\" />
-    <Folder Include="wwwroot\pages\home\js\" />
     <Folder Include="wwwroot\pages\results\css\" />
   </ItemGroup>
 

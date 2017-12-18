@@ -1,6 +1,6 @@
 ﻿//global object for the language settings
 var language = {
-    "spanish": {
+    "ES": {
         "langLink1": "Inglés",
         "langLink2": "Español",
         "home-header": "Bienvenido a Calcucafé",
@@ -47,7 +47,7 @@ var language = {
         }
     },
 
-    "english": {
+    "EN": {
         "langLink1": "English",
         "langLink2": "Spanish",
         "home-header": "Welcome to Calcucafé",
@@ -96,7 +96,7 @@ var language = {
 }
 
 // default to english
-localStorage.setItem("selectedLanguage", "english")
+localStorage.setItem("selectedLanguage", "EN")
 
 
 function translate() { 
@@ -115,14 +115,12 @@ function translate() {
 
 // click event for front page set language links
 $("#english").click(function () {
-    console.log("eng")
-    localStorage.setItem("selectedLanguage", "english")
+    localStorage.setItem("selectedLanguage", "EN")
     translate()
 });
 
 $("#spanish").click(function () {
-    console.log("eng")
-    localStorage.setItem("selectedLanguage", "spanish")
+    localStorage.setItem("selectedLanguage", "ES")
     translate();
 });
 
