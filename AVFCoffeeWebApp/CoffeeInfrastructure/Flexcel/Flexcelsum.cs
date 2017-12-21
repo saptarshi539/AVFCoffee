@@ -386,7 +386,7 @@ namespace CoffeeInfrastructure.Flexcel
                 {
                     con.Open();
 
-                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @userid)", con);
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @userid", con);
                     comm.Parameters.AddWithValue("@userid", id);
                     // int result = command.ExecuteNonQuery();
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -424,7 +424,7 @@ namespace CoffeeInfrastructure.Flexcel
                 outDict.Add("Inputs", chInput);
                 outDict.Add("Outputs", cOut);
 
-                outDict.Add("User", uInfo);
+                outDict.Add("User", null);
                 lInfo.loginfo = outDict;
                 return lInfo;
             }
