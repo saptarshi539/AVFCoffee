@@ -424,7 +424,7 @@ namespace CoffeeInfrastructure.Flexcel
                 outDict.Add("Inputs", chInput);
                 outDict.Add("Outputs", cOut);
 
-                outDict.Add("User", null);
+                outDict.Add("User", uInfo);
                 lInfo.loginfo = outDict;
                 return lInfo;
             }
