@@ -382,6 +382,33 @@ namespace CoffeeInfrastructure.Flexcel
                     con.Close();
                 }
 
+                using (SqlConnection con = new SqlConnection(conn))
+                {
+                    con.Open();
+
+                    SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @userid)", con);
+                    comm.Parameters.AddWithValue("@userid", id);
+                    // int result = command.ExecuteNonQuery();
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            uInfo.Language = reader["Language"].ToString();
+                            uInfo.UserName = reader["UserName"].ToString();
+                            //var output = String.Format("{0}", reader["HectTreesEarly"]);
+                            
+                        }
+                    }
+
+                    con.Close();
+                }
+                if (uInfo.Language == "B2C_1_siupin_es")
+                {
+                    uInfo.Language = "ES";
+                } else
+                {
+                    uInfo.Language = "EN";
+                }
                 coopOutputDTO coopOutputDTO = new coopOutputDTO();
                 coopOutputDTO.variableCostUSPound = 1.05;
                 coopOutputDTO.fixedCostUSPound = 0.06;
@@ -396,7 +423,8 @@ namespace CoffeeInfrastructure.Flexcel
                 Dictionary<String, object> outDict = new Dictionary<String, object>();
                 outDict.Add("Inputs", chInput);
                 outDict.Add("Outputs", cOut);
-                outDict.Add("User", null);
+
+                outDict.Add("User", uInfo);
                 lInfo.loginfo = outDict;
                 return lInfo;
             }
