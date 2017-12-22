@@ -1,10 +1,11 @@
 ﻿var UserData = {
     input: {},
     output: {},
+    resultChartDataObject: {},
     simulationInput: {},
     simulationOutput: {},
-    chartDataObject: {},
-    userData: {}
+    simulationChartDataObject: {},
+    user: {}
 };
 
  
@@ -14,11 +15,14 @@
         url: apiURL + "CellSum/getinput",
         success: function (content, status) {
             if (status != 'nocontent') {
+                console.log(content)
                 UserData.input = content.loginfo.Inputs;
                 UserData.output = content.loginfo.Outputs;
                 UserData.simulationOutput = content.loginfo.Outputs;
                 UserData.simulationInput = content.loginfo.Inputs;
+                UserData.user.language = content.loginfo.User.language;
                 //find out what page is requesting the info
+               
                 var path = window.location.pathname;
                 var page = path.split("/").pop();
 
@@ -48,7 +52,7 @@
                     $("#transportCostSoles").val(UserData.input.transportCostSoles);
                     $("#costPriceSolesPerQuintal").val(UserData.input.costPriceSolesPerQuintal);
                 }
-               
+                
             }
         },
         error: function () {

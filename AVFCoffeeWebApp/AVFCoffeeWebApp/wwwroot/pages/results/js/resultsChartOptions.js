@@ -1,7 +1,12 @@
 ﻿
-function createSimulationChart() {
+function createResultChart() {
     
-     Highcharts.chart('chartdiv2', {
+    var lang = UserData.user.language
+    var chartLanguage = language[lang]["chart"];
+    var chartData = JSON.parse(localStorage.getItem("chartDataObject"))
+    console.log(chartLanguage)
+
+    Highcharts.chart('chartdiv1', {
         exporting: {
             chartOptions: { // specific options for the exported image
                 plotOptions: {
@@ -25,7 +30,7 @@ function createSimulationChart() {
             text: UserData.user.language.chartTitle
         },
         xAxis: {
-            categories: ["Producer", "Simulation", "Cooperative"]
+            categories: UserData.user.language.categories
 
         },
         yAxis: {
@@ -82,10 +87,6 @@ function createSimulationChart() {
                 }
             }
         },
-        series: UserData.simulationChartDataObject
-
-
+        series: UserData.resultChartDataObject
     });
 }
-
-

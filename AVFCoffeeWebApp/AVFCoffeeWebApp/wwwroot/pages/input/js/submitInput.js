@@ -66,7 +66,7 @@ $("#submitInput").click(function () {
             chartDataObject.push(additionalData);
 
             localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
-            localStorage.setItem("selectedLanguage", UserData.userData.Language);
+       
             console.log(localStorage.getItem("selectedLanguage"))
 
 

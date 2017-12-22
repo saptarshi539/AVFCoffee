@@ -1,7 +1,7 @@
 ﻿
 globalDataPromise.done(function (data) {
-    updateChartDataObject();
-    createChart();
+    updateSimulationChartDataObject();
+    createSimulationChart();
     initSimClickEvent();
 });
 
@@ -46,7 +46,7 @@ function initSimClickEvent() {
                 UserData.simulationOutput = result.output
 
                 //create new chart object
-                updateChartDataObject();
+                updateSimulationChartDataObject();
 
                 //update the chart
                // var newData = UserData.chartDataObject;
@@ -68,7 +68,7 @@ function initSimClickEvent() {
     });
 }
 
-function updateChartDataObject() {
+function updateSimulationChartDataObject() {
     var chartDataObject = [];
     var variableData = { name: 'Variable', data: [] };
     var fixedData = { name: 'Fixed', data: [] };
@@ -93,6 +93,6 @@ function updateChartDataObject() {
     chartDataObject.push(fixedData);
     chartDataObject.push(additionalData);
 
-    UserData.chartDataObject = chartDataObject;
+    UserData.simulationChartDataObject = chartDataObject;
     console.log(UserData.chartDataObject)
 }

@@ -1,92 +1,29 @@
-﻿// get language object for rendering chart 
-var selected = localStorage.getItem("selectedLanguage")
-var chartLanguage = language[selected]["chart"]
-var chartData = JSON.parse(localStorage.getItem("chartDataObject"))
+﻿
 
-console.log(chartData)
-Highcharts.chart('chartdiv1', {
-    exporting: {
-        chartOptions: { // specific options for the exported image
-            plotOptions: {
-                series: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            }
-        },
-        fallbackToExportServer: false
-    },
-    colors: ["#B9A5AE", "#9D6D82", "#754A5D", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
-    chart: {
-        type: 'column',
-        marginBottom: 100,
-        marginTop: 100,
-        backgroundColor: '#EFEFEF',
-    },
-    title: {
-        text: chartLanguage.chartTitle
-    },
-    xAxis: {
-        categories: chartLanguage.categories
-
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: chartLanguage.yaxisLabel
-        },
-        stackLabels: {
-            enabled: true,
-            style: {
-                fontWeight: 'bold',
-                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-            }
-        },
-        plotLines: [{
-            color: 'black',
-            value: '1.11', // Insert your average here
-            width: '1',
-            zIndex: 2, // To not get stuck below the regular plot lines,
-            dashStyle: 'ShortDash',
-            label: {
-                text: chartLanguage.plotLineLabel,
-                style: {
-                    textAlign: 'right',
-                    color: 'black',
-                    fontWeight: 'bold',
-                },
-                x: -30
-            }
-        }]
-    },
-    legend: {
-        align: 'center',
-        verticalAlign: 'bottom',
-        floating: true,
-        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-        borderColor: '#CCC',
-        borderWidth: 1,
-        shadow: false
-    },
-    tooltip: {
-        headerFormat: '<b>{point.x}</b><br/>',
-        //pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}<br/>description[{series.name}]',
-        formatter: function () {
-            return '<b>' + this.series.name + '</b>: ' + chartLanguage.description[this.series.name];
-        }
-    },
-    plotOptions: {
-        column: {
-            stacking: 'normal',
-            dataLabels: {
-                enabled: true,
-                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-            }
-        }
-    },
-    series: chartData
+globalDataPromise.done(function (data) {
+    updateResultChartDataObject();
+    createResultChart();
 });
 
+function updateResultChartDataObject() {
+    var chartDataObject = [];
+    var variableData = { name: 'Variable', data: [] };
+    var fixedData = { name: 'Fixed', data: [] };
+    var additionalData = { name: 'Additional', data: [] };
 
+    //producer - from UserDataObject
+    variableData.data.push(Math.round(UserData.output.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
+    fixedData.data.push(Math.round(UserData.output.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
+    additionalData.data.push(Math.round(UserData.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
 
+    //coop
+    variableData.data.push(UserData.output.Coop.variableCostUSPound);
+    fixedData.data.push(UserData.output.Coop.fixedCostUSPound);
+    additionalData.data.push(UserData.output.Coop.totalCostAndDeprUSPound);
+
+    chartDataObject.push(variableData);
+    chartDataObject.push(fixedData);
+    chartDataObject.push(additionalData);
+
+    UserData.resultChartDataObject = chartDataObject;
+}

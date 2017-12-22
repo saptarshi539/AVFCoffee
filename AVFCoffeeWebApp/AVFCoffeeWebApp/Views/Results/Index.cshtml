@@ -5,7 +5,7 @@
 }
 
 
-<body class="g-bg-lightbeige" >
+<body class="g-bg-lightbeige">
     <div class="container">
         <!-- Begin Overview -->
         <!-- Chart -->
@@ -15,14 +15,19 @@
 </body>
 
 
-@section Scripts{ 
+@section Scripts{
     <!-- highcarts javascript sources -->
     <script type="text/javascript" src="~/lib/highcharts/highcharts.src.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
-
+    <!--api url-->
+    <script>
+        var apiURL = "@ViewData["apiURL"]";
+    </script>
     <!-- JS Custom -->
-    <script type="text/javascript" src="~/pages/results/js/results.js"></script>
+    <script src="~/js/globalUserObject.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/pages/results/js/results.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/pages/results/js/resultsChartOptions.js" asp-append-version="true"></script>
 
 }
 
