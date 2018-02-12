@@ -1,5 +1,7 @@
 ﻿
 function createSimulationChart() {
+    var lang = UserData.user.language
+    var chartLanguage = language[lang]["chart"];
     
      Highcharts.chart('chartdiv2', {
         exporting: {
@@ -22,16 +24,15 @@ function createSimulationChart() {
             backgroundColor: '#EFEFEF',
         },
         title: {
-            text: UserData.user.language.chartTitle
+            text: chartLanguage.chartTitle
         },
         xAxis: {
-            categories: ["Producer", "Simulation", "Cooperative"]
-
+            categories: chartLanguage.simulationCategories
         },
         yAxis: {
             min: 0,
             title: {
-                text: UserData.user.language.yaxisLabel
+                text: chartLanguage.yaxisLabel
             },
             stackLabels: {
                 enabled: true,
@@ -42,12 +43,12 @@ function createSimulationChart() {
             },
             plotLines: [{
                 color: 'black',
-                value: '1.11', // Insert your average here
+                value: UserData.input.costPriceSolesPerQuintal, // Insert your average here
                 width: '1',
                 zIndex: 2, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: UserData.user.language.plotLineLabel,
+                    text: UserData.input.costPriceSolesPerQuintal,
                     style: {
                         textAlign: 'right',
                         color: 'black',
@@ -64,13 +65,16 @@ function createSimulationChart() {
             backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
             borderColor: '#CCC',
             borderWidth: 1,
-            shadow: false
+            shadow: false,
+            labelFormatter: function () {
+                return chartLanguage.seriesLabel[this.name].name
+            }
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
             //pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}<br/>description[{series.name}]',
             formatter: function () {
-                return '<b>' + this.series.name + '</b>: ' + UserData.user.language.description[this.series.name];
+                return '<b>' + chartLanguage.seriesLabel[this.series.name].name + '</b>: ' + chartLanguage.seriesLabel[this.series.name].description;
             }
         },
         plotOptions: {

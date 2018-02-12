@@ -52,7 +52,8 @@
                     $("#transportCostSoles").val(UserData.input.transportCostSoles);
                     $("#costPriceSolesPerQuintal").val(UserData.input.costPriceSolesPerQuintal);
                 }
-                
+
+                translate()
             }
         },
         error: function () {

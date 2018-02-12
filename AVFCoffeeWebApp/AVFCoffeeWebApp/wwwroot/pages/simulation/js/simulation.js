@@ -57,7 +57,7 @@ function initSimClickEvent() {
                 //redraw function that is supposed to reanimate the chart with new data,  but it is 
                 //not working here.
                 chart.destroy();
-                createChart();
+                createSimulationChart();
             },
             error: function (res, status) {
                 if (status === "error") {
@@ -94,5 +94,4 @@ function updateSimulationChartDataObject() {
     chartDataObject.push(additionalData);
 
     UserData.simulationChartDataObject = chartDataObject;
-    console.log(UserData.chartDataObject)
 }

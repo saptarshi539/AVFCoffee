@@ -20,7 +20,7 @@ var language = {
         "input-question1-option3": "Viejo",
         "input-question2": "2. ¿Cuál es su método de cultivo?",
         "input-question2-option1": "Orgánico",
-        "input-question2-option2": "Químico",
+        "input-question2-option2": "Convencional",
         "input-question2-option3": "En Transición ",
         "input-question3": "3. ¿Cuánto les paga a sus trabajadores por día?",
         "input-question3-label": "Trabajadores",
@@ -38,13 +38,24 @@ var language = {
         "chart": {
             chartTitle: "Desglose de costos",
             categories: ["Productor", "Cooperativa"],
-            description: {
-                "Variables": "Los costos variables son aquellos asociados a las cantidades de café producidas en la finca o parcela. Estos incluyen mano de obra y otros insumos necesarios para la producción de cantidades específicas de café.",
-                "Fijos": "Los costos fijos tienen que ser pagados sin importaS el nivel de producción de café. Estos incluyen impuestos, membresías a cooperativa entre otros.",
-                "Adicionales": "Los costos de depreciación y totales incluyen la depreciación de herramientas y equipos que se usan por más de un periodo así como el costo de oportunidad de los costos iniciales de establecimiento y de la tierra."
-            },
+            simulationCategories: ["Productor", "Simulación", "Cooperativa"],
             yaxisLabel: "Precio por kilogramo",
             plotLineLabel: "Precio<br/> Actual",
+            seriesLabel: {
+                "Variable": {
+                    "name": "Variables",
+                    "description": "Los costos variables son aquellos asociados a las cantidades de café producidas en la finca o parcela. Estos incluyen mano de obra y otros insumos necesarios para la producción de cantidades específicas de café."
+                }
+                ,
+                "Fixed": {
+                    "name": "Fijos",
+                    "description": "Los costos fijos tienen que ser pagados sin importaS el nivel de producción de café.Estos incluyen impuestos, membresías a cooperativa entre otros.",
+                },
+                "Additional": {
+                    "name": "Adicionales",
+                    "description": "Los costos de depreciación y totales incluyen la depreciación de herramientas y equipos que se usan por más de un periodo así como el costo de oportunidad de los costos iniciales de establecimiento y de la tierra."
+                }
+            }
         }
     },
 
@@ -68,7 +79,7 @@ var language = {
         "input-question1-option3": "Old",
         "input-question2": "2. What is your method of Farming?",
         "input-question2-option1": "Organic",
-        "input-question2-option2": "Chemical",
+        "input-question2-option2": "Conventional",
         "input-question2-option3": "Transition",
         "input-question3": "3. How much do you pay per day to your workers in soles on average?",
         "input-question3-label": "Laborers",
@@ -86,19 +97,26 @@ var language = {
         "chart": {
             chartTitle: "Your Farm",
             categories: ["Your Farm", "Co-op Average"],
-            description: {
-                "Variable": "Variable Costs are directly related to coffee farm output. These include hired labor and production inputs such as fertilizer or pesticides.",
-                "Fixed": "Fixed costs must be paid whether or not any coffee is produced. These include cooperative memberships costs, taxes, and supplies.",
-                "Additional": "Total costs includes the depreciation for assets used in more than one harvest cycles, start-up costs,and the opportunity costs of land and farm management."
-            },
+            simulationCategories: ["Producer", "Simulation", "Cooperative"],
             yaxisLabel: "Price per pound",
-            plotLineLabel: "Current<br/>Price"
+            plotLineLabel: "Current<br/>Price",
+            seriesLabel: {
+                "Variable": {
+                    "name": "Variable",
+                    "description": "Variable Costs are directly related to coffee farm output. These include hired labor and production inputs such as fertilizer or pesticides."
+                },
+                "Fixed": {
+                    "name": "Fixed",
+                    "description": "Fixed costs must be paid whether or not any coffee is produced. These include cooperative memberships costs, taxes, and supplies."
+                },
+                "Additional": {
+                    "name": "Additional",
+                    "description": "Total costs includes the depreciation for assets used in more than one harvest cycles, start-up costs,and the opportunity costs of land and farm management."
+                }
+            }
         }
     }
 }
-
-// default to english
-//localStorage.setItem("selectedLanguage", "EN")
 
 
 function translate() { 
@@ -106,6 +124,7 @@ function translate() {
     //filter the document to pull out just elements with a data-tag attribute
     var datas = $("*").filter("[data-tag]")
     var selected = localStorage.getItem("selectedLanguage")
+
 
    //iterate through the data-tags, lookup the lang value and update the element
     datas.each(function (i, e) {
@@ -128,5 +147,19 @@ $("#spanish").click(function () {
 
 // on each ppage load, translate to the selected languaage
 $(document).ready(function () {
-    translate();
+    //if (page.toLowerCase() != "simulation") 
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    // default to spanish
+   
+    if (page == '') {
+        localStorage.setItem("selectedLanguage", "ES")
+        translate();
+    }
+    else {
+        globalDataPromise.then(function (value) {
+            localStorage.setItem("selectedLanguage", UserData.user.language);
+            
+        })
+    }
 })
