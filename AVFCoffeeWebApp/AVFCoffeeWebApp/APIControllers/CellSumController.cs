@@ -42,12 +42,13 @@ namespace Coffee.APIControllers
         [HttpGet]
         [Produces("application/json")]
         public IActionResult GetChartValues(Double earlyHectares = 1.03, Double peakHectares = 1.94, Double oldHectares = 1.97, bool conventional = true, bool organic = false, 
-            bool transition = false, Double workerSalarySoles = 16.16, Double productionQuintales = 14, Double transportCostSoles = 235.22, Double costPriceSolesPerQuintal = 556.51)
+            bool transition = false, Double workerSalarySoles = 16.16, Double productionQuintales = 14, Double transportCostSoles = 235.22, Double costPriceSolesPerQuintal = 556.51, 
+            Double expSolesChem = 379.80, Double expSolesOrg = 379.80)
         {
             try
             {
                 ChartDataDTO sContent = flexcelsum.getOutputFromExcel(earlyHectares,peakHectares,oldHectares,conventional, organic, transition, workerSalarySoles, productionQuintales,
-                    transportCostSoles, costPriceSolesPerQuintal);
+                    transportCostSoles, costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
                 return Ok(sContent);
             }
             catch (Exception e)

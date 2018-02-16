@@ -62,8 +62,8 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Sheet Options
             xls.SheetName = "Inputs advanced";
-            xls.SheetZoom = 55;
-            xls.SheetView = new TSheetView(TSheetViewType.Normal, true, true, 55, 55, 0);
+            xls.SheetZoom = 50;
+            xls.SheetView = new TSheetView(TSheetViewType.Normal, true, true, 50, 50, 0);
 
             //Styles.
             TFlxFormat StyleFmt;
@@ -144,502 +144,417 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.Orientation;
             xls.PrintPaperSize = TPaperSize.Letter;
 
-            //Theme - You might use GetTheme/SetTheme methods here instead.
-            xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
-            xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
-            xls.SetColorTheme(TThemeColor.Accent1, TUIColor.FromArgb(0x4F, 0x81, 0xBD));
-            xls.SetColorTheme(TThemeColor.Accent2, TUIColor.FromArgb(0xC0, 0x50, 0x4D));
-            xls.SetColorTheme(TThemeColor.Accent3, TUIColor.FromArgb(0x9B, 0xBB, 0x59));
-            xls.SetColorTheme(TThemeColor.Accent4, TUIColor.FromArgb(0x80, 0x64, 0xA2));
-            xls.SetColorTheme(TThemeColor.Accent5, TUIColor.FromArgb(0x4B, 0xAC, 0xC6));
-            xls.SetColorTheme(TThemeColor.Accent6, TUIColor.FromArgb(0xF7, 0x96, 0x46));
-            xls.SetColorTheme(TThemeColor.HyperLink, TUIColor.FromArgb(0x00, 0x00, 0xFF));
-            xls.SetColorTheme(TThemeColor.FollowedHyperLink, TUIColor.FromArgb(0x80, 0x00, 0x80));
-
-            //Major font
-            TThemeTextFont MajorLatin = new TThemeTextFont("Cambria", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MajorFont = new TThemeFont(MajorLatin, MajorEastAsian, MajorComplexScript);
-            MajorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MajorFont.AddFont("Hang", "맑은 고딕");
-            MajorFont.AddFont("Hans", "宋体");
-            MajorFont.AddFont("Hant", "新細明體");
-            MajorFont.AddFont("Arab", "Times New Roman");
-            MajorFont.AddFont("Hebr", "Times New Roman");
-            MajorFont.AddFont("Thai", "Tahoma");
-            MajorFont.AddFont("Ethi", "Nyala");
-            MajorFont.AddFont("Beng", "Vrinda");
-            MajorFont.AddFont("Gujr", "Shruti");
-            MajorFont.AddFont("Khmr", "MoolBoran");
-            MajorFont.AddFont("Knda", "Tunga");
-            MajorFont.AddFont("Guru", "Raavi");
-            MajorFont.AddFont("Cans", "Euphemia");
-            MajorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MajorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MajorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MajorFont.AddFont("Thaa", "MV Boli");
-            MajorFont.AddFont("Deva", "Mangal");
-            MajorFont.AddFont("Telu", "Gautami");
-            MajorFont.AddFont("Taml", "Latha");
-            MajorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MajorFont.AddFont("Orya", "Kalinga");
-            MajorFont.AddFont("Mlym", "Kartika");
-            MajorFont.AddFont("Laoo", "DokChampa");
-            MajorFont.AddFont("Sinh", "Iskoola Pota");
-            MajorFont.AddFont("Mong", "Mongolian Baiti");
-            MajorFont.AddFont("Viet", "Times New Roman");
-            MajorFont.AddFont("Uigh", "Microsoft Uighur");
-            MajorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Major, MajorFont);
-
-            //Minor font
-            TThemeTextFont MinorLatin = new TThemeTextFont("Calibri", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MinorFont = new TThemeFont(MinorLatin, MinorEastAsian, MinorComplexScript);
-            MinorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MinorFont.AddFont("Hang", "맑은 고딕");
-            MinorFont.AddFont("Hans", "宋体");
-            MinorFont.AddFont("Hant", "新細明體");
-            MinorFont.AddFont("Arab", "Arial");
-            MinorFont.AddFont("Hebr", "Arial");
-            MinorFont.AddFont("Thai", "Tahoma");
-            MinorFont.AddFont("Ethi", "Nyala");
-            MinorFont.AddFont("Beng", "Vrinda");
-            MinorFont.AddFont("Gujr", "Shruti");
-            MinorFont.AddFont("Khmr", "DaunPenh");
-            MinorFont.AddFont("Knda", "Tunga");
-            MinorFont.AddFont("Guru", "Raavi");
-            MinorFont.AddFont("Cans", "Euphemia");
-            MinorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MinorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MinorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MinorFont.AddFont("Thaa", "MV Boli");
-            MinorFont.AddFont("Deva", "Mangal");
-            MinorFont.AddFont("Telu", "Gautami");
-            MinorFont.AddFont("Taml", "Latha");
-            MinorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MinorFont.AddFont("Orya", "Kalinga");
-            MinorFont.AddFont("Mlym", "Kartika");
-            MinorFont.AddFont("Laoo", "DokChampa");
-            MinorFont.AddFont("Sinh", "Iskoola Pota");
-            MinorFont.AddFont("Mong", "Mongolian Baiti");
-            MinorFont.AddFont("Viet", "Arial");
-            MinorFont.AddFont("Uigh", "Microsoft Uighur");
-            MinorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Minor, MinorFont);
-
             //Set up rows and columns
-            xls.DefaultColWidth = 2272;
+            xls.DefaultColWidth = 2261;
 
             xls.SetColWidth(3, 3, 4992);    //(18.75 + 0.75) * 256
 
-            xls.SetColWidth(4, 4, 5088);    //(19.13 + 0.75) * 256
+            xls.SetColWidth(4, 4, 5077);    //(19.08 + 0.75) * 256
 
-            xls.SetColWidth(5, 5, 18592);    //(71.88 + 0.75) * 256
+            xls.SetColWidth(5, 5, 18602);    //(71.91 + 0.75) * 256
 
-            xls.SetColWidth(6, 6, 4640);    //(17.38 + 0.75) * 256
+            xls.SetColWidth(6, 6, 4650);    //(17.41 + 0.75) * 256
 
             xls.SetColWidth(7, 7, 9856);    //(37.75 + 0.75) * 256
 
-            xls.SetColWidth(8, 8, 9120);    //(34.88 + 0.75) * 256
+            xls.SetColWidth(8, 8, 9130);    //(34.91 + 0.75) * 256
 
-            xls.SetColWidth(17, 17, 2720);    //(9.88 + 0.75) * 256
-            xls.DefaultRowHeight = 315;
+            xls.SetColWidth(17, 17, 2730);    //(9.91 + 0.75) * 256
 
-            xls.SetRowHeight(3, 1440);    //72.00 * 20
+            xls.SetRowHeight(3, 1400);    //70.00 * 20
             xls.SetRowHeight(4, 1380);    //69.00 * 20
             xls.SetRowHeight(5, 1050);    //52.50 * 20
             xls.SetRowHeight(6, 360);    //18.00 * 20
-            xls.SetRowHeight(8, 630);    //31.50 * 20
-            xls.SetRowHeight(9, 630);    //31.50 * 20
-            xls.SetRowHeight(10, 630);    //31.50 * 20
-            xls.SetRowHeight(11, 630);    //31.50 * 20
+            xls.SetRowHeight(8, 620);    //31.00 * 20
+            xls.SetRowHeight(9, 620);    //31.00 * 20
+            xls.SetRowHeight(10, 620);    //31.00 * 20
+            xls.SetRowHeight(11, 620);    //31.00 * 20
             xls.SetRowHeight(12, 360);    //18.00 * 20
-            xls.SetRowHeight(13, 630);    //31.50 * 20
-            xls.SetRowHeight(14, 630);    //31.50 * 20
-            xls.SetRowHeight(15, 630);    //31.50 * 20
-            xls.SetRowHeight(16, 630);    //31.50 * 20
-            xls.SetRowHeight(17, 630);    //31.50 * 20
-            xls.SetRowHeight(18, 630);    //31.50 * 20
-            xls.SetRowHeight(19, 630);    //31.50 * 20
-            xls.SetRowHeight(20, 630);    //31.50 * 20
-            xls.SetRowHeight(21, 630);    //31.50 * 20
-            xls.SetRowHeight(22, 630);    //31.50 * 20
+            xls.SetRowHeight(13, 620);    //31.00 * 20
+            xls.SetRowHeight(14, 620);    //31.00 * 20
+            xls.SetRowHeight(15, 620);    //31.00 * 20
+            xls.SetRowHeight(16, 620);    //31.00 * 20
+            xls.SetRowHeight(17, 620);    //31.00 * 20
+            xls.SetRowHeight(18, 620);    //31.00 * 20
+            xls.SetRowHeight(19, 620);    //31.00 * 20
+            xls.SetRowHeight(20, 620);    //31.00 * 20
+            xls.SetRowHeight(21, 620);    //31.00 * 20
+            xls.SetRowHeight(22, 620);    //31.00 * 20
             xls.SetRowHeight(23, 1080);    //54.00 * 20
-            xls.SetRowHeight(24, 630);    //31.50 * 20
-            xls.SetRowHeight(25, 630);    //31.50 * 20
-            xls.SetRowHeight(26, 630);    //31.50 * 20
-            xls.SetRowHeight(27, 630);    //31.50 * 20
-            xls.SetRowHeight(28, 630);    //31.50 * 20
-            xls.SetRowHeight(29, 630);    //31.50 * 20
-            xls.SetRowHeight(30, 630);    //31.50 * 20
-            xls.SetRowHeight(31, 630);    //31.50 * 20
-            xls.SetRowHeight(32, 630);    //31.50 * 20
-            xls.SetRowHeight(33, 630);    //31.50 * 20
-            xls.SetRowHeight(34, 645);    //32.25 * 20
+            xls.SetRowHeight(24, 620);    //31.00 * 20
+            xls.SetRowHeight(25, 620);    //31.00 * 20
+            xls.SetRowHeight(26, 620);    //31.00 * 20
+            xls.SetRowHeight(27, 620);    //31.00 * 20
+            xls.SetRowHeight(28, 620);    //31.00 * 20
+            xls.SetRowHeight(29, 620);    //31.00 * 20
+            xls.SetRowHeight(30, 620);    //31.00 * 20
+            xls.SetRowHeight(31, 620);    //31.00 * 20
+            xls.SetRowHeight(32, 620);    //31.00 * 20
+            xls.SetRowHeight(33, 620);    //31.00 * 20
+            xls.SetRowHeight(34, 630);    //31.50 * 20
             xls.SetRowHeight(35, 360);    //18.00 * 20
-            xls.SetRowHeight(36, 630);    //31.50 * 20
-            xls.SetRowHeight(37, 630);    //31.50 * 20
-            xls.SetRowHeight(38, 630);    //31.50 * 20
-            xls.SetRowHeight(39, 630);    //31.50 * 20
-            xls.SetRowHeight(40, 645);    //32.25 * 20
-            xls.SetRowHeight(41, 405);    //20.25 * 20
-            xls.SetRowHeight(42, 1125);    //56.25 * 20
-            xls.SetRowHeight(43, 630);    //31.50 * 20
-            xls.SetRowHeight(44, 630);    //31.50 * 20
-            xls.SetRowHeight(45, 630);    //31.50 * 20
-            xls.SetRowHeight(46, 630);    //31.50 * 20
-            xls.SetRowHeight(47, 1125);    //56.25 * 20
-            xls.SetRowHeight(48, 630);    //31.50 * 20
-            xls.SetRowHeight(50, 630);    //31.50 * 20
-            xls.SetRowHeight(51, 1125);    //56.25 * 20
-            xls.SetRowHeight(52, 630);    //31.50 * 20
-            xls.SetRowHeight(53, 630);    //31.50 * 20
-            xls.SetRowHeight(54, 630);    //31.50 * 20
-            xls.SetRowHeight(55, 645);    //32.25 * 20
+            xls.SetRowHeight(36, 620);    //31.00 * 20
+            xls.SetRowHeight(37, 620);    //31.00 * 20
+            xls.SetRowHeight(38, 620);    //31.00 * 20
+            xls.SetRowHeight(39, 620);    //31.00 * 20
+            xls.SetRowHeight(40, 630);    //31.50 * 20
+            xls.SetRowHeight(41, 400);    //20.00 * 20
+            xls.SetRowHeight(42, 700);    //35.00 * 20
+            xls.SetRowHeight(43, 620);    //31.00 * 20
+            xls.SetRowHeight(44, 620);    //31.00 * 20
+            xls.SetRowHeight(45, 620);    //31.00 * 20
+            xls.SetRowHeight(46, 620);    //31.00 * 20
+            xls.SetRowHeight(47, 700);    //35.00 * 20
+            xls.SetRowHeight(48, 620);    //31.00 * 20
+            xls.SetRowHeight(50, 620);    //31.00 * 20
+            xls.SetRowHeight(51, 700);    //35.00 * 20
+            xls.SetRowHeight(52, 620);    //31.00 * 20
+            xls.SetRowHeight(53, 620);    //31.00 * 20
+            xls.SetRowHeight(54, 620);    //31.00 * 20
+            xls.SetRowHeight(55, 630);    //31.50 * 20
             xls.SetRowHeight(56, 510);    //25.50 * 20
-            xls.SetRowHeight(57, 630);    //31.50 * 20
-            xls.SetRowHeight(58, 630);    //31.50 * 20
-            xls.SetRowHeight(59, 630);    //31.50 * 20
-            xls.SetRowHeight(60, 720);    //36.00 * 20
-            xls.SetRowHeight(61, 645);    //32.25 * 20
+            xls.SetRowHeight(57, 620);    //31.00 * 20
+            xls.SetRowHeight(58, 620);    //31.00 * 20
+            xls.SetRowHeight(59, 620);    //31.00 * 20
+            xls.SetRowHeight(60, 700);    //35.00 * 20
+            xls.SetRowHeight(61, 630);    //31.50 * 20
             xls.SetRowHeight(62, 360);    //18.00 * 20
-            xls.SetRowHeight(63, 630);    //31.50 * 20
-            xls.SetRowHeight(64, 630);    //31.50 * 20
-            xls.SetRowHeight(65, 630);    //31.50 * 20
-            xls.SetRowHeight(66, 630);    //31.50 * 20
-            xls.SetRowHeight(67, 630);    //31.50 * 20
-            xls.SetRowHeight(68, 630);    //31.50 * 20
-            xls.SetRowHeight(69, 630);    //31.50 * 20
-            xls.SetRowHeight(70, 630);    //31.50 * 20
-            xls.SetRowHeight(71, 630);    //31.50 * 20
-            xls.SetRowHeight(72, 630);    //31.50 * 20
+            xls.SetRowHeight(63, 620);    //31.00 * 20
+            xls.SetRowHeight(64, 620);    //31.00 * 20
+            xls.SetRowHeight(65, 620);    //31.00 * 20
+            xls.SetRowHeight(66, 620);    //31.00 * 20
+            xls.SetRowHeight(67, 620);    //31.00 * 20
+            xls.SetRowHeight(68, 620);    //31.00 * 20
+            xls.SetRowHeight(69, 620);    //31.00 * 20
+            xls.SetRowHeight(70, 620);    //31.00 * 20
+            xls.SetRowHeight(71, 620);    //31.00 * 20
+            xls.SetRowHeight(72, 620);    //31.00 * 20
             xls.SetRowHeight(73, 360);    //18.00 * 20
-            xls.SetRowHeight(74, 630);    //31.50 * 20
-            xls.SetRowHeight(75, 630);    //31.50 * 20
-            xls.SetRowHeight(76, 630);    //31.50 * 20
-            xls.SetRowHeight(77, 630);    //31.50 * 20
-            xls.SetRowHeight(78, 630);    //31.50 * 20
+            xls.SetRowHeight(74, 620);    //31.00 * 20
+            xls.SetRowHeight(75, 620);    //31.00 * 20
+            xls.SetRowHeight(76, 620);    //31.00 * 20
+            xls.SetRowHeight(77, 620);    //31.00 * 20
+            xls.SetRowHeight(78, 620);    //31.00 * 20
             xls.SetRowHeight(79, 360);    //18.00 * 20
-            xls.SetRowHeight(80, 630);    //31.50 * 20
-            xls.SetRowHeight(81, 630);    //31.50 * 20
-            xls.SetRowHeight(82, 630);    //31.50 * 20
-            xls.SetRowHeight(83, 630);    //31.50 * 20
-            xls.SetRowHeight(84, 630);    //31.50 * 20
-            xls.SetRowHeight(85, 630);    //31.50 * 20
-            xls.SetRowHeight(86, 630);    //31.50 * 20
-            xls.SetRowHeight(87, 630);    //31.50 * 20
-            xls.SetRowHeight(88, 645);    //32.25 * 20
+            xls.SetRowHeight(80, 620);    //31.00 * 20
+            xls.SetRowHeight(81, 620);    //31.00 * 20
+            xls.SetRowHeight(82, 620);    //31.00 * 20
+            xls.SetRowHeight(83, 620);    //31.00 * 20
+            xls.SetRowHeight(84, 620);    //31.00 * 20
+            xls.SetRowHeight(85, 620);    //31.00 * 20
+            xls.SetRowHeight(86, 620);    //31.00 * 20
+            xls.SetRowHeight(87, 620);    //31.00 * 20
+            xls.SetRowHeight(88, 630);    //31.50 * 20
             xls.SetRowHeight(89, 360);    //18.00 * 20
-            xls.SetRowHeight(90, 630);    //31.50 * 20
-            xls.SetRowHeight(91, 630);    //31.50 * 20
-            xls.SetRowHeight(92, 630);    //31.50 * 20
-            xls.SetRowHeight(93, 630);    //31.50 * 20
-            xls.SetRowHeight(94, 630);    //31.50 * 20
-            xls.SetRowHeight(95, 630);    //31.50 * 20
-            xls.SetRowHeight(96, 630);    //31.50 * 20
-            xls.SetRowHeight(97, 630);    //31.50 * 20
-            xls.SetRowHeight(98, 630);    //31.50 * 20
-            xls.SetRowHeight(99, 630);    //31.50 * 20
+            xls.SetRowHeight(90, 620);    //31.00 * 20
+            xls.SetRowHeight(91, 620);    //31.00 * 20
+            xls.SetRowHeight(92, 620);    //31.00 * 20
+            xls.SetRowHeight(93, 620);    //31.00 * 20
+            xls.SetRowHeight(94, 620);    //31.00 * 20
+            xls.SetRowHeight(95, 620);    //31.00 * 20
+            xls.SetRowHeight(96, 620);    //31.00 * 20
+            xls.SetRowHeight(97, 620);    //31.00 * 20
+            xls.SetRowHeight(98, 620);    //31.00 * 20
+            xls.SetRowHeight(99, 620);    //31.00 * 20
             xls.SetRowHeight(100, 360);    //18.00 * 20
-            xls.SetRowHeight(101, 630);    //31.50 * 20
-            xls.SetRowHeight(102, 630);    //31.50 * 20
-            xls.SetRowHeight(103, 630);    //31.50 * 20
-            xls.SetRowHeight(104, 630);    //31.50 * 20
-            xls.SetRowHeight(105, 630);    //31.50 * 20
+            xls.SetRowHeight(101, 620);    //31.00 * 20
+            xls.SetRowHeight(102, 620);    //31.00 * 20
+            xls.SetRowHeight(103, 620);    //31.00 * 20
+            xls.SetRowHeight(104, 620);    //31.00 * 20
+            xls.SetRowHeight(105, 620);    //31.00 * 20
             xls.SetRowHeight(106, 360);    //18.00 * 20
-            xls.SetRowHeight(107, 630);    //31.50 * 20
-            xls.SetRowHeight(108, 630);    //31.50 * 20
-            xls.SetRowHeight(109, 630);    //31.50 * 20
-            xls.SetRowHeight(110, 630);    //31.50 * 20
-            xls.SetRowHeight(111, 630);    //31.50 * 20
-            xls.SetRowHeight(112, 630);    //31.50 * 20
-            xls.SetRowHeight(113, 630);    //31.50 * 20
-            xls.SetRowHeight(114, 630);    //31.50 * 20
-            xls.SetRowHeight(115, 645);    //32.25 * 20
+            xls.SetRowHeight(107, 620);    //31.00 * 20
+            xls.SetRowHeight(108, 620);    //31.00 * 20
+            xls.SetRowHeight(109, 620);    //31.00 * 20
+            xls.SetRowHeight(110, 620);    //31.00 * 20
+            xls.SetRowHeight(111, 620);    //31.00 * 20
+            xls.SetRowHeight(112, 620);    //31.00 * 20
+            xls.SetRowHeight(113, 620);    //31.00 * 20
+            xls.SetRowHeight(114, 620);    //31.00 * 20
+            xls.SetRowHeight(115, 630);    //31.50 * 20
             xls.SetRowHeight(116, 360);    //18.00 * 20
-            xls.SetRowHeight(117, 630);    //31.50 * 20
-            xls.SetRowHeight(118, 630);    //31.50 * 20
-            xls.SetRowHeight(119, 630);    //31.50 * 20
-            xls.SetRowHeight(120, 630);    //31.50 * 20
-            xls.SetRowHeight(121, 630);    //31.50 * 20
-            xls.SetRowHeight(122, 630);    //31.50 * 20
-            xls.SetRowHeight(123, 630);    //31.50 * 20
-            xls.SetRowHeight(124, 630);    //31.50 * 20
-            xls.SetRowHeight(125, 630);    //31.50 * 20
-            xls.SetRowHeight(126, 630);    //31.50 * 20
+            xls.SetRowHeight(117, 620);    //31.00 * 20
+            xls.SetRowHeight(118, 620);    //31.00 * 20
+            xls.SetRowHeight(119, 620);    //31.00 * 20
+            xls.SetRowHeight(120, 620);    //31.00 * 20
+            xls.SetRowHeight(121, 620);    //31.00 * 20
+            xls.SetRowHeight(122, 620);    //31.00 * 20
+            xls.SetRowHeight(123, 620);    //31.00 * 20
+            xls.SetRowHeight(124, 620);    //31.00 * 20
+            xls.SetRowHeight(125, 620);    //31.00 * 20
+            xls.SetRowHeight(126, 620);    //31.00 * 20
             xls.SetRowHeight(127, 360);    //18.00 * 20
-            xls.SetRowHeight(128, 630);    //31.50 * 20
-            xls.SetRowHeight(129, 630);    //31.50 * 20
-            xls.SetRowHeight(130, 630);    //31.50 * 20
-            xls.SetRowHeight(131, 630);    //31.50 * 20
-            xls.SetRowHeight(132, 630);    //31.50 * 20
+            xls.SetRowHeight(128, 620);    //31.00 * 20
+            xls.SetRowHeight(129, 620);    //31.00 * 20
+            xls.SetRowHeight(130, 620);    //31.00 * 20
+            xls.SetRowHeight(131, 620);    //31.00 * 20
+            xls.SetRowHeight(132, 620);    //31.00 * 20
             xls.SetRowHeight(133, 360);    //18.00 * 20
-            xls.SetRowHeight(134, 630);    //31.50 * 20
-            xls.SetRowHeight(135, 630);    //31.50 * 20
-            xls.SetRowHeight(136, 630);    //31.50 * 20
-            xls.SetRowHeight(137, 630);    //31.50 * 20
-            xls.SetRowHeight(138, 630);    //31.50 * 20
-            xls.SetRowHeight(139, 630);    //31.50 * 20
-            xls.SetRowHeight(140, 630);    //31.50 * 20
-            xls.SetRowHeight(141, 630);    //31.50 * 20
-            xls.SetRowHeight(142, 645);    //32.25 * 20
-            xls.SetRowHeight(143, 630);    //31.50 * 20
-            xls.SetRowHeight(144, 630);    //31.50 * 20
-            xls.SetRowHeight(145, 405);    //20.25 * 20
-            xls.SetRowHeight(146, 735);    //36.75 * 20
-            xls.SetRowHeight(147, 630);    //31.50 * 20
-            xls.SetRowHeight(148, 405);    //20.25 * 20
-            xls.SetRowHeight(149, 630);    //31.50 * 20
-            xls.SetRowHeight(150, 630);    //31.50 * 20
-            xls.SetRowHeight(151, 630);    //31.50 * 20
-            xls.SetRowHeight(152, 945);    //47.25 * 20
+            xls.SetRowHeight(134, 620);    //31.00 * 20
+            xls.SetRowHeight(135, 620);    //31.00 * 20
+            xls.SetRowHeight(136, 620);    //31.00 * 20
+            xls.SetRowHeight(137, 620);    //31.00 * 20
+            xls.SetRowHeight(138, 620);    //31.00 * 20
+            xls.SetRowHeight(139, 620);    //31.00 * 20
+            xls.SetRowHeight(140, 620);    //31.00 * 20
+            xls.SetRowHeight(141, 620);    //31.00 * 20
+            xls.SetRowHeight(142, 630);    //31.50 * 20
+            xls.SetRowHeight(143, 620);    //31.00 * 20
+            xls.SetRowHeight(144, 620);    //31.00 * 20
+            xls.SetRowHeight(145, 400);    //20.00 * 20
+            xls.SetRowHeight(146, 700);    //35.00 * 20
+            xls.SetRowHeight(147, 620);    //31.00 * 20
+            xls.SetRowHeight(148, 400);    //20.00 * 20
+            xls.SetRowHeight(149, 620);    //31.00 * 20
+            xls.SetRowHeight(150, 620);    //31.00 * 20
+            xls.SetRowHeight(151, 620);    //31.00 * 20
+            xls.SetRowHeight(152, 930);    //46.50 * 20
             xls.SetRowHeight(153, 630);    //31.50 * 20
             xls.SetRowHeight(154, 630);    //31.50 * 20
             xls.SetRowHeight(155, 630);    //31.50 * 20
-            xls.SetRowHeight(156, 360);    //18.00 * 20
-            xls.SetRowHeight(157, 630);    //31.50 * 20
-            xls.SetRowHeight(158, 630);    //31.50 * 20
-            xls.SetRowHeight(159, 630);    //31.50 * 20
-            xls.SetRowHeight(160, 630);    //31.50 * 20
-            xls.SetRowHeight(161, 630);    //31.50 * 20
-            xls.SetRowHeight(162, 630);    //31.50 * 20
-            xls.SetRowHeight(163, 630);    //31.50 * 20
-            xls.SetRowHeight(164, 630);    //31.50 * 20
-            xls.SetRowHeight(165, 630);    //31.50 * 20
-            xls.SetRowHeight(166, 630);    //31.50 * 20
-            xls.SetRowHeight(167, 630);    //31.50 * 20
-            xls.SetRowHeight(168, 630);    //31.50 * 20
-            xls.SetRowHeight(169, 630);    //31.50 * 20
-            xls.SetRowHeight(170, 630);    //31.50 * 20
-            xls.SetRowHeight(171, 630);    //31.50 * 20
-            xls.SetRowHeight(172, 630);    //31.50 * 20
-            xls.SetRowHeight(173, 630);    //31.50 * 20
-            xls.SetRowHeight(174, 630);    //31.50 * 20
-            xls.SetRowHeight(175, 630);    //31.50 * 20
-            xls.SetRowHeight(176, 630);    //31.50 * 20
-            xls.SetRowHeight(178, 630);    //31.50 * 20
-            xls.SetRowHeight(179, 630);    //31.50 * 20
-            xls.SetRowHeight(180, 630);    //31.50 * 20
-            xls.SetRowHeight(182, 630);    //31.50 * 20
-            xls.SetRowHeight(183, 630);    //31.50 * 20
-            xls.SetRowHeight(184, 630);    //31.50 * 20
-            xls.SetRowHeight(185, 630);    //31.50 * 20
-            xls.SetRowHeight(186, 720);    //36.00 * 20
-            xls.SetRowHeight(187, 720);    //36.00 * 20
-            xls.SetRowHeight(189, 630);    //31.50 * 20
-            xls.SetRowHeight(190, 630);    //31.50 * 20
-            xls.SetRowHeight(191, 630);    //31.50 * 20
-            xls.SetRowHeight(192, 630);    //31.50 * 20
-            xls.SetRowHeight(193, 630);    //31.50 * 20
-            xls.SetRowHeight(194, 630);    //31.50 * 20
-            xls.SetRowHeight(195, 465);    //23.25 * 20
+            xls.SetRowHeight(156, 350);    //17.50 * 20
+            xls.SetRowHeight(157, 620);    //31.00 * 20
+            xls.SetRowHeight(158, 620);    //31.00 * 20
+            xls.SetRowHeight(159, 620);    //31.00 * 20
+            xls.SetRowHeight(160, 620);    //31.00 * 20
+            xls.SetRowHeight(161, 620);    //31.00 * 20
+            xls.SetRowHeight(162, 620);    //31.00 * 20
+            xls.SetRowHeight(163, 620);    //31.00 * 20
+            xls.SetRowHeight(164, 620);    //31.00 * 20
+            xls.SetRowHeight(165, 620);    //31.00 * 20
+            xls.SetRowHeight(166, 620);    //31.00 * 20
+            xls.SetRowHeight(167, 620);    //31.00 * 20
+            xls.SetRowHeight(168, 620);    //31.00 * 20
+            xls.SetRowHeight(169, 620);    //31.00 * 20
+            xls.SetRowHeight(170, 620);    //31.00 * 20
+            xls.SetRowHeight(171, 620);    //31.00 * 20
+            xls.SetRowHeight(172, 620);    //31.00 * 20
+            xls.SetRowHeight(173, 620);    //31.00 * 20
+            xls.SetRowHeight(174, 620);    //31.00 * 20
+            xls.SetRowHeight(175, 620);    //31.00 * 20
+            xls.SetRowHeight(176, 620);    //31.00 * 20
+            xls.SetRowHeight(178, 620);    //31.00 * 20
+            xls.SetRowHeight(179, 620);    //31.00 * 20
+            xls.SetRowHeight(180, 620);    //31.00 * 20
+            xls.SetRowHeight(182, 620);    //31.00 * 20
+            xls.SetRowHeight(183, 620);    //31.00 * 20
+            xls.SetRowHeight(184, 620);    //31.00 * 20
+            xls.SetRowHeight(185, 620);    //31.00 * 20
+            xls.SetRowHeight(186, 700);    //35.00 * 20
+            xls.SetRowHeight(187, 700);    //35.00 * 20
+            xls.SetRowHeight(189, 620);    //31.00 * 20
+            xls.SetRowHeight(190, 620);    //31.00 * 20
+            xls.SetRowHeight(191, 620);    //31.00 * 20
+            xls.SetRowHeight(192, 620);    //31.00 * 20
+            xls.SetRowHeight(193, 620);    //31.00 * 20
+            xls.SetRowHeight(194, 620);    //31.00 * 20
+            xls.SetRowHeight(195, 460);    //23.00 * 20
             xls.SetRowHeight(196, 720);    //36.00 * 20
-            xls.SetRowHeight(197, 1080);    //54.00 * 20
-            xls.SetRowHeight(198, 630);    //31.50 * 20
-            xls.SetRowHeight(199, 630);    //31.50 * 20
-            xls.SetRowHeight(200, 630);    //31.50 * 20
-            xls.SetRowHeight(201, 630);    //31.50 * 20
-            xls.SetRowHeight(202, 1080);    //54.00 * 20
-            xls.SetRowHeight(203, 720);    //36.00 * 20
-            xls.SetRowHeight(204, 720);    //36.00 * 20
-            xls.SetRowHeight(205, 630);    //31.50 * 20
-            xls.SetRowHeight(206, 1080);    //54.00 * 20
-            xls.SetRowHeight(207, 720);    //36.00 * 20
-            xls.SetRowHeight(208, 750);    //37.50 * 20
-            xls.SetRowHeight(209, 630);    //31.50 * 20
-            xls.SetRowHeight(210, 630);    //31.50 * 20
-            xls.SetRowHeight(211, 630);    //31.50 * 20
-            xls.SetRowHeight(212, 630);    //31.50 * 20
-            xls.SetRowHeight(213, 630);    //31.50 * 20
-            xls.SetRowHeight(214, 630);    //31.50 * 20
-            xls.SetRowHeight(215, 630);    //31.50 * 20
-            xls.SetRowHeight(216, 630);    //31.50 * 20
-            xls.SetRowHeight(217, 630);    //31.50 * 20
-            xls.SetRowHeight(218, 465);    //23.25 * 20
-            xls.SetRowHeight(219, 720);    //36.00 * 20
-            xls.SetRowHeight(220, 630);    //31.50 * 20
-            xls.SetRowHeight(221, 630);    //31.50 * 20
-            xls.SetRowHeight(222, 630);    //31.50 * 20
-            xls.SetRowHeight(223, 720);    //36.00 * 20
-            xls.SetRowHeight(224, 630);    //31.50 * 20
-            xls.SetRowHeight(225, 630);    //31.50 * 20
-            xls.SetRowHeight(226, 360);    //18.00 * 20
-            xls.SetRowHeight(227, 630);    //31.50 * 20
-            xls.SetRowHeight(228, 630);    //31.50 * 20
-            xls.SetRowHeight(229, 465);    //23.25 * 20
-            xls.SetRowHeight(230, 630);    //31.50 * 20
-            xls.SetRowHeight(231, 630);    //31.50 * 20
-            xls.SetRowHeight(232, 630);    //31.50 * 20
-            xls.SetRowHeight(233, 630);    //31.50 * 20
-            xls.SetRowHeight(234, 630);    //31.50 * 20
-            xls.SetRowHeight(235, 360);    //18.00 * 20
-            xls.SetRowHeight(236, 630);    //31.50 * 20
-            xls.SetRowHeight(237, 630);    //31.50 * 20
-            xls.SetRowHeight(238, 630);    //31.50 * 20
-            xls.SetRowHeight(239, 630);    //31.50 * 20
-            xls.SetRowHeight(240, 630);    //31.50 * 20
-            xls.SetRowHeight(241, 630);    //31.50 * 20
-            xls.SetRowHeight(242, 630);    //31.50 * 20
-            xls.SetRowHeight(243, 630);    //31.50 * 20
-            xls.SetRowHeight(244, 630);    //31.50 * 20
-            xls.SetRowHeight(245, 360);    //18.00 * 20
-            xls.SetRowHeight(246, 630);    //31.50 * 20
-            xls.SetRowHeight(247, 630);    //31.50 * 20
-            xls.SetRowHeight(248, 630);    //31.50 * 20
-            xls.SetRowHeight(249, 630);    //31.50 * 20
-            xls.SetRowHeight(250, 525);    //26.25 * 20
-            xls.SetRowHeight(251, 375);    //18.75 * 20
-            xls.SetRowHeight(252, 630);    //31.50 * 20
-            xls.SetRowHeight(253, 630);    //31.50 * 20
-            xls.SetRowHeight(254, 630);    //31.50 * 20
-            xls.SetRowHeight(255, 630);    //31.50 * 20
-            xls.SetRowHeight(256, 630);    //31.50 * 20
-            xls.SetRowHeight(257, 630);    //31.50 * 20
-            xls.SetRowHeight(258, 630);    //31.50 * 20
-            xls.SetRowHeight(259, 375);    //18.75 * 20
-            xls.SetRowHeight(260, 630);    //31.50 * 20
-            xls.SetRowHeight(261, 630);    //31.50 * 20
-            xls.SetRowHeight(262, 630);    //31.50 * 20
-            xls.SetRowHeight(263, 630);    //31.50 * 20
-            xls.SetRowHeight(264, 630);    //31.50 * 20
-            xls.SetRowHeight(265, 630);    //31.50 * 20
-            xls.SetRowHeight(266, 630);    //31.50 * 20
-            xls.SetRowHeight(267, 630);    //31.50 * 20
-            xls.SetRowHeight(268, 630);    //31.50 * 20
-            xls.SetRowHeight(269, 630);    //31.50 * 20
-            xls.SetRowHeight(270, 360);    //18.00 * 20
-            xls.SetRowHeight(271, 360);    //18.00 * 20
-            xls.SetRowHeight(272, 630);    //31.50 * 20
-            xls.SetRowHeight(273, 375);    //18.75 * 20
+            xls.SetRowHeight(197, 1050);    //52.50 * 20
+            xls.SetRowHeight(198, 620);    //31.00 * 20
+            xls.SetRowHeight(199, 620);    //31.00 * 20
+            xls.SetRowHeight(200, 620);    //31.00 * 20
+            xls.SetRowHeight(201, 620);    //31.00 * 20
+            xls.SetRowHeight(202, 700);    //35.00 * 20
+            xls.SetRowHeight(203, 700);    //35.00 * 20
+            xls.SetRowHeight(204, 700);    //35.00 * 20
+            xls.SetRowHeight(205, 620);    //31.00 * 20
+            xls.SetRowHeight(206, 1050);    //52.50 * 20
+            xls.SetRowHeight(207, 700);    //35.00 * 20
+            xls.SetRowHeight(208, 700);    //35.00 * 20
+            xls.SetRowHeight(209, 620);    //31.00 * 20
+            xls.SetRowHeight(210, 620);    //31.00 * 20
+            xls.SetRowHeight(211, 620);    //31.00 * 20
+            xls.SetRowHeight(212, 620);    //31.00 * 20
+            xls.SetRowHeight(213, 620);    //31.00 * 20
+            xls.SetRowHeight(214, 620);    //31.00 * 20
+            xls.SetRowHeight(215, 620);    //31.00 * 20
+            xls.SetRowHeight(216, 620);    //31.00 * 20
+            xls.SetRowHeight(217, 620);    //31.00 * 20
+            xls.SetRowHeight(218, 460);    //23.00 * 20
+            xls.SetRowHeight(219, 700);    //35.00 * 20
+            xls.SetRowHeight(220, 620);    //31.00 * 20
+            xls.SetRowHeight(221, 620);    //31.00 * 20
+            xls.SetRowHeight(222, 620);    //31.00 * 20
+            xls.SetRowHeight(223, 700);    //35.00 * 20
+            xls.SetRowHeight(224, 620);    //31.00 * 20
+            xls.SetRowHeight(225, 620);    //31.00 * 20
+            xls.SetRowHeight(226, 350);    //17.50 * 20
+            xls.SetRowHeight(227, 620);    //31.00 * 20
+            xls.SetRowHeight(228, 620);    //31.00 * 20
+            xls.SetRowHeight(229, 460);    //23.00 * 20
+            xls.SetRowHeight(230, 620);    //31.00 * 20
+            xls.SetRowHeight(231, 620);    //31.00 * 20
+            xls.SetRowHeight(232, 620);    //31.00 * 20
+            xls.SetRowHeight(233, 620);    //31.00 * 20
+            xls.SetRowHeight(234, 620);    //31.00 * 20
+            xls.SetRowHeight(235, 350);    //17.50 * 20
+            xls.SetRowHeight(236, 620);    //31.00 * 20
+            xls.SetRowHeight(237, 620);    //31.00 * 20
+            xls.SetRowHeight(238, 620);    //31.00 * 20
+            xls.SetRowHeight(239, 620);    //31.00 * 20
+            xls.SetRowHeight(240, 620);    //31.00 * 20
+            xls.SetRowHeight(241, 620);    //31.00 * 20
+            xls.SetRowHeight(242, 620);    //31.00 * 20
+            xls.SetRowHeight(243, 620);    //31.00 * 20
+            xls.SetRowHeight(244, 620);    //31.00 * 20
+            xls.SetRowHeight(245, 350);    //17.50 * 20
+            xls.SetRowHeight(246, 620);    //31.00 * 20
+            xls.SetRowHeight(247, 620);    //31.00 * 20
+            xls.SetRowHeight(248, 620);    //31.00 * 20
+            xls.SetRowHeight(249, 620);    //31.00 * 20
+            xls.SetRowHeight(250, 500);    //25.00 * 20
+            xls.SetRowHeight(251, 350);    //17.50 * 20
+            xls.SetRowHeight(252, 620);    //31.00 * 20
+            xls.SetRowHeight(253, 620);    //31.00 * 20
+            xls.SetRowHeight(254, 620);    //31.00 * 20
+            xls.SetRowHeight(255, 620);    //31.00 * 20
+            xls.SetRowHeight(256, 620);    //31.00 * 20
+            xls.SetRowHeight(257, 620);    //31.00 * 20
+            xls.SetRowHeight(258, 620);    //31.00 * 20
+            xls.SetRowHeight(259, 350);    //17.50 * 20
+            xls.SetRowHeight(260, 620);    //31.00 * 20
+            xls.SetRowHeight(261, 620);    //31.00 * 20
+            xls.SetRowHeight(262, 620);    //31.00 * 20
+            xls.SetRowHeight(263, 620);    //31.00 * 20
+            xls.SetRowHeight(264, 620);    //31.00 * 20
+            xls.SetRowHeight(265, 620);    //31.00 * 20
+            xls.SetRowHeight(266, 620);    //31.00 * 20
+            xls.SetRowHeight(267, 620);    //31.00 * 20
+            xls.SetRowHeight(268, 620);    //31.00 * 20
+            xls.SetRowHeight(269, 620);    //31.00 * 20
+            xls.SetRowHeight(270, 350);    //17.50 * 20
+            xls.SetRowHeight(271, 350);    //17.50 * 20
+            xls.SetRowHeight(272, 620);    //31.00 * 20
+            xls.SetRowHeight(273, 740);    //37.00 * 20
             xls.SetRowHeight(274, 630);    //31.50 * 20
-            xls.SetRowHeight(275, 630);    //31.50 * 20
-            xls.SetRowHeight(276, 630);    //31.50 * 20
-            xls.SetRowHeight(281, 390);    //19.50 * 20
-            xls.SetRowHeight(282, 360);    //18.00 * 20
-            xls.SetRowHeight(289, 780);    //39.00 * 20
-            xls.SetRowHeight(290, 630);    //31.50 * 20
-            xls.SetRowHeight(303, 630);    //31.50 * 20
-            xls.SetRowHeight(304, 630);    //31.50 * 20
-            xls.SetRowHeight(305, 405);    //20.25 * 20
-            xls.SetRowHeight(306, 630);    //31.50 * 20
-            xls.SetRowHeight(307, 630);    //31.50 * 20
-            xls.SetRowHeight(308, 630);    //31.50 * 20
-            xls.SetRowHeight(309, 630);    //31.50 * 20
-            xls.SetRowHeight(310, 630);    //31.50 * 20
-            xls.SetRowHeight(311, 630);    //31.50 * 20
-            xls.SetRowHeight(312, 630);    //31.50 * 20
-            xls.SetRowHeight(313, 630);    //31.50 * 20
-            xls.SetRowHeight(314, 630);    //31.50 * 20
-            xls.SetRowHeight(315, 630);    //31.50 * 20
-            xls.SetRowHeight(316, 630);    //31.50 * 20
-            xls.SetRowHeight(317, 630);    //31.50 * 20
-            xls.SetRowHeight(318, 630);    //31.50 * 20
-            xls.SetRowHeight(319, 630);    //31.50 * 20
-            xls.SetRowHeight(320, 630);    //31.50 * 20
-            xls.SetRowHeight(321, 630);    //31.50 * 20
-            xls.SetRowHeight(322, 630);    //31.50 * 20
-            xls.SetRowHeight(323, 630);    //31.50 * 20
-            xls.SetRowHeight(324, 630);    //31.50 * 20
-            xls.SetRowHeight(325, 630);    //31.50 * 20
-            xls.SetRowHeight(326, 630);    //31.50 * 20
-            xls.SetRowHeight(327, 630);    //31.50 * 20
-            xls.SetRowHeight(328, 630);    //31.50 * 20
-            xls.SetRowHeight(329, 630);    //31.50 * 20
-            xls.SetRowHeight(330, 630);    //31.50 * 20
-            xls.SetRowHeight(331, 630);    //31.50 * 20
-            xls.SetRowHeight(332, 630);    //31.50 * 20
-            xls.SetRowHeight(333, 630);    //31.50 * 20
-            xls.SetRowHeight(334, 630);    //31.50 * 20
-            xls.SetRowHeight(335, 630);    //31.50 * 20
-            xls.SetRowHeight(336, 375);    //18.75 * 20
-            xls.SetRowHeight(337, 630);    //31.50 * 20
-            xls.SetRowHeight(338, 630);    //31.50 * 20
-            xls.SetRowHeight(339, 630);    //31.50 * 20
-            xls.SetRowHeight(340, 630);    //31.50 * 20
-            xls.SetRowHeight(341, 630);    //31.50 * 20
-            xls.SetRowHeight(342, 630);    //31.50 * 20
-            xls.SetRowHeight(343, 630);    //31.50 * 20
-            xls.SetRowHeight(344, 630);    //31.50 * 20
-            xls.SetRowHeight(345, 630);    //31.50 * 20
-            xls.SetRowHeight(346, 630);    //31.50 * 20
-            xls.SetRowHeight(347, 630);    //31.50 * 20
-            xls.SetRowHeight(348, 630);    //31.50 * 20
-            xls.SetRowHeight(349, 630);    //31.50 * 20
-            xls.SetRowHeight(350, 630);    //31.50 * 20
-            xls.SetRowHeight(351, 630);    //31.50 * 20
-            xls.SetRowHeight(352, 630);    //31.50 * 20
-            xls.SetRowHeight(353, 630);    //31.50 * 20
-            xls.SetRowHeight(354, 630);    //31.50 * 20
-            xls.SetRowHeight(355, 630);    //31.50 * 20
-            xls.SetRowHeight(356, 630);    //31.50 * 20
-            xls.SetRowHeight(357, 375);    //18.75 * 20
-            xls.SetRowHeight(358, 630);    //31.50 * 20
-            xls.SetRowHeight(359, 630);    //31.50 * 20
-            xls.SetRowHeight(360, 630);    //31.50 * 20
-            xls.SetRowHeight(361, 630);    //31.50 * 20
-            xls.SetRowHeight(362, 630);    //31.50 * 20
-            xls.SetRowHeight(363, 630);    //31.50 * 20
-            xls.SetRowHeight(364, 630);    //31.50 * 20
-            xls.SetRowHeight(365, 630);    //31.50 * 20
-            xls.SetRowHeight(366, 630);    //31.50 * 20
-            xls.SetRowHeight(367, 630);    //31.50 * 20
-            xls.SetRowHeight(368, 630);    //31.50 * 20
-            xls.SetRowHeight(369, 630);    //31.50 * 20
-            xls.SetRowHeight(370, 630);    //31.50 * 20
-            xls.SetRowHeight(371, 630);    //31.50 * 20
-            xls.SetRowHeight(372, 630);    //31.50 * 20
-            xls.SetRowHeight(373, 630);    //31.50 * 20
-            xls.SetRowHeight(374, 630);    //31.50 * 20
-            xls.SetRowHeight(375, 630);    //31.50 * 20
-            xls.SetRowHeight(376, 630);    //31.50 * 20
-            xls.SetRowHeight(377, 630);    //31.50 * 20
-            xls.SetRowHeight(378, 630);    //31.50 * 20
-            xls.SetRowHeight(379, 630);    //31.50 * 20
-            xls.SetRowHeight(380, 630);    //31.50 * 20
-            xls.SetRowHeight(381, 630);    //31.50 * 20
-            xls.SetRowHeight(382, 630);    //31.50 * 20
-            xls.SetRowHeight(383, 630);    //31.50 * 20
-            xls.SetRowHeight(384, 630);    //31.50 * 20
-            xls.SetRowHeight(385, 630);    //31.50 * 20
-            xls.SetRowHeight(386, 630);    //31.50 * 20
-            xls.SetRowHeight(387, 630);    //31.50 * 20
-            xls.SetRowHeight(388, 630);    //31.50 * 20
-            xls.SetRowHeight(389, 630);    //31.50 * 20
-            xls.SetRowHeight(390, 630);    //31.50 * 20
-            xls.SetRowHeight(391, 630);    //31.50 * 20
-            xls.SetRowHeight(392, 375);    //18.75 * 20
-            xls.SetRowHeight(393, 720);    //36.00 * 20
-            xls.SetRowHeight(394, 720);    //36.00 * 20
-            xls.SetRowHeight(395, 720);    //36.00 * 20
-            xls.SetRowHeight(396, 630);    //31.50 * 20
-            xls.SetRowHeight(397, 405);    //20.25 * 20
-            xls.SetRowHeight(398, 630);    //31.50 * 20
-            xls.SetRowHeight(399, 630);    //31.50 * 20
-            xls.SetRowHeight(400, 630);    //31.50 * 20
-            xls.SetRowHeight(401, 405);    //20.25 * 20
-            xls.SetRowHeight(402, 630);    //31.50 * 20
+            xls.SetRowHeight(275, 620);    //31.00 * 20
+            xls.SetRowHeight(276, 620);    //31.00 * 20
+            xls.SetRowHeight(278, 580);    //29.00 * 20
+            xls.SetRowHeight(281, 740);    //37.00 * 20
+            xls.SetRowHeight(282, 820);    //41.00 * 20
+            xls.SetRowHeight(286, 600);    //30.00 * 20
+            xls.SetRowHeight(289, 1020);    //51.00 * 20
+            xls.SetRowHeight(290, 640);    //32.00 * 20
+            xls.SetRowHeight(295, 780);    //39.00 * 20
+            xls.SetRowHeight(297, 400);    //20.00 * 20
+            xls.SetRowHeight(301, 400);    //20.00 * 20
+            xls.SetRowHeight(303, 620);    //31.00 * 20
+            xls.SetRowHeight(304, 620);    //31.00 * 20
+            xls.SetRowHeight(305, 400);    //20.00 * 20
+            xls.SetRowHeight(306, 620);    //31.00 * 20
+            xls.SetRowHeight(307, 620);    //31.00 * 20
+            xls.SetRowHeight(308, 620);    //31.00 * 20
+            xls.SetRowHeight(309, 620);    //31.00 * 20
+            xls.SetRowHeight(310, 620);    //31.00 * 20
+            xls.SetRowHeight(311, 620);    //31.00 * 20
+            xls.SetRowHeight(312, 620);    //31.00 * 20
+            xls.SetRowHeight(313, 620);    //31.00 * 20
+            xls.SetRowHeight(314, 620);    //31.00 * 20
+            xls.SetRowHeight(315, 620);    //31.00 * 20
+            xls.SetRowHeight(316, 620);    //31.00 * 20
+            xls.SetRowHeight(317, 620);    //31.00 * 20
+            xls.SetRowHeight(318, 620);    //31.00 * 20
+            xls.SetRowHeight(319, 620);    //31.00 * 20
+            xls.SetRowHeight(320, 620);    //31.00 * 20
+            xls.SetRowHeight(321, 620);    //31.00 * 20
+            xls.SetRowHeight(322, 620);    //31.00 * 20
+            xls.SetRowHeight(323, 620);    //31.00 * 20
+            xls.SetRowHeight(324, 620);    //31.00 * 20
+            xls.SetRowHeight(325, 620);    //31.00 * 20
+            xls.SetRowHeight(326, 620);    //31.00 * 20
+            xls.SetRowHeight(327, 620);    //31.00 * 20
+            xls.SetRowHeight(328, 620);    //31.00 * 20
+            xls.SetRowHeight(329, 620);    //31.00 * 20
+            xls.SetRowHeight(330, 620);    //31.00 * 20
+            xls.SetRowHeight(331, 620);    //31.00 * 20
+            xls.SetRowHeight(332, 620);    //31.00 * 20
+            xls.SetRowHeight(333, 620);    //31.00 * 20
+            xls.SetRowHeight(334, 620);    //31.00 * 20
+            xls.SetRowHeight(335, 620);    //31.00 * 20
+            xls.SetRowHeight(336, 350);    //17.50 * 20
+            xls.SetRowHeight(337, 620);    //31.00 * 20
+            xls.SetRowHeight(338, 620);    //31.00 * 20
+            xls.SetRowHeight(339, 620);    //31.00 * 20
+            xls.SetRowHeight(340, 620);    //31.00 * 20
+            xls.SetRowHeight(341, 620);    //31.00 * 20
+            xls.SetRowHeight(342, 620);    //31.00 * 20
+            xls.SetRowHeight(343, 620);    //31.00 * 20
+            xls.SetRowHeight(344, 620);    //31.00 * 20
+            xls.SetRowHeight(345, 620);    //31.00 * 20
+            xls.SetRowHeight(346, 620);    //31.00 * 20
+            xls.SetRowHeight(347, 620);    //31.00 * 20
+            xls.SetRowHeight(348, 620);    //31.00 * 20
+            xls.SetRowHeight(349, 620);    //31.00 * 20
+            xls.SetRowHeight(350, 620);    //31.00 * 20
+            xls.SetRowHeight(351, 620);    //31.00 * 20
+            xls.SetRowHeight(352, 620);    //31.00 * 20
+            xls.SetRowHeight(353, 620);    //31.00 * 20
+            xls.SetRowHeight(354, 620);    //31.00 * 20
+            xls.SetRowHeight(355, 620);    //31.00 * 20
+            xls.SetRowHeight(356, 620);    //31.00 * 20
+            xls.SetRowHeight(357, 350);    //17.50 * 20
+            xls.SetRowHeight(358, 620);    //31.00 * 20
+            xls.SetRowHeight(359, 620);    //31.00 * 20
+            xls.SetRowHeight(360, 620);    //31.00 * 20
+            xls.SetRowHeight(361, 620);    //31.00 * 20
+            xls.SetRowHeight(362, 620);    //31.00 * 20
+            xls.SetRowHeight(363, 620);    //31.00 * 20
+            xls.SetRowHeight(364, 620);    //31.00 * 20
+            xls.SetRowHeight(365, 620);    //31.00 * 20
+            xls.SetRowHeight(366, 620);    //31.00 * 20
+            xls.SetRowHeight(367, 620);    //31.00 * 20
+            xls.SetRowHeight(368, 620);    //31.00 * 20
+            xls.SetRowHeight(369, 620);    //31.00 * 20
+            xls.SetRowHeight(370, 620);    //31.00 * 20
+            xls.SetRowHeight(371, 620);    //31.00 * 20
+            xls.SetRowHeight(372, 620);    //31.00 * 20
+            xls.SetRowHeight(373, 620);    //31.00 * 20
+            xls.SetRowHeight(374, 620);    //31.00 * 20
+            xls.SetRowHeight(375, 620);    //31.00 * 20
+            xls.SetRowHeight(376, 620);    //31.00 * 20
+            xls.SetRowHeight(377, 620);    //31.00 * 20
+            xls.SetRowHeight(378, 620);    //31.00 * 20
+            xls.SetRowHeight(379, 620);    //31.00 * 20
+            xls.SetRowHeight(380, 620);    //31.00 * 20
+            xls.SetRowHeight(381, 620);    //31.00 * 20
+            xls.SetRowHeight(382, 620);    //31.00 * 20
+            xls.SetRowHeight(383, 620);    //31.00 * 20
+            xls.SetRowHeight(384, 620);    //31.00 * 20
+            xls.SetRowHeight(385, 620);    //31.00 * 20
+            xls.SetRowHeight(386, 620);    //31.00 * 20
+            xls.SetRowHeight(387, 620);    //31.00 * 20
+            xls.SetRowHeight(388, 620);    //31.00 * 20
+            xls.SetRowHeight(389, 620);    //31.00 * 20
+            xls.SetRowHeight(390, 620);    //31.00 * 20
+            xls.SetRowHeight(391, 620);    //31.00 * 20
+            xls.SetRowHeight(392, 350);    //17.50 * 20
+            xls.SetRowHeight(393, 700);    //35.00 * 20
+            xls.SetRowHeight(394, 700);    //35.00 * 20
+            xls.SetRowHeight(395, 700);    //35.00 * 20
+            xls.SetRowHeight(396, 620);    //31.00 * 20
+            xls.SetRowHeight(397, 400);    //20.00 * 20
+            xls.SetRowHeight(398, 620);    //31.00 * 20
+            xls.SetRowHeight(399, 620);    //31.00 * 20
+            xls.SetRowHeight(400, 620);    //31.00 * 20
+            xls.SetRowHeight(401, 400);    //20.00 * 20
+            xls.SetRowHeight(402, 620);    //31.00 * 20
             xls.SetRowHeight(403, 630);    //31.50 * 20
-            xls.SetRowHeight(404, 720);    //36.00 * 20
-            xls.SetRowHeight(405, 405);    //20.25 * 20
-            xls.SetRowHeight(406, 630);    //31.50 * 20
-            xls.SetRowHeight(407, 630);    //31.50 * 20
-            xls.SetRowHeight(408, 630);    //31.50 * 20
-            xls.SetRowHeight(409, 405);    //20.25 * 20
-            xls.SetRowHeight(410, 1080);    //54.00 * 20
-            xls.SetRowHeight(411, 1440);    //72.00 * 20
-            xls.SetRowHeight(412, 720);    //36.00 * 20
-            xls.SetRowHeight(413, 1080);    //54.00 * 20
-            xls.SetRowHeight(414, 645);    //32.25 * 20
-            xls.SetRowHeight(415, 645);    //32.25 * 20
-            xls.SetRowHeight(416, 660);    //33.00 * 20
+            xls.SetRowHeight(404, 710);    //35.50 * 20
+            xls.SetRowHeight(405, 400);    //20.00 * 20
+            xls.SetRowHeight(406, 620);    //31.00 * 20
+            xls.SetRowHeight(407, 620);    //31.00 * 20
+            xls.SetRowHeight(408, 620);    //31.00 * 20
+            xls.SetRowHeight(409, 400);    //20.00 * 20
+            xls.SetRowHeight(410, 1050);    //52.50 * 20
+            xls.SetRowHeight(411, 1400);    //70.00 * 20
+            xls.SetRowHeight(412, 700);    //35.00 * 20
+            xls.SetRowHeight(413, 700);    //35.00 * 20
+            xls.SetRowHeight(414, 630);    //31.50 * 20
+            xls.SetRowHeight(415, 630);    //31.50 * 20
+            xls.SetRowHeight(416, 640);    //32.00 * 20
 
             //Merged Cells
-            xls.MergeCells(196, 8, 208, 8);
-            xls.MergeCells(209, 8, 217, 8);
-            xls.MergeCells(62, 4, 88, 4);
             xls.MergeCells(62, 3, 88, 3);
             xls.MergeCells(6, 3, 55, 3);
             xls.MergeCells(143, 3, 416, 3);
@@ -654,6 +569,9 @@ namespace CoffeeInfrastructure.Flexcel
             xls.MergeCells(56, 4, 61, 4);
             xls.MergeCells(6, 4, 34, 4);
             xls.MergeCells(35, 4, 40, 4);
+            xls.MergeCells(196, 8, 208, 8);
+            xls.MergeCells(209, 8, 217, 8);
+            xls.MergeCells(62, 4, 88, 4);
 
             //Set the cell values
             TFlxFormat fmt;
@@ -3403,6 +3321,9 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(59, 6);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, 0.799981688894314);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "0.00";
             xls.SetCellFormat(59, 6, xls.AddFormat(fmt));
             xls.SetCellValue(59, 6, new TFormula("='Inputs 1.0_metric_currency'!D17"));
@@ -9007,7 +8928,12 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(178, 6);
             fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(178, 6, xls.AddFormat(fmt));
             xls.SetCellValue(178, 6, new TFormula("='Inputs 1.0_metric_currency'!D10"));
 
@@ -9045,7 +8971,12 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(179, 6);
             fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(179, 6, xls.AddFormat(fmt));
             xls.SetCellValue(179, 6, new TFormula("='Inputs 1.0_metric_currency'!D11"));
 
@@ -9083,7 +9014,12 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(180, 6);
             fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(180, 6, xls.AddFormat(fmt));
             xls.SetCellValue(180, 6, new TFormula("='Inputs 1.0_metric_currency'!D12"));
 
@@ -9691,7 +9627,7 @@ namespace CoffeeInfrastructure.Flexcel
     fmt = xls.GetCellVisibleFormatDef(196, 6);
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent4, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(196, 6, xls.AddFormat(fmt));
             xls.SetCellValue(196, 6, new TFormula("='Inputs 1.0_metric_currency'!$D$19"));
@@ -12796,9 +12732,18 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(273, 5, xls.AddFormat(fmt));
             xls.SetCellValue(273, 5, "Materiales para Preparacion terreno y siembra (Año 0)");
 
+            fmt = xls.GetCellVisibleFormatDef(273, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(273, 6, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(273, 7);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(273, 7, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(274, 3);
@@ -12812,25 +12757,24 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(274, 5);
             fmt.Font.Name = "Arial";
-            fmt.Font.Size20 = 280;
-            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x80, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.right;
             fmt.WrapText = true;
             xls.SetCellFormat(274, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(274, 5, "Abono orgánicos o COMPOST para LOS HOYOS");
 
-            Runs = new TRTFRun[1];
-            Runs[0].FirstChar = 26;
-            fnt = xls.GetDefaultFont;
-            fnt.Name = "Arial";
-            fnt.Size20 = 280;
-            fnt.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
-            fnt.Scheme = TFontScheme.None;
-            Runs[0].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(274, 5, new TRichString("Abono orgánicos o COMPOST para LOS HOYOS", Runs, xls));
-            //We could also have used: xls.SetCellFromHtml(274, 5, "Abono org&aacute;nicos o COMPOST&nbsp;<font color = 'red'>para LOS HOYOS</font>")
-
-            xls.SetCellValue(274, 6, 0);
+            fmt = xls.GetCellVisibleFormatDef(274, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(274, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(274, 6, 3517.98883137063);
 
             fmt = xls.GetCellVisibleFormatDef(274, 7);
             fmt.Font.Name = "Arial";
@@ -12863,7 +12807,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(275, 5, xls.AddFormat(fmt));
             xls.SetCellValue(275, 5, "Harina de Roca");
-            xls.SetCellValue(275, 6, 54);
+            xls.SetCellValue(275, 6, 0);
 
             fmt = xls.GetCellVisibleFormatDef(275, 7);
             fmt.Font.Name = "Arial";
@@ -12970,10 +12914,23 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(278, 5);
             fmt.Font.Name = "Arial";
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent6, -0.249977111117893);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(278, 5, xls.AddFormat(fmt));
             xls.SetCellValue(278, 5, "Abono químico para los hoyos");
-            xls.SetCellValue(278, 6, 0);
+
+            fmt = xls.GetCellVisibleFormatDef(278, 6);
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(278, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(278, 6, 3517.98883137063);
 
             fmt = xls.GetCellVisibleFormatDef(278, 7);
             fmt.Font.Name = "Arial";
@@ -13115,9 +13072,18 @@ namespace CoffeeInfrastructure.Flexcel
             //+" 1)")
 
 
-    fmt = xls.GetCellVisibleFormatDef(281, 7);
+    fmt = xls.GetCellVisibleFormatDef(281, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(281, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(281, 7);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(281, 7, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(281, 8);
@@ -13138,14 +13104,24 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(282, 5);
             fmt.Font.Name = "Arial";
-            fmt.Font.Size20 = 280;
-            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
-            fmt.HAlignment = THFlxAlignment.right;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x80, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.left;
             fmt.WrapText = true;
             xls.SetCellFormat(282, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(282, 5, "Abono orgánicos o COMPOST ");
-            xls.SetCellValue(282, 6, 0);
+            xls.SetCellValue(282, 5, "Abono orgánicos o COMPOST  para levante");
+
+            fmt = xls.GetCellVisibleFormatDef(282, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(282, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(282, 6, 1037.79389709306);
 
             fmt = xls.GetCellVisibleFormatDef(282, 7);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -13260,10 +13236,22 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(286, 5);
             fmt.Font.Name = "Arial";
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent6, -0.249977111117893);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(286, 5, xls.AddFormat(fmt));
             xls.SetCellValue(286, 5, "Abono químico para levante (alrededor de la planta)");
-            xls.SetCellValue(286, 6, 0);
+
+            fmt = xls.GetCellVisibleFormatDef(286, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(286, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(286, 6, 1037.79389709306);
 
             fmt = xls.GetCellVisibleFormatDef(286, 7);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -13378,9 +13366,18 @@ namespace CoffeeInfrastructure.Flexcel
             //+" cosecha durante los a&ntilde;os 2 a 8")
 
 
-    fmt = xls.GetCellVisibleFormatDef(289, 7);
+    fmt = xls.GetCellVisibleFormatDef(289, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(289, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(289, 7);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0xFF, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(289, 7, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(290, 3);
@@ -13393,10 +13390,23 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(290, 3, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(290, 5);
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x80, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.WrapText = true;
             xls.SetCellFormat(290, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(290, 5, new TFormula("='\\Users\\juanicoha\\Downloads\\[Prueba Calibration.xlsx]Costos Materiales'!$A$211"));
-            xls.SetCellValue(290, 6, 0);
+            xls.SetCellValue(290, 5, "Abonos organicos mantenimiento");
+
+            fmt = xls.GetCellVisibleFormatDef(290, 6);
+            fmt.Font.Size20 = 400;
+            fmt.Font.Family = 0;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, 0.799981688894314);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(290, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(290, 6, new TFormula("='Inputs 1.0_metric_currency'!$D$25"));
 
             fmt = xls.GetCellVisibleFormatDef(290, 7);
             fmt.Font.Name = "Arial";
@@ -13412,6 +13422,11 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(290, 7, xls.AddFormat(fmt));
             xls.SetCellValue(290, 7, "INPUTS\n(required amount * cost per unit)");
+
+            fmt = xls.GetCellVisibleFormatDef(290, 8);
+            fmt.Font.Size20 = 400;
+            fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            xls.SetCellFormat(290, 8, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(291, 3);
             fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
@@ -13551,12 +13566,26 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(295, 5);
             fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent6, -0.249977111117893);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.WrapText = true;
             xls.SetCellFormat(295, 5, xls.AddFormat(fmt));
             xls.SetCellValue(295, 5, "Abono químico para mantenimiento del cultivo ");
-            xls.SetCellValue(295, 6, 0);
+
+            fmt = xls.GetCellVisibleFormatDef(295, 6);
+            fmt.Font.Size20 = 400;
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Family = 0;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, 0.799981688894314);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(295, 6, xls.AddFormat(fmt));
+            xls.SetCellValue(295, 6, new TFormula("='Inputs 1.0_metric_currency'!$D$24"));
 
             fmt = xls.GetCellVisibleFormatDef(295, 7);
             fmt.Font.Name = "Arial";
@@ -13613,9 +13642,21 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(297, 5);
             fmt.Font.Name = "Arial";
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x80, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(297, 5, xls.AddFormat(fmt));
             xls.SetCellValue(297, 5, "Fertilizante organico para foliación:");
+
+            fmt = xls.GetCellVisibleFormatDef(297, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(297, 6, xls.AddFormat(fmt));
             xls.SetCellValue(297, 6, 0);
 
             fmt = xls.GetCellVisibleFormatDef(297, 7);
@@ -13736,11 +13777,22 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(301, 5);
             fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Size20 = 320;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Family = 0;
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent6);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.left;
             xls.SetCellFormat(301, 5, xls.AddFormat(fmt));
             xls.SetCellValue(301, 5, "Químicos para foliación");
+
+            fmt = xls.GetCellVisibleFormatDef(301, 6);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(301, 6, xls.AddFormat(fmt));
             xls.SetCellValue(301, 6, 0);
 
             fmt = xls.GetCellVisibleFormatDef(301, 7);
@@ -17012,9 +17064,39 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(416, 7, xls.AddFormat(fmt));
             xls.SetCellValue(416, 7, "INPUTS\n#");
 
+            //Comments
+
+            Runs = new TRTFRun[2];
+            Runs[0].FirstChar = 0;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Style = TFlxFontStyles.Bold;
+            fnt.Scheme = TFontScheme.None;
+            Runs[0].FontIndex = xls.AddFont(fnt);
+            Runs[1].FirstChar = 15;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Scheme = TFontScheme.None;
+            Runs[1].FontIndex = xls.AddFont(fnt);
+            xls.SetComment(301, 6, new TRichString("Juan Hernandez:\n976 para que cuadre con el link externo?", Runs, xls));
+
+            //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
+            TCommentProperties CommentProps = TCommentProperties.CreateStandard(301, 6, xls);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 293, 64, 7, 47, 296, 26, 7, 805);
+
+            //Excel by doesn't autofit the comment box so it can hold all text.
+            //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
+            //To have FlexCel autofit the comment for you, you can do it with the following code:
+
+            //    CommentProps.Anchor = xls.AutofitComment(new TRichString("Juan Hernandez:\n976 para que cuadre con el link externo?", Runs, xls), 1.5, true, 1.1, 0, CommentProps.Anchor);
+
+            xls.SetCommentProperties(301, 6, CommentProps);
+
             //Objects
             TShapeProperties ShapeOptions1 = new TShapeProperties();
-            ShapeOptions1.Anchor = new TClientAnchor(TFlxAnchorType.MoveAndResize, 3, 77, 8, 377, 4, 236, 16, 389);
+            ShapeOptions1.Anchor = new TClientAnchor(TFlxAnchorType.MoveAndResize, 3, 79, 8, 377, 4, 236, 16, 391);
             ShapeOptions1.ShapeType = TShapeType.Rectangle;
             ShapeOptions1.ObjectType = TObjectType.MicrosoftOfficeDrawing;
             ShapeOptions1.ShapeName = "TextBox 1";
@@ -17038,15 +17120,15 @@ namespace CoffeeInfrastructure.Flexcel
 
 
             //Cell selection and scroll position.
-            xls.SelectCell(178, 6, false);
-            xls.ScrollWindow(143, 3);
+            xls.SelectCell(294, 8, false);
+            xls.ScrollWindow(268, 3);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
 
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "Juan Hernandez");
 
 
             //You will normally not set CreateDateTime, since this is a new file and FlexCel will automatically use the current datetime.
@@ -17054,6 +17136,7 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+
 
         }
 

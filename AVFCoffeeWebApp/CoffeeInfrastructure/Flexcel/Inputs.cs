@@ -10,7 +10,8 @@ namespace CoffeeInfrastructure.Flexcel
     public class Inputs
     {
         public void inputs(ExcelFile xls, Double earlyHectares, Double peakHectares, Double oldHectares, bool conventional, bool organic,
-            bool transition, Double workerSalarySoles, Double productionQuintales, Double transportCostSoles, Double costPriceSolesPerQuintal)
+            bool transition, Double workerSalarySoles, Double productionQuintales, Double transportCostSoles, Double costPriceSolesPerQuintal, Double expSolesChem,
+            Double expSolesOrg)
         {
             Double conv, org, trans;
             if (conventional == true)
@@ -40,6 +41,7 @@ namespace CoffeeInfrastructure.Flexcel
             }
             xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
 
+            //Set the names of the sheets
             //Set the names of the sheets
             xls.ActiveSheet = 1;
             xls.SheetName = "Inputs 1.0";
@@ -181,106 +183,20 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.Orientation;
             xls.PrintPaperSize = TPaperSize.Letter;
 
-            //Theme - You might use GetTheme/SetTheme methods here instead.
-            xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
-            xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
-            xls.SetColorTheme(TThemeColor.Accent1, TUIColor.FromArgb(0x4F, 0x81, 0xBD));
-            xls.SetColorTheme(TThemeColor.Accent2, TUIColor.FromArgb(0xC0, 0x50, 0x4D));
-            xls.SetColorTheme(TThemeColor.Accent3, TUIColor.FromArgb(0x9B, 0xBB, 0x59));
-            xls.SetColorTheme(TThemeColor.Accent4, TUIColor.FromArgb(0x80, 0x64, 0xA2));
-            xls.SetColorTheme(TThemeColor.Accent5, TUIColor.FromArgb(0x4B, 0xAC, 0xC6));
-            xls.SetColorTheme(TThemeColor.Accent6, TUIColor.FromArgb(0xF7, 0x96, 0x46));
-            xls.SetColorTheme(TThemeColor.HyperLink, TUIColor.FromArgb(0x00, 0x00, 0xFF));
-            xls.SetColorTheme(TThemeColor.FollowedHyperLink, TUIColor.FromArgb(0x80, 0x00, 0x80));
-
-            //Major font
-            TThemeTextFont MajorLatin = new TThemeTextFont("Cambria", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MajorFont = new TThemeFont(MajorLatin, MajorEastAsian, MajorComplexScript);
-            MajorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MajorFont.AddFont("Hang", "맑은 고딕");
-            MajorFont.AddFont("Hans", "宋体");
-            MajorFont.AddFont("Hant", "新細明體");
-            MajorFont.AddFont("Arab", "Times New Roman");
-            MajorFont.AddFont("Hebr", "Times New Roman");
-            MajorFont.AddFont("Thai", "Tahoma");
-            MajorFont.AddFont("Ethi", "Nyala");
-            MajorFont.AddFont("Beng", "Vrinda");
-            MajorFont.AddFont("Gujr", "Shruti");
-            MajorFont.AddFont("Khmr", "MoolBoran");
-            MajorFont.AddFont("Knda", "Tunga");
-            MajorFont.AddFont("Guru", "Raavi");
-            MajorFont.AddFont("Cans", "Euphemia");
-            MajorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MajorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MajorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MajorFont.AddFont("Thaa", "MV Boli");
-            MajorFont.AddFont("Deva", "Mangal");
-            MajorFont.AddFont("Telu", "Gautami");
-            MajorFont.AddFont("Taml", "Latha");
-            MajorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MajorFont.AddFont("Orya", "Kalinga");
-            MajorFont.AddFont("Mlym", "Kartika");
-            MajorFont.AddFont("Laoo", "DokChampa");
-            MajorFont.AddFont("Sinh", "Iskoola Pota");
-            MajorFont.AddFont("Mong", "Mongolian Baiti");
-            MajorFont.AddFont("Viet", "Times New Roman");
-            MajorFont.AddFont("Uigh", "Microsoft Uighur");
-            MajorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Major, MajorFont);
-
-            //Minor font
-            TThemeTextFont MinorLatin = new TThemeTextFont("Calibri", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MinorFont = new TThemeFont(MinorLatin, MinorEastAsian, MinorComplexScript);
-            MinorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MinorFont.AddFont("Hang", "맑은 고딕");
-            MinorFont.AddFont("Hans", "宋体");
-            MinorFont.AddFont("Hant", "新細明體");
-            MinorFont.AddFont("Arab", "Arial");
-            MinorFont.AddFont("Hebr", "Arial");
-            MinorFont.AddFont("Thai", "Tahoma");
-            MinorFont.AddFont("Ethi", "Nyala");
-            MinorFont.AddFont("Beng", "Vrinda");
-            MinorFont.AddFont("Gujr", "Shruti");
-            MinorFont.AddFont("Khmr", "DaunPenh");
-            MinorFont.AddFont("Knda", "Tunga");
-            MinorFont.AddFont("Guru", "Raavi");
-            MinorFont.AddFont("Cans", "Euphemia");
-            MinorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MinorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MinorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MinorFont.AddFont("Thaa", "MV Boli");
-            MinorFont.AddFont("Deva", "Mangal");
-            MinorFont.AddFont("Telu", "Gautami");
-            MinorFont.AddFont("Taml", "Latha");
-            MinorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MinorFont.AddFont("Orya", "Kalinga");
-            MinorFont.AddFont("Mlym", "Kartika");
-            MinorFont.AddFont("Laoo", "DokChampa");
-            MinorFont.AddFont("Sinh", "Iskoola Pota");
-            MinorFont.AddFont("Mong", "Mongolian Baiti");
-            MinorFont.AddFont("Viet", "Arial");
-            MinorFont.AddFont("Uigh", "Microsoft Uighur");
-            MinorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Minor, MinorFont);
-
             //Set up rows and columns
             xls.DefaultColWidth = 2816;
 
-            xls.SetColWidth(3, 3, 10720);    //(41.13 + 0.75) * 256
+            xls.SetColWidth(3, 3, 10709);    //(41.08 + 0.75) * 256
 
-            xls.SetColWidth(4, 4, 1312);    //(4.38 + 0.75) * 256
-            xls.DefaultRowHeight = 315;
+            xls.SetColWidth(4, 4, 1322);    //(4.41 + 0.75) * 256
 
-            xls.SetRowHeight(3, 330);    //16.50 * 20
-            xls.SetRowHeight(14, 630);    //31.50 * 20
-            xls.SetRowHeight(15, 630);    //31.50 * 20
-            xls.SetRowHeight(17, 945);    //47.25 * 20
-            xls.SetRowHeight(19, 630);    //31.50 * 20
-            xls.SetRowHeight(20, 330);    //16.50 * 20
+            xls.SetRowHeight(3, 320);    //16.00 * 20
+            xls.SetRowHeight(14, 1360);    //68.00 * 20
+            xls.SetRowHeight(15, 1240);    //62.00 * 20
+            xls.SetRowHeight(17, 1520);    //76.00 * 20
+            xls.SetRowHeight(19, 880);    //44.00 * 20
+            xls.SetRowHeight(22, 1100);    //55.00 * 20
+            xls.SetRowHeight(26, 320);    //16.00 * 20
 
             //Set the cell values
             TFlxFormat fmt;
@@ -295,6 +211,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(4, 2, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(4, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
             fmt.Borders.Top.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Top.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -386,21 +303,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(6, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(6, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(6, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(6, 5, 1.03);
             xls.SetCellValue(6, 5, earlyHectares);
 
             fmt = xls.GetCellVisibleFormatDef(6, 6);
@@ -435,21 +343,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(7, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(7, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(7, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(7, 5, 1.94);
             xls.SetCellValue(7, 5, peakHectares);
 
             fmt = xls.GetCellVisibleFormatDef(7, 6);
@@ -484,21 +383,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(8, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(8, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(8, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(8, 5, 1.97);
             xls.SetCellValue(8, 5, oldHectares);
 
             fmt = xls.GetCellVisibleFormatDef(8, 6);
@@ -571,21 +461,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(10, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(10, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(10, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(10, 5, 1);
             xls.SetCellValue(10, 5, conv);
 
             fmt = xls.GetCellVisibleFormatDef(10, 6);
@@ -620,23 +501,13 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(11, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(11, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(11, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(11, 5, 0);
             xls.SetCellValue(11, 5, org);
-
 
             fmt = xls.GetCellVisibleFormatDef(11, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -670,21 +541,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(12, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(12, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(12, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(12, 5, 0);
             xls.SetCellValue(12, 5, trans);
 
             fmt = xls.GetCellVisibleFormatDef(12, 6);
@@ -759,22 +621,13 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(14, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(14, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "0.00";
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(14, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(14, 5, 16.155738605162);
             xls.SetCellValue(14, 5, workerSalarySoles);
 
             fmt = xls.GetCellVisibleFormatDef(14, 6);
@@ -811,21 +664,12 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(15, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(15, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(15, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(15, 5, 14);
             xls.SetCellValue(15, 5, productionQuintales);
 
             fmt = xls.GetCellVisibleFormatDef(15, 6);
@@ -901,22 +745,10 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(17, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(17, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
-            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
-            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "0.00";
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(17, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(17, 5, 235.22130697419);
             xls.SetCellValue(17, 5, transportCostSoles);
 
             fmt = xls.GetCellVisibleFormatDef(17, 6);
@@ -991,22 +823,13 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(19, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(19, 5);
-            fmt.Borders.Left.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Right.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Right.Color = TExcelColor.Automatic;
-            fmt.Borders.Top.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Top.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.599993896298105);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "0.00";
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(19, 5, xls.AddFormat(fmt));
-            //xls.SetCellValue(19, 5, 556.514003294893);
             xls.SetCellValue(19, 5, costPriceSolesPerQuintal);
 
             fmt = xls.GetCellVisibleFormatDef(19, 6);
@@ -1020,38 +843,299 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(20, 2);
             fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Left.Color = TExcelColor.Automatic;
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(20, 2, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(20, 3);
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.Font.Style = TFlxFontStyles.Bold;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
             xls.SetCellFormat(20, 3, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(20, 4);
-            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
-            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.Font.Style = TFlxFontStyles.Bold;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
             xls.SetCellFormat(20, 4, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(20, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(20, 5, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(20, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(21, 2, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(21, 3, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(21, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(21, 5, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(21, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(22, 2, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(22, 3, xls.AddFormat(fmt));
+            xls.SetCellValue(22, 3, "In one year, and during the pick of production, how much did you spend in your coffee"
+            + " farm in the following inputs per hectare: ");
+
+            fmt = xls.GetCellVisibleFormatDef(22, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(22, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(22, 5, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(22, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(23, 2, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(23, 3, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(23, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(23, 5, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(23, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(24, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(24, 2, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(24, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.right;
+            fmt.WrapText = true;
+            xls.SetCellFormat(24, 3, xls.AddFormat(fmt));
+            xls.SetCellValue(24, 3, "Chemical fertilizers (soles per hectare)");
+
+            fmt = xls.GetCellVisibleFormatDef(24, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(24, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(24, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(24, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(24, 5, expSolesChem);
+
+            fmt = xls.GetCellVisibleFormatDef(24, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(24, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(25, 2, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.right;
+            fmt.WrapText = true;
+            xls.SetCellFormat(25, 3, xls.AddFormat(fmt));
+            xls.SetCellValue(25, 3, "Organic fertilizers (soles per hectare)");
+
+            fmt = xls.GetCellVisibleFormatDef(25, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(25, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 5);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(25, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(25, 5, expSolesOrg);
+
+            fmt = xls.GetCellVisibleFormatDef(25, 6);
+            fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Right.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(25, 6, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 2);
+            fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Left.Color = TExcelColor.Automatic;
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
-            xls.SetCellFormat(20, 5, xls.AddFormat(fmt));
+            xls.SetCellFormat(26, 2, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(20, 6);
+            fmt = xls.GetCellVisibleFormatDef(26, 3);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(26, 3, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 4);
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.WrapText = true;
+            xls.SetCellFormat(26, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 5);
+            fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
+            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.Format = "0.00";
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.VAlignment = TVFlxAlignment.center;
+            xls.SetCellFormat(26, 5, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
             fmt.Borders.Right.Color = TExcelColor.Automatic;
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Medium;
@@ -1059,17 +1143,17 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
-            xls.SetCellFormat(20, 6, xls.AddFormat(fmt));
+            xls.SetCellFormat(26, 6, xls.AddFormat(fmt));
 
             //Cell selection and scroll position.
-            xls.SelectCell(20, 7, false);
+            xls.SelectCell(6, 5, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
 
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "Juan Hernandez");
 
 
             //You will normally not set CreateDateTime, since this is a new file and FlexCel will automatically use the current datetime.

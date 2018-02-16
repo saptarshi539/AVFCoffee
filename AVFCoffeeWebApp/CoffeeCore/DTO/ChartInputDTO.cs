@@ -16,5 +16,7 @@ namespace CoffeeCore.DTO
         public Double productionQuintales { get; set; }
         public Double transportCostSoles { get; set; }
         public Double costPriceSolesPerQuintal { get; set; }
+        public Double expSolesChem { get; set; }
+        public Double expSolesOrg { get; set; }
     }
 }

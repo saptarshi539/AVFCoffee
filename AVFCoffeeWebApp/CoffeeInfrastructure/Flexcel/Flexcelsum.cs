@@ -23,7 +23,9 @@ namespace CoffeeInfrastructure.Flexcel
             _iconfiguration = configuration;
         }
 
-        public ChartDataDTO getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional, bool organic, bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal)
+        public ChartDataDTO getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional,
+            bool organic, bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal,
+            double expSolesChem, double expSolesOrg)
         {
             //working in the develop branch
             //Excel sheet inputs from Juan
@@ -53,9 +55,10 @@ namespace CoffeeInfrastructure.Flexcel
             TWorkspace workspace = new TWorkspace();
             workspace.Add(xls.ActiveFileName, xls);
             //actual calculation taking place in the excel sheet
-            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles, costPriceSolesPerQuintal);
+            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles, 
+                costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
             xls.Recalc();
-            databaseSchema.Database_Schema(xls);
+            databaseSchema.Database_Schema(xls, workspace);
             xls.Recalc();
             conversiones.conversiones(xls);
             xls.Recalc();
@@ -95,8 +98,8 @@ namespace CoffeeInfrastructure.Flexcel
             xls.Recalc();
             prporcion_De_Productividad.ProporcionDeProductividad(xls);
             
-            var op = output.Outcome(xls, workspace);
-
+            //var op = output.Outcome(xls, workspace);
+            var op = databaseSchema.Database_Schema(xls, workspace);
             coopOutputDTO coopOutputDTO = new coopOutputDTO();
             coopOutputDTO.variableCostUSPound = 1.05;
             coopOutputDTO.fixedCostUSPound = 0.06;
@@ -281,8 +284,8 @@ namespace CoffeeInfrastructure.Flexcel
             String timeStamp = DateTime.Now.ToString();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput]" +
-                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID, TimeStamp) VALUES" +
-                   "(@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID, @TimeStamp)");
+                   "(HectTreesEarly, HectTreesPeak, HectTreesOld, Conventional, Organic, Transition, WagePerDay, YieldPerHect, TransportCost, FinalPrice, UserID, ExpSolesChem, ExpSolesOrg, TimeStamp) VALUES" +
+                   "(@HectEarly, @HectPeak, @HectOld, @Conv, @Org, @Trans, @Wpd, @YieldHect, @TransCost, @FinalPrice, @UserID, @ExpSolesChem, @ExpSolesOrg, @TimeStamp)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
@@ -298,6 +301,8 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
                 command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
                 command.Parameters.AddWithValue("@UserID", id);
+                command.Parameters.AddWithValue("@ExpSolesChem", 379);
+                command.Parameters.AddWithValue("@ExpSolesOrg", 379);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 int result = command.ExecuteNonQuery();

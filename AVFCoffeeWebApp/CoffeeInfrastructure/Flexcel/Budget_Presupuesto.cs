@@ -59,6 +59,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -604,8 +605,7 @@ namespace CoffeeInfrastructure.Flexcel
             fnt.Color = TExcelColor.Automatic;
             fnt.Style = TFlxFontStyles.Bold;
             Runs[5].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(4, 1, new TRichString("     Baseline (Precio pergamino seco * Nº Kg)                                    "
-            + "       ESTO ES Precio QUINTALES * No. QUINTALES", Runs, xls));
+            xls.SetCellValue(4, 1, new TRichString("     Baseline (Precio pergamino seco * Nº Kg)       ESTO ES Precio QUINTALES * No. QUINTALES", Runs, xls));
             //We could also have used: xls.SetCellFromHtml(4, 1, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Baseline (Precio pergamino seco<font color = 'blue'>&nbsp;*"
             //+" N&ordm; Kg</font>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font"
             //+ " color = 'red'>ESTO ES Precio&nbsp;</font><font color = 'black'><b>QUINTALES</b></font><font"

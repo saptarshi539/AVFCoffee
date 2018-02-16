@@ -8,7 +8,8 @@ namespace CoffeeInfrastructure.Flexcel
     public class FlexcelOutputFromInput : IFuctionOutputProvider
     {
         public double getOutputFromExcel(double earlyHectares, double peakHectares, double oldHectares, bool conventional, bool organic,
-            bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal)
+            bool transition, double workerSalarySoles, double productionQuintales, double transportCostSoles, double costPriceSolesPerQuintal, double expSolesChem,
+            double expSolesOrg)
         {
             throw new NotImplementedException();
         }

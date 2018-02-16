@@ -143,125 +143,40 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.Orientation;
             xls.PrintPaperSize = TPaperSize.Letter;
 
-            //Theme - You might use GetTheme/SetTheme methods here instead.
-            xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
-            xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
-            xls.SetColorTheme(TThemeColor.Accent1, TUIColor.FromArgb(0x4F, 0x81, 0xBD));
-            xls.SetColorTheme(TThemeColor.Accent2, TUIColor.FromArgb(0xC0, 0x50, 0x4D));
-            xls.SetColorTheme(TThemeColor.Accent3, TUIColor.FromArgb(0x9B, 0xBB, 0x59));
-            xls.SetColorTheme(TThemeColor.Accent4, TUIColor.FromArgb(0x80, 0x64, 0xA2));
-            xls.SetColorTheme(TThemeColor.Accent5, TUIColor.FromArgb(0x4B, 0xAC, 0xC6));
-            xls.SetColorTheme(TThemeColor.Accent6, TUIColor.FromArgb(0xF7, 0x96, 0x46));
-            xls.SetColorTheme(TThemeColor.HyperLink, TUIColor.FromArgb(0x00, 0x00, 0xFF));
-            xls.SetColorTheme(TThemeColor.FollowedHyperLink, TUIColor.FromArgb(0x80, 0x00, 0x80));
-
-            //Major font
-            TThemeTextFont MajorLatin = new TThemeTextFont("Cambria", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MajorFont = new TThemeFont(MajorLatin, MajorEastAsian, MajorComplexScript);
-            MajorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MajorFont.AddFont("Hang", "맑은 고딕");
-            MajorFont.AddFont("Hans", "宋体");
-            MajorFont.AddFont("Hant", "新細明體");
-            MajorFont.AddFont("Arab", "Times New Roman");
-            MajorFont.AddFont("Hebr", "Times New Roman");
-            MajorFont.AddFont("Thai", "Tahoma");
-            MajorFont.AddFont("Ethi", "Nyala");
-            MajorFont.AddFont("Beng", "Vrinda");
-            MajorFont.AddFont("Gujr", "Shruti");
-            MajorFont.AddFont("Khmr", "MoolBoran");
-            MajorFont.AddFont("Knda", "Tunga");
-            MajorFont.AddFont("Guru", "Raavi");
-            MajorFont.AddFont("Cans", "Euphemia");
-            MajorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MajorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MajorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MajorFont.AddFont("Thaa", "MV Boli");
-            MajorFont.AddFont("Deva", "Mangal");
-            MajorFont.AddFont("Telu", "Gautami");
-            MajorFont.AddFont("Taml", "Latha");
-            MajorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MajorFont.AddFont("Orya", "Kalinga");
-            MajorFont.AddFont("Mlym", "Kartika");
-            MajorFont.AddFont("Laoo", "DokChampa");
-            MajorFont.AddFont("Sinh", "Iskoola Pota");
-            MajorFont.AddFont("Mong", "Mongolian Baiti");
-            MajorFont.AddFont("Viet", "Times New Roman");
-            MajorFont.AddFont("Uigh", "Microsoft Uighur");
-            MajorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Major, MajorFont);
-
-            //Minor font
-            TThemeTextFont MinorLatin = new TThemeTextFont("Calibri", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MinorFont = new TThemeFont(MinorLatin, MinorEastAsian, MinorComplexScript);
-            MinorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MinorFont.AddFont("Hang", "맑은 고딕");
-            MinorFont.AddFont("Hans", "宋体");
-            MinorFont.AddFont("Hant", "新細明體");
-            MinorFont.AddFont("Arab", "Arial");
-            MinorFont.AddFont("Hebr", "Arial");
-            MinorFont.AddFont("Thai", "Tahoma");
-            MinorFont.AddFont("Ethi", "Nyala");
-            MinorFont.AddFont("Beng", "Vrinda");
-            MinorFont.AddFont("Gujr", "Shruti");
-            MinorFont.AddFont("Khmr", "DaunPenh");
-            MinorFont.AddFont("Knda", "Tunga");
-            MinorFont.AddFont("Guru", "Raavi");
-            MinorFont.AddFont("Cans", "Euphemia");
-            MinorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MinorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MinorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MinorFont.AddFont("Thaa", "MV Boli");
-            MinorFont.AddFont("Deva", "Mangal");
-            MinorFont.AddFont("Telu", "Gautami");
-            MinorFont.AddFont("Taml", "Latha");
-            MinorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MinorFont.AddFont("Orya", "Kalinga");
-            MinorFont.AddFont("Mlym", "Kartika");
-            MinorFont.AddFont("Laoo", "DokChampa");
-            MinorFont.AddFont("Sinh", "Iskoola Pota");
-            MinorFont.AddFont("Mong", "Mongolian Baiti");
-            MinorFont.AddFont("Viet", "Arial");
-            MinorFont.AddFont("Uigh", "Microsoft Uighur");
-            MinorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Minor, MinorFont);
-
             //Set up rows and columns
-            xls.DefaultColWidth = 2272;
+            xls.DefaultColWidth = 2261;
 
-            xls.SetColWidth(2, 4, 2272);    //(8.13 + 0.75) * 256
+            xls.SetColWidth(2, 4, 2261);    //(8.08 + 0.75) * 256
 
             xls.SetColWidth(5, 5, 3072);    //(11.25 + 0.75) * 256
 
-            xls.SetColWidth(6, 7, 2272);    //(8.13 + 0.75) * 256
+            xls.SetColWidth(6, 7, 2261);    //(8.08 + 0.75) * 256
 
-            xls.SetColWidth(8, 12, 1504);    //(5.13 + 0.75) * 256
+            xls.SetColWidth(8, 12, 1493);    //(5.08 + 0.75) * 256
 
             xls.SetColWidth(14, 14, 2304);    //(8.25 + 0.75) * 256
 
             xls.SetColWidth(15, 15, 6144);    //(23.25 + 0.75) * 256
 
-            xls.SetColWidth(16, 16, 3296);    //(12.13 + 0.75) * 256
+            xls.SetColWidth(16, 16, 3285);    //(12.08 + 0.75) * 256
 
-            xls.SetColWidth(17, 17, 2848);    //(10.38 + 0.75) * 256
+            xls.SetColWidth(17, 17, 2858);    //(10.41 + 0.75) * 256
 
             xls.SetColWidth(18, 18, 5888);    //(22.25 + 0.75) * 256
-            xls.DefaultRowHeight = 315;
 
-            xls.SetRowHeight(4, 1035);    //51.75 * 20
-            xls.SetRowHeight(5, 765);    //38.25 * 20
-            xls.SetRowHeight(6, 1035);    //51.75 * 20
-            xls.SetRowHeight(7, 780);    //39.00 * 20
-            xls.SetRowHeight(8, 1785);    //89.25 * 20
-            xls.SetRowHeight(12, 1050);    //52.50 * 20
-            xls.SetRowHeight(13, 780);    //39.00 * 20
-            xls.SetRowHeight(14, 1050);    //52.50 * 20
-            xls.SetRowHeight(15, 795);    //39.75 * 20
-            xls.SetRowHeight(16, 1785);    //89.25 * 20
-            xls.SetRowHeight(18, 525);    //26.25 * 20
+            xls.SetColWidth(20, 20, 4181);    //(15.58 + 0.75) * 256
+
+            xls.SetRowHeight(4, 1050);    //52.50 * 20
+            xls.SetRowHeight(5, 780);    //39.00 * 20
+            xls.SetRowHeight(6, 1050);    //52.50 * 20
+            xls.SetRowHeight(7, 790);    //39.50 * 20
+            xls.SetRowHeight(8, 1820);    //91.00 * 20
+            xls.SetRowHeight(12, 1060);    //53.00 * 20
+            xls.SetRowHeight(13, 790);    //39.50 * 20
+            xls.SetRowHeight(14, 1060);    //53.00 * 20
+            xls.SetRowHeight(15, 800);    //40.00 * 20
+            xls.SetRowHeight(16, 1820);    //91.00 * 20
+            xls.SetRowHeight(18, 530);    //26.50 * 20
 
             //Merged Cells
             xls.MergeCells(3, 14, 3, 18);
@@ -734,6 +649,16 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(12, 18, xls.AddFormat(fmt));
             xls.SetCellValue(12, 18, "Breakeven Implications");
 
+            fmt = xls.GetCellVisibleFormatDef(12, 20);
+            fmt.Font.Size20 = 200;
+            fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
+            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.center;
+            fmt.WrapText = true;
+            xls.SetCellFormat(12, 20, xls.AddFormat(fmt));
+            xls.SetCellValue(12, 20, "Costo producción pergamino (US/Hectarea)");
+
             fmt = xls.GetCellVisibleFormatDef(13, 2);
             fmt.Font.Size20 = 200;
             fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
@@ -837,6 +762,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(13, 18, xls.AddFormat(fmt));
             xls.SetCellValue(13, 18, "If the return is below this level, coffee is uneconomical to produce.");
+            xls.SetCellValue(13, 20, new TFormula("=P13*Conversiones!$D$24"));
 
             fmt = xls.GetCellVisibleFormatDef(14, 2);
             fmt.Font.Size20 = 200;
@@ -968,6 +894,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(14, 18, xls.AddFormat(fmt));
             xls.SetCellValue(14, 18, "The second breakeven return allows the producer to stay in business in the short run.");
+            xls.SetCellValue(14, 20, new TFormula("=P14*Conversiones!$D$24"));
 
             fmt = xls.GetCellVisibleFormatDef(15, 2);
             fmt.Font.Size20 = 200;
@@ -1079,6 +1006,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(15, 18, xls.AddFormat(fmt));
             xls.SetCellValue(15, 18, "The third breakeven allows the producer to stay in business in the long run.");
+            xls.SetCellValue(15, 20, new TFormula("=P15*Conversiones!$D$24"));
 
             fmt = xls.GetCellVisibleFormatDef(16, 14);
             fmt.Font.Size20 = 200;
@@ -1141,6 +1069,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(16, 18, "The fourth breakeven return is the total cost breakeven return. Only when this breakeven"
             + " return is received can the grower recover all out-of-pocket expenses plus opportunity"
             + " costs.");
+            xls.SetCellValue(16, 20, new TFormula("=P16*Conversiones!$D$24"));
 
             fmt = xls.GetCellVisibleFormatDef(17, 14);
             fmt.Font.Size20 = 200;
@@ -1215,7 +1144,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             TCommentProperties CommentProps = TCommentProperties.CreateStandard(15, 2, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 14, 240, 3, 202, 16, 4, 5, 981);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 15, 0, 3, 203, 16, 13, 5, 981);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -1226,14 +1155,14 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCommentProperties(15, 2, CommentProps);
 
             //Cell selection and scroll position.
-            xls.SelectCell(15, 15, false);
+            xls.SelectCell(2, 7, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
 
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "Juan Hernandez");
 
 
             //You will normally not set CreateDateTime, since this is a new file and FlexCel will automatically use the current datetime.
@@ -1241,7 +1170,6 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
-
 
         }
     }

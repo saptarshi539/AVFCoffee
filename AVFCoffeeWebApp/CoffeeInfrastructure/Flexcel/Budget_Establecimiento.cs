@@ -12,7 +12,6 @@ namespace CoffeeInfrastructure.Flexcel
         public void BudgetEstablecimiento(ExcelFile xls)
         {
             //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
-
             //Set the names of the sheets
             xls.ActiveSheet = 1;
             xls.SheetName = "Inputs 1.0";
@@ -59,6 +58,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -243,7 +243,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetThemeFont(TFontScheme.Minor, MinorFont);
 
             //Set up rows and columns
-            xls.DefaultColWidth = 2816;
+            xls.DefaultColWidth = 0;
 
             xls.SetColWidth(1, 1, 12320);    //(47.38 + 0.75) * 256
 
@@ -251,7 +251,11 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(3, 3, 6016);    //(22.75 + 0.75) * 256
 
+            xls.SetColWidth(4, 5, 2816);    //(10.25 + 0.75) * 256
+
             xls.SetColWidth(6, 6, 4320);    //(16.13 + 0.75) * 256
+
+            xls.SetColWidth(7, 13, 2816);    //(10.25 + 0.75) * 256
             xls.DefaultRowHeight = 315;
 
             xls.SetRowHeight(3, 375);    //18.75 * 20
@@ -692,8 +696,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Format = "#,##0";
             xls.SetCellFormat(23, 2, xls.AddFormat(fmt));
             xls.SetCellValue(23, 2, new TFormula("=Budget_Supuestos!B245"));
-            xls.SetCellValue(23, 8, new TFormula("=(H22-H26)/H26"));
-            xls.SetCellValue(23, 12, new TFormula("=(L22-H26)/H26"));
+            xls.SetCellValue(23, 8, ".");
+            xls.SetCellValue(23, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(24, 1);
             fmt.HAlignment = THFlxAlignment.right;
@@ -782,9 +786,12 @@ namespace CoffeeInfrastructure.Flexcel
 
 
             fmt = xls.GetCellVisibleFormatDef(26, 8);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(26, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(26, 8, new TFormula("='\\Users\\juanicoha\\Downloads\\[Prueba Calibration.xlsx]Informacion Gral_Finca cafetera'!$AH$45"));
+            xls.SetCellValue(26, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(27, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1161,7 +1168,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent2, -0.249977111117893);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 2, new TFormula("=SUM(B39:B47)"));
+            xls.SetCellValue(49, 2, new TFormula("=SUM(B39:B46)"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, -0.499984740745262);
@@ -1392,7 +1399,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Style = TFlxFontStyles.Bold;
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 2, new TFormula("=SUM(B58:B66)"));
+            xls.SetCellValue(67, 2, new TFormula("=SUM(B58:B65)"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, -0.499984740745262);
@@ -2270,8 +2277,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(97, 6, new TFormula("=SUM(F93:F95)"));
 
             //Cell selection and scroll position.
-            xls.SelectCell(42, 12, false);
-            xls.ScrollWindow(1, 2);
+            xls.SelectCell(44, 11, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -2286,6 +2292,7 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+
 
         }
 

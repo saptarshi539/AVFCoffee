@@ -12,7 +12,6 @@ namespace CoffeeInfrastructure.Flexcel
         public void Budget_Supuestos(ExcelFile xls)
         {
             //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
-
             //Set the names of the sheets
             xls.ActiveSheet = 1;
             xls.SheetName = "Inputs 1.0";
@@ -59,6 +58,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -245,7 +245,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetThemeFont(TFontScheme.Minor, MinorFont);
 
             //Set up rows and columns
-            xls.DefaultColWidth = 2816;
+            xls.DefaultColWidth = 0;
 
             xls.SetColWidth(1, 1, 12704);    //(48.88 + 0.75) * 256
 
@@ -253,7 +253,9 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(3, 3, 8576);    //(32.75 + 0.75) * 256
 
-            xls.SetColWidth(4, 6, 7296);    //(27.75 + 0.75) * 256
+            xls.SetColWidth(4, 5, 7296);    //(27.75 + 0.75) * 256
+
+            xls.SetColWidth(6, 6, 12512);    //(48.13 + 0.75) * 256
 
             xls.SetColWidth(7, 7, 7584);    //(28.88 + 0.75) * 256
 
@@ -281,7 +283,10 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(25, 25, 6528);    //(24.75 + 0.75) * 256
 
-            xls.SetColWidth(26, 16384, 2816);    //(10.25 + 0.75) * 256
+            xls.SetColWidth(26, 27, 2816);    //(10.25 + 0.75) * 256
+
+            xls.SetColWidth(28, 16384, 0);
+            xls.SetColHidden(28, 16384, true);
             xls.DefaultRowHeight = 315;
 
             xls.SetRowHeight(1, 420);    //21.00 * 20
@@ -1665,7 +1670,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(42, 2);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, -0.249977111117893);
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x80, 0x00, 0x00);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(42, 2, xls.AddFormat(fmt));
@@ -1699,7 +1704,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(43, 2);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent2, -0.249977111117893);
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x80, 0x00, 0x00);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(43, 2, xls.AddFormat(fmt));
@@ -1718,6 +1723,14 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Indent = 3;
             xls.SetCellFormat(43, 4, xls.AddFormat(fmt));
             xls.SetCellValue(44, 1, "Finca transición");
+
+            fmt = xls.GetCellVisibleFormatDef(44, 2);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x80, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            fmt.HAlignment = THFlxAlignment.center;
+            xls.SetCellFormat(44, 2, xls.AddFormat(fmt));
             xls.SetCellValue(44, 2, new TFormula("='Inputs advanced'!F180"));
 
             fmt = xls.GetCellVisibleFormatDef(44, 3);
@@ -2047,8 +2060,7 @@ namespace CoffeeInfrastructure.Flexcel
             Runs[1].FirstChar = 91;
             fnt = xls.GetDefaultFont;
             Runs[1].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(56, 1, new TRichString("Cual prima? (Si cero es por que al menos del 50% de los productores afirma recibir"
-            + " la prima)", Runs, xls));
+            xls.SetCellValue(56, 1, new TRichString("Cual prima? (Si cero es por que al menos del 50% de los productores afirma recibir"+ " la prima)", Runs, xls));
             //We could also have used: xls.SetCellFromHtml(56, 1, "Cual prima? (Si cero es por que<font color = 'blue'>&nbsp;al menos del 50% de los"
             //+" productores afirma recibir la prima</font>)")
 
@@ -4655,8 +4667,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(113, 9, xls.AddFormat(fmt));
             xls.SetCellValue(113, 25, "Prestamo a cuantos años:");
-            //xls.SetCellValue(113, 26, new TFormula("=(Z111-Z110)+1"));
-            xls.SetCellValue(113, 26, 25);
+            xls.SetCellValue(113, 26, new TFormula("=(Z111-Z110)+1"));
 
             fmt = xls.GetCellVisibleFormatDef(114, 2);
             fmt.HAlignment = THFlxAlignment.center;
@@ -4820,8 +4831,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(116, 26, xls.AddFormat(fmt));
-            //xls.SetCellValue(116, 26, new TFormula("=IF(B115=1,((M110-K110)/Z113)/K110,0)"));
-            xls.SetCellValue(116, 26, 27);
+            xls.SetCellValue(116, 26, new TFormula("=IF(B115=1,((M110-K110)/Z113)/K110,0)"));
 
             fmt = xls.GetCellVisibleFormatDef(117, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0x00);
@@ -5839,8 +5849,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             xls.SetCellFormat(129, 9, xls.AddFormat(fmt));
             xls.SetCellValue(129, 25, "Prestamo a cuantos años:");
-            //xls.SetCellValue(129, 26, new TFormula("=(Z127-Z126)+1"));
-            xls.SetCellValue(129, 26, 25);
+            xls.SetCellValue(129, 26, new TFormula("=(Z127-Z126)+1"));
 
             fmt = xls.GetCellVisibleFormatDef(130, 2);
             fmt.HAlignment = THFlxAlignment.center;
@@ -6003,8 +6012,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(132, 26, xls.AddFormat(fmt));
-            //xls.SetCellValue(132, 26, new TFormula("=IF(B131=1,((M126-K126)/Z129)/K126,0)"));
-            xls.SetCellValue(132, 26, 24);
+            xls.SetCellValue(132, 26, new TFormula("=IF(B131=1,((M126-K126)/Z129)/K126,0)"));
 
             fmt = xls.GetCellVisibleFormatDef(133, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0x00);
@@ -7858,9 +7866,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK5"));
-            xls.SetCellValue(162, 2, 0);
+            xls.SetCellValue(162, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7868,9 +7874,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK29"));
-            xls.SetCellValue(162, 3, 0);
+            xls.SetCellValue(162, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7878,9 +7882,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK93"));
-            xls.SetCellValue(162, 4, 0);
+            xls.SetCellValue(162, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7888,6 +7890,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(162, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7895,9 +7898,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK21"));
-            xls.SetCellValue(162, 6, 0);
+            xls.SetCellValue(162, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7905,9 +7906,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK53"));
-            xls.SetCellValue(162, 7, 0);
+            xls.SetCellValue(162, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -7915,51 +7914,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK141"));
-            xls.SetCellValue(162, 8, 0);
+            xls.SetCellValue(162, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 9, new TFormula("=(B162*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(162, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 10, new TFormula("=(C162*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(162, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 11, new TFormula("=(D162*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(162, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 12, new TFormula("=(F162*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(162, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 13, new TFormula("=(G162*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(162, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(162, 14, new TFormula("=(H162*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(162, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -7967,8 +7964,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(162, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(162, 15, new TFormula("=I162*$B$18+J162*$B$27+K162*$B$28+L162*$B$29+M162*$B$30+N162*#REF!"));
-            xls.SetCellValue(162, 15, 20);
+            xls.SetCellValue(162, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(162, 16);
             fmt.Format = "0";
@@ -7997,9 +7993,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK6"));
-            xls.SetCellValue(163, 2, 0);
+            xls.SetCellValue(163, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8007,9 +8001,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK30"));
-            xls.SetCellValue(163, 3, 0);
+            xls.SetCellValue(163, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8017,9 +8009,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK94"));
-            xls.SetCellValue(163, 4, 0);
+            xls.SetCellValue(163, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8027,6 +8017,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(163, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8034,9 +8025,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK22"));
-            xls.SetCellFormat(163, 6, 0);
+            xls.SetCellValue(163, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8044,9 +8033,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK54"));
-            xls.SetCellFormat(163, 7, 0);
+            xls.SetCellValue(163, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8054,51 +8041,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK142"));
-            xls.SetCellFormat(163, 8, 0);
+            xls.SetCellValue(163, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 9, new TFormula("=(B163*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(163, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 10, new TFormula("=(C163*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(163, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 11, new TFormula("=(D163*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(163, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 12, new TFormula("=(F163*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(163, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 13, new TFormula("=(G163*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(163, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(163, 14, new TFormula("=(H163*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(163, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8106,8 +8091,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(163, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(163, 15, new TFormula("=I163*$B$18+J163*$B$27+K163*$B$28+L163*$B$29+M163*$B$30+N163*#REF!"));
-            xls.SetCellValue(163, 15, 20);
+            xls.SetCellValue(163, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(163, 16);
             fmt.Format = "0";
@@ -8124,9 +8108,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK7"));
-            xls.SetCellValue(164, 2, 0);
+            xls.SetCellValue(164, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8134,9 +8116,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK31"));
-            xls.SetCellValue(164, 3, 0);
+            xls.SetCellValue(164, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8144,9 +8124,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK95"));
-            xls.SetCellValue(164, 4, 0);
+            xls.SetCellValue(164, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8154,6 +8132,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(164, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8161,9 +8140,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK23"));
-            xls.SetCellValue(164, 6, 0);
+            xls.SetCellValue(164, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8171,9 +8148,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK55"));
-            xls.SetCellValue(164, 7, 0);
+            xls.SetCellValue(164, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8181,51 +8156,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK143"));
-            xls.SetCellValue(164, 8, 0);
+            xls.SetCellValue(164, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 9, new TFormula("=(B164*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(164, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 10, new TFormula("=(C164*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(164, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 11, new TFormula("=(D164*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(164, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 12, new TFormula("=(F164*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(164, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 13, new TFormula("=(G164*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(164, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(164, 14, new TFormula("=(H164*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(164, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8233,8 +8206,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(164, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(164, 15, new TFormula("=I164*$B$18+J164*$B$27+K164*$B$28+L164*$B$29+M164*$B$30+N164*#REF!"));
-            xls.SetCellValue(164, 15, 21);
+            xls.SetCellValue(164, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(164, 16);
             fmt.Format = "0";
@@ -8251,9 +8223,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK8"));
-            xls.SetCellValue(165, 2, 0);
+            xls.SetCellValue(165, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8261,9 +8231,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK32"));
-            xls.SetCellValue(165, 3, 0);
+            xls.SetCellValue(165, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8271,9 +8239,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK96"));
-            xls.SetCellValue(165, 4, 0);
+            xls.SetCellValue(165, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8281,6 +8247,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(165, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8288,9 +8255,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK24"));
-            xls.SetCellValue(165, 6, 0);
+            xls.SetCellValue(165, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8298,9 +8263,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK56"));
-            xls.SetCellValue(165, 7, 0);
+            xls.SetCellValue(165, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8308,51 +8271,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK144"));
-            xls.SetCellValue(165, 8, 0);
+            xls.SetCellValue(165, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 9, new TFormula("=(B165*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(165, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 10, new TFormula("=(C165*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(165, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 11, new TFormula("=(D165*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(165, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 12, new TFormula("=(F165*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(165, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 13, new TFormula("=(G165*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(165, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(165, 14, new TFormula("=(H165*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(165, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8360,8 +8321,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(165, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(165, 15, new TFormula("=I165*$B$18+J165*$B$27+K165*$B$28+L165*$B$29+M165*$B$30+N165*#REF!"));
-            xls.SetCellValue(165, 15, 21);
+            xls.SetCellValue(165, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(165, 16);
             fmt.Format = "0";
@@ -8378,9 +8338,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK9"));
-            xls.SetCellFormat(166, 2, 0);
+            xls.SetCellValue(166, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8388,9 +8346,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK33"));
-            xls.SetCellFormat(166, 3, 0);
+            xls.SetCellValue(166, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8398,9 +8354,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK97"));
-            xls.SetCellFormat(166, 4, 0);
+            xls.SetCellValue(166, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8408,6 +8362,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(166, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8415,9 +8370,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK25"));
-            xls.SetCellFormat(166, 6, 0);
+            xls.SetCellValue(166, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8425,9 +8378,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK57"));
-            xls.SetCellFormat(166, 7, 0);
+            xls.SetCellValue(166, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8435,51 +8386,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK145"));
-            xls.SetCellFormat(166, 8, 0);
+            xls.SetCellValue(166, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 9, new TFormula("=(B166*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(166, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 10, new TFormula("=(C166*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(166, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 11, new TFormula("=(D166*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(166, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 12, new TFormula("=(F166*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(166, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 13, new TFormula("=(G166*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(166, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(166, 14, new TFormula("=(H166*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(166, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8487,8 +8436,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(166, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(166, 15, new TFormula("=I166*$B$18+J166*$B$27+K166*$B$28+L166*$B$29+M166*$B$30+N166*#REF!"));
-            xls.SetCellValue(166, 15, 21);
+            xls.SetCellValue(166, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(166, 16);
             fmt.Format = "0";
@@ -8505,9 +8453,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK10"));
-            xls.SetCellFormat(167, 2, 0);
+            xls.SetCellValue(167, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8515,9 +8461,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK34"));
-            xls.SetCellFormat(167, 3, 0);
+            xls.SetCellValue(167, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8525,9 +8469,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK98"));
-            xls.SetCellFormat(167, 4, 0);
+            xls.SetCellValue(167, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8535,6 +8477,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(167, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8542,9 +8485,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK26"));
-            xls.SetCellFormat(167, 6, 0);
+            xls.SetCellValue(167, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8552,10 +8493,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK58"));
-            xls.SetCellFormat(167, 7, 0);
-
+            xls.SetCellValue(167, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8563,51 +8501,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK146"));
-            xls.SetCellFormat(167, 8, 0);
+            xls.SetCellValue(167, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 9, new TFormula("=(B167*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(167, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 10, new TFormula("=(C167*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(167, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 11, new TFormula("=(D167*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(167, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 12, new TFormula("=(F167*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(167, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 13, new TFormula("=(G167*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(167, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(167, 14, new TFormula("=(H167*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(167, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8615,8 +8551,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(167, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(167, 15, new TFormula("=I167*$B$18+J167*$B$27+K167*$B$28+L167*$B$29+M167*$B$30+N167*#REF!"));
-            xls.SetCellValue(167, 15, 21);
+            xls.SetCellValue(167, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(167, 16);
             fmt.Format = "0";
@@ -8633,9 +8568,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK11"));
-            xls.SetCellFormat(168, 2, 0);
+            xls.SetCellValue(168, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8643,9 +8576,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 3, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 3, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK35"));
-            xls.SetCellFormat(168, 3, 0);
+            xls.SetCellValue(168, 3, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8653,9 +8584,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 4, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 4, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK99"));
-            xls.SetCellFormat(168, 4, 0);
+            xls.SetCellValue(168, 4, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8663,6 +8592,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 5, xls.AddFormat(fmt));
+            xls.SetCellValue(168, 5, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8670,9 +8600,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 6, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 6, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK27"));
-            xls.SetCellFormat(168, 6, 0);
+            xls.SetCellValue(168, 6, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8680,9 +8608,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 7, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 7, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK59"));
-            xls.SetCellFormat(168, 7, 0);
+            xls.SetCellValue(168, 7, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -8690,51 +8616,49 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 8, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 8, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!BK147"));
-            xls.SetCellFormat(168, 8, 0);
+            xls.SetCellValue(168, 8, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 9);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 9, new TFormula("=(B168*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(168, 9, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 10);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 10, new TFormula("=(C168*C$15)/Conversiones!C$14"));
+            xls.SetCellValue(168, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 11);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 11, new TFormula("=(D168*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(168, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 12);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 12, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 12, new TFormula("=(F168*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(168, 12, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 13);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 13, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 13, new TFormula("=(G168*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(168, 13, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 14);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 14, xls.AddFormat(fmt));
-            xls.SetCellValue(168, 14, new TFormula("=(H168*$C$15)/Conversiones!$C$14"));
+            xls.SetCellValue(168, 14, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 15);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -8742,8 +8666,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(168, 15, xls.AddFormat(fmt));
-            //xls.SetCellValue(168, 15, new TFormula("=I168*$B$18+J168*$B$27+K168*$B$28+L168*$B$29+M168*$B$30+N168*#REF!"));
-            xls.SetCellValue(168, 15, 21);
+            xls.SetCellValue(168, 15, ".");
 
             fmt = xls.GetCellVisibleFormatDef(168, 16);
             fmt.Format = "0";
@@ -9144,9 +9067,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(174, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(174, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(174, 10, 22);
+            xls.SetCellValue(174, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(174, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9155,9 +9076,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(174, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(174, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(174, 11, 22);
+            xls.SetCellValue(174, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(174, 13);
             fmt.Format = "0";
@@ -9242,9 +9161,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(175, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(175, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(175, 10, 0);
+            xls.SetCellValue(175, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(175, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9253,9 +9170,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(175, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(175, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(175, 11, 0);
+            xls.SetCellValue(175, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(175, 13);
             fmt.Format = "0";
@@ -9340,9 +9255,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(176, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(176, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(176, 10, 0);
+            xls.SetCellValue(176, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(176, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9351,9 +9264,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(176, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(176, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(176, 11, 0);
+            xls.SetCellValue(176, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(176, 13);
             fmt.Format = "0";
@@ -9438,9 +9349,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(177, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(177, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(177, 10, 0);
+            xls.SetCellValue(177, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(177, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9449,9 +9358,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(177, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(177, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(177, 11, 0);
+            xls.SetCellValue(177, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(177, 13);
             fmt.Format = "0";
@@ -9536,9 +9443,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(178, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(178, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(178, 10, 0);
+            xls.SetCellValue(178, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(178, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9547,9 +9452,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(178, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(178, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(178, 11, 0);
+            xls.SetCellValue(178, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(178, 13);
             fmt.Format = "0";
@@ -9634,9 +9537,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(179, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(179, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(179, 10, 0);
+            xls.SetCellValue(179, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(179, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9645,9 +9546,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(179, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(179, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(179, 11, 0);
+            xls.SetCellValue(179, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(179, 13);
             fmt.Format = "0";
@@ -9732,9 +9631,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(180, 10, xls.AddFormat(fmt));
-            //xls.SetCellValue(180, 10, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Productividad'!#REF!"));
-            xls.SetCellValue(180, 10, 0);
+            xls.SetCellValue(180, 10, ".");
 
             fmt = xls.GetCellVisibleFormatDef(180, 11);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -9743,9 +9640,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(180, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(180, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!#REF!"));
-            xls.SetCellValue(180, 11, 0);
+            xls.SetCellValue(180, 11, ".");
 
             fmt = xls.GetCellVisibleFormatDef(180, 13);
             fmt.Format = "0";
@@ -12189,6 +12084,12 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(255, 3, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(255, 6);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Style = TFlxFontStyles.Italic;
+            fmt.HAlignment = THFlxAlignment.center;
+            xls.SetCellFormat(255, 6, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(256, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -12382,22 +12283,23 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(264, 1);
             fmt.Font.Name = "Arial";
-            fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(264, 1, xls.AddFormat(fmt));
-            xls.SetCellValue(264, 1, "Total Fertilizaciones");
+            xls.SetCellValue(264, 1, "Total Abonos");
 
             fmt = xls.GetCellVisibleFormatDef(264, 2);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(264, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(264, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Costos Materiales'!$B$158"));
-            xls.SetCellValue(264, 2, 6435);
+            xls.SetCellValue(264, 2, new TFormula("=SUM(B256:B263)"));
 
             fmt = xls.GetCellVisibleFormatDef(264, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12435,6 +12337,12 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(265, 4, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(265, 6);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Style = TFlxFontStyles.Italic;
+            fmt.HAlignment = THFlxAlignment.center;
+            xls.SetCellFormat(265, 6, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(266, 1);
             fmt.Font.Name = "Arial";
@@ -12511,11 +12419,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(268, 4, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(268, 6);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
-            fmt.HAlignment = THFlxAlignment.right;
-            xls.SetCellFormat(268, 6, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(269, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -12543,10 +12446,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(269, 4, xls.AddFormat(fmt));
             xls.SetCellValue(269, 4, "pasar estos insumos uno por uno");
-
-            fmt = xls.GetCellVisibleFormatDef(269, 6);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
-            xls.SetCellFormat(269, 6, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(270, 1);
             fmt.Font.Name = "Arial";
@@ -12666,24 +12565,25 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(274, 1);
             fmt.Font.Name = "Arial";
-            fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(274, 1, xls.AddFormat(fmt));
-            xls.SetCellValue(274, 1, "Total Fertilizaciones");
+            xls.SetCellValue(274, 1, "Total Abonos");
 
             fmt = xls.GetCellVisibleFormatDef(274, 2);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(274, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(274, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Costos Materiales'!$B$216"));
-            xls.SetCellValue(274, 2, 264992);
+            xls.SetCellValue(274, 2, new TFormula("=SUM(B265:B273)"));
 
-           fmt = xls.GetCellVisibleFormatDef(274, 3);
+            fmt = xls.GetCellVisibleFormatDef(274, 3);
             fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(274, 3, xls.AddFormat(fmt));
 
@@ -12736,6 +12636,10 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(276, 6);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.Font.Style = TFlxFontStyles.Italic;
+            fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
+            fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.VAlignment = TVFlxAlignment.center;
             fmt.WrapText = true;
             xls.SetCellFormat(276, 6, xls.AddFormat(fmt));
 
@@ -12771,8 +12675,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(279, 1);
             fmt.WrapText = true;
             xls.SetCellFormat(279, 1, xls.AddFormat(fmt));
-            //xls.SetCellValue(279, 1, new TFormula("='\\Users\\juanicoha\\Downloads\\[Prueba Calibration.xlsx]Costos Materiales'!$A$211"));
-            xls.SetCellValue(279, 1, "Cost");
+            xls.SetCellValue(279, 1, ".");
 
             fmt = xls.GetCellVisibleFormatDef(279, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12790,10 +12693,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(279, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             xls.SetCellFormat(279, 4, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(279, 6);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
-            xls.SetCellFormat(279, 6, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(280, 1);
             fmt.Font.Name = "Arial";
@@ -12942,7 +12841,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(285, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(285, 2, new TFormula("='Inputs advanced'!F295"));
+            xls.SetCellValue(285, 2, new TFormula("=IF('Inputs advanced'!F179=1,0,'Inputs advanced'!F295)"));
 
             fmt = xls.GetCellVisibleFormatDef(285, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13131,9 +13030,9 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(293, 1, "Químicos para foliación");
 
             fmt = xls.GetCellVisibleFormatDef(293, 2);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent4, -0.249977111117893);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(293, 2, xls.AddFormat(fmt));
@@ -13161,7 +13060,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(294, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent4, 0.399975585192419);
+            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(294, 2, xls.AddFormat(fmt));
@@ -13208,21 +13107,23 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(296, 1);
             fmt.Font.Name = "Arial";
-            fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Scheme = TFontScheme.None;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             xls.SetCellFormat(296, 1, xls.AddFormat(fmt));
             xls.SetCellValue(296, 1, "Total Fertilizaciones");
 
             fmt = xls.GetCellVisibleFormatDef(296, 2);
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
-            fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
+            fmt.HAlignment = THFlxAlignment.right;
             xls.SetCellFormat(296, 2, xls.AddFormat(fmt));
-            //xls.SetCellValue(296, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Costos Materiales'!$B$325"));
-            xls.SetCellValue(296, 2, 976);
+            xls.SetCellValue(296, 2, new TFormula("=SUM(B279:B295)"));
 
             fmt = xls.GetCellVisibleFormatDef(296, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14341,8 +14242,7 @@ namespace CoffeeInfrastructure.Flexcel
             fnt = xls.GetDefaultFont;
             fnt.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
             Runs[1].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(348, 1, new TRichString("Que tantos litros de agua se pueden gastar en el beneficio húmedo de 1 arroba de café"
-            + " pergamino seco?", Runs, xls));
+            xls.SetCellValue(348, 1, new TRichString("Que tantos litros de agua se pueden gastar en el beneficio húmedo de 1 arroba de café"+ " pergamino seco?", Runs, xls));
             //We could also have used: xls.SetCellFromHtml(348, 1, "Que tantos litros de agua se pueden gastar en el beneficio h&uacute;medo de 1&nbsp;<font"
             //+" color = 'black'>arroba</font>&nbsp;de caf&eacute; pergamino seco?")
 
@@ -15498,9 +15398,14 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.left;
             xls.SetCellFormat(413, 1, xls.AddFormat(fmt));
             xls.SetCellValue(413, 1, "Otro:");
-            //xls.SetCellValue(413, 2, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]Informacion Gral_Finca cafetera'!E48"));
-            xls.SetCellValue(413, 2, 0);
+
+            fmt = xls.GetCellVisibleFormatDef(413, 2);
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0xFF, 0x00, 0x00);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
+            xls.SetCellFormat(413, 2, xls.AddFormat(fmt));
+            xls.SetCellValue(413, 2, ".");
 
             fmt = xls.GetCellVisibleFormatDef(416, 1);
             fmt.Font.Name = "Arial";
@@ -15929,7 +15834,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             TCommentProperties CommentProps = TCommentProperties.CreateStandard(148, 3, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 143, 206, 4, 67, 147, 121, 4, 719);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 143, 206, 4, 63, 147, 121, 4, 719);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -15959,7 +15864,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             CommentProps = TCommentProperties.CreateStandard(183, 4, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 194, 24, 5, 647, 194, 24, 6, 341);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 194, 24, 5, 647, 194, 24, 6, 199);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -15987,41 +15892,11 @@ namespace CoffeeInfrastructure.Flexcel
             fnt.Color = TExcelColor.Automatic;
             fnt.Scheme = TFontScheme.None;
             Runs[1].FontIndex = xls.AddFont(fnt);
-            xls.SetComment(296, 2, new TRichString("Adriana Ramírez Flores:\nRevisar si quiero total aquí\n", Runs, xls));
-
-            //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
-            CommentProps = TCommentProperties.CreateStandard(296, 2, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 290, 219, 3, 837, 295, 134, 4, 440);
-
-            //Excel by doesn't autofit the comment box so it can hold all text.
-            //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
-            //To have FlexCel autofit the comment for you, you can do it with the following code:
-
-            //    CommentProps.Anchor = xls.AutofitComment(new TRichString("Adriana Ramírez Flores:\nRevisar si quiero total aquí\n", Runs, xls), 1.5, true, 1.1, 0, CommentProps.Anchor);
-
-            xls.SetCommentProperties(296, 2, CommentProps);
-
-            Runs = new TRTFRun[2];
-            Runs[0].FirstChar = 0;
-            fnt = xls.GetDefaultFont;
-            fnt.Name = "Tahoma";
-            fnt.Size20 = 180;
-            fnt.Color = TExcelColor.Automatic;
-            fnt.Style = TFlxFontStyles.Bold;
-            fnt.Scheme = TFontScheme.None;
-            Runs[0].FontIndex = xls.AddFont(fnt);
-            Runs[1].FirstChar = 23;
-            fnt = xls.GetDefaultFont;
-            fnt.Name = "Tahoma";
-            fnt.Size20 = 180;
-            fnt.Color = TExcelColor.Automatic;
-            fnt.Scheme = TFontScheme.None;
-            Runs[1].FontIndex = xls.AddFont(fnt);
             xls.SetComment(349, 1, new TRichString("Adriana Ramírez Flores:\nesta puede ser el recibo de luz\n", Runs, xls));
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             CommentProps = TCommentProperties.CreateStandard(349, 1, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 349, 67, 2, 77, 350, 109, 2, 823);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 349, 73, 2, 72, 350, 109, 2, 823);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -16032,8 +15907,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCommentProperties(349, 1, CommentProps);
 
             //Cell selection and scroll position.
-            xls.SelectCell(134, 41, false);
-            xls.ScrollWindow(88, 1);
+            xls.SelectCell(19, 25, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -16048,6 +15922,7 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+
 
         }
     }

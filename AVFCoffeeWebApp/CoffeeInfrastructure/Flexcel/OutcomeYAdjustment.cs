@@ -60,6 +60,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -382,8 +383,8 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(10, 9, new TFormula("=H10*Conversiones!$F$24"));
 
             //Cell selection and scroll position.
-            xls.SelectCell(52, 2, false);
-            xls.ScrollWindow(1, 2);
+            xls.SelectCell(32, 8, false);
+            xls.ScrollWindow(13, 1);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -398,7 +399,6 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
-
 
         }
     }

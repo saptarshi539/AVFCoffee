@@ -58,6 +58,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -155,6 +156,48 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.None;
             xls.PrintPaperSize = TPaperSize.Letter;
 
+            //Printer Driver Settings are a blob of data specific to a printer
+            //This code is commented by default because normally you do not want to hard code the printer settings of an specific printer.
+            //    byte[] PrinterData = new byte[] {
+            //        0x00, 0x00, 0x41, 0x00, 0x64, 0x00, 0x6F, 0x00, 0x62, 0x00, 0x65, 0x00, 0x20, 0x00, 0x50, 0x00, 0x44, 0x00, 0x46, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x04, 0x03, 0x06, 0xDC, 0x00, 0xD4, 0x05, 0x53, 0xEF, 0x80, 0x01, 0x02, 0x00, 0x01, 0x00, 0xEA, 0x0A, 0x6F, 0x08, 0x30, 0x00, 0x01, 0x00, 0x0F, 0x00, 0xA0, 0x0F, 0x02, 0x00, 0x01, 0x00, 0xA0, 0x0F, 
+            //        0x03, 0x00, 0x01, 0x00, 0x4C, 0x00, 0x65, 0x00, 0x74, 0x00, 0x74, 0x00, 0x65, 0x00, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x50, 0x52, 0x49, 0x56, 0xE2, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x27, 0x10, 0x27, 0x10, 0x27, 0x00, 0x00, 0x10, 0x27, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB0, 0x00, 0xA4, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x02, 0x10, 0x00, 0x5C, 0x4B, 0x03, 0x00, 0x68, 0x43, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46, 0x46, 0x9F, 0xF2, 0x05, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB0, 0x00, 0x00, 0x00, 0x53, 0x4D, 0x54, 0x4A, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x30, 0x02, 0x00, 0x00, 0x45, 0x42, 0x44, 0x41, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x53, 0x00, 0x74, 0x00, 0x61, 0x00, 0x6E, 0x00, 0x64, 0x00, 0x61, 0x00, 0x72, 0x00, 
+            //        0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+            //        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
+            //    };
+            //    TPrinterDriverSettings PrinterDriverSettings = new TPrinterDriveSettings(PrinterData);
+            //    xls.SetPrinterDriverSettings(PrinterDriverSettings);
+
             //Theme - You might use GetTheme/SetTheme methods here instead.
             xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
             xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
@@ -242,7 +285,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetThemeFont(TFontScheme.Minor, MinorFont);
 
             //Set up rows and columns
-            xls.DefaultColWidth = 2784;
+            xls.DefaultColWidth = 0;
 
             xls.SetColWidth(1, 1, 12416);    //(47.75 + 0.75) * 256
 
@@ -258,7 +301,8 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(11, 11, 14976);    //(57.75 + 0.75) * 256
 
-            xls.SetColWidth(12, 16384, 2784);    //(10.13 + 0.75) * 256
+            xls.SetColWidth(12, 16384, 0);
+            xls.SetColHidden(12, 16384, true);
             xls.DefaultRowHeight = 315;
 
             xls.SetRowHeight(1, 375);    //18.75 * 20
@@ -504,11 +548,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(6, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(6, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(6, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(7, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -575,11 +614,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(7, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(7, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(7, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(8, 1);
             fmt.Font.Name = "Arial";
@@ -658,12 +692,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(8, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(8, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(8, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(9, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -740,12 +768,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(9, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(9, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(9, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(10, 1);
             fmt.Font.Name = "Arial";
@@ -824,12 +846,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(10, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(10, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(10, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(11, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -904,12 +920,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(11, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(11, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(11, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(12, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -1006,12 +1016,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(12, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(12, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(12, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(13, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -1078,11 +1082,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(13, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(13, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(13, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(14, 1);
             fmt.Font.Name = "Arial";
@@ -1159,12 +1158,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(14, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(14, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(14, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(15, 1);
             fmt.Font.Name = "Arial";
@@ -1245,12 +1238,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(15, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(15, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(15, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(16, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1327,12 +1314,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(16, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(16, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(16, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(17, 1);
             fmt.Font.Name = "Arial";
@@ -1411,12 +1392,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(17, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(17, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(17, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(18, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1493,12 +1468,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(18, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(18, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(18, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(19, 1);
             fmt.Font.Name = "Arial";
@@ -1577,12 +1546,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(19, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(19, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(19, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(20, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1659,12 +1622,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(20, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(20, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(20, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(21, 1);
             fmt.Font.Name = "Arial";
@@ -1743,12 +1700,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(21, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(21, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(21, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(22, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1826,12 +1777,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(22, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(22, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(22, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(23, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1906,12 +1851,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(23, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(23, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(23, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(24, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2008,11 +1947,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Style = TFlxFontStyles.Bold;
             xls.SetCellFormat(24, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(24, 12);
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Style = TFlxFontStyles.Bold;
-            xls.SetCellFormat(24, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(25, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -2079,11 +2013,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(25, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(25, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(25, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(26, 1);
             fmt.Font.Name = "Arial";
@@ -2162,12 +2091,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(26, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(26, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(26, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(27, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2244,12 +2167,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(27, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(27, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(27, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(28, 1);
             fmt.Font.Name = "Arial";
@@ -2328,12 +2245,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(28, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(28, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(28, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(29, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2410,12 +2321,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(29, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(29, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(29, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(30, 1);
             fmt.Font.Name = "Arial";
@@ -2494,12 +2399,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(30, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(30, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(30, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(31, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2576,12 +2475,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(31, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(31, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(31, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(32, 1);
             fmt.Font.Name = "Arial";
@@ -2660,12 +2553,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(32, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(32, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(32, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(33, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2742,12 +2629,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(33, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(33, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(33, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(34, 1);
             fmt.Font.Name = "Arial";
@@ -2835,13 +2716,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.WrapText = true;
             xls.SetCellFormat(34, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(34, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
-            fmt.Font.Scheme = TFontScheme.None;
-            fmt.WrapText = true;
-            xls.SetCellFormat(34, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(35, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2919,12 +2793,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(35, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(35, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(35, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(36, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2999,12 +2867,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(36, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(36, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(36, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(37, 1);
             fmt.Font.Name = "Arial";
@@ -3081,12 +2943,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(37, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(37, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(37, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(38, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3161,12 +3017,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(38, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(38, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(38, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(39, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -3246,12 +3096,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(39, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(39, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(39, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(40, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3348,11 +3192,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Style = TFlxFontStyles.Bold;
             xls.SetCellFormat(40, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(40, 12);
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Style = TFlxFontStyles.Bold;
-            xls.SetCellFormat(40, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(41, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3426,12 +3265,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(41, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(41, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(41, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(42, 1);
             fmt.Font.Name = "Arial";
@@ -3507,12 +3340,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(42, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(42, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(42, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(43, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3586,12 +3413,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(43, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(43, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(43, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(44, 1);
             fmt.Font.Name = "Arial";
@@ -3667,12 +3488,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(44, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(44, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(44, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(45, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3746,12 +3561,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(45, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(45, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(45, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(46, 1);
             fmt.Font.Name = "Arial";
@@ -3828,12 +3637,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(46, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(46, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(46, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(47, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -3908,12 +3711,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(47, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(47, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(47, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(48, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -3993,12 +3790,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(48, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(48, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(48, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(49, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -4970,12 +4761,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(61, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(61, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(61, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(62, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5040,15 +4825,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Format = "#,##0.00";
             xls.SetCellFormat(62, 10, xls.AddFormat(fmt));
             xls.SetCellValue(62, 10, new TFormula("='Inputs advanced'!F129"));
-            //xls.SetCellValue(62, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!JC111"));
-            xls.SetCellValue(62, 11, 0);
-
-            fmt = xls.GetCellVisibleFormatDef(62, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(62, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(63, 1);
             fmt.Font.Name = "Arial";
@@ -5127,12 +4903,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(63, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(63, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(63, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(64, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5198,12 +4968,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(64, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(64, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(64, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(65, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Style = TFlxFontStyles.Italic;
@@ -5256,12 +5020,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(65, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(65, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(65, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(66, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -5325,12 +5083,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(66, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(66, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(66, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(67, 1);
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -5388,12 +5140,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(67, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(67, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(67, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(68, 1);
             fmt.Font.Name = "Arial";
@@ -5463,15 +5209,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(68, 11, xls.AddFormat(fmt));
-            //xls.SetCellValue(68, 11, new TFormula("='\\Users\\Adriana\\Dropbox\\Cornell Café\\Archivos homologados\\20170708\\[Tabla"
-            //+ " inputs_0708.xlsx]M Obra Año 2_8 Sostenimiento'!L125"));
-            xls.SetCellValue(68, 11, 0);
-
-            fmt = xls.GetCellVisibleFormatDef(68, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(68, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(69, 1);
             fmt.Font.Name = "Arial";
@@ -5541,12 +5278,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(69, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(69, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(69, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(70, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -5619,12 +5350,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(70, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(70, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(70, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(71, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5693,12 +5418,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(71, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(71, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(71, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(72, 1);
             fmt.Font.Name = "Arial";
@@ -5769,12 +5488,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(72, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(72, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(72, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(73, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5844,12 +5557,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(73, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(73, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(73, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(74, 1);
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Style = TFlxFontStyles.Italic;
@@ -5917,12 +5624,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(74, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(74, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(74, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(75, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5992,12 +5693,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(75, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(75, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(75, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(76, 1);
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Style = TFlxFontStyles.Italic;
@@ -6065,12 +5760,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(76, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(76, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(76, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(77, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -6140,12 +5829,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(77, 11, xls.AddFormat(fmt));
 
-            fmt = xls.GetCellVisibleFormatDef(77, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(77, 12, xls.AddFormat(fmt));
-
             fmt = xls.GetCellVisibleFormatDef(78, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
             fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -6204,12 +5887,6 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(78, 11, xls.AddFormat(fmt));
-
-            fmt = xls.GetCellVisibleFormatDef(78, 12);
-            fmt.Font.Name = "Arial";
-            fmt.Font.Color = TExcelColor.Automatic;
-            fmt.Font.Scheme = TFontScheme.None;
-            xls.SetCellFormat(78, 12, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(79, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -7191,7 +6868,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(93, 10, xls.AddFormat(fmt));
 
             //Cell selection and scroll position.
-            xls.SelectCell(22, 16, false);
+            xls.SelectCell(1, 12, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");

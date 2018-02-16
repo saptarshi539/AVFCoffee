@@ -59,6 +59,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
+            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -912,8 +913,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCommentProperties(105, 8, CommentProps);
 
             //Cell selection and scroll position.
-            xls.SelectCell(24, 6, false);
-            xls.ScrollWindow(2, 1);
+            xls.SelectCell(33, 15, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
