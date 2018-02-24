@@ -32,7 +32,7 @@
                         </label>
                         <div>
                             <span>
-                                <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
+                                <img class="icon" style="width:28px; height:28px;" src=/images/medtree.png title="Mature" />
                                 <input id="peakHectares2" class="" type="text" name="maturetrees" size="1">
                             </span>
                         </div>
@@ -45,7 +45,7 @@
                         </label>
                         <div>
                             <span>
-                                <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
+                                <img class="icon" style="width:28px; height:28px;" src=/images/oldtree.png title="Old" />
                                 <input id="oldHectares2" class="" type="text" name="oldtrees" size="1">
                             </span>
                         </div>
@@ -54,8 +54,6 @@
             </div>
         </div>
         <!-- end first question-->
-
-     
         <!-- start second question-->
         <div class="container g-mt-50">
             <h2>Method:</h2>
@@ -104,8 +102,6 @@
             </div>
         </div>
         <!-- end second question-->
-
-
         <!-- Third Question -->
         <div class="container g-mt-50">
             <h2>Laborers:</h2>
@@ -122,9 +118,6 @@
             </div>
         </div>
         <!--End Third Question -->
-
-      
-
         <!-- Fourth Question -->
         <div class="container g-mt-50">
             <h2>Production:</h2>
@@ -135,14 +128,12 @@
                     </div>
                     <div class="float-left">
                         <input id="productionQuintales2" class="" type="text" name="productivity">
-                        <p class="g-mb-0" data-tag="input-question4-units">pounds/day</p>
+                        <p class="g-mb-0" data-tag="input-question4-units">quintales/day</p>
                     </div>
                 </div>
             </div>
         </div>
         <!--End Fourth Question -->
-
-
         <!-- Fifth Question -->
         <div class="container g-mt-50">
             <h2>Transport:</h2>
@@ -159,11 +150,9 @@
             </div>
         </div>
         <!--End Fifth Question -->
-
-       
         <!-- Sixth Question -->
         <div class="container g-mt-50">
-            <h2>Price:</h2>
+            <h2>Coffee Price:</h2>
             <div class="row">
                 <div class="col-md-8">
                     <div class="float-left">
@@ -177,7 +166,59 @@
             </div>
         </div>
         <!--End Sixth Question -->
-    
+        <!-- Seventh Question -->
+        <div class="container g-mt-50">
+            <h2>Fertilizers:</h2>
+            <div class="row">
+                <!--  <div class="col-md-8">  */
+        <div class="float-left">
+            <img class="icon g-pr-5" style="width:28px; height:28px;" src=/images/2beansicon.png title="price" />
+        </div>
+        <div class="float-left">
+            <input id="costPriceSolesPerQuintal2" class="" type="text" name="price">
+            <p class="g-mb-0" data-tag="input-question7-units">soles</p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="float-left">
+            <img class="icon g-pr-5" style="width:28px; height:28px;" src=/images/2beansicon.png title="price" />
+        </div>
+        <div class="float-left">
+            <input id="costPriceSolesPerQuintal2" class="" type="text" name="price">
+            <p class="g-mb-0" data-tag="input-question7-units">soles</p>
+        </div>
+    </div> -->
+                <div class="float-left">
+                    <label class="h5 g-color-darkpurple2">
+                        <a class="" data-toggle="tooltip" title="" data-original-title="Trees that are not yet producing beans." data-tag="input-question7-option1">
+                            Conventional  <span class="e g-color-gray-dark-v1--active"></span>
+                        </a>
+                    </label>
+                    <div>
+                        <span>
+                            <img class="icon" style="width:28px; height:28px;" src=/images/smoltree.png title="Young" />
+                            <input id="earlyHectares2" class="" type="text" name="youngtrees" size="1">
+                        </span>
+                    </div>
+                </div>
+                <div class="float-left g-ml-30">
+                    <label class="h5 g-color-darkpurple2">
+                        <a class="" data-toggle="tooltip" title="" data-original-title="Trees that are fully producing." data-tag="input-question7-option2">
+                            Organic  <span class=" g-color-gray-dark-v1--active"></span>
+                        </a>
+                    </label>
+                    <div>
+                        <span>
+                            <img class="icon" style="width:28px; height:28px;" src=/images/medtree.png title="Young" />
+                            <input id="peakHectares2" class="" type="text" name="maturetrees" size="1">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Seventh Question -->
+
+
 
         <button id="submitInput2" class="btn btn-block btn-xl u-btn-darkpurple2 g-rounded-50 g-mr-10 g-mb-15 g-mt-50" data-tag="input-submit">Submit</button>
 
