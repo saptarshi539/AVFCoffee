@@ -34,6 +34,11 @@ var language = {
         "input-question6": "6. ¿Qué precio recibió por quintal de café?",
         "input-question6-label": "Precio",
         "input-question6-units": "soles/quintal",
+        "input-question7": " 7. In one year, and during the pick of production, how much did you spend in your coffee farm in the following inputs per hectare: ",
+        "input-question7-label": "Abono",
+        "input-question7-units": "soles/hectárea",
+        "input-question7-option1": "Convenciónal",
+        "input-question1-option2": "Orgánico",
         "chart": {
             chartTitle: "Desglose de costos",
             categories: ["Productor", "Cooperativa"],
@@ -81,6 +86,12 @@ var language = {
         "input-question6": "6. What​ ​price​ ​did​ ​you​ ​receive​ ​per​ ​quintal​ ​of​ ​coffee?",
         "input-question6-label": "Price",
         "input-question6-units": "soles/quintal",
+        "input-question7": " 7. In one year, and during the pick of production, how much did you spend in your coffee farm in the following inputs per hectare: ",       
+        "input-question7-label": "Fertilizer",
+        "input-question7-units": "soles/hectare",
+        "input-question7-option1": "Conventional",
+        "input-question1-option2": "Organic",
+        
         "chart": {
             chartTitle: "Your Farm",
             categories: ["Your Farm", "Co-op Average"],
