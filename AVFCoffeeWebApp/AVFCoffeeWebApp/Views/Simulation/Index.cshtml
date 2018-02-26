@@ -7,12 +7,12 @@
 
     <div class="container g-mt-100">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <!-- First Question -->
                 <div class="container">
-                    <h2>Hectares:</h2>
-                    <div class="row">
-                        <div class="col-md-12">
+                    <h2 data-tag="simulation-header1">Hectares:</h2>
+                    <div class="container row">
+                        <div class="">
                             <div class="float-left g-mr-30">
                                 <label class="h5 g-color-darkpurple2">
                                     <a class="" data-toggle="tooltip" title="" data-original-title="Trees that are not yet producing beans." data-tag="input-question1-option1">
@@ -58,9 +58,9 @@
                 <!-- end first question-->
                 <!-- start second question-->
                 <div class="container g-mt-50">
-                    <h2>Method:</h2>
-                    <div class="row">
-                        <div class="col-lg-8">
+                    <h2 data-tag="simulation-header2">Method:</h2>
+                    <div class="container row">
+                        <div>
                             <div class="float-left">
                                 <label class="h5 g-color-darkpurple2">
                                     <a class="" data-toggle="tooltip" title="" data-original-title="Organic production methods." data-tag="input-question2-option1">
@@ -106,7 +106,7 @@
                 <!-- end second question-->
                 <!-- Third Question -->
                 <div class="container g-mt-50">
-                    <h2>Laborers:</h2>
+                    <h2 data-tag="simulation-header3">Laborers:</h2>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="float-left">
@@ -122,7 +122,7 @@
                 <!--End Third Question -->
                 <!-- Fourth Question -->
                 <div class="container g-mt-50">
-                    <h2>Production:</h2>
+                    <h2 data-tag="simulation-header4">Production:</h2>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="float-left">
@@ -138,7 +138,7 @@
                 <!--End Fourth Question -->
                 <!-- Fifth Question -->
                 <div class="container g-mt-50">
-                    <h2>Transport:</h2>
+                    <h2  data-tag="simulation-header5">Transport:</h2>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="float-left">
@@ -154,7 +154,7 @@
                 <!--End Fifth Question -->
                 <!-- Sixth Question -->
                 <div class="container g-mt-50">
-                    <h2>Price:</h2>
+                    <h2 data-tag="simulation-header6">Price:</h2>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="float-left">
@@ -168,9 +168,47 @@
                     </div>
                 </div>
                 <!--End Sixth Question -->
+                <!-- Seventh Question -->
+                <div class="container g-mt-50">
+                   <h2 data-tag="simulation-header7">Expenditure:</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="float-left g-mr-30">
+                                <label class="h5 g-color-darkpurple2">
+                                    <a class="" data-toggle="tooltip" title="" data-original-title="Enter price spent on fertilizer per hectacre." data-tag="input-question7-option1">
+                                        Conventional Fertilizers 
+                                    </a>
+                                </label>
+                                <div>
+                                    <span>
+                                        <img class="icon" style="width:28px; height:28px;" src=~/images/spraybottleicon.svg title="Young" />
+                                        <input id="conventionalFertilizers2" class="inputfield" type="text" size="2">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="float-left  g-mr-30">
+                                <label class="h5 g-color-darkpurple2">
+                                    <a class="" data-toggle="tooltip" title="" data-original-title="Trees that are fully producing." data-tag="input-question7-option2">
+                                        Organic Fertilizers  
+                                    </a>
+                                </label>
+                                <div>
+                                    <span>
+                                        <img class="icon" style="width:28px; height:28px;" src=~/images/oldtree.png  title="" />
+                                        <input id="organicFertilizers2" class="" type="text" name="" size="2">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Seventh Question -->
+                <div class="u-divider u-divider-solid u-divider-right g-brd-white g-my-80">
+                    <i class="fa fa-circle u-divider__icon g-bg-lightbeige g-color-white"></i>
+                </div>
                 <button id="submitInput2" class="btn btn-block btn-xl u-btn-darkpurple2 g-rounded-50 g-mr-10 g-mb-15 g-mt-50" data-tag="input-submit">Submit</button>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="container u-shadow-v1-3">
                     <!-- Begin Overview -->
                     <!-- Chart -->
