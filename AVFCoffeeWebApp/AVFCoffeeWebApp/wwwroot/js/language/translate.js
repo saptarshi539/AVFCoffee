@@ -156,6 +156,10 @@ $(document).ready(function () {
         localStorage.setItem("selectedLanguage", "ES")
         translate();
     }
+    if (page == 'Demo') {
+        localStorage.getItem("selectedLanguage")
+        translate();
+    }
     else {
         globalDataPromise.then(function (value) {
             localStorage.setItem("selectedLanguage", UserData.user.language);
