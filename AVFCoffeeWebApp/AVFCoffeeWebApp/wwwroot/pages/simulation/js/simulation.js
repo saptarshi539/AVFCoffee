@@ -18,6 +18,8 @@ function initSimClickEvent() {
         var productionQuintales = $("#productionQuintales2").val();
         var transportCostSoles = $("#transportCostSoles2").val();
         var costPriceSolesPerQuintal = $("#costPriceSolesPerQuintal2").val();
+        var convFert = $("#conventionalFertilizers2").val();
+        var orgFert = $("#organicFertilizers2").val();
 
         //make user inputs object 
         var simulatorInputs = {
@@ -30,7 +32,9 @@ function initSimClickEvent() {
             "workerSalarySoles": workerSalarySoles,
             "productionQuintales": productionQuintales,
             "transportCostSoles": transportCostSoles,
-            "costPriceSolesPerQuintal": costPriceSolesPerQuintal
+            "costPriceSolesPerQuintal": costPriceSolesPerQuintal,
+            "expSolesChem": convFert,
+            "expSolesOrg": orgFert
         }
 
         $.ajax({
@@ -39,7 +43,7 @@ function initSimClickEvent() {
             data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares +
             "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition +
             "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +
-            "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal,
+            "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal + "&expSolesChem=" + convFert + "&expSolesOrg=" + orgFert,
             contentType: "application/json; charset=utf-8",
             success: function (result, status) {
                 //set simulation to new output
@@ -70,24 +74,24 @@ function initSimClickEvent() {
 
 function updateSimulationChartDataObject() {
     var chartDataObject = [];
-    var variableData = { name: 'Variable', data: [] };
-    var fixedData = { name: 'Fixed', data: [] };
-    var additionalData = { name: 'Additional', data: [] };
+    var variableData = { name: 'Variable', data: [], index: 2 };
+    var fixedData = { name: 'Fixed', data: [], index: 1 };
+    var additionalData = { name: 'Additional', data: [], index: 0};
 
     //producer - from UserDataObject
-    variableData.data.push(Math.round(UserData.output.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
-    fixedData.data.push(Math.round(UserData.output.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
     additionalData.data.push(Math.round(UserData.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
-    
-    //simulation
-    variableData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
-    fixedData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
-    additionalData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
+    fixedData.data.push(Math.round(UserData.output.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
+    variableData.data.push(Math.round(UserData.output.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
 
+    //simulation
+    additionalData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
+    fixedData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
+    variableData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
+ 
     //coop
-    variableData.data.push(UserData.output.Coop.variableCostUSPound);
-    fixedData.data.push(UserData.output.Coop.fixedCostUSPound);
-    additionalData.data.push(UserData.output.Coop.totalCostAndDeprUSPound);
+    //variableData.data.push(UserData.output.Coop.variableCostUSPound);
+    //fixedData.data.push(UserData.output.Coop.fixedCostUSPound);
+    //additionalData.data.push(UserData.output.Coop.totalCostAndDeprUSPound);
 
     chartDataObject.push(variableData);
     chartDataObject.push(fixedData);
