@@ -44,21 +44,37 @@ function createResultChart() {
                 }
             },
             plotLines: [{
-                color: 'black',
-                value: UserData.input.costPriceSolesPerQuintal, // Insert your average here
+                color: 'blue',
+                value: Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100 ) / 100, // Insert your average here
                 width: '1',
                 zIndex: 2, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: UserData.input.costPriceSolesPerQuintal,
+                    text: Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100 ) / 100,
                     style: {
                         textAlign: 'right',
-                        color: 'black',
+                        color: 'blue',
                         fontWeight: 'bold',
                     },
                     x: -30
                 }
-            }]
+                }, {
+                color: 'red',
+                value: 1.34,
+                width: '1',
+                zIndex: 2, // To not get stuck below the regular plot lines,
+                dashStyle: 'ShortDash',
+                label: {
+                    text: 1.34,
+                    style: {
+                        textAlign: 'right',
+                        color: 'red',
+                        fontWeight: 'bold',
+                    },
+                    x: -30
+                }
+              }
+            ]
         },
         legend: {
             align: 'center',

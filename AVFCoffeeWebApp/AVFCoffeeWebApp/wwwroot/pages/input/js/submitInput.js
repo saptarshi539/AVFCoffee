@@ -30,6 +30,7 @@ $("#submitInput").click(function () {
         "expSolesOrg": orgFert
     }
 
+
     $.ajax({
         type: "GET",
         url: apiURL + "CellSum/calculate",
