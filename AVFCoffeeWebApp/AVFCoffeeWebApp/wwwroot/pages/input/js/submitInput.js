@@ -11,7 +11,9 @@ $("#submitInput").click(function () {
     var productionQuintales = $("#productionQuintales").val();
     var transportCostSoles = $("#transportCostSoles").val();
     var costPriceSolesPerQuintal = $("#costPriceSolesPerQuintal").val();
-
+    var convFert = $("#conventionalFertilizers").val();
+    var orgFert = $("#organicFertilizers").val();
+   
     //make user inputs object 
     var userInputs = {
         "earlyHectares": earlyHectares,
@@ -23,7 +25,9 @@ $("#submitInput").click(function () {
         "workerSalarySoles": workerSalarySoles,
         "productionQuintales": productionQuintales,
         "transportCostSoles": transportCostSoles,
-        "costPriceSolesPerQuintal": costPriceSolesPerQuintal
+        "costPriceSolesPerQuintal": costPriceSolesPerQuintal,
+        "expSolesChem": convFert,
+        "expSolesOrg": orgFert
     }
 
     $.ajax({
@@ -32,7 +36,7 @@ $("#submitInput").click(function () {
         data: "earlyHectares=" + earlyHectares + "&peakHectares=" + peakHectares + "&oldHectares=" + oldHectares +
         "&conventional=" + conventional + "&organic=" + organic + "&transition=" + transition +
         "&workerSalarySoles=" + workerSalarySoles + "&productionQuintales=" + productionQuintales +
-        "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal,
+        "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal + "&expSolesChem=" + convFert +"&expSolesOrg=" + orgFert, 
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
             chartDataObject = [];
