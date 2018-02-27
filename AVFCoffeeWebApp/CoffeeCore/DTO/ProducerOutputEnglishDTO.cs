@@ -12,6 +12,7 @@ namespace CoffeeCore.DTO
         public Double totalCostAndDeprUSPound { get; set; }
         public Double totalCostUSPound { get; set; } 
         public Double breakEvenCostUSPound { get; set; }
+        public Double futuresPrice { get; set; }
         public bool status { get; set; }
     }
 }
