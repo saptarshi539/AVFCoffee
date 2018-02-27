@@ -110,7 +110,7 @@ namespace CoffeeInfrastructure.Flexcel
             Dictionary<String, object> outputDict = new Dictionary<String, object>();
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
-            var futuresPrice = getFuturesPrice();
+            //var futuresPrice = getFuturesPrice();
             outputDict.Add("FuturesPrice", 0.04);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;

@@ -87,15 +87,37 @@ function updateSimulationChartDataObject() {
     additionalData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) / 100);
     fixedData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.fixedCostUSPound * 100) / 100);
     variableData.data.push(Math.round(UserData.simulationOutput.ProducerOutputEnglish.variableCostUSPound * 100) / 100);
- 
-    //coop
-    //variableData.data.push(UserData.output.Coop.variableCostUSPound);
-    //fixedData.data.push(UserData.output.Coop.fixedCostUSPound);
-    //additionalData.data.push(UserData.output.Coop.totalCostAndDeprUSPound);
 
     chartDataObject.push(variableData);
     chartDataObject.push(fixedData);
     chartDataObject.push(additionalData);
 
-    UserData.simulationChartDataObject = chartDataObject;
+    language.EN.chart.simulationData = chartDataObject
+    language.EN.chart.plotlinePriceRecieved = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
+    language.EN.chart.plotlineWorldPrice = 1.34
+
+    var chartDataObjectES = [];
+    var variableDataES = { name: 'Variable', data: [], index: 2 };
+    var fixedDataES = { name: 'Fixed', data: [], index: 1 };
+    var additionalDataES = { name: 'Additional', data: [], index: 0 };
+
+    //producer - from UserDataObject
+    additionalDataES.data.push(Math.round((UserData.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 320.42)* 100) / 100);
+    fixedDataES.data.push(Math.round((UserData.output.ProducerOutputEnglish.fixedCostUSPound * 320.42) * 100) / 100);
+    variableDataES.data.push(Math.round((UserData.output.ProducerOutputEnglish.variableCostUSPound * 320.42) * 100) / 100);
+
+    //simulation
+    additionalDataES.data.push(Math.round((UserData.simulationOutput.ProducerOutputEnglish.totalCostAndDeprUSPound * 320.42) *100) / 100);
+    fixedDataES.data.push(Math.round((UserData.simulationOutput.ProducerOutputEnglish.fixedCostUSPound * 320.42)* 100) / 100);
+    variableDataES.data.push(Math.round((UserData.simulationOutput.ProducerOutputEnglish.variableCostUSPound * 320.42)* 100) / 100);
+  
+    chartDataObjectES.push(variableDataES);
+    chartDataObjectES.push(fixedDataES);
+    chartDataObjectES.push(additionalDataES);
+
+    language.ES.chart.simulationData = chartDataObjectES
+    language.ES.chart.plotlinePriceRecieved = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 320.42) * 100) / 100
+    language.ES.chart.plotlineWorldPrice = Math.round((1.34 * 320.42) * 100) / 100
+
+    //UserData.simulationChartDataObject = chartDataObject;
 }

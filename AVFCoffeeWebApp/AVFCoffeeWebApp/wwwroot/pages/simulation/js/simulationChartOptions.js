@@ -32,12 +32,12 @@ function createSimulationChart() {
             },
             plotLines: [{
                 color: 'blue',
-                value: Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100, // Insert your average here
+                value: chartLanguage.plotlinePriceRecieved, // Insert your average here
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100 + "<br /> Price <br/> Recieved",
+                    text: chartLanguage.plotlinePriceRecieved + "<br /> Price <br/> Recieved",
                     align: 'right',
                     textAlign: 'right',
                     style: {
@@ -47,12 +47,12 @@ function createSimulationChart() {
                 }
             }, {
                 color: 'red',
-                value: 1.34,
+                value: chartLanguage.plotlineWorldPrice,
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: "1.34<br />  World <br /> Price",
+                    text: chartLanguage.plotlineWorldPrice + "<br />  World <br /> Price",
                     align: 'left',
                     textAlign: 'left',
                     style: {
@@ -91,7 +91,7 @@ function createSimulationChart() {
                 }
             }
         },
-        series: UserData.simulationChartDataObject
+        series: chartLanguage.simulationData
 
 
     });
