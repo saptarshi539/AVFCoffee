@@ -109,8 +109,9 @@ namespace CoffeeInfrastructure.Flexcel
             Dictionary<String, object> outputDict = new Dictionary<String, object>();
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
-            var futuresPrice = getFuturesPrice();
-            outputDict.Add("FuturesPrice", futuresPrice.Result);
+            //var futuresPrice = getFuturesPrice();
+            
+            //outputDict.Add("FuturesPrice", futuresPrice.Result);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;
             //Save the file as XLS
@@ -389,6 +390,7 @@ namespace CoffeeInfrastructure.Flexcel
                             pOutEnglishDTO.totalCostAndDeprUSPound = Convert.ToDouble(reader["TotalCostAndDeprUSPound"].ToString());
                             pOutEnglishDTO.totalCostUSPound = Convert.ToDouble(reader["TotalCostUSPound"].ToString());
                             pOutEnglishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
+                            pOutEnglishDTO.futuresPrice = Convert.ToDouble(reader["FuturesPrice"].ToString());
                             pOutEnglishDTO.status = true;
                             pOutSpanishDTO.variableCostSolesHect = Convert.ToDouble(reader["VariableCostSolesHect"].ToString());
                             pOutSpanishDTO.variableCostUSHect = Convert.ToDouble(reader["VariableCostUSHect"].ToString());
@@ -492,9 +494,9 @@ namespace CoffeeInfrastructure.Flexcel
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[OutputProducer]" +
                    "(UserID, VariableCostUSPound, FixedCostUSPound, TotalCostAndDeprUSPound, TotalCostUSPound, VariableCostUSHect, VariableCostSolesHect, TotalCostUSHect, " +
-                   "TotalCostSolesHect, BreakEvenCostUSPound, TimeStamp) VALUES" +
+                   "TotalCostSolesHect, BreakEvenCostUSPound, TimeStamp, FuturesPrice) VALUES" +
                    "(@id, @variableCostUSPound, @fixedCostUSPound, @totalCostAndDeprUSPound, @totalCostUSPound, @variableCostUSHect, @variableCostSolesHect, @totalCostUSHect, @totalCostSolesHect" +
-                   ", @breakEvenCostUSPound, @TimeStamp)");
+                   ", @breakEvenCostUSPound, @TimeStamp, @FuturesPrice)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
@@ -510,6 +512,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@totalCostSolesHect", totalCostSolesHect);
                 command.Parameters.AddWithValue("@breakEvenCostUSPound", breakEvenCostUSPound);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
+                command.Parameters.AddWithValue("@FuturesPrice", getFuturesPrice().Result);
                 command.Connection = connect;
                 resultProd = command.ExecuteNonQuery();
                 connect.Close();
