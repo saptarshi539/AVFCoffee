@@ -35,7 +35,7 @@ namespace AVFCoffeeWebApp.Controllers
                 user.UserID = userID;
                 user.UserName = username;
 
-                cellSumController.SaveUser(user);
+                cellSumController.SaveUser(user, cooperativeID);
                 //make call to service
                 var inputOutputObject = cellSumController.GetOutputStatus(User.GetId());
                 var outp = inputOutputObject.loginfo["Outputs"];

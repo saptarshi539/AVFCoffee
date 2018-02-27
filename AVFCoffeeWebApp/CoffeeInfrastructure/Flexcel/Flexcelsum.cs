@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
-using System.Net;
-using System.Collections.Specialized;
+using CoffeeInfrastructure.Helpers;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoffeeInfrastructure.Flexcel
 {
@@ -121,7 +121,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         private async Task<string> getFuturesPrice()
         {
-            var url = "https://aganalyticsdev.eastus2.cloudapp.azure.com/agriskmanagement/api/dataservice?sql=SELECT%20Top%201%20[SettlementPrice]/37500%20as%20p%20FROM%20[AgDB].[dbo].[CommodityFutures]%20where%20[Date]%20%3E%20%272017-12-31%27%20and%20Commodity%20=%20%27CoffeeC%27";
+            var url = "https://aganalyticsdev.eastus2.cloudapp.azure.com/agriskmanagement/api/dataservice?sql=SELECT%20Top%201%20[SettlementPrice]/375%20as%20p%20FROM%20[AgDB].[dbo].[CommodityFutures]%20where%20Commodity%20=%20%27CoffeeC%27%20and%20[ExpirationMonth]%20=%20%27May%27%20order%20by%20[Date]%20desc";
             var futuresPrice = "";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(url);
@@ -572,7 +572,7 @@ namespace CoffeeInfrastructure.Flexcel
                             connect.Open();
                             SqlCommand command = new SqlCommand(sqlQueryUser);
                             command.Parameters.AddWithValue("@id", userInfoDTO.UserID);
-                            command.Parameters.AddWithValue("@CoopID", 0);
+                            command.Parameters.AddWithValue("@CoopID", userInfoDTO.CoopID);
                             command.Parameters.AddWithValue("@UserName", userInfoDTO.UserName);
                             command.Parameters.AddWithValue("@Language", userInfoDTO.Language);
                             command.Connection = connect;

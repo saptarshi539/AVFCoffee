@@ -170,12 +170,15 @@ namespace Coffee.APIControllers
 
         }
 
-        public UserInfoDTO SaveUser(UserInfoDTO user)
+        public UserInfoDTO SaveUser(UserInfoDTO user, string coopID)
         {
             try
             {
+                user.CoopID = coopID;
                 var output = flexcelsum.SaveUserInfo(user);
+
                 return output;
+
             }
             catch (Exception e)
             {
