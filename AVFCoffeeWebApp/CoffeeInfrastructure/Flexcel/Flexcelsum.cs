@@ -11,6 +11,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace CoffeeInfrastructure.Flexcel
 {
@@ -109,11 +110,21 @@ namespace CoffeeInfrastructure.Flexcel
             Dictionary<String, object> outputDict = new Dictionary<String, object>();
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
+            var futuresPrice = getFuturesPrice();
+            outputDict.Add("FuturesPrice", 0.04);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;
             //Save the file as XLS
             //xls.Save(openFileDialog1.FileName);
             return cdata;
+        }
+
+        private object getFuturesPrice()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://aganalyticsdev.eastus2.cloudapp.azure.com/");
+            //client.DefaultRequestHeaders
+            throw new NotImplementedException();
         }
 
         private void CreateFileForSheet2(XlsFile xls, Double peakHectares, Double oldHectares)
