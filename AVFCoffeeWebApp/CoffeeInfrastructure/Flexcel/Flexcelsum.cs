@@ -443,8 +443,8 @@ namespace CoffeeInfrastructure.Flexcel
                 cOut.Add("ProducerOutputEnglish", pOutEnglishDTO);
                 cOut.Add("ProducerOutputSpanish", pOutSpanishDTO);
                 cOut.Add("Coop", coopOutputDTO);
-                var futuresPrice = getFuturesPrice();
-                cOut.Add("FuturesPrice", futuresPrice.Result);
+                //var futuresPrice = getFuturesPrice();
+                //cOut.Add("FuturesPrice", futuresPrice.Result);
                 cData.Output = cOut;
                 Dictionary<String, object> outDict = new Dictionary<String, object>();
                 outDict.Add("Inputs", chInput);
