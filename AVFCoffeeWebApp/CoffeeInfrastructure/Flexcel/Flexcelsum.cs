@@ -121,7 +121,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         private async Task<string> getFuturesPrice()
         {
-            var url = "https://aganalyticsdev.eastus2.cloudapp.azure.com/agriskmanagement/api/dataservice?sql=SELECT%20Top%201%20[SettlementPrice]/37500%20as%20p%20FROM%20[AgDB].[dbo].[CommodityFutures]%20where%20[Date]%20%3E%20%272017-12-31%27%20and%20Commodity%20=%20%27CoffeeC%27"
+            var url = "https://aganalyticsdev.eastus2.cloudapp.azure.com/agriskmanagement/api/dataservice?sql=SELECT%20Top%201%20[SettlementPrice]/37500%20as%20p%20FROM%20[AgDB].[dbo].[CommodityFutures]%20where%20[Date]%20%3E%20%272017-12-31%27%20and%20Commodity%20=%20%27CoffeeC%27";
             var futuresPrice = "";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(url);

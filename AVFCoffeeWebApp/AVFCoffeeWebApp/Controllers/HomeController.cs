@@ -26,6 +26,7 @@ namespace AVFCoffeeWebApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                var cooperativeID = User.GetCooperativeID();
                 var username = User.GetGivenName();
                 var userID = User.GetId();
                 var language = User.GetSiupinPolicyName();
