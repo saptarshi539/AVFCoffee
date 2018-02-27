@@ -4,18 +4,7 @@ function createSimulationChart() {
     var chartLanguage = language[lang]["chart"];
     
      Highcharts.chart('chartdiv2', {
-        exporting: {
-            chartOptions: { // specific options for the exported image
-                plotOptions: {
-                    series: {
-                        dataLabels: {
-                            enabled: true
-                        }
-                    }
-                }
-            },
-            fallbackToExportServer: false
-        },
+     
         colors: ["#B9A5AE", "#9D6D82", "#754A5D", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
         chart: {
             type: 'column',
@@ -42,21 +31,37 @@ function createSimulationChart() {
                 }
             },
             plotLines: [{
-                color: 'black',
-                value: UserData.input.costPriceSolesPerQuintal, // Insert your average here
+                color: 'blue',
+                value: chartLanguage.plotlinePriceRecieved, // Insert your average here
                 width: '1',
-                zIndex: 2, // To not get stuck below the regular plot lines,
+                zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: UserData.input.costPriceSolesPerQuintal,
+                    text: chartLanguage.plotlinePriceRecieved + "<br /> Price <br/> Recieved",
+                    align: 'right',
+                    textAlign: 'right',
                     style: {
-                        textAlign: 'right',
-                        color: 'black',
+                        color: 'blue',
                         fontWeight: 'bold',
                     },
-                    x: -30
                 }
-            }]
+            }, {
+                color: 'red',
+                value: chartLanguage.plotlineWorldPrice,
+                width: '1',
+                zIndex: 99, // To not get stuck below the regular plot lines,
+                dashStyle: 'ShortDash',
+                label: {
+                    text: chartLanguage.plotlineWorldPrice + "<br />  World <br /> Price",
+                    align: 'left',
+                    textAlign: 'left',
+                    style: {
+                        color: 'red',
+                        fontWeight: 'bold',
+                    },
+                }
+            }
+            ]
         },
         legend: {
             align: 'center',
@@ -86,7 +91,7 @@ function createSimulationChart() {
                 }
             }
         },
-        series: UserData.simulationChartDataObject
+        series: chartLanguage.simulationData
 
 
     });
