@@ -4,14 +4,13 @@ using CoffeeCore.DTO;
 using FlexCel.XlsAdapter;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.Net;
+using System.Collections.Specialized;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace CoffeeInfrastructure.Flexcel
 {
@@ -110,8 +109,8 @@ namespace CoffeeInfrastructure.Flexcel
             Dictionary<String, object> outputDict = new Dictionary<String, object>();
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
-            //var futuresPrice = getFuturesPrice();
-            outputDict.Add("FuturesPrice", 0.04);
+            var futuresPrice = getFuturesPrice();
+            outputDict.Add("FuturesPrice", futuresPrice.Result);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;
             //Save the file as XLS
@@ -119,12 +118,17 @@ namespace CoffeeInfrastructure.Flexcel
             return cdata;
         }
 
-        private object getFuturesPrice()
+        private async Task<string> getFuturesPrice()
         {
+            var futuresPrice = "";
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://aganalyticsdev.eastus2.cloudapp.azure.com/");
-            //client.DefaultRequestHeaders
-            throw new NotImplementedException();
+            HttpResponseMessage response = await client.GetAsync("https://aganalyticsdev.eastus2.cloudapp.azure.com/agriskmanagement/api/dataservice?sql=SELECT%20Top%201%20[SettlementPrice]/37500%20as%20p%20FROM%20[AgDB].[dbo].[CommodityFutures]%20where%20[Date]%20%3E%20%272017-12-31%27%20and%20Commodity%20=%20%27CoffeeC%27");
+            if (response.IsSuccessStatusCode)
+            {
+                futuresPrice = await response.Content.ReadAsStringAsync();
+            }
+            string coffeeFuturesPrice = futuresPrice.Split("\n")[1];
+            return coffeeFuturesPrice;
         }
 
         private void CreateFileForSheet2(XlsFile xls, Double peakHectares, Double oldHectares)
@@ -437,6 +441,8 @@ namespace CoffeeInfrastructure.Flexcel
                 cOut.Add("ProducerOutputEnglish", pOutEnglishDTO);
                 cOut.Add("ProducerOutputSpanish", pOutSpanishDTO);
                 cOut.Add("Coop", coopOutputDTO);
+                var futuresPrice = getFuturesPrice();
+                cOut.Add("FuturesPrice", futuresPrice.Result);
                 cData.Output = cOut;
                 Dictionary<String, object> outDict = new Dictionary<String, object>();
                 outDict.Add("Inputs", chInput);
