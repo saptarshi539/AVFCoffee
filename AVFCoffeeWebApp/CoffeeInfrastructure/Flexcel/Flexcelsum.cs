@@ -110,7 +110,7 @@ namespace CoffeeInfrastructure.Flexcel
             Dictionary<String, object> outputDict = new Dictionary<String, object>();
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
-            var futuresPrice = getFuturesPrice();
+            //var futuresPrice = getFuturesPrice();
             outputDict.Add("FuturesPrice", 0.04);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;
@@ -312,8 +312,8 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
                 command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
                 command.Parameters.AddWithValue("@UserID", id);
-                command.Parameters.AddWithValue("@ExpSolesChem", 379);
-                command.Parameters.AddWithValue("@ExpSolesOrg", 379);
+                command.Parameters.AddWithValue("@ExpSolesChem", chartInputDTO.expSolesChem);
+                command.Parameters.AddWithValue("@ExpSolesOrg", chartInputDTO.expSolesOrg);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 int result = command.ExecuteNonQuery();
@@ -360,6 +360,8 @@ namespace CoffeeInfrastructure.Flexcel
                             chInput.productionQuintales = Convert.ToDouble(reader["YieldPerHect"].ToString());
                             chInput.transportCostSoles = Convert.ToDouble(reader["TransportCost"].ToString());
                             chInput.costPriceSolesPerQuintal = Convert.ToDouble(reader["FinalPrice"].ToString());
+                            chInput.expSolesOrg = Convert.ToDouble(reader["ExpSolesOrg"].ToString());
+                            chInput.expSolesChem = Convert.ToDouble(reader["ExpSolesChem"].ToString());
                         }
                     }
 

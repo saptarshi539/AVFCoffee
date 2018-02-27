@@ -15,7 +15,6 @@
         url: apiURL + "CellSum/getinput",
         success: function (content, status) {
             if (status != 'nocontent') {
-                console.log(content)
                 UserData.input = content.loginfo.Inputs;
                 UserData.output = content.loginfo.Outputs;
                 UserData.simulationOutput = content.loginfo.Outputs;
@@ -38,6 +37,8 @@
                     $("#productionQuintales2").val(UserData.simulationInput.productionQuintales);
                     $("#transportCostSoles2").val(UserData.simulationInput.transportCostSoles);
                     $("#costPriceSolesPerQuintal2").val(UserData.simulationInput.costPriceSolesPerQuintal);
+                    $("#conventionalFertilizers2").val(UserData.input.expSolesChem);
+                    $("#organicFertilizers2").val(UserData.input.expSolesOrg);
                 }
                 else if (page.toLowerCase() == "input") {
                     //load users data into input page
@@ -51,6 +52,8 @@
                     $("#productionQuintales").val(UserData.input.productionQuintales);
                     $("#transportCostSoles").val(UserData.input.transportCostSoles);
                     $("#costPriceSolesPerQuintal").val(UserData.input.costPriceSolesPerQuintal);
+                    $("#conventionalFertilizers").val(UserData.input.expSolesChem);
+                    $("#organicFertilizers").val(UserData.input.expSolesOrg);
                 }
 
                 translate()
