@@ -67,7 +67,7 @@ var language = {
             chartTitle: "Desglose de costos",
             categories: ["Productor", "Cooperativa"],
             simulationCategories: ["Productor", "Simulación"],
-            yaxisLabel: "Dólares por Libra ",
+            yaxisLabel: "Soles per quintal",
             plotLineLabel: "Precio<br/> Actual",
             seriesLabel: {
                 "Variable": {
@@ -83,7 +83,11 @@ var language = {
                     "description": "Los costos de depreciación y totales incluyen la depreciación de herramientas y equipos que se usan por más de un periodo así como el costo de oportunidad de los costos iniciales de establecimiento y de la tierra."
                 }
 
-            }
+            },
+            data: [], //dollars per pounds * 320.42,
+            simulationData: [],
+            plotlinePriceRecieved: "" ,
+            plotlineWorldPrice: ""
         }
     },
 
@@ -170,7 +174,11 @@ var language = {
                     "description": "Variable Costs are directly related to coffee farm output. These include hired labor and production inputs such as fertilizer or pesticides."
                 }
                
-            }
+            },
+            data: [],
+            simulationData: [],
+            plotlinePriceRecieved: "",
+            plotlineWorldPrice: ""
         }
     }
 }
