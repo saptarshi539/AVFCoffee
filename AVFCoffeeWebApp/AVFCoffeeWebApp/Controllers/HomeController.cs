@@ -26,6 +26,7 @@ namespace AVFCoffeeWebApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                var cooperativeID = User.GetCooperativeID();
                 var username = User.GetGivenName();
                 var userID = User.GetId();
                 var language = User.GetSiupinPolicyName();
@@ -34,7 +35,7 @@ namespace AVFCoffeeWebApp.Controllers
                 user.UserID = userID;
                 user.UserName = username;
 
-                cellSumController.SaveUser(user);
+                cellSumController.SaveUser(user, cooperativeID);
                 //make call to service
                 var inputOutputObject = cellSumController.GetOutputStatus(User.GetId());
                 var outp = inputOutputObject.loginfo["Outputs"];

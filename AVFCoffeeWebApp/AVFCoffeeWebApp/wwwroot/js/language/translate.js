@@ -16,7 +16,7 @@ var language = {
         "demo-next": "Siguiente",
         "demo-skip": "Omitir",
         "demo-signup": "Regístrate",
-        "layout-navitem1": "Ini",
+        "layout-navitem1": "Inicio",
         "layout-navitem2": "Datos",
         "layout-navitem3": "Simulación",
         "layout-navitem4": "Cerrar Session",
@@ -87,7 +87,8 @@ var language = {
             data: [], //dollars per pounds * 320.42,
             simulationData: [],
             plotlinePriceRecieved: "" ,
-            plotlineWorldPrice: ""
+            plotlineWorldPrice: "",
+            chartUnitsConversion: 320.42
         }
     },
 
@@ -178,7 +179,8 @@ var language = {
             data: [],
             simulationData: [],
             plotlinePriceRecieved: "",
-            plotlineWorldPrice: ""
+            plotlineWorldPrice: "",
+            chartUnitsConversion: ""
         }
     }
 }
