@@ -55,34 +55,28 @@ $("#submitInput").click(function () {
                     data: [.41, .44],
                 }]
             } */
-            var variableData = { name: 'Variable', data: [] };
-            var fixedData = { name: 'Fixed', data: [] };
-            var additionalData = { name: 'Additional', data: [] };
+            //var variableData = { name: 'Variable', data: [] };
+            //var fixedData = { name: 'Fixed', data: [] };
+            //var additionalData = { name: 'Additional', data: [] };
 
-            variableData.data.push(Math.round(result.output.ProducerOutputEnglish.variableCostUSPound * 100) /100);
-            fixedData.data.push(Math.round(result.output.ProducerOutputEnglish.fixedCostUSPound * 100) /100);
-            additionalData.data.push(Math.round(result.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) /100);
-            variableData.data.push(result.output.Coop.variableCostUSPound);
-            fixedData.data.push(result.output.Coop.fixedCostUSPound);
-            additionalData.data.push(result.output.Coop.totalCostAndDeprUSPound);
+            //variableData.data.push(Math.round(result.output.ProducerOutputEnglish.variableCostUSPound * 100) /100);
+            //fixedData.data.push(Math.round(result.output.ProducerOutputEnglish.fixedCostUSPound * 100) /100);
+            //additionalData.data.push(Math.round(result.output.ProducerOutputEnglish.totalCostAndDeprUSPound * 100) /100);
+            //variableData.data.push(result.output.Coop.variableCostUSPound);
+            //fixedData.data.push(result.output.Coop.fixedCostUSPound);
+            //additionalData.data.push(result.output.Coop.totalCostAndDeprUSPound);
 
-            chartDataObject.push(variableData);
-            chartDataObject.push(fixedData);
-            chartDataObject.push(additionalData);
+            //chartDataObject.push(variableData);
+            //chartDataObject.push(fixedData);
+            //chartDataObject.push(additionalData);
 
-            localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
+            //localStorage.setItem("chartDataObject", JSON.stringify(chartDataObject));
        
-            console.log(localStorage.getItem("selectedLanguage"))
+            //console.log(localStorage.getItem("selectedLanguage"))
 
-
-
-            //save user input then save user output
             var promiseSaveInput = saveUserInput(userInputs)
             var promiseSaveOutput = saveUserOutput(result)
-
-
-            // save input and output .then
-            window.location.href = '/Results';
+            
         },
         error: function (res, status) {
             if (status === "error") {
@@ -117,7 +111,8 @@ function saveUserOutput(outputData) {
         contentType: "application/json; charset=utf-8",
         data: request,
         success: function (result, status) {
-            console.log(result)
+            // save input and output .then
+            window.location.href = '/Results';
         },
         error: function (res, status) {
         }
