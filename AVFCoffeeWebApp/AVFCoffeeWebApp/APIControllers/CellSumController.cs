@@ -182,6 +182,10 @@ namespace Coffee.APIControllers
                     user.CoopID = coopID;
                 }
                 
+                if (user.UserName == null)
+                {
+                    user.UserName = "NoUserName";
+                }
                 var output = flexcelsum.SaveUserInfo(user);
 
                 return output;
