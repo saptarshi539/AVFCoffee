@@ -15,6 +15,7 @@
         url: apiURL + "CellSum/getinput",
         success: function (content, status) {
             if (status != 'nocontent') {
+                console.log(content)
                 UserData.input = content.loginfo.Inputs;
                 UserData.output = content.loginfo.Outputs;
                 UserData.simulationOutput = content.loginfo.Outputs;
