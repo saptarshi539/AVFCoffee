@@ -40,7 +40,8 @@ $("#submitInput").click(function () {
         "&transportCostSoles=" + transportCostSoles + "&costPriceSolesPerQuintal=" + costPriceSolesPerQuintal + "&expSolesChem=" + convFert +"&expSolesOrg=" + orgFert, 
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
-            saveUserInput(userInputs)
+            var userInputPromise = saveUserInput(userInputs);
+            userInputPromise.then(saveUserOutput(result)); 
         },
         error: function (res, status) {
             if (status === "error") {
@@ -59,7 +60,7 @@ function saveUserInput(userData) {
         data: request,
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
-            saveUserOutput(result)
+
         },
         error: function (res, status) {
         }
