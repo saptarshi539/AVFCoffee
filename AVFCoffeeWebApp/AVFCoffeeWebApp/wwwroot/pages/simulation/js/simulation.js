@@ -94,7 +94,7 @@ function updateSimulationChartDataObject() {
 
     language.EN.chart.simulationData = chartDataObject
     language.EN.chart.plotlinePriceRecieved = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
-    language.EN.chart.plotlineWorldPrice = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
+    language.EN.chart.plotlineWorldPrice = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
 
     var chartDataObjectES = [];
     var variableDataES = { name: 'Variable', data: [], index: 2 };
