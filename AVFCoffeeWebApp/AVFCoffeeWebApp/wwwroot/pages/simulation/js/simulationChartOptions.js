@@ -37,7 +37,7 @@ function createSimulationChart() {
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlinePriceRecieved + "<br /> Price <br/> Recieved",
+                    text: chartLanguage.plotlinePriceRecievedText,
                     align: 'right',
                     textAlign: 'right',
                     style: {
@@ -52,7 +52,7 @@ function createSimulationChart() {
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlineWorldPrice + "<br />  World <br /> Price",
+                    text: chartLanguage.plotlineWorldPriceText,
                     align: 'left',
                     textAlign: 'left',
                     style: {

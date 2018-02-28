@@ -27,7 +27,9 @@ function updateResultChartDataObject() {
 
     language.EN.chart.data = chartDataObject
     language.EN.chart.plotlinePriceRecieved = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
+    language.EN.chart.plotlinePriceRecievedText = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100 + "<br /> Price <br/> received"
     language.EN.chart.plotlineWorldPrice = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 1000) / 1000
+    language.EN.chart.plotlineWorldPriceText = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 1000) / 1000 + "<br />  World  <br/> price"
 
     var chartDataObjectES = [];
     var variableDataES = { name: 'Variable', data: [], index: 2 };
@@ -51,5 +53,7 @@ function updateResultChartDataObject() {
 
     language.ES.chart.data = chartDataObjectES
     language.ES.chart.plotlinePriceRecieved = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100
+    language.ES.chart.plotlinePriceRecievedText = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 + "<br /> precio <br/> recibido";
     language.ES.chart.plotlineWorldPrice = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 1000) / 1000
+    language.ES.chart.plotlineWorldPriceText = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 1000) / 1000 + "<br />  precio  <br/> mundial";
 }

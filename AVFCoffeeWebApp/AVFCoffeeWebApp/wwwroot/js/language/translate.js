@@ -88,6 +88,8 @@ var language = {
             simulationData: [],
             plotlinePriceRecieved: "" ,
             plotlineWorldPrice: "",
+            plotlinePriceRecievedText: "",
+            plotlineWorldPriceText: "",
             chartUnitsConversion: 320.42
         }
     },
@@ -180,6 +182,8 @@ var language = {
             simulationData: [],
             plotlinePriceRecieved: "",
             plotlineWorldPrice: "",
+            plotlinePriceRecievedText: "",
+            plotlineWorldPriceText: "",
             chartUnitsConversion: ""
         }
     }
