@@ -174,7 +174,18 @@ namespace Coffee.APIControllers
         {
             try
             {
-                user.CoopID = coopID;
+                if (coopID == null)
+                {
+                    user.CoopID = "0";
+                } else
+                {
+                    user.CoopID = coopID;
+                }
+                
+                if (user.UserName == null)
+                {
+                    user.UserName = "NoUserName";
+                }
                 var output = flexcelsum.SaveUserInfo(user);
 
                 return output;
