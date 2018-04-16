@@ -190,7 +190,30 @@ var language = {
         }
     }
 }
+// on each ppage load, translate to the selected languaage
+$(document).ready(function () {
+    //if (page.toLowerCase() != "simulation") 
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    // default to spanish on app load
+    // when user logs in their chosen language is used to access the login page in that language
+    // the app will stay in that langaue until user clicks trnaslate buttons on top page
+    // When app is loaded it will always load in the language that the user chose when logging in that session.
+    if (page == '') {
+        localStorage.setItem("selectedLanguage", "ES")
+        translate();
+    }
+    else if (page == 'Demo') {
+        localStorage.getItem("selectedLanguage")
+        translate();
+    }
+    else {
+        globalDataPromise.then(function (value) {
+            localStorage.setItem("selectedLanguage", UserData.user.language);
 
+        })
+    }
+})
 
 function translate() { 
     //filter the document to pull out just elements with a data-tag attribute
@@ -237,24 +260,3 @@ $("#spanish").click(function () {
     }
 });
 
-// on each ppage load, translate to the selected languaage
-$(document).ready(function () {
-    //if (page.toLowerCase() != "simulation") 
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    // default to spanish
-    if (page == '') {
-        localStorage.setItem("selectedLanguage", "ES")
-        translate();
-    }
-    else if (page == 'Demo') {
-        localStorage.getItem("selectedLanguage")
-        translate();
-    }
-    else {
-        globalDataPromise.then(function (value) {
-            localStorage.setItem("selectedLanguage", UserData.user.language);
-            
-        })
-    }
-})
