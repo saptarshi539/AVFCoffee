@@ -65,6 +65,7 @@ var language = {
         "simulation-header7": "Gasto:",
         "chart": {
             chartTitle: "Desglose de costos",
+            chartSubtitle: "Desplácese o haga clic en el gráfico para ver la definición de desglose de costos",
             categories: ["Productor", "Cooperativa"],
             simulationCategories: ["Productor", "Simulación"],
             yaxisLabel: "Soles per quintal",
@@ -159,6 +160,7 @@ var language = {
         "simulation-header7": "Expenditure:",
         "chart": {
             chartTitle: "Your Farm",
+            chartSubtitle: "Hover or click the chart for definition of cost breakdown",
             categories: ["Your Farm", "Co-op Average"],
             simulationCategories: ["Producer", "Simulation"],
             yaxisLabel: "Dollars per Pound",
@@ -215,11 +217,24 @@ function translate() {
 $("#english").click(function () {
     localStorage.setItem("selectedLanguage", "EN")
     translate()
+    if ($('#chartdiv1').highcharts()) {
+        createResultChart();
+    }
+    if ($('#chartdiv2').highcharts()) {
+        createSimulationChart();
+    }
+   
 });
 
 $("#spanish").click(function () {
     localStorage.setItem("selectedLanguage", "ES")
     translate();
+    if ($('#chartdiv1').highcharts()) {
+        createResultChart();
+    }
+    if ($('#chartdiv2').highcharts()) {
+        createSimulationChart();
+    }
 });
 
 // on each ppage load, translate to the selected languaage

@@ -1,11 +1,12 @@
 ﻿
 function createSimulationChart() {
-    var lang = UserData.user.language
+    //var lang = UserData.user.language
+    lang = localStorage.getItem("selectedLanguage")
     var chartLanguage = language[lang]["chart"];
     
      Highcharts.chart('chartdiv2', {
-     
-        colors: ["#B9A5AE", "#9D6D82", "#754A5D", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
+         colors: ["#009c86", "#05354b", "#96394e", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
+
         chart: {
             type: 'column',
             marginBottom: 100,
@@ -14,6 +15,9 @@ function createSimulationChart() {
         },
         title: {
             text: chartLanguage.chartTitle
+        },
+        subtitle: {
+            text: chartLanguage.chartSubtitle
         },
         xAxis: {
             categories: chartLanguage.simulationCategories
@@ -31,7 +35,7 @@ function createSimulationChart() {
                 }
             },
             plotLines: [{
-                color: 'blue',
+                color: '#05354b',
                 value: chartLanguage.plotlinePriceRecieved, // Insert your average here
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
@@ -41,12 +45,12 @@ function createSimulationChart() {
                     align: 'right',
                     textAlign: 'right',
                     style: {
-                        color: 'blue',
+                        color: '#05354b',
                         fontWeight: 'bold',
                     },
                 }
             }, {
-                color: 'red',
+                color: '#96394e',
                 value: chartLanguage.plotlineWorldPrice,
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
@@ -56,7 +60,7 @@ function createSimulationChart() {
                     align: 'left',
                     textAlign: 'left',
                     style: {
-                        color: 'red',
+                        color: '#96394e',
                         fontWeight: 'bold',
                     },
                 }
