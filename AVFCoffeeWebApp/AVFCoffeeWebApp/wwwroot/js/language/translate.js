@@ -68,7 +68,10 @@ var language = {
             chartSubtitle: "Desplácese o haga clic en el gráfico para ver la definición de desglose de costos",
             categories: ["Productor", "Cooperativa"],
             simulationCategories: ["Productor", "Simulación"],
-            yaxisLabel: "Soles per quintal",
+            yaxisLabel: {
+                "ES": "Soles por Quintal",
+                "EN": "Dólares por Libra"
+            },
             plotLineLabel: "Precio<br/> Actual",
             seriesLabel: {
                 "Variable": {
@@ -85,14 +88,38 @@ var language = {
                 }
 
             },
-            data: [], //dollars per pounds * 320.42,
-            simulationData: [],
-            plotlinePriceRecieved: "" ,
-            plotlineWorldPrice: "",
-            plotlinePriceRecievedText: "",
-            plotlineWorldPriceText: "",
-            chartUnitsConversion: 320.42
-        }
+            data: {
+                "EN": [],
+                "ES": []
+            },
+            simulationData: {
+                "EN": [],
+                "ES": []
+            },
+            defaultUnits: "ES",
+            altUnits: "EN",
+            plotlinePriceRecieved: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlineWorldPrice: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlinePriceRecievedText: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlineWorldPriceText: {
+                "EN": "",
+                "ES": ""
+            },
+            chartUnitsConversion: (101.4) * (3.16)
+        },
+        "chart-unitswitcher": "Ver unidades en: ",
+        "chart-altunits": "Dólares por Libra",
+        "chart-mainunits": "Soles por Quintal"
+
     },
 
     "EN": {
@@ -163,7 +190,10 @@ var language = {
             chartSubtitle: "Hover or click the chart for definition of cost breakdown",
             categories: ["Your Farm", "Co-op Average"],
             simulationCategories: ["Producer", "Simulation"],
-            yaxisLabel: "Dollars per Pound",
+            yaxisLabel: {
+                "EN": "Dollars per Pound",
+                "ES": "Soles per Quintal"
+            },
             plotLineLabel: "Current<br/>Price",
             seriesLabel: {
                 "Additional": {
@@ -180,14 +210,38 @@ var language = {
                 }
                
             },
-            data: [],
-            simulationData: [],
-            plotlinePriceRecieved: "",
-            plotlineWorldPrice: "",
-            plotlinePriceRecievedText: "",
-            plotlineWorldPriceText: "",
+            data: {
+                "EN": [],
+                "ES": []
+            },
+            simulationData: {
+                "EN": [],
+                "ES": []
+            },
+            defaultUnits: "EN",
+            altUnits: "ES",
+            plotlinePriceRecieved: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlineWorldPrice: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlinePriceRecievedText: {
+                "EN": "",
+                "ES": ""
+            },
+            plotlineWorldPriceText: {
+                "EN": "",
+                "ES": ""
+            },
             chartUnitsConversion: ""
-        }
+        },
+        "chart-unitswitcher": "View units in: ",
+        "chart-altunits": "Soles per Quintal",
+        "chart-mainunits": "Dollars per Pound"
+
     }
 }
 // on each ppage load, translate to the selected languaage
@@ -201,6 +255,7 @@ $(document).ready(function () {
     // When app is loaded it will always load in the language that the user chose when logging in that session.
     if (page == '') {
         localStorage.setItem("selectedLanguage", "ES")
+        localStorage.setItem("defaultUnits", "")
         translate();
     }
     else if (page == 'Demo') {
@@ -209,8 +264,9 @@ $(document).ready(function () {
     }
     else {
         globalDataPromise.then(function (value) {
-            localStorage.setItem("selectedLanguage", UserData.user.language);
-
+            selectedLanguage = UserData.user.language
+            localStorage.setItem("selectedLanguage", selectedLanguage );
+            localStorage.setItem("selectedUnits", language[selectedLanguage].chart.defaultUnits);
         })
     }
 })
@@ -239,6 +295,11 @@ function translate() {
 // click event for front page set language links
 $("#english").click(function () {
     localStorage.setItem("selectedLanguage", "EN")
+    localStorage.setItem("selectedUnits", "EN")
+    $(".switchUnitsAlt").show();
+    $(".switchUnitsMain").hide();
+
+
     translate()
     if ($('#chartdiv1').highcharts()) {
         createResultChart();
@@ -251,6 +312,11 @@ $("#english").click(function () {
 
 $("#spanish").click(function () {
     localStorage.setItem("selectedLanguage", "ES")
+    localStorage.setItem("selectedUnits", "ES")
+    $(".switchUnitsAlt").show();
+    $(".switchUnitsMain").hide();
+
+
     translate();
     if ($('#chartdiv1').highcharts()) {
         createResultChart();
@@ -260,3 +326,40 @@ $("#spanish").click(function () {
     }
 });
 
+//click event for switching units view in chart
+$(".switchUnitsMain").click(function () {
+    //get current lang
+    var lang = localStorage.getItem("selectedLanguage")
+    //get default units
+    var units = language[lang].chart.defaultUnits;
+    localStorage.setItem("selectedUnits", units);
+
+    if ($('#chartdiv1').highcharts()) {
+        createResultChart();
+    }
+    if ($('#chartdiv2').highcharts()) {
+        createSimulationChart();
+    }
+    $(".switchUnitsAlt").show();
+    $(".switchUnitsMain").hide();
+
+
+});
+
+$(".switchUnitsAlt").click(function () {
+    //get current lang
+    var lang = localStorage.getItem("selectedLanguage")
+    //get alt units
+    var units = language[lang].chart.altUnits;
+    localStorage.setItem("selectedUnits", units);
+
+    if ($('#chartdiv1').highcharts()) {
+        createResultChart();
+    }
+    if ($('#chartdiv2').highcharts()) {
+        createSimulationChart();
+    }
+    $(".switchUnitsMain").show();
+    $(".switchUnitsAlt").hide();
+
+});

@@ -1,8 +1,11 @@
 ﻿
 function createSimulationChart() {
     //var lang = UserData.user.language
-    lang = localStorage.getItem("selectedLanguage")
+    var lang = localStorage.getItem("selectedLanguage")
+    var units = localStorage.getItem("selectedUnits")
     var chartLanguage = language[lang]["chart"];
+    var data = chartLanguage.simulationData[units]
+
     
      Highcharts.chart('chartdiv2', {
          colors: ["#009c86", "#05354b", "#96394e", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
@@ -25,13 +28,16 @@ function createSimulationChart() {
         yAxis: {
             min: 0,
             title: {
-                text: chartLanguage.yaxisLabel
+                text: language[lang]["chart"].yaxisLabel[units]
             },
             stackLabels: {
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                },
+                formatter: function () {
+                    return Highcharts.numberFormat(this.total,2)
                 }
             },
             plotLines: [{
@@ -95,7 +101,7 @@ function createSimulationChart() {
                 }
             }
         },
-        series: chartLanguage.simulationData
+        series: data
 
 
     });

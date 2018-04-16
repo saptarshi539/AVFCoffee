@@ -4,10 +4,13 @@ function createResultChart() {
     
    // var lang2 = UserData.user.language
    
-    lang = localStorage.getItem("selectedLanguage")
+    var lang = localStorage.getItem("selectedLanguage")
+    var units = localStorage.getItem("selectedUnits")
     var chartLanguage = language[lang]["chart"];
+    var data = chartLanguage.data[units]
+    console.log()
 
-    Highcharts.chart('chartdiv1', {
+    var resultChart = Highcharts.chart('chartdiv1', {
         
         colors: ["#009c86", "#05354b", "#96394e", "#0D8ECF", "#2A0CD0", "#CD0D74", "#CC0000", "#00CC00", "#0000CC", "#DDDDDD", "#999999", "#333333", "#990000"],
 
@@ -18,35 +21,37 @@ function createResultChart() {
             backgroundColor: '#EFEFEF',
         },
         title: {
-            text: chartLanguage.chartTitle
+            text: chartLanguage.chartTitle 
         },
         subtitle: {
             text: chartLanguage.chartSubtitle
         },
         xAxis: {
             categories: chartLanguage.categories
-
         },
         yAxis: {
             min: 0,
             title: {
-                text: chartLanguage.yaxisLabel
+                text: chartLanguage.yaxisLabel[units]
             },
             stackLabels: {
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                },
+                formatter: function () {
+                    return Highcharts.numberFormat(this.total, 2)
                 }
             },
             plotLines: [{
                 color: '#05354b',
-                value: chartLanguage.plotlinePriceRecieved, // Insert your average here
+                value: chartLanguage.plotlinePriceRecieved[units], // Insert your average here
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlinePriceRecievedText,
+                    text: chartLanguage.plotlinePriceRecievedText[units],
                     align: 'right',
                     textAlign: 'right',
                     style: {
@@ -59,12 +64,12 @@ function createResultChart() {
                 }
             }, {
                 color: '#96394e',
-                value: chartLanguage.plotlineWorldPrice,
+                value: chartLanguage.plotlineWorldPrice[units],
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlineWorldPriceText,
+                    text: chartLanguage.plotlineWorldPriceText[units],
                     align: 'left',
                     verticalAlign: 'top',
                     textAlign: 'left',
@@ -107,6 +112,7 @@ function createResultChart() {
                 }
             }
         },
-        series: chartLanguage.data
+        series: data
     });
 }
+

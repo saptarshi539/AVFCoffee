@@ -92,11 +92,16 @@ function updateSimulationChartDataObject() {
     chartDataObject.push(fixedData);
     chartDataObject.push(additionalData);
 
-    language.EN.chart.simulationData = chartDataObject
-    language.EN.chart.plotlinePriceRecieved = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
-    language.EN.chart.plotlinePriceRecievedText = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100 + "<br /> Price <br/> received"
-    language.EN.chart.plotlineWorldPrice = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 1000) / 1000
-    language.EN.chart.plotlineWorldPriceText = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 1000) / 1000 + "<br />  World  <br/> price"
+    language.EN.chart.simulationData.EN = chartDataObject
+    language.ES.chart.simulationData.EN = chartDataObject
+    language.EN.chart.plotlinePriceRecieved.EN = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
+    language.ES.chart.plotlinePriceRecieved.EN = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100
+    language.EN.chart.plotlinePriceRecievedText.EN = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100 + "<br /> Price <br/> received";
+    language.ES.chart.plotlinePriceRecievedText.EN = Math.round(UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * 100) / 100 + "<br /> precio <br/> recibido";
+    language.EN.chart.plotlineWorldPrice.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
+    language.ES.chart.plotlineWorldPrice.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
+    language.EN.chart.plotlineWorldPriceText.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100 + "<br />  World  <br/> price";
+    language.ES.chart.plotlineWorldPriceText > EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100 + "<br />  precio  <br/> mundial";
 
     var chartDataObjectES = [];
     var variableDataES = { name: 'Variable', data: [], index: 2 };
@@ -118,11 +123,16 @@ function updateSimulationChartDataObject() {
     chartDataObjectES.push(fixedDataES);
     chartDataObjectES.push(additionalDataES);
 
-    language.ES.chart.simulationData = chartDataObjectES
-    language.ES.chart.plotlinePriceRecieved = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 
-    language.ES.chart.plotlinePriceRecievedText = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 + "<br /> precio <br/> recibido";
-    language.ES.chart.plotlineWorldPrice = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 1000) / 1000 
-    language.ES.chart.plotlineWorldPriceText = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 1000) / 1000 + "<br />  precio  <br/> mundial";
+    language.ES.chart.simulationData.ES = chartDataObjectES
+    language.EN.chart.simulationData.ES = chartDataObjectES
+    language.ES.chart.plotlinePriceRecieved.ES = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 
+    language.EN.chart.plotlinePriceRecieved.ES = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 
+    language.ES.chart.plotlinePriceRecievedText.ES = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 + "<br /> precio <br/> recibido";
+    language.EN.chart.plotlinePriceRecievedText.ES = Math.round((UserData.output.ProducerOutputEnglish.breakEvenCostUSPound * conversion) * 100) / 100 + "<br /> Price <br/> received";
+    language.ES.chart.plotlineWorldPrice.ES = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 100) / 100 
+    language.EN.chart.plotlineWorldPrice.ES = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 100) / 100 
+    language.ES.chart.plotlineWorldPriceText.ES = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 100) / 100 + "<br />  precio  <br/> mundial";
+    language.EN.chart.plotlineWorldPriceText.ES = Math.round((UserData.output.ProducerOutputEnglish.futuresPrice * conversion) * 100) / 100 + "<br />  World  <br/> price";
 
     //UserData.simulationChartDataObject = chartDataObject;
 }
