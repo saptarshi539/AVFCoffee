@@ -253,6 +253,8 @@ $(document).ready(function () {
     // when user logs in their chosen language is used to access the login page in that language
     // the app will stay in that langaue until user clicks trnaslate buttons on top page
     // When app is loaded it will always load in the language that the user chose when logging in that session.
+    console.log(page)
+    console.log(localStorage.getItem("selectedLanguage"))
     if (page == '') {
         localStorage.setItem("selectedLanguage", "ES")
         localStorage.setItem("defaultUnits", "")
@@ -263,11 +265,17 @@ $(document).ready(function () {
         translate();
     }
     else {
-        globalDataPromise.then(function (value) {
-            selectedLanguage = UserData.user.language
-            localStorage.setItem("selectedLanguage", selectedLanguage );
-            localStorage.setItem("selectedUnits", language[selectedLanguage].chart.defaultUnits);
-        })
+        if (!localStorage.getItem("selectedLanguage")) {
+            globalDataPromise.then(function (value) {
+                selectedLanguage = UserData.user.language
+                localStorage.setItem("selectedLanguage", selectedLanguage);
+                localStorage.setItem("selectedUnits", language[selectedLanguage].chart.defaultUnits);
+                translate();
+            })
+        }
+        else{
+            translate();
+        }
     }
 })
 
