@@ -101,7 +101,7 @@ function updateSimulationChartDataObject() {
     language.EN.chart.plotlineWorldPrice.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
     language.ES.chart.plotlineWorldPrice.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100
     language.EN.chart.plotlineWorldPriceText.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100 + "<br />  World  <br/> price";
-    language.ES.chart.plotlineWorldPriceText > EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100 + "<br />  precio  <br/> mundial";
+    language.ES.chart.plotlineWorldPriceText.EN = Math.round(UserData.output.ProducerOutputEnglish.futuresPrice * 100) / 100 + "<br />  precio  <br/> mundial";
 
     var chartDataObjectES = [];
     var variableDataES = { name: 'Variable', data: [], index: 2 };
