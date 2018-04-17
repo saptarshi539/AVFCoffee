@@ -42,12 +42,12 @@ function createSimulationChart() {
             },
             plotLines: [{
                 color: '#05354b',
-                value: chartLanguage.plotlinePriceRecieved, // Insert your average here
+                value: chartLanguage.plotlinePriceRecieved[units], // Insert your average here
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlinePriceRecievedText,
+                    text: chartLanguage.plotlinePriceRecievedText[units],
                     align: 'right',
                     textAlign: 'right',
                     style: {
@@ -57,12 +57,12 @@ function createSimulationChart() {
                 }
             }, {
                 color: '#96394e',
-                value: chartLanguage.plotlineWorldPrice,
+                value: chartLanguage.plotlineWorldPrice[units],
                 width: '1',
                 zIndex: 99, // To not get stuck below the regular plot lines,
                 dashStyle: 'ShortDash',
                 label: {
-                    text: chartLanguage.plotlineWorldPriceText,
+                    text: chartLanguage.plotlineWorldPriceText[units],
                     align: 'left',
                     textAlign: 'left',
                     style: {
