@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using System.ComponentModel;
 using CoffeeCore.Interfaces;
 using CoffeeInfrastructure.Flexcel;
+using CoffeeInfrastructure.FarmerManagement;
 
 namespace AVFCoffeeWebApp
 {
@@ -34,7 +35,9 @@ namespace AVFCoffeeWebApp
             services.AddMvc().AddControllersAsServices();
 
             services.AddTransient<IFlexcelsum, Flexcelsum>();
-            }
+
+            services.AddTransient<IFarmer, Farmer>();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

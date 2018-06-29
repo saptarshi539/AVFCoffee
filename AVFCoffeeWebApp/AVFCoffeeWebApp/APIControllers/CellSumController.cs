@@ -14,10 +14,12 @@ namespace Coffee.APIControllers
     public class CellSumController : Controller
     {
         IFlexcelsum flexcelsum;
+        IFarmer farmer;
        
-        public CellSumController(IFlexcelsum _flexcelsum)
+        public CellSumController(IFlexcelsum _flexcelsum, IFarmer _farmer)
         {
             flexcelsum = _flexcelsum;
+            farmer = _farmer;
         }
 
         //[Route("sum/{cellId:long}")]
@@ -127,6 +129,28 @@ namespace Coffee.APIControllers
         //    }
 
         //}
+        [Route("FarmerLogin")]
+        [HttpGet]
+        [Produces("application/json")]
+        public IActionResult AuthenticateFarmerLogin(string phoneNumber)
+        {
+            try
+            {
+                var status = false;
+                if (phoneNumber != null)
+                {
+                    status = farmer.checkPhoneNumber(phoneNumber);
+                }
+                return Ok(status);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
 
         [Route("getinput")]
         [HttpGet]
