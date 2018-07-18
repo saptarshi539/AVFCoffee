@@ -514,7 +514,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@totalCostSolesHect", totalCostSolesHect);
                 command.Parameters.AddWithValue("@breakEvenCostUSPound", breakEvenCostUSPound);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
-                command.Parameters.AddWithValue("@FuturesPrice", getFuturesPrice().Result);
+                command.Parameters.AddWithValue("@FuturesPrice", 1.7);
                 command.Connection = connect;
                 resultProd = command.ExecuteNonQuery();
                 connect.Close();

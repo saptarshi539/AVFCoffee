@@ -1,7 +1,10 @@
 ﻿
+
 @{
     ViewData["Title"] = "View";
+    var apiURL = ViewData["apiURL"];
 }
+<!DOCTYPE html>
 <head>
     <title>CalcuCafé</title>
 
@@ -15,45 +18,64 @@
 
     <!-- CSS Unify -->
     <link rel="stylesheet" href="/lib/unify/assets/css/unify.css" asp-append-version="true">
+
+    <!-- CSS MDL -->
+    <link rel="stylesheet" href="~/lib/mdl/material.min.css" asp-append-version="true">
 </head>
 
 <body>
-    <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/coffeeberries.jpg);">
+    <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/background.jpg);">
         <div class="container g-color-white text-center g-z-index-1">
             <a class="g-font-size-20 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-20 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-20 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
             <!--welcome -->
             <div class="g-px-30">
                 <div class="row">
                     <div class="col-lg-3"></div>
-                    <div class="col-lg-6 g-bg-white-opacity-0_5 g-mb-60">
-                        <div id="" class="g-px-10">
-                            <h2 class="g-font-weight-500 g-font-size-50 g-mt-30 g-color-black g-line-height-1 text-center" data-tag="home-header">
-                                Welcome to Calcucafé
-                            </h2>
-                            <h6 class="g-color-darkpurple2 g-font-weight-500 g-line-height-1_5 g-letter-spacing-0_5 g-font-size-30 g-mb-30 text-center" data-tag="home-subheader"> A tool to help you calculate your cost of coffee production</h6>
-                        </div>
+                    <div class="col-lg-6">
+                        <div id="" class="g-px-10" style="background-image: url(/images/calcucafe-logo.svg); width:544px; height:119px; margin-bottom:12px; margin-top:24px"></div>
+                        <p class="g-px-10" data-tag="home-subheader" style="font-size:19pt">A tool to help you calculate your cost of coffee production</p>
                     </div>
                 </div>
             </div>
             <!--end welcome message-->
-            <input id="home-demobtn" class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 g-rounded-50 g-px-30 g-py-13" style="display: inline-block;" placeholder="phone number"/>
-            <button data-tag="home-loginbtn" id="farmerlogin" class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" style="display: inline-block;">Login</button>
+
+            <div class="mdl-textfield mdl-js-textfield" style="margin-right:24px">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                <label class="mdl-textfield__label" for="sample2" data-tag="EnterMobile" style="color:lightslategrey">Enter your mobile number</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+            </div>
+
+            @*<button data-tag="home-loginbtn" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" style="display: inline-block;">Login</button>*@
+            <!-- Raised button with ripple -->
+            <button data-tag="home-loginbtn" style="color:white" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Login
+            </button>
 
             <div class="container-fluid text-center g-color-gray-dark-v5 g-py-40">
-                
-
-                <p class="mb-0 g-color-white">
-                    <a data-tag="technician">Are you a technician?</a>
-                    <a data-tag="signupbutton" class="g-color-primary" href="Demo">Signup</a>.
-                    <a data-tag="loginbutton" id="loginBtn" class="g-color-primary" href="">Login</a>
-                </p>
+                <button style="color:white;" data-tag="ProducerLogin" id="loginBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Producer Login</button>
+                @*<p class="mb-0 g-color-red" id="incorrectPhone"></p>
+                    <p class="mb-0 g-color-white">
+                        <a data-tag="technician">Are you a technician?</a>
+                        <a data-tag="signupbutton" class="g-color-primary" href="Demo">Signup</a>.
+                        <a data-tag="loginbutton" id="loginBtn" class="g-color-primary">Login</a>
+                    </p>*@
             </div>
         </div>
+
+        
     </section>
 </body>
+@section Scripts{
+    <!--api url-->
+    <script>
+        var apiURL = "@ViewData["apiURL"]";
+    </script>
+    <!-- JS Global Compulsory -->
 
-<!-- JS Global Compulsory -->
+}
+
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+<script src="~/lib/mdl/material.min.js" asp-append-version="true"></script>
 
 <!-- highcarts javascript sources -->
 <script type="text/javascript" src="~/lib/highcharts/highcharts.src.js"></script>
@@ -61,4 +83,6 @@
 <!-- JS Custom -->
 <script src="/js/language/translate.js" asp-append-version="true"></script>
 <script src="~/pages/home/js/home.js" asp-append-version="true"></script>
+
+
 

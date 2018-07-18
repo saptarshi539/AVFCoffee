@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using AVFCoffeeWebApp.Models;
 using Coffee.APIControllers;
 using CoffeeInfrastructure.Helpers;
 using Newtonsoft.Json;
 using CoffeeCore.DTO;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AVFCoffeeWebApp.Controllers
 {
     public class HomeController : Controller
     {
         CellSumController cellSumController;
+        private readonly IConfiguration _iconfiguration;
+        private readonly IHostingEnvironment _env;
 
-        public HomeController(CellSumController cellSum)
+        public HomeController(CellSumController cellSum, IConfiguration iconfiguration, IHostingEnvironment env)
         {
             cellSumController = cellSum;
+            _iconfiguration = iconfiguration;
+            _env = env;
         }
 
         public IActionResult Index()
         {
+            ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;
             if (User.Identity.IsAuthenticated)
             {
                 var cooperativeID = User.GetCooperativeID();
@@ -60,10 +62,9 @@ namespace AVFCoffeeWebApp.Controllers
 
             else
             {
-                return PartialView();
+                return PartialView(ViewData["apiURL"]);
             }
         }
-        
-     
+
     }
 }

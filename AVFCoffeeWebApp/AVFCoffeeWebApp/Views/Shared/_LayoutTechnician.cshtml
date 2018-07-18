@@ -1,0 +1,45 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+<!-- Uses a transparent header that draws on top of the layout's background -->
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header" style="background-color:#7FB6A2">
+            <div class="mdl-layout__header-row" style="background-color:#7FB6A2">
+                <!-- Title -->
+                <span class="mdl-layout-title" style="background-image: url(/images/calcucafe-logo.svg); width: 199px; height: 43px;background-size:100%;"></span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer" style="background-color:#00838F">
+            <span class="mdl-layout-title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" style="color:white" href="">Analytics</a>
+                <a class="mdl-navigation__link" style="color:white" href="">Producers</a>
+                <a class="mdl-navigation__link" style="color:white" href="TechnicianHome">Coop Settings</a>
+                <a class="mdl-navigation__link" style="color:white" href="">Help</a>
+            </nav>
+        </div>
+
+    </div>
+
+    <main class="mdl-layout__content">
+</main>
+    
+    <link rel="stylesheet" href="/lib/mdl/material.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" asp-append-version="true">
+    <script src="/lib/mdl/material.js" asp-append-version="true"></script>
+</body>
+@RenderBody()
+</html>
+
+
+

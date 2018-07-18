@@ -132,7 +132,7 @@ namespace Coffee.APIControllers
         [Route("FarmerLogin")]
         [HttpGet]
         [Produces("application/json")]
-        public IActionResult AuthenticateFarmerLogin(string phoneNumber)
+        public IActionResult AuthenticateFarmerLogin(String phoneNumber)
         {
             try
             {
