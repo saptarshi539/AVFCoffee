@@ -36,9 +36,14 @@
     
     <link rel="stylesheet" href="/lib/mdl/material.css" asp-append-version="true">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" asp-append-version="true">
-    <script src="/lib/mdl/material.js" asp-append-version="true"></script>
+    <script src="/lib/mdl/material.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/tether.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
 </body>
 @RenderBody()
+
+@RenderSection("Scripts", required: false)
 </html>
 
 
