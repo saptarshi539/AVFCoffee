@@ -32,7 +32,7 @@ namespace AVFCoffeeWebApp.Controllers
         {
             if(lang == "ES")
             {
-                var properties = new AuthenticationProperties() { RedirectUri = "/home" };
+                var properties = new AuthenticationProperties() { RedirectUri = "/TechnicianHome" };
                 properties.Items[AzureAdB2COptions.PolicyAuthenticationProperty] = Options.SpanishSignUpSignInPolicyId;
                 return Challenge(properties, OpenIdConnectDefaults.AuthenticationScheme);
                 
@@ -40,7 +40,7 @@ namespace AVFCoffeeWebApp.Controllers
             else //(lang == "EN")
             {
                 return Challenge(
-                    new AuthenticationProperties { RedirectUri = "/home" }, OpenIdConnectDefaults.AuthenticationScheme);
+                    new AuthenticationProperties { RedirectUri = "/TechnicianHome" }, OpenIdConnectDefaults.AuthenticationScheme);
             }
         }
 

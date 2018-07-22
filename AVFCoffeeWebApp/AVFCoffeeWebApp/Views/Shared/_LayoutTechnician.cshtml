@@ -1,47 +1,400 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-
 <!-- Uses a transparent header that draws on top of the layout's background -->
 
 <!DOCTYPE html>
 <html>
+<head>
+    <!-- Title -->
+    <title>Dashboard v.4 | Unify - Responsive Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    @*<link rel="shortcut icon" href="../../favicon.ico">*@
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap/bootstrap.min.css">
+    <!-- CSS Global Icons -->
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/icon-etlinefont/style.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/icon-hs/style.css">
+
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/hs-admin-icons/hs-admin-icons.css">
+
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/animate.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/flatpickr/dist/css/flatpickr.min.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap-select/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/chartist-js/chartist.min.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/chartist-js-tooltip/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/fancybox/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/hamburgers/hamburgers.min.css">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="/lib/unify/assets/css/unify-admin.css">
+
+    <!-- CSS Customization -->
+    @*<link rel="stylesheet" href="../../assets/css/custom.css">*@
+</head>
 <body>
-    <div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header" style="background-color:#7FB6A2">
-            <div class="mdl-layout__header-row" style="background-color:#7FB6A2">
-                <!-- Title -->
-                <span class="mdl-layout-title" style="background-image: url(/images/calcucafe-logo.svg); width: 199px; height: 43px;background-size:100%;"></span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="">Link</a>
-
-                </nav>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer" style="background-color:#00838F">
-            <span class="mdl-layout-title"></span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" style="color:white" href="">Analytics</a>
-                <a class="mdl-navigation__link" style="color:white" href="">Producers</a>
-                <a class="mdl-navigation__link" style="color:white" href="TechnicianHome">Coop Settings</a>
-                <a class="mdl-navigation__link" style="color:white" href="">Help</a>
-            </nav>
-        </div>
-
-    </div>
-
-    <main class="mdl-layout__content">
-</main>
     
-    <link rel="stylesheet" href="/lib/mdl/material.css" asp-append-version="true">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" asp-append-version="true">
-    <script src="/lib/mdl/material.min.js" asp-append-version="true"></script>
-    <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+    <!-- Header -->
+    <header id="js-header" class="u-header u-header--sticky-top">
+        <div class="u-header__section u-header__section--admin-dark g-min-height-65" style="background-color:#7FB6A2">
+            <nav class="navbar no-gutters g-pa-0">
+                <div class="col-auto d-flex flex-nowrap u-header-logo-toggler g-py-12" style="background-color:#7FB6A2">
+                    <!-- Logo -->
+                    <a style="background-image: url(/images/calcucafe-logo.svg); width: 199px; height: 40px;background-size:100%;" href="" class="navbar-brand d-flex align-self-center g-hidden-xs-down g-line-height-1 py-0 g-mt-5">
+
+                    </a>
+                    <!-- End Logo -->
+                    <!-- Sidebar Toggler -->
+                    <a class="js-side-nav u-header__nav-toggler d-flex align-self-center ml-auto" href="#!" data-hssm-class="u-side-nav--mini u-sidebar-navigation-v1--mini" data-hssm-body-class="u-side-nav-mini" data-hssm-is-close-all-except-this="true" data-hssm-target="#sideNav">
+                        <i class="hs-admin-align-left" style="color:blue"></i>
+                    </a>
+                    <!-- End Sidebar Toggler -->
+                </div>
+
+                <!-- Top Search Bar -->
+                @*<form id="searchMenu" class="u-header--search col-sm g-py-12 g-ml-15--sm g-ml-20--md g-mr-10--sm u-dropdown--css-animation u-dropdown--hidden" aria-labelledby="searchInvoker" action="#!" style="animation-duration: 300ms;">
+                    <div class="input-group g-max-width-450">
+                        <input class="form-control form-control-md g-rounded-4" type="text" placeholder="Enter search keywords">
+                        <button type="submit" class="btn u-btn-outline-primary g-brd-none g-bg-transparent--hover g-pos-abs g-top-0 g-right-0 d-flex g-width-40 h-100 align-items-center justify-content-center g-font-size-18 g-z-index-2">
+                            <i class="hs-admin-search"></i>
+                        </button>
+                    </div>
+                </form>*@
+                <!-- End Top Search Bar -->
+                <!-- Messages/Notifications/Top Search Bar/Top User -->
+                <div class="col-auto d-flex g-py-12 g-pl-40--lg ml-auto">
+                    <!-- Top Messages -->
+                    
+                    <!-- End Top Messages -->
+                    <!-- Top Notifications -->
+                    <div class="g-pos-rel g-hidden-sm-down">
+                        
+
+                        <!-- Top Notifications List -->
+                        
+                        <!-- End Top Notifications List -->
+                    </div>
+                   
+                    <!-- Top User -->
+                    <div class="col-auto d-flex g-pt-5 g-pt-0--sm g-pl-10 g-pl-20--sm">
+                        <div class="g-pos-rel g-px-10--lg">
+                            <a id="profileMenuInvoker" class="d-block" href="#!" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-dropdown-event="click" data-dropdown-target="#profileMenu" data-dropdown-type="css-animation" data-dropdown-duration="300" data-dropdown-animation-in="fadeIn" data-dropdown-animation-out="fadeOut">
+                                <span class="g-pos-rel">
+                                    <span class="u-badge-v2--xs u-badge--top-right g-hidden-sm-up g-bg-lightblue-v5 g-mr-5"></span>
+                                    <img class="g-width-30 g-width-40--md g-height-30 g-height-40--md rounded-circle g-mr-10--sm" src="~/images/charticon.svg" alt="Image description">
+                                </span>
+                                <span class="g-pos-rel g-top-2">
+                                    <span class="g-hidden-sm-down">Martin Rojas</span>
+                                    <i class="hs-admin-angle-down g-pos-rel g-top-2 g-ml-10"></i>
+                                </span>
+                            </a>
+                            <ul id="profileMenu" class="g-pos-abs g-left-0 g-width-100x--lg g-nowrap g-font-size-14 g-py-20 g-mt-17 rounded u-dropdown--css-animation fadeIn" aria-labelledby="profileMenuInvoker" style="animation-duration: 300ms; left: 0px;">
+                                <li class="g-hidden-sm-up g-mb-10">
+                                    <a class="media g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-pos-rel g-mr-12">
+                                            <span class="u-badge-v1 g-top-minus-3 g-right-minus-3 g-width-18 g-height-18 g-bg-lightblue-v5 g-font-size-10 g-color-white rounded-circle p-0">10</span>
+                                            <i class="hs-admin-comment-alt"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Unread Messages</span>
+                                    </a>
+                                </li>
+                                <li class="g-hidden-sm-up g-mb-10">
+                                    <a class="media g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-bell"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Notifications</span>
+                                    </a>
+                                </li>
+                                <li class="g-mb-10">
+                                    <a class="media g-color-lightred-v2--hover g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-user"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">My Profile</span>
+                                    </a>
+                                </li>
+                                <li class="g-mb-10">
+                                    <a class="media g-color-lightred-v2--hover g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-rocket"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Upgrade Plan</span>
+                                    </a>
+                                </li>
+                                <li class="g-mb-10">
+                                    <a class="media g-color-lightred-v2--hover g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-layout-grid-2"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Latest Projects</span>
+                                    </a>
+                                </li>
+                                <li class="g-mb-10">
+                                    <a class="media g-color-lightred-v2--hover g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-headphone-alt"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Get Support</span>
+                                    </a>
+                                </li>
+                                <li class="mb-0">
+                                    <a class="media g-color-lightred-v2--hover g-py-5 g-px-20" href="#!">
+                                        <span class="d-flex align-self-center g-mr-12">
+                                            <i class="hs-admin-shift-right"></i>
+                                        </span>
+                                        <span class="media-body align-self-center">Sign Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                    <!-- End Top User -->
+                </div>
+                <!-- End Messages/Notifications/Top Search Bar/Top User -->
+                <!-- Top Activity Toggler -->
+                @*<a id="activityInvoker" class="text-uppercase u-header-icon-v1 g-pos-rel g-width-40 g-height-40 rounded-circle g-font-size-20" href="#!" aria-controls="activityMenu" aria-haspopup="true" aria-expanded="false" data-dropdown-event="click" data-dropdown-target="#activityMenu" data-dropdown-type="css-animation" data-dropdown-animation-in="fadeInRight" data-dropdown-animation-out="fadeOutRight" data-dropdown-duration="300">
+                    <i class="hs-admin-align-right g-absolute-centered"></i>
+                </a>*@
+                <!-- End Top Activity Toggler -->
+            </nav>
+
+            <!-- Top Activity Panel -->
+           
+            <!-- End Top Activity Panel -->
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+
+    <main class="container-fluid px-0 g-pt-65">
+        
+        <div class="row no-gutters g-pos-rel g-overflow-x-hidden">
+           
+            <!-- Sidebar Nav -->
+            <div id="sideNav" class="col-auto u-sidebar-navigation-v1 u-sidebar-navigation--dark" style="background-color:#00838F">
+                <ul id="sideNavMenu" class="u-sidebar-navigation-v1-menu u-side-nav--top-level-menu g-min-height-100vh mb-0">
+                    <!-- Dashboards -->
+                    <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item u-side-nav-opened has-active">
+                        <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenu1">
+                            <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+                                <i class="hs-admin-server"></i>
+                            </span>
+                            <span class="media-body align-self-center">Analytics</span>
+                            <span class="d-flex align-self-center u-side-nav--control-icon">
+                                <i class="hs-admin-angle-right"></i>
+                            </span>
+                            <span class="u-side-nav--has-sub-menu__indicator"></span>
+                        </a>
+                        <ul id="subMenu1" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0" style="display: block;">
+                            <!-- Dashboards v1 -->
+                            <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                                <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="../dashboards/dashboard-v1.html">
+                                    <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                        <i class="hs-admin-infinite"></i>
+                                    </span>
+                                    <span class="media-body align-self-center">Analytics v1</span>
+                                </a>
+                            </li>
+                            <!-- End Dashboards v1 -->
+
+
+
+
+                        </ul>
+                        <!-- Layouts Settings -->
+                    <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+                        <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenu2">
+                            <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+                                <i class="hs-admin-settings"></i>
+                            </span>
+                            <span class="media-body align-self-center">Producers</span>
+
+                            <span class="u-side-nav--has-sub-menu__indicator"></span>
+                        </a>
+
+                    </li>
+                    <!-- End Layouts Settings -->
+                    <!-- App Views -->
+                    <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+                        <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenu4">
+                            <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+                                <i class="hs-admin-layers"></i>
+                            </span>
+                            <span class="media-body align-self-center">Coop Settings</span>
+
+
+                            <span class="u-side-nav--has-sub-menu__indicator"></span>
+                        </a>
+
+                    <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
+                        <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12" href="#!" data-hssm-target="#subMenu7">
+                            <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+                                <i class="hs-admin-pencil-alt"></i>
+                            </span>
+                            <span class="media-body align-self-center">Help</span>
+
+                            <span class="u-side-nav--has-sub-menu__indicator"></span>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+            <!-- End Sidebar Nav -->
+
+           
+            @RenderBody()
+        </div>
+        
+    </main>
+    
+    <!-- JS Global Compulsory -->
+    <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
     <script src="/lib/unify/assets/vendor/tether.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/popper.min.js"></script>
     <script src="/lib/unify/assets/vendor/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="/lib/unify/assets/vendor/cookiejs/jquery.cookie.js"></script>
+    <!-- jQuery UI Core -->
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/widget.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/version.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/keycode.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/position.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/unique-id.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/safe-active-element.js"></script>
+
+    <!-- jQuery UI Helpers -->
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+
+    <!-- jQuery UI Widgets -->
+    <script src="/lib/unify/assets/vendor/jquery-ui/ui/widgets/datepicker.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script src="/lib/unify/assets/vendor/appear.js"></script>
+    <script src="/lib/unify/assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/lib/unify/assets/vendor/flatpickr/dist/js/flatpickr.min.js"></script>
+    <script src="./lib/unify/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/lib/unify/assets/vendor/chartist-js/chartist.min.js"></script>
+    <script src="/lib/unify/assets/vendor/chartist-js-tooltip/chartist-plugin-tooltip.js"></script>
+    <script src="/lib/unify/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+
+    <!-- JS Unify -->
+    <script src="/lib/unify/assets/js/hs.core.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.side-nav.js"></script>
+    <script src="/lib/unify/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.range-datepicker.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.datepicker.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.dropdown.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.scrollbar.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.area-chart.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.donut-chart.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.pie-chart.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.bar-chart.js"></script>
+    <script src="/lib/unify/assets/js/helpers/hs.focus-state.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.popup.js"></script>
+
+    @*<!-- JS Implementing Plugin Dropdown Menus-->
+        <script src="/lib/unify/assets/vendor/hs-megamenu/src/hs.megamenu.js" asp-append-version="true"></script>
+
+        <!-- JS Unify -->
+
+        <script src="/lib/unify/assets/js/components/hs.header.js" asp-append-version="true"></script>
+        <script src="/lib/unify/assets/js/helpers/hs.hamburgers.js" asp-append-version="true"></script>
+        <script src="/lib/unify/assets/js/components/hs.dropdown.js" asp-append-version="true"></script>*@
+
+    <!-- JS Custom -->
+    <script src="/lib/unify/assets/js/custom.js" asp-append-version="true"></script>
+    <script src="/js/language/translate.js" asp-append-version="true"></script>
+
+    <!-- JS Custom -->
+    @*<script src="../../assets/js/custom.js"></script>*@
+
+
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // initialization of custom select
+            $('.js-select').selectpicker();
+
+            // initialization of hamburger
+            $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+            // initialization of charts
+            $.HSCore.components.HSAreaChart.init('.js-area-chart');
+            $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+            $.HSCore.components.HSBarChart.init('.js-bar-chart');
+
+            // initialization of sidebar navigation component
+            $.HSCore.components.HSSideNav.init('.js-side-nav', {
+                afterOpen: function () {
+                    setTimeout(function () {
+                        $.HSCore.components.HSAreaChart.init('.js-area-chart');
+                        $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+                        $.HSCore.components.HSBarChart.init('.js-bar-chart');
+                    }, 400);
+                },
+                afterClose: function () {
+                    setTimeout(function () {
+                        $.HSCore.components.HSAreaChart.init('.js-area-chart');
+                        $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+                        $.HSCore.components.HSBarChart.init('.js-bar-chart');
+                    }, 400);
+                }
+            });
+
+            // initialization of range datepicker
+            $.HSCore.components.HSRangeDatepicker.init('#rangeDatepicker, #rangeDatepicker2, #rangeDatepicker3');
+
+            // initialization of datepicker
+            $.HSCore.components.HSDatepicker.init('#datepicker', {
+                dayNamesMin: [
+                    'SU',
+                    'MO',
+                    'TU',
+                    'WE',
+                    'TH',
+                    'FR',
+                    'SA'
+                ]
+            });
+
+            // initialization of HSDropdown component
+            $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), { dropdownHideOnScroll: false });
+
+            // initialization of custom scrollbar
+            $.HSCore.components.HSScrollBar.init($('.js-custom-scroll'));
+
+            // initialization of popups
+            $.HSCore.components.HSPopup.init('.js-fancybox', {
+                btnTpl: {
+                    smallBtn: '<button data-fancybox-close class="btn g-pos-abs g-top-25 g-right-30 g-line-height-1 g-bg-transparent g-font-size-16 g-color-gray-light-v3 g-brd-none p-0" title=""><i class="hs-admin-close"></i></button>'
+                }
+            });
+        });
+    </script>
+
+
+
 </body>
-@RenderBody()
+
 
 @RenderSection("Scripts", required: false)
 </html>

@@ -5,168 +5,158 @@
 
 <!-- Uses a transparent header that draws on top of the layout's background -->
 <!doctype html>
-<style>
-    .demo-list-control {
-        width: 300px;
-    }
 
-    .demo-list-radio {
-        display: inline;
-    }
-</style>
-<html lang="en" class="mdl-js">
+<html lang="en">
+
 <body>
-    
-    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" asp-append-version="true" >*@
-    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" asp-append-version="true">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="/lib/mdl/styles.css" asp-append-version="true" />
-    
-    <div style="margin-top:40px" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-            @*<div class="mdl-layout__header-row portfolio-logo-row">
-                <span class="mdl-layout__title">
-                    <div class="portfolio-logo"></div>
-                    <span class="mdl-layout__title">Simple portfolio website</span>
-                </span>
-            </div>*@
-            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only" style="background-color:white;text-align:center">
-                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font" style="margin-top:20px;text-align:center;display:inline-flex">
-                    <a class="mdl-navigation__link is-active" onclick="change()" style="color:black; font-size:16.26px; font-family:Rubik" href="TechnicianHome" id="Metrics">Metrics</a>
-                    <a class="mdl-navigation__link" onclick="change()" style="color:black; font-size:16.26px; font-family:Rubik" href="TechnicianHome">Advanced Inputs</a>
-                    <a class="mdl-navigation__link" style="color:black; font-size:16.26px; font-family:Rubik" href="GeneralSettings">General Settings</a>
-                </nav>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer mdl-layout--small-screen-only" >
-            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link" href="TechnicianHome">Metrics</a>
-                <a class="mdl-navigation__link" href="AdvancedInputs">Advanced Inputs</a>
-                <a class="mdl-navigation__link" href="GeneralSettings">General Settings</a>
-                
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <ul class="demo-list-control mdl-list" style="display:inline">
-                <li class="mdl-list__item" onclick="press()">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold" >
-                       The Most common measure for coffee parchment
-                    </span>
-                    <span class="mdl-list__item-secondary-action" >
-                        
-                            <i class="material-icons" >
-                                keyboard_arrow_right
-                            </i>
-                        
-                    </span>
-                </li>
-                <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold">
-                      The most common measure of length
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                        <i class="material-icons">
-                            keyboard_arrow_right
-                        </i>
-                    </span>
-                </li>
-                <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold">
-                        The most common measure for the farm area
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                        <i class="material-icons">
-                            keyboard_arrow_right
-                        </i>
-                    </span>
-                </li>
-                <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold">
-                       The most common measure for input weight
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                        <i class="material-icons">
-                            keyboard_arrow_right
-                        </i>
-                    </span>
-                </li>
-                <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold">
-                        The most common measure for capacity
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                        <i class="material-icons">
-                            keyboard_arrow_right
-                        </i>
-                    </span>
-                </li>
-                <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content" style="font-size:14.56px;font-weight:bold">
-                        Country currency
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                        <i class="material-icons">
-                            keyboard_arrow_right
-                        </i>
-                    </span>
-                </li>
-            </ul>
-            @*<div class="mdl-grid portfolio-max-width">
-                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Blog template</h2>
-                    </div>
-                    <div class="mdl-card__media">
-                        <img class="article-image" src=" images/portfolio-example-01.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        <strong>Includes</strong>
-                        <span>Design, UX and Frontend Development</span>
-                    </div>
-                    <div class="mdl-grid portfolio-copy">
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
-                        <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
-                            <p>
-                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
-                            </p>
+    <link rel="stylesheet" href="/lib/unify/assets/css/custom.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/lib/unify/assets/vendor/master-slider/source/assets/css/masterslider.main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
+    <script src="~/pages/TechnicianHome/js/technician.js"></script>
+    @*<script src="/lib/unify/assets/js/hs.core.js"></script>
+        <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
+        <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.header.js"></script>
+        <script src="/lib/unify/assets/vendor/slick-carousel/slick/slick.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.scroll-nav.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.tabs.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
+        <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
+        <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>*@
+
+
+    <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
+        <div class="g-pa-50">
+            <div class="row">
+                <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
+                    <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
+                        <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
                         </div>
-                        <div class="mdl-cell mdl-cell--6-col">
-                            <img class="article-image" src=" images/portfolio-example-02.jpg" border="0" alt="">
+                        <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
+                            <div class="ms-thumb-ol"></div>
                         </div>
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Initial Ideas</h3>
-                        <div class="mdl-cell mdl-cell--6-col">
-                            <img class="article-image" src=" images/portfolio-example-03.jpg" border="0" alt="">
+                        <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
                         </div>
-                        <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding ">
-                            <p>
-                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
-                            </p>
-                        </div>
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Final Concept</h3>
-                        <div class="mdl-cell mdl-cell--6-col">
-                            <img class="article-image" src=" images/portfolio-example-05.jpg" border="0" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--6-col">
-                            <img class="article-image" src=" images/portfolio-example-06.jpg" border="0" alt="">
-                        </div>
-                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
-                            <p>
-                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
-                            </p>
-                        </div>
+                        <div class="ms-thumb-ol"></div>
                     </div>
                 </div>
-            </div>*@
-            <div style="margin-left: 700px" class="container-fluid text-center">
-                <button style="color:black;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Discard Changes</button>
-                <button style="color:black; margin-left:40px;background-color:#00838F" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Save</button>
             </div>
-        </main>
-        
+            <div id="slider">
+                <ul class="list-unstyled">
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>The Most common measure for coffee parchment</strong>
+                                <select class="custom-select mb-3" id="coffeeparchment" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Kilograms</option>
+                                    <option value="2">Pounds</option>
+                                    <option value="3">Quintales</option>
+                                    <option value="4">Arrobas</option>
+                                    <option value="5">Cargas</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>The most common measure of length</strong>
+                                <select class="custom-select mb-3" id="length" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Meters</option>
+                                    <option value="2">Feet</option>
+                                </select>
+                            </div>
+                            @*<span class="d-block">sent you a message</span>*@
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>The most common measure for the farm area</strong>
+                                <select class="custom-select mb-3" id="farmarea" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Hectares</option>
+                                    <option value="2">Manzanas</option>
+                                </select>
+                            </div>
+                            @*<span class="d-block">is offering free coffee</span>*@
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>The most common measure for input weight</strong>
+                                <select class="custom-select mb-3" id="weight" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Kilograms</option>
+                                    <option value="2">Pounds</option>
+                                </select>
+                            </div>
+                            @*<span class="d-block">sent you a message</span>*@
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        @*<div class="d-flex g-mt-2 g-mr-15">
+                                <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img17.jpg" alt="Image Description">
+                            </div>*@
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>The most common measure for capacity</strong>
+                                <select class="custom-select mb-3" id="capacity" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Liters</option>
+                                    <option value="2">Gallons</option>
+
+                                </select>
+                            </div>
+                            @*<span class="d-block">sent you a message</span>*@
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Country currency</strong>
+                                <select class="custom-select mb-3" id="currency" style="width:auto">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">Bolivian Boliviano</option>
+                                    <option value="2">Brazilian Real</option>
+                                    <option value="3">Colombian Peso</option>
+                                    <option value="4">Costa Rican Colon</option>
+                                    <option value="5">Cuban Peso</option>
+                                    <option value="6">Guatemalan Quetzal</option>
+                                    <option value="7">Jamaican Dollar</option>
+                                    <option value="8">Honduran Lempira</option>
+                                    <option value="9">Haitian Gourde</option>
+                                    <option value="10">Mexican Peso</option>
+                                    <option value="11">Nicaraguan Cordoba</option>
+                                    <option value="12">Peruvian Sol</option>
+                                    <option value="13">USD</option>
+                                    <option value="14">Venezuelan Bolivar</option>
+                                </select>
+                            </div>
+                            @*<span class="d-block">sent you a message</span>*@
+                        </div>
+                    </li>
+                </ul>
+                <a href="" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
+                <a href="" onclick="press()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
+            </div>
+            
+        </div>
     </div>
-    
-    <script src="~/pages/TechnicianHome/js/technician.js" asp-append-version="true"></script>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js" asp-append-version="true"></script>
+
+
 </body>
 </html>
 

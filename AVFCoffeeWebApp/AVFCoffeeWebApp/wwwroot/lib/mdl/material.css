@@ -6744,7 +6744,7 @@ input.mdl-button[type="submit"] {
   margin: 0;
   padding: 0;
   border: none;
-  position: absolute;
+  position: fixed;
   overflow: visible;
   height: 0;
   width: 0;
