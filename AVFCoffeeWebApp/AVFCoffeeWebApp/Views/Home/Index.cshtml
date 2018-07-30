@@ -1,6 +1,7 @@
 ﻿
 
 @{
+
     ViewData["Title"] = "View";
     var apiURL = ViewData["apiURL"];
 }
@@ -21,13 +22,18 @@
 
     <!-- CSS MDL -->
     <link rel="stylesheet" href="~/lib/mdl/material.min.css" asp-append-version="true">
-    @*<link rel="stylesheet" href="bundle.css" asp-append-version="true">*@
+    @*<link rel="stylesheet" href="~/bundle.css" asp-append-version="true">*@
 </head>
 
 <body>
     <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/background.jpg);">
         <div class="container g-color-white text-center g-z-index-1">
-            <a class="g-font-size-20 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-20 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-20 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
+            @*<a class="g-font-size-20 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-20 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-20 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>*@
+            <select class="custom-select mb-3" id="coffeeparchment" style="width:auto;background-color:rgba(0,0,0,0);-webkit-text-fill-color:white">
+                <option selected="">Choose...</option>
+                <option value="1">English</option>
+                <option value="2">Espaniol</option>
+            </select>
             <!--welcome -->
             <div class="g-px-30">
                 <div class="row">
@@ -41,15 +47,24 @@
             <!--end welcome message-->
 
             <div class="mdl-textfield mdl-js-textfield" style="margin-right:24px">
-                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
-                <label class="mdl-textfield__label" for="sample2" data-tag="EnterMobile" style="color:lightslategrey">Enter your mobile number</label>
-                <span class="mdl-textfield__error">Input is not a number!</span>
+                <input class="form-control form-rounded form-control-md" type="text" id="seedcoll" data-tag="EnterMobile" value="" placeholder="Enter your Mobile Number" style="background-color:rgba(0,0,0,0);border-color:white; -webkit-text-fill-color:azure" >
+                @*<div class="mdc-text-field mdc-text-field--box username">
+                    <input type="text" class="mdc-text-field__input" id="username-input" name="username" required>
+                    <label class="mdc-floating-label" for="username-input">Username</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field mdc-text-field--box password">
+                    <input type="password" class="mdc-text-field__input" id="password-input" name="password" required minlength="8">
+                    <label class="mdc-floating-label" for="password-input">Password</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>*@
             </div>
             
 
             @*<button data-tag="home-loginbtn" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" style="display: inline-block;">Login</button>*@
             <!-- Raised button with ripple -->
-            <button data-tag="home-loginbtn" style="color:white" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            
+            <button data-tag="home-loginbtn" style="color:white;height:43px; margin-bottom:7px" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                 Login
             </button>
 
@@ -78,6 +93,7 @@
 
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
 <script src="~/lib/mdl/material.min.js" asp-append-version="true"></script>
+@*<script src="~/bundle.js" asp-append-version="true"></script>*@
 
 <!-- highcarts javascript sources -->
 <script type="text/javascript" src="~/lib/highcharts/highcharts.src.js"></script>

@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="/lib/unify/assets/vendor/master-slider/source/assets/css/masterslider.main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
+    <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
     <script src="~/pages/TechnicianHome/js/technician.js"></script>
-    @*<script src="/lib/unify/assets/js/hs.core.js"></script>
+    
+    <script src="/lib/unify/assets/js/hs.core.js"></script>
+    
         <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
         <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
         <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
@@ -25,26 +28,28 @@
         <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
         <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
         <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>*@
+        <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>
 
 
     <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
-        <div class="g-pa-50">
+        <div class="container-fluid g-pa-50">
             <div class="row">
-                <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
-                    <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
-                        <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
+                
+                    <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
+                        <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
+                            <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
+                                <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
+                            </div>
+                            <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
+                                <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
+                                <div class="ms-thumb-ol"></div>
+                            </div>
+                            <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
+                                <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
+                            </div>
                             <div class="ms-thumb-ol"></div>
                         </div>
-                        <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-ol"></div>
-                    </div>
+                    
                 </div>
             </div>
             <div id="slider">
@@ -149,8 +154,8 @@
                         </div>
                     </li>
                 </ul>
-                <a href="" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
-                <a href="" onclick="press()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
+                <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
+                <a onclick="press()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
             </div>
             
         </div>

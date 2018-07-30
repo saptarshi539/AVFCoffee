@@ -11,55 +11,76 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void BudgetPresupuesto(ExcelFile xls)
         {
-            //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
+            xls.NewFile(31, TExcelFileFormat.v2010);    //Create a new Excel file with 31 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
-            xls.SheetName = "Inputs 1.0";
+            xls.SheetName = "Metrics";
             xls.ActiveSheet = 2;
-            xls.SheetName = "Outcome 1.0";
+            xls.SheetName = "Inputs 1.0";
             xls.ActiveSheet = 3;
-            xls.SheetName = "DATABASE_Schema";
+            xls.SheetName = "Inputs advance 2.0 (eng)";
             xls.ActiveSheet = 4;
-            xls.SheetName = "Outcome TOTAL_Adj";
+            xls.SheetName = "Outcome 1.0";
             xls.ActiveSheet = 5;
-            xls.SheetName = "Outcome_Y_Adjustment";
+            xls.SheetName = "Additional 2.0";
             xls.ActiveSheet = 6;
-            xls.SheetName = "Outcome_L Adjustment";
+            xls.SheetName = "Fixed 2.0";
             xls.ActiveSheet = 7;
-            xls.SheetName = "Proportions";
+            xls.SheetName = "Variable 2.0";
             xls.ActiveSheet = 8;
-            xls.SheetName = "Inputs advanced";
+            xls.SheetName = "General Budget 2.0";
             xls.ActiveSheet = 9;
-            xls.SheetName = "Budget_Supuestos";
+            xls.SheetName = "DATABASE_Schema";
             xls.ActiveSheet = 10;
-            xls.SheetName = "Budget_Equipo";
+            xls.SheetName = "Inputs 2.0 Conv. default values";
             xls.ActiveSheet = 11;
-            xls.SheetName = "Budget_M Obra";
+            xls.SheetName = "Inputs 2.0 Conv. new inputs";
             xls.ActiveSheet = 12;
-            xls.SheetName = "Budget_Presupuesto";
+            xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
             xls.ActiveSheet = 13;
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Inputs TOT advanced";
             xls.ActiveSheet = 14;
-            xls.SheetName = "Budget_Establecimiento";
+            xls.SheetName = "Gral Conf. Summary";
             xls.ActiveSheet = 15;
-            xls.SheetName = "Budget_Sostenemiento";
+            xls.SheetName = "Inputs 1.0 default values";
             xls.ActiveSheet = 16;
-            xls.SheetName = "Inputs 1.0_metric_currency";
+            xls.SheetName = "Inputs 1.0 Conv. new values";
             xls.ActiveSheet = 17;
-            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.SheetName = "Outcome TOTAL_Adj";
             xls.ActiveSheet = 18;
-            xls.SheetName = "Conversiones";
+            xls.SheetName = "Outcome_Y_Adjustment";
             xls.ActiveSheet = 19;
-            xls.SheetName = "Proporción de productividad";
+            xls.SheetName = "Outcome_L Adjustment";
             xls.ActiveSheet = 20;
+            xls.SheetName = "Proportions";
+            xls.ActiveSheet = 21;
+            xls.SheetName = "Budget_Supuestos";
+            xls.ActiveSheet = 22;
+            xls.SheetName = "Budget_Equipo";
+            xls.ActiveSheet = 23;
+            xls.SheetName = "Budget_M Obra";
+            xls.ActiveSheet = 24;
+            xls.SheetName = "Budget_Presupuesto";
+            xls.ActiveSheet = 25;
+            xls.SheetName = "Budget_Valor de M Obra";
+            xls.ActiveSheet = 26;
+            xls.SheetName = "Budget_Establecimiento";
+            xls.ActiveSheet = 27;
+            xls.SheetName = "Budget_Sostenemiento";
+            xls.ActiveSheet = 28;
+            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.ActiveSheet = 29;
+            xls.SheetName = "Conversiones";
+            xls.ActiveSheet = 30;
+            xls.SheetName = "Proporción de productividad";
+            xls.ActiveSheet = 31;
             xls.SheetName = "Inputs 1.0 (Ref)";
 
-            xls.ActiveSheet = 12;    //Set the sheet we are working in.
+            xls.ActiveSheet = 24;    //Set the sheet we are working in.
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
-            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
@@ -110,33 +131,33 @@ namespace CoffeeInfrastructure.Flexcel
             TXlsNamedRange Range;
             string RangeName;
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 14, 32, "=Budget_Establecimiento!$A$3:$C$53");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 14, 14, 3, 1, 53, 3, 32);
+            Range = new TXlsNamedRange(RangeName, 26, 32, "=Budget_Establecimiento!$A$3:$C$53");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 26, 26, 3, 1, 53, 3, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 11, 32, "='Budget_M Obra'!$A$1:$K$86");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 11, 11, 1, 1, 86, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 12, 32, "=Budget_Presupuesto!$A$34:$J$46");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 12, 12, 34, 1, 46, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 24, 32, "=Budget_Presupuesto!$A$34:$J$46");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 24, 24, 34, 1, 46, 10, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 15, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 15, 15, 1, 1, 44, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 27, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 27, 27, 1, 1, 44, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 9, 32, "=Budget_Supuestos!$A$276:$G$297");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 9, 9, 276, 1, 297, 7, 32);
+            Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 13, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 13, 13, 2, 1, 85, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 25, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 25, 25, 2, 1, 85, 10, 32);
             xls.SetNamedRange(Range);
 
 
@@ -159,111 +180,25 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.None;
             xls.PrintPaperSize = TPaperSize.Letter;
 
-            //Theme - You might use GetTheme/SetTheme methods here instead.
-            xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
-            xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
-            xls.SetColorTheme(TThemeColor.Accent1, TUIColor.FromArgb(0x4F, 0x81, 0xBD));
-            xls.SetColorTheme(TThemeColor.Accent2, TUIColor.FromArgb(0xC0, 0x50, 0x4D));
-            xls.SetColorTheme(TThemeColor.Accent3, TUIColor.FromArgb(0x9B, 0xBB, 0x59));
-            xls.SetColorTheme(TThemeColor.Accent4, TUIColor.FromArgb(0x80, 0x64, 0xA2));
-            xls.SetColorTheme(TThemeColor.Accent5, TUIColor.FromArgb(0x4B, 0xAC, 0xC6));
-            xls.SetColorTheme(TThemeColor.Accent6, TUIColor.FromArgb(0xF7, 0x96, 0x46));
-            xls.SetColorTheme(TThemeColor.HyperLink, TUIColor.FromArgb(0x00, 0x00, 0xFF));
-            xls.SetColorTheme(TThemeColor.FollowedHyperLink, TUIColor.FromArgb(0x80, 0x00, 0x80));
-
-            //Major font
-            TThemeTextFont MajorLatin = new TThemeTextFont("Cambria", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MajorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MajorFont = new TThemeFont(MajorLatin, MajorEastAsian, MajorComplexScript);
-            MajorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MajorFont.AddFont("Hang", "맑은 고딕");
-            MajorFont.AddFont("Hans", "宋体");
-            MajorFont.AddFont("Hant", "新細明體");
-            MajorFont.AddFont("Arab", "Times New Roman");
-            MajorFont.AddFont("Hebr", "Times New Roman");
-            MajorFont.AddFont("Thai", "Tahoma");
-            MajorFont.AddFont("Ethi", "Nyala");
-            MajorFont.AddFont("Beng", "Vrinda");
-            MajorFont.AddFont("Gujr", "Shruti");
-            MajorFont.AddFont("Khmr", "MoolBoran");
-            MajorFont.AddFont("Knda", "Tunga");
-            MajorFont.AddFont("Guru", "Raavi");
-            MajorFont.AddFont("Cans", "Euphemia");
-            MajorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MajorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MajorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MajorFont.AddFont("Thaa", "MV Boli");
-            MajorFont.AddFont("Deva", "Mangal");
-            MajorFont.AddFont("Telu", "Gautami");
-            MajorFont.AddFont("Taml", "Latha");
-            MajorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MajorFont.AddFont("Orya", "Kalinga");
-            MajorFont.AddFont("Mlym", "Kartika");
-            MajorFont.AddFont("Laoo", "DokChampa");
-            MajorFont.AddFont("Sinh", "Iskoola Pota");
-            MajorFont.AddFont("Mong", "Mongolian Baiti");
-            MajorFont.AddFont("Viet", "Times New Roman");
-            MajorFont.AddFont("Uigh", "Microsoft Uighur");
-            MajorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Major, MajorFont);
-
-            //Minor font
-            TThemeTextFont MinorLatin = new TThemeTextFont("Calibri", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeTextFont MinorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
-            TThemeFont MinorFont = new TThemeFont(MinorLatin, MinorEastAsian, MinorComplexScript);
-            MinorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
-            MinorFont.AddFont("Hang", "맑은 고딕");
-            MinorFont.AddFont("Hans", "宋体");
-            MinorFont.AddFont("Hant", "新細明體");
-            MinorFont.AddFont("Arab", "Arial");
-            MinorFont.AddFont("Hebr", "Arial");
-            MinorFont.AddFont("Thai", "Tahoma");
-            MinorFont.AddFont("Ethi", "Nyala");
-            MinorFont.AddFont("Beng", "Vrinda");
-            MinorFont.AddFont("Gujr", "Shruti");
-            MinorFont.AddFont("Khmr", "DaunPenh");
-            MinorFont.AddFont("Knda", "Tunga");
-            MinorFont.AddFont("Guru", "Raavi");
-            MinorFont.AddFont("Cans", "Euphemia");
-            MinorFont.AddFont("Cher", "Plantagenet Cherokee");
-            MinorFont.AddFont("Yiii", "Microsoft Yi Baiti");
-            MinorFont.AddFont("Tibt", "Microsoft Himalaya");
-            MinorFont.AddFont("Thaa", "MV Boli");
-            MinorFont.AddFont("Deva", "Mangal");
-            MinorFont.AddFont("Telu", "Gautami");
-            MinorFont.AddFont("Taml", "Latha");
-            MinorFont.AddFont("Syrc", "Estrangelo Edessa");
-            MinorFont.AddFont("Orya", "Kalinga");
-            MinorFont.AddFont("Mlym", "Kartika");
-            MinorFont.AddFont("Laoo", "DokChampa");
-            MinorFont.AddFont("Sinh", "Iskoola Pota");
-            MinorFont.AddFont("Mong", "Mongolian Baiti");
-            MinorFont.AddFont("Viet", "Arial");
-            MinorFont.AddFont("Uigh", "Microsoft Uighur");
-            MinorFont.AddFont("Geor", "Sylfaen");
-            xls.SetThemeFont(TFontScheme.Minor, MinorFont);
-
             //Set up rows and columns
-            xls.DefaultColWidth = 2784;
+            xls.DefaultColWidth = 2773;
 
             xls.SetColWidth(1, 1, 13056);    //(50.25 + 0.75) * 256
 
-            xls.SetColWidth(2, 2, 3744);    //(13.88 + 0.75) * 256
+            xls.SetColWidth(2, 2, 3754);    //(13.91 + 0.75) * 256
 
             TFlxFormat ColFmt;
             ColFmt = xls.GetFormat(xls.GetColFormat(2));
             ColFmt.Format = "0";
             xls.SetColFormat(2, 2, xls.AddFormat(ColFmt));
 
-            xls.SetColWidth(3, 3, 4128);    //(15.38 + 0.75) * 256
+            xls.SetColWidth(3, 3, 4138);    //(15.41 + 0.75) * 256
 
             ColFmt = xls.GetFormat(xls.GetColFormat(3));
             ColFmt.Format = "0";
             xls.SetColFormat(3, 3, xls.AddFormat(ColFmt));
 
-            xls.SetColWidth(4, 4, 3360);    //(12.38 + 0.75) * 256
+            xls.SetColWidth(4, 4, 3370);    //(12.41 + 0.75) * 256
 
             ColFmt = xls.GetFormat(xls.GetColFormat(4));
             ColFmt.Format = "0";
@@ -279,11 +214,10 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(12, 12, 3200);    //(11.75 + 0.75) * 256
 
-            xls.SetColWidth(13, 16384, 2784);    //(10.13 + 0.75) * 256
-            xls.DefaultRowHeight = 315;
+            xls.SetColWidth(13, 16384, 2773);    //(10.08 + 0.75) * 256
 
-            xls.SetRowHeight(1, 630);    //31.50 * 20
-            xls.SetRowHeight(4, 739);    //36.95 * 20
+            xls.SetRowHeight(1, 600);    //30.00 * 20
+            xls.SetRowHeight(4, 740);    //37.00 * 20
             xls.SetRowHidden(6, true);
             xls.SetRowHidden(7, true);
             xls.SetRowHidden(8, true);
@@ -303,7 +237,7 @@ namespace CoffeeInfrastructure.Flexcel
             RowFmt = xls.GetFormat(xls.GetRowFormat(20));
             RowFmt.Font.Style = TFlxFontStyles.Bold;
             xls.SetRowFormat(20, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(23, 630);    //31.50 * 20
+            xls.SetRowHeight(23, 600);    //30.00 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(29));
             RowFmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
@@ -605,14 +539,16 @@ namespace CoffeeInfrastructure.Flexcel
             fnt.Color = TExcelColor.Automatic;
             fnt.Style = TFlxFontStyles.Bold;
             Runs[5].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(4, 1, new TRichString("     Baseline (Precio pergamino seco * Nº Kg)       ESTO ES Precio QUINTALES * No. QUINTALES", Runs, xls));
+            xls.SetCellValue(4, 1, new TRichString("     Baseline (Precio pergamino seco * Nº Kg)                                    "
+            + "       ESTO ES Precio QUINTALES * No. QUINTALES", Runs, xls));
             //We could also have used: xls.SetCellFromHtml(4, 1, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Baseline (Precio pergamino seco<font color = 'blue'>&nbsp;*"
-            //+" N&ordm; Kg</font>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font"
-            //+ " color = 'red'>ESTO ES Precio&nbsp;</font><font color = 'black'><b>QUINTALES</b></font><font"
-            //+ " color = 'red'>&nbsp;* No.&nbsp;</font><font color = 'black'><b>QUINTALES</b></font>")
+            //    + " N&ordm; Kg</font>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb"
+            //    + "sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font"
+            //    + " color = 'red'>ESTO ES Precio&nbsp;</font><font color = 'black'><b>QUINTALES</b></font><font"
+            //    + " color = 'red'>&nbsp;* No.&nbsp;</font><font color = 'black'><b>QUINTALES</b></font>")
 
 
-    fmt = xls.GetCellVisibleFormatDef(4, 2);
+            fmt = xls.GetCellVisibleFormatDef(4, 2);
             fmt.Format = "#,##0";
             xls.SetCellFormat(4, 2, xls.AddFormat(fmt));
 
@@ -2406,8 +2342,8 @@ namespace CoffeeInfrastructure.Flexcel
             fnt.Color = TUIColor.FromArgb(0x00, 0xB0, 0x50);
             fnt.Style = TFlxFontStyles.Bold;
             Runs[0].FontIndex = xls.AddFont(fnt);
-            xls.SetCellValue(34, 1, new TRichString("Costos variables (lempiras/manzana)", Runs, xls));
-            //We could also have used: xls.SetCellFromHtml(34, 1, "Costos variables&nbsp;<font color = '#00b050'>(lempiras/manzana)</font>")
+            xls.SetCellValue(34, 1, new TRichString("Costos variables (pesos MX /hectarea)", Runs, xls));
+            //We could also have used: xls.SetCellFromHtml(34, 1, "Costos variables&nbsp;<font color = '#00b050'>(pesos MX /hectarea)</font>")
 
 
             fmt = xls.GetCellVisibleFormatDef(34, 2);
@@ -2714,7 +2650,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(39, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(39, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D39+Budget_Presupuesto!E39)/2))+(Proportions!$E$6*((Budget_Presupuesto!F39+Budget_Presupuesto!G39+Budget_Presupuesto!H39)/3)+(Proportions!$E$7*((Budget_Presupuesto!I39+Budget_Presupuesto!J39)/2)))"));
+            xls.SetCellValue(39, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D39+Budget_Presupuesto!E39)/2))+(Proportions!$E$6*((Budget_Presupuesto!F39+Budget_Presupuesto!G39+Budget_Presupuesto!H39)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I39+Budget_Presupuesto!J39)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(40, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -2778,7 +2715,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(40, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(40, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D40+Budget_Presupuesto!E40)/2))+(Proportions!$E$6*((Budget_Presupuesto!F40+Budget_Presupuesto!G40+Budget_Presupuesto!H40)/3)+(Proportions!$E$7*((Budget_Presupuesto!I40+Budget_Presupuesto!J40)/2)))"));
+            xls.SetCellValue(40, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D40+Budget_Presupuesto!E40)/2))+(Proportions!$E$6*((Budget_Presupuesto!F40+Budget_Presupuesto!G40+Budget_Presupuesto!H40)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I40+Budget_Presupuesto!J40)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(41, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -2842,7 +2780,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(41, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(41, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D41+Budget_Presupuesto!E41)/2))+(Proportions!$E$6*((Budget_Presupuesto!F41+Budget_Presupuesto!G41+Budget_Presupuesto!H41)/3)+(Proportions!$E$7*((Budget_Presupuesto!I41+Budget_Presupuesto!J41)/2)))"));
+            xls.SetCellValue(41, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D41+Budget_Presupuesto!E41)/2))+(Proportions!$E$6*((Budget_Presupuesto!F41+Budget_Presupuesto!G41+Budget_Presupuesto!H41)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I41+Budget_Presupuesto!J41)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(42, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -2991,7 +2930,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(43, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(43, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D43+Budget_Presupuesto!E43)/2))+(Proportions!$E$6*((Budget_Presupuesto!F43+Budget_Presupuesto!G43+Budget_Presupuesto!H43)/3)+(Proportions!$E$7*((Budget_Presupuesto!I43+Budget_Presupuesto!J43)/2)))"));
+            xls.SetCellValue(43, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D43+Budget_Presupuesto!E43)/2))+(Proportions!$E$6*((Budget_Presupuesto!F43+Budget_Presupuesto!G43+Budget_Presupuesto!H43)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I43+Budget_Presupuesto!J43)/2)))"));
             xls.SetCellValue(43, 14, "Estos assumptions son discutibles");
 
             fmt = xls.GetCellVisibleFormatDef(44, 1);
@@ -3086,7 +3026,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(44, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(44, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D44+Budget_Presupuesto!E44)/2))+(Proportions!$E$6*((Budget_Presupuesto!F44+Budget_Presupuesto!G44+Budget_Presupuesto!H44)/3)+(Proportions!$E$7*((Budget_Presupuesto!I44+Budget_Presupuesto!J44)/2)))"));
+            xls.SetCellValue(44, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D44+Budget_Presupuesto!E44)/2))+(Proportions!$E$6*((Budget_Presupuesto!F44+Budget_Presupuesto!G44+Budget_Presupuesto!H44)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I44+Budget_Presupuesto!J44)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(44, 12);
             fmt.Format = "#,##0";
@@ -3538,7 +3479,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D52+Budget_Presupuesto!E52)/2))+(Proportions!$E$6*((Budget_Presupuesto!F52+Budget_Presupuesto!G52+Budget_Presupuesto!H52)/3)+(Proportions!$E$7*((Budget_Presupuesto!I52+Budget_Presupuesto!J52)/2)))"));
+            xls.SetCellValue(52, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D52+Budget_Presupuesto!E52)/2))+(Proportions!$E$6*((Budget_Presupuesto!F52+Budget_Presupuesto!G52+Budget_Presupuesto!H52)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I52+Budget_Presupuesto!J52)/2)))"));
             xls.SetCellValue(53, 1, "     Seguro de vida");
 
             fmt = xls.GetCellVisibleFormatDef(53, 2);
@@ -3601,7 +3543,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D53+Budget_Presupuesto!E53)/2))+(Proportions!$E$6*((Budget_Presupuesto!F53+Budget_Presupuesto!G53+Budget_Presupuesto!H53)/3)+(Proportions!$E$7*((Budget_Presupuesto!I53+Budget_Presupuesto!J53)/2)))"));
+            xls.SetCellValue(53, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D53+Budget_Presupuesto!E53)/2))+(Proportions!$E$6*((Budget_Presupuesto!F53+Budget_Presupuesto!G53+Budget_Presupuesto!H53)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I53+Budget_Presupuesto!J53)/2)))"));
             xls.SetCellValue(54, 1, "     FLO Certificatoin");
 
             fmt = xls.GetCellVisibleFormatDef(54, 2);
@@ -3664,7 +3607,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D54+Budget_Presupuesto!E54)/2))+(Proportions!$E$6*((Budget_Presupuesto!F54+Budget_Presupuesto!G54+Budget_Presupuesto!H54)/3)+(Proportions!$E$7*((Budget_Presupuesto!I54+Budget_Presupuesto!J54)/2)))"));
+            xls.SetCellValue(54, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D54+Budget_Presupuesto!E54)/2))+(Proportions!$E$6*((Budget_Presupuesto!F54+Budget_Presupuesto!G54+Budget_Presupuesto!H54)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I54+Budget_Presupuesto!J54)/2)))"));
             xls.SetCellValue(55, 1, "     Organic Certification");
 
             fmt = xls.GetCellVisibleFormatDef(55, 2);
@@ -3727,7 +3671,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D55+Budget_Presupuesto!E55)/2))+(Proportions!$E$6*((Budget_Presupuesto!F55+Budget_Presupuesto!G55+Budget_Presupuesto!H55)/3)+(Proportions!$E$7*((Budget_Presupuesto!I55+Budget_Presupuesto!J55)/2)))"));
+            xls.SetCellValue(55, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D55+Budget_Presupuesto!E55)/2))+(Proportions!$E$6*((Budget_Presupuesto!F55+Budget_Presupuesto!G55+Budget_Presupuesto!H55)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I55+Budget_Presupuesto!J55)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -3794,7 +3739,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D56+Budget_Presupuesto!E56)/2))+(Proportions!$E$6*((Budget_Presupuesto!F56+Budget_Presupuesto!G56+Budget_Presupuesto!H56)/3)+(Proportions!$E$7*((Budget_Presupuesto!I56+Budget_Presupuesto!J56)/2)))"));
+            xls.SetCellValue(56, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D56+Budget_Presupuesto!E56)/2))+(Proportions!$E$6*((Budget_Presupuesto!F56+Budget_Presupuesto!G56+Budget_Presupuesto!H56)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I56+Budget_Presupuesto!J56)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -3861,7 +3807,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D57+Budget_Presupuesto!E57)/2))+(Proportions!$E$6*((Budget_Presupuesto!F57+Budget_Presupuesto!G57+Budget_Presupuesto!H57)/3)+(Proportions!$E$7*((Budget_Presupuesto!I57+Budget_Presupuesto!J57)/2)))"));
+            xls.SetCellValue(57, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D57+Budget_Presupuesto!E57)/2))+(Proportions!$E$6*((Budget_Presupuesto!F57+Budget_Presupuesto!G57+Budget_Presupuesto!H57)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I57+Budget_Presupuesto!J57)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -4115,7 +4062,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D61+Budget_Presupuesto!E61)/2))+(Proportions!$E$6*((Budget_Presupuesto!F61+Budget_Presupuesto!G61+Budget_Presupuesto!H61)/3)+(Proportions!$E$7*((Budget_Presupuesto!I61+Budget_Presupuesto!J61)/2)))"));
+            xls.SetCellValue(61, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D61+Budget_Presupuesto!E61)/2))+(Proportions!$E$6*((Budget_Presupuesto!F61+Budget_Presupuesto!G61+Budget_Presupuesto!H61)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I61+Budget_Presupuesto!J61)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -4183,7 +4131,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D62+Budget_Presupuesto!E62)/2))+(Proportions!$E$6*((Budget_Presupuesto!F62+Budget_Presupuesto!G62+Budget_Presupuesto!H62)/3)+(Proportions!$E$7*((Budget_Presupuesto!I62+Budget_Presupuesto!J62)/2)))"));
+            xls.SetCellValue(62, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D62+Budget_Presupuesto!E62)/2))+(Proportions!$E$6*((Budget_Presupuesto!F62+Budget_Presupuesto!G62+Budget_Presupuesto!H62)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I62+Budget_Presupuesto!J62)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -4251,7 +4200,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D63+Budget_Presupuesto!E63)/2))+(Proportions!$E$6*((Budget_Presupuesto!F63+Budget_Presupuesto!G63+Budget_Presupuesto!H63)/3)+(Proportions!$E$7*((Budget_Presupuesto!I63+Budget_Presupuesto!J63)/2)))"));
+            xls.SetCellValue(63, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D63+Budget_Presupuesto!E63)/2))+(Proportions!$E$6*((Budget_Presupuesto!F63+Budget_Presupuesto!G63+Budget_Presupuesto!H63)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I63+Budget_Presupuesto!J63)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(64, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -4509,7 +4459,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D67+Budget_Presupuesto!E67)/2))+(Proportions!$E$6*((Budget_Presupuesto!F67+Budget_Presupuesto!G67+Budget_Presupuesto!H67)/3)+(Proportions!$E$7*((Budget_Presupuesto!I67+Budget_Presupuesto!J67)/2)))"));
+            xls.SetCellValue(67, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D67+Budget_Presupuesto!E67)/2))+(Proportions!$E$6*((Budget_Presupuesto!F67+Budget_Presupuesto!G67+Budget_Presupuesto!H67)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I67+Budget_Presupuesto!J67)/2)))"));
             xls.SetCellValue(68, 1, "     Equipo");
 
             fmt = xls.GetCellVisibleFormatDef(68, 2);
@@ -4594,7 +4545,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D68+Budget_Presupuesto!E68)/2))+(Proportions!$E$6*((Budget_Presupuesto!F68+Budget_Presupuesto!G68+Budget_Presupuesto!H68)/3)+(Proportions!$E$7*((Budget_Presupuesto!I68+Budget_Presupuesto!J68)/2)))"));
+            xls.SetCellValue(68, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D68+Budget_Presupuesto!E68)/2))+(Proportions!$E$6*((Budget_Presupuesto!F68+Budget_Presupuesto!G68+Budget_Presupuesto!H68)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I68+Budget_Presupuesto!J68)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(69, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -4846,7 +4798,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D72+Budget_Presupuesto!E72)/2))+(Proportions!$E$6*((Budget_Presupuesto!F72+Budget_Presupuesto!G72+Budget_Presupuesto!H72)/3)+(Proportions!$E$7*((Budget_Presupuesto!I72+Budget_Presupuesto!J72)/2)))"));
+            xls.SetCellValue(72, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D72+Budget_Presupuesto!E72)/2))+(Proportions!$E$6*((Budget_Presupuesto!F72+Budget_Presupuesto!G72+Budget_Presupuesto!H72)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I72+Budget_Presupuesto!J72)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 12);
             fmt.Format = "0";
@@ -4912,7 +4865,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D73+Budget_Presupuesto!E73)/2))+(Proportions!$E$6*((Budget_Presupuesto!F73+Budget_Presupuesto!G73+Budget_Presupuesto!H73)/3)+(Proportions!$E$7*((Budget_Presupuesto!I73+Budget_Presupuesto!J73)/2)))"));
+            xls.SetCellValue(73, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D73+Budget_Presupuesto!E73)/2))+(Proportions!$E$6*((Budget_Presupuesto!F73+Budget_Presupuesto!G73+Budget_Presupuesto!H73)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I73+Budget_Presupuesto!J73)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 1);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
@@ -4979,7 +4933,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 11, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D74+Budget_Presupuesto!E74)/2))+(Proportions!$E$6*((Budget_Presupuesto!F74+Budget_Presupuesto!G74+Budget_Presupuesto!H74)/3)+(Proportions!$E$7*((Budget_Presupuesto!I74+Budget_Presupuesto!J74)/2)))"));
+            xls.SetCellValue(74, 11, new TFormula("=(Proportions!$E$5*((Budget_Presupuesto!D74+Budget_Presupuesto!E74)/2))+(Proportions!$E$6*((Budget_Presupuesto!F74+Budget_Presupuesto!G74+Budget_Presupuesto!H74)"
+            + "/3)+(Proportions!$E$7*((Budget_Presupuesto!I74+Budget_Presupuesto!J74)/2)))"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -5539,22 +5494,21 @@ namespace CoffeeInfrastructure.Flexcel
             xls.FreezePanes(new TCellAddress("B2"));
 
             //Cell selection and scroll position.
-            xls.SelectCell(46, 11, false);
+            xls.SelectCell(51, 2, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
 
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "Juan Hernandez");
 
 
             //You will normally not set CreateDateTime, since this is a new file and FlexCel will automatically use the current datetime.
             //But if you are editing a file and want to preserve the original creation date, you need to either set PreserveCreationDate to true:
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
-
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
 
         }
 

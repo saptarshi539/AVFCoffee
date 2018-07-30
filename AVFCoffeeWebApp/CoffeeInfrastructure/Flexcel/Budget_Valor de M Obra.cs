@@ -12,59 +12,86 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void Budget_Valor_M_De_Obra(ExcelFile xls)
         {
-            //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
+            xls.NewFile(34, TExcelFileFormat.v2016);    //Create a new Excel file with 34 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
-            xls.SheetName = "Inputs 1.0";
+            xls.SheetName = "Metrics";
             xls.ActiveSheet = 2;
-            xls.SheetName = "Outcome 1.0";
+            xls.SheetName = "Inputs 1.0";
             xls.ActiveSheet = 3;
-            xls.SheetName = "DATABASE_Schema";
+            xls.SheetName = "Inputs advance 2.0 (eng)";
             xls.ActiveSheet = 4;
-            xls.SheetName = "Outcome TOTAL_Adj";
+            xls.SheetName = "Outcome 1.0";
             xls.ActiveSheet = 5;
-            xls.SheetName = "Outcome_Y_Adjustment";
+            xls.SheetName = "Additional 2.0";
             xls.ActiveSheet = 6;
-            xls.SheetName = "Outcome_L Adjustment";
+            xls.SheetName = "Fixed 2.0";
             xls.ActiveSheet = 7;
-            xls.SheetName = "Proportions";
+            xls.SheetName = "Variable 2.0";
             xls.ActiveSheet = 8;
-            xls.SheetName = "Inputs advanced";
+            xls.SheetName = "General Budget 2.0";
             xls.ActiveSheet = 9;
-            xls.SheetName = "Budget_Supuestos";
+            xls.SheetName = "DATABASE_Schema";
             xls.ActiveSheet = 10;
-            xls.SheetName = "Budget_Equipo";
+            xls.SheetName = "Inputs 2.0 Conv. default values";
             xls.ActiveSheet = 11;
-            xls.SheetName = "Budget_M Obra";
+            xls.SheetName = "Inputs 2.0 Conv. new inputs";
             xls.ActiveSheet = 12;
-            xls.SheetName = "Budget_Presupuesto";
+            xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
             xls.ActiveSheet = 13;
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Inputs TOT advanced";
             xls.ActiveSheet = 14;
-            xls.SheetName = "Budget_Establecimiento";
+            xls.SheetName = "Gral Conf. Summary";
             xls.ActiveSheet = 15;
-            xls.SheetName = "Budget_Sostenemiento";
+            xls.SheetName = "Inputs 1.0 default values";
             xls.ActiveSheet = 16;
-            xls.SheetName = "Inputs 1.0_metric_currency";
+            xls.SheetName = "Inputs 1.0 Conv. new values";
             xls.ActiveSheet = 17;
-            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.SheetName = "Outcome TOTAL_Adj";
             xls.ActiveSheet = 18;
-            xls.SheetName = "Conversiones";
+            xls.SheetName = "Outcome_Y_Adjustment";
             xls.ActiveSheet = 19;
-            xls.SheetName = "Proporción de productividad";
+            xls.SheetName = "Outcome_L Adjustment";
             xls.ActiveSheet = 20;
+            xls.SheetName = "Proportions";
+            xls.ActiveSheet = 21;
+            xls.SheetName = "Budget_Supuestos";
+            xls.ActiveSheet = 22;
+            xls.SheetName = "Budget_Equipo";
+            xls.ActiveSheet = 23;
+            xls.SheetName = "Budget_M Obra";
+            xls.ActiveSheet = 24;
+            xls.SheetName = "Budget_M Obra_1";
+            xls.ActiveSheet = 25;
+            xls.SheetName = "Budget_Valor de M Obra_1";
+            xls.ActiveSheet = 26;
+            xls.SheetName = "Budget_Establecimiento_1";
+            xls.ActiveSheet = 27;
+            xls.SheetName = "Budget_Presupuesto";
+            xls.ActiveSheet = 28;
+            xls.SheetName = "Budget_Valor de M Obra";
+            xls.ActiveSheet = 29;
+            xls.SheetName = "Budget_Establecimiento";
+            xls.ActiveSheet = 30;
+            xls.SheetName = "Budget_Sostenemiento";
+            xls.ActiveSheet = 31;
+            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.ActiveSheet = 32;
+            xls.SheetName = "Conversiones";
+            xls.ActiveSheet = 33;
+            xls.SheetName = "Proporción de productividad";
+            xls.ActiveSheet = 34;
             xls.SheetName = "Inputs 1.0 (Ref)";
 
-            xls.ActiveSheet = 13;    //Set the sheet we are working in.
+            xls.ActiveSheet = 25;    //Set the sheet we are working in.
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
-            xls.OptionsCheckCompatibility = false;
             xls.OptionsMultithreadRecalc = 0;
 
             //Sheet Options
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Budget_Valor de M Obra_1";
 
             //Styles.
             TFlxFormat StyleFmt;
@@ -109,53 +136,38 @@ namespace CoffeeInfrastructure.Flexcel
             TXlsNamedRange Range;
             string RangeName;
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 14, 32, "=Budget_Establecimiento!$A$3:$C$53");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 14, 14, 3, 1, 53, 3, 32);
+            Range = new TXlsNamedRange(RangeName, 29, 32, "=Budget_Establecimiento!$A$3:$C$53");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 29, 29, 3, 1, 53, 3, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 11, 32, "='Budget_M Obra'!$A$1:$K$86");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 11, 11, 1, 1, 86, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 12, 32, "=Budget_Presupuesto!$A$34:$J$46");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 12, 12, 34, 1, 46, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 27, 32, "=Budget_Presupuesto!$A$34:$J$46");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 27, 27, 34, 1, 46, 10, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 15, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 15, 15, 1, 1, 44, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 30, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 30, 30, 1, 1, 44, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 9, 32, "=Budget_Supuestos!$A$276:$G$297");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 9, 9, 276, 1, 297, 7, 32);
+            Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 13, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 13, 13, 2, 1, 85, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 28, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 28, 28, 2, 1, 85, 10, 32);
             xls.SetNamedRange(Range);
 
 
             //Printer Settings
-
-            //You can set the margins in 2 ways, the one commented here or the one below:
-            //    TXlsMargins PrintMargins = xls.GetPrintMargins();
-            //    PrintMargins.Left = 0.75;
-            //    PrintMargins.Top = 1;
-            //    PrintMargins.Right = 0.75;
-            //    PrintMargins.Bottom = 1;
-            //    PrintMargins.Header = 0.5;
-            //    PrintMargins.Footer = 0.5;
-            //    xls.SetPrintMargins(PrintMargins);
-            xls.SetPrintMargins(new TXlsMargins(0.75, 1, 0.75, 1, 0.5, 0.5));
-            xls.PrintScale = 52;
-            xls.PrintXResolution = 600;
-            xls.PrintYResolution = 600;
-            xls.PrintOptions = TPrintOptions.Orientation;
-            xls.PrintPaperSize = TPaperSize.Letter;
+            xls.PrintOptions = TPrintOptions.Orientation | TPrintOptions.NoPls;
 
             //Theme - You might use GetTheme/SetTheme methods here instead.
             xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
@@ -244,25 +256,17 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetThemeFont(TFontScheme.Minor, MinorFont);
 
             //Set up rows and columns
-            xls.DefaultColWidth = 0;
-
-            xls.SetColWidth(1, 1, 13536);    //(52.13 + 0.75) * 256
-
-            xls.SetColWidth(2, 10, 2816);    //(10.25 + 0.75) * 256
-
-            xls.SetColWidth(11, 11, 4992);    //(18.75 + 0.75) * 256
-
-            xls.SetColWidth(12, 16384, 1152);    //(3.75 + 0.75) * 256
-            xls.SetColHidden(12, 16384, true);
+            xls.DefaultColWidth = 2304;
             xls.DefaultRowHeight = 315;
 
             xls.SetRowHeight(36, 375);    //18.75 * 20
             xls.SetRowHeight(45, 375);    //18.75 * 20
-            xls.SetRowHeight(62, 615);    //30.75 * 20
-            xls.SetRowHeight(85, 630);    //31.50 * 20
-            xls.SetRowHeight(86, 945);    //47.25 * 20
-            xls.SetRowHeight(87, 630);    //31.50 * 20
-            xls.SetRowHeight(88, 945);    //47.25 * 20
+            xls.SetRowHeight(61, 915);    //45.75 * 20
+            xls.SetRowHeight(62, 3315);    //165.75 * 20
+            xls.SetRowHeight(85, 5040);    //252.00 * 20
+            xls.SetRowHeight(86, 5985);    //299.25 * 20
+            xls.SetRowHeight(87, 4725);    //236.25 * 20
+            xls.SetRowHeight(88, 6300);    //315.00 * 20
 
             //Set the cell values
             TFlxFormat fmt;
@@ -376,7 +380,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(6, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(6, 2, new TFormula("='Budget_M Obra'!B6*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(6, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B6*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(6, 3);
             fmt.Font.Name = "Arial";
@@ -425,6 +430,71 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(6, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(6, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(6, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(6, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(7, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -436,7 +506,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(7, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(7, 2, new TFormula("='Budget_M Obra'!B7*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(7, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B7*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(7, 3);
             fmt.Font.Name = "Arial";
@@ -486,6 +557,71 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(7, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(7, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(7, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(7, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(8, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -498,7 +634,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(8, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(8, 2, new TFormula("='Budget_M Obra'!B8*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(8, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B8*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(8, 3);
             fmt.Font.Name = "Arial";
@@ -555,6 +692,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(8, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(8, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(8, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(8, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(9, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -567,7 +782,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(9, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(9, 2, new TFormula("='Budget_M Obra'!B9*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(9, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B9*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(9, 3);
             fmt.Font.Name = "Arial";
@@ -624,6 +840,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(9, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(9, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(9, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(9, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(10, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -636,7 +930,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(10, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(10, 2, new TFormula("='Budget_M Obra'!B10*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(10, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B10*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(10, 3);
             fmt.Font.Name = "Arial";
@@ -692,6 +987,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(10, 11, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(10, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(10, 24, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(11, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -765,6 +1138,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(11, 11, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(11, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(11, 24, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(12, 1);
             fmt.Font.Style = TFlxFontStyles.Bold;
@@ -852,6 +1303,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(12, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(12, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(12, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(12, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(13, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -863,7 +1392,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(13, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(13, 2, new TFormula("='Budget_M Obra'!B13*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(13, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B13*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(13, 3);
             fmt.Font.Name = "Arial";
@@ -910,6 +1440,71 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(13, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(13, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(13, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(13, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(14, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -921,7 +1516,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(14, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(14, 2, new TFormula("='Budget_M Obra'!B14*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(14, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B14*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(14, 3);
             fmt.Font.Name = "Arial";
@@ -977,6 +1573,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(14, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(14, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(14, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(14, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(15, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Scheme = TFontScheme.None;
@@ -991,7 +1665,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(15, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(15, 2, new TFormula("='Budget_M Obra'!B15*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(15, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B15*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(15, 3);
             fmt.Font.Name = "Arial";
@@ -1047,6 +1722,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(15, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(15, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(15, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(15, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(16, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1059,7 +1812,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(16, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(16, 2, new TFormula("='Budget_M Obra'!B16*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(16, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B16*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(16, 3);
             fmt.Font.Name = "Arial";
@@ -1115,6 +1869,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(16, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(16, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(16, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(16, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(17, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1127,7 +1959,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(17, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(17, 2, new TFormula("='Budget_M Obra'!B17*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(17, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B17*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(17, 3);
             fmt.Font.Name = "Arial";
@@ -1183,6 +2016,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(17, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(17, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(17, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(17, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(18, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1195,7 +2106,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(18, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(18, 2, new TFormula("='Budget_M Obra'!B18*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(18, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B18*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(18, 3);
             fmt.Font.Name = "Arial";
@@ -1251,6 +2163,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(18, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(18, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(18, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(18, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(19, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1263,7 +2253,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(19, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(19, 2, new TFormula("='Budget_M Obra'!B19*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(19, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B19*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(19, 3);
             fmt.Font.Name = "Arial";
@@ -1319,6 +2310,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(19, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(19, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(19, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(19, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(20, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1331,7 +2400,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(20, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(20, 2, new TFormula("='Budget_M Obra'!B20*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(20, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B20*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(20, 3);
             fmt.Font.Name = "Arial";
@@ -1387,6 +2457,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(20, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(20, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(20, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(20, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(21, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1399,7 +2547,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(21, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(21, 2, new TFormula("='Budget_M Obra'!B21*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(21, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B21*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(21, 3);
             fmt.Font.Name = "Arial";
@@ -1455,6 +2604,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(21, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(21, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(21, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(21, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(22, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1467,7 +2694,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(22, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(22, 2, new TFormula("='Budget_M Obra'!B22*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(22, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B22*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(22, 3);
             fmt.Font.Name = "Arial";
@@ -1522,6 +2750,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(22, 11, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(22, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Accent6, 0.399975585192419);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(22, 24, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(23, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -1594,6 +2900,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(23, 11, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(23, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(23, 24, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(24, 1);
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1684,7 +3068,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(25, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(25, 2, new TFormula("='Budget_M Obra'!B25*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(25, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B25*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(25, 3);
             fmt.Font.Name = "Arial";
@@ -1731,6 +3116,71 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(25, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(25, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(25, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(25, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(26, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1744,7 +3194,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Underline = TFlxUnderline.Single;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(26, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(26, 2, new TFormula("='Budget_M Obra'!B26*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(26, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B26*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(26, 3);
             fmt.Font.Name = "Arial";
@@ -1800,6 +3251,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(26, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(26, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(26, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(26, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(27, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1812,7 +3341,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(27, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(27, 2, new TFormula("='Budget_M Obra'!B27*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(27, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B27*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(27, 3);
             fmt.Font.Name = "Arial";
@@ -1868,6 +3398,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(27, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(27, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(27, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(27, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(28, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1880,7 +3488,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(28, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(28, 2, new TFormula("='Budget_M Obra'!B28*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(28, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B28*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(28, 3);
             fmt.Font.Name = "Arial";
@@ -1936,6 +3545,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(28, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(28, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(28, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(28, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(29, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -1948,7 +3635,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(29, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(29, 2, new TFormula("='Budget_M Obra'!B29*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(29, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B29*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(29, 3);
             fmt.Font.Name = "Arial";
@@ -2004,6 +3692,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(29, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(29, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(29, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(29, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(30, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2016,7 +3782,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(30, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(30, 2, new TFormula("='Budget_M Obra'!B30*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(30, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B30*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(30, 3);
             fmt.Font.Name = "Arial";
@@ -2072,6 +3839,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(30, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(30, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(30, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(30, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(31, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2084,7 +3929,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(31, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(31, 2, new TFormula("='Budget_M Obra'!B31*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(31, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B31*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(31, 3);
             fmt.Font.Name = "Arial";
@@ -2140,6 +3986,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(31, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(31, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(31, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(31, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(32, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2152,7 +4076,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(32, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(32, 2, new TFormula("='Budget_M Obra'!B32*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(32, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B32*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(32, 3);
             fmt.Font.Name = "Arial";
@@ -2208,6 +4133,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(32, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(32, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(32, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(32, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(33, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2220,7 +4223,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(33, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(33, 2, new TFormula("='Budget_M Obra'!B33*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(33, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B33*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(33, 3);
             fmt.Font.Name = "Arial";
@@ -2276,6 +4280,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(33, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(33, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(33, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(33, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(34, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2288,7 +4370,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(34, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(34, 2, new TFormula("='Budget_M Obra'!B34*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(34, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B34*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(34, 3);
             fmt.Font.Name = "Arial";
@@ -2344,6 +4427,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(34, 11, xls.AddFormat(fmt));
 
+            fmt = xls.GetCellVisibleFormatDef(34, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(34, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(34, 24, xls.AddFormat(fmt));
+
             fmt = xls.GetCellVisibleFormatDef(35, 1);
             fmt.Font.Name = "Arial";
             fmt.Font.Color = TExcelColor.Automatic;
@@ -2356,7 +4517,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(35, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(35, 2, new TFormula("='Budget_M Obra'!B35*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(35, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B35*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(35, 3);
             fmt.Font.Name = "Arial";
@@ -2411,6 +4573,84 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TExcelColor.Automatic;
             fmt.Font.Scheme = TFontScheme.None;
             xls.SetCellFormat(35, 11, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 12);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 12, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 13);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 13, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 14);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 14, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 15);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 15, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 16);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 16, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 17);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 17, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 18);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 18, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 19);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 19, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 20);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 20, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 21);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 21, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 22);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 22, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 23);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 23, xls.AddFormat(fmt));
+
+            fmt = xls.GetCellVisibleFormatDef(35, 24);
+            fmt.Font.Name = "Arial";
+            fmt.Font.Color = TExcelColor.Automatic;
+            fmt.Font.Scheme = TFontScheme.None;
+            xls.SetCellFormat(35, 24, xls.AddFormat(fmt));
 
             fmt = xls.GetCellVisibleFormatDef(36, 1);
             fmt.Font.Size20 = 280;
@@ -2543,7 +4783,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(40, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             xls.SetCellFormat(40, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(40, 3, new TFormula("='Budget_M Obra'!C41*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(40, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C41*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(40, 4);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -2559,7 +4800,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(41, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             xls.SetCellFormat(41, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(41, 3, new TFormula("='Budget_M Obra'!C42*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(41, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C42*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(41, 4);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -2597,7 +4839,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(43, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             xls.SetCellFormat(43, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(43, 3, new TFormula("='Budget_M Obra'!C44*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(43, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C44*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(43, 4);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -2613,7 +4856,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(44, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             xls.SetCellFormat(44, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(44, 3, new TFormula("='Budget_M Obra'!C45*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(44, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C45*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(44, 4);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -2771,43 +5015,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 4, new TFormula("='Budget_M Obra'!D50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 5, new TFormula("='Budget_M Obra'!E50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 6, new TFormula("='Budget_M Obra'!F50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 7, new TFormula("='Budget_M Obra'!G50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 8, new TFormula("='Budget_M Obra'!H50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 9, new TFormula("='Budget_M Obra'!I50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(49, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(49, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(49, 10, new TFormula("='Budget_M Obra'!J50*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(49, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J50*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 1);
             fmt.Font.Name = "Arial";
@@ -2828,43 +5079,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 4, new TFormula("='Budget_M Obra'!D51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 5, new TFormula("='Budget_M Obra'!E51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 6, new TFormula("='Budget_M Obra'!F51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 7, new TFormula("='Budget_M Obra'!G51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 8, new TFormula("='Budget_M Obra'!H51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 9, new TFormula("='Budget_M Obra'!I51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(50, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(50, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(50, 10, new TFormula("='Budget_M Obra'!J51*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(50, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J51*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 1);
             fmt.Font.Name = "Arial";
@@ -2885,43 +5143,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 4, new TFormula("='Budget_M Obra'!D52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 5, new TFormula("='Budget_M Obra'!E52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 6, new TFormula("='Budget_M Obra'!F52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 7, new TFormula("='Budget_M Obra'!G52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 8, new TFormula("='Budget_M Obra'!H52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 9, new TFormula("='Budget_M Obra'!I52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(51, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(51, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(51, 10, new TFormula("='Budget_M Obra'!J52*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(51, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J52*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 1);
             fmt.Font.Name = "Arial";
@@ -2942,43 +5207,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 4, new TFormula("='Budget_M Obra'!D53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 5, new TFormula("='Budget_M Obra'!E53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 6, new TFormula("='Budget_M Obra'!F53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 7, new TFormula("='Budget_M Obra'!G53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 8, new TFormula("='Budget_M Obra'!H53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 9, new TFormula("='Budget_M Obra'!I53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(52, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(52, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(52, 10, new TFormula("='Budget_M Obra'!J53*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(52, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J53*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 1);
             fmt.Font.Name = "Arial";
@@ -2999,43 +5271,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 4, new TFormula("='Budget_M Obra'!D54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 5, new TFormula("='Budget_M Obra'!E54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 6, new TFormula("='Budget_M Obra'!F54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 7, new TFormula("='Budget_M Obra'!G54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 8, new TFormula("='Budget_M Obra'!H54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 9, new TFormula("='Budget_M Obra'!I54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(53, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(53, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(53, 10, new TFormula("='Budget_M Obra'!J54*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(53, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J54*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 1);
             fmt.Font.Name = "Arial";
@@ -3056,43 +5335,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 4, new TFormula("='Budget_M Obra'!D55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 5, new TFormula("='Budget_M Obra'!E55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 6, new TFormula("='Budget_M Obra'!F55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 7, new TFormula("='Budget_M Obra'!G55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 8, new TFormula("='Budget_M Obra'!H55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 9, new TFormula("='Budget_M Obra'!I55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(54, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(54, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(54, 10, new TFormula("='Budget_M Obra'!J55*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(54, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J55*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 1);
             fmt.Font.Name = "Arial";
@@ -3113,43 +5399,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 4, new TFormula("='Budget_M Obra'!D56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 5, new TFormula("='Budget_M Obra'!E56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 6, new TFormula("='Budget_M Obra'!F56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 7, new TFormula("='Budget_M Obra'!G56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 8, new TFormula("='Budget_M Obra'!H56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 9, new TFormula("='Budget_M Obra'!I56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(55, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(55, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(55, 10, new TFormula("='Budget_M Obra'!J56*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(55, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J56*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 1);
             fmt.Font.Name = "Arial";
@@ -3171,43 +5464,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 4, new TFormula("='Budget_M Obra'!D57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 5, new TFormula("='Budget_M Obra'!E57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 6, new TFormula("='Budget_M Obra'!F57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 7, new TFormula("='Budget_M Obra'!G57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 8, new TFormula("='Budget_M Obra'!H57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 9, new TFormula("='Budget_M Obra'!I57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(56, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(56, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(56, 10, new TFormula("='Budget_M Obra'!J57*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(56, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J57*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 1);
             fmt.Font.Name = "Arial";
@@ -3228,43 +5528,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 4, new TFormula("='Budget_M Obra'!D58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 5, new TFormula("='Budget_M Obra'!E58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 6, new TFormula("='Budget_M Obra'!F58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 7, new TFormula("='Budget_M Obra'!G58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 8, new TFormula("='Budget_M Obra'!H58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 9, new TFormula("='Budget_M Obra'!I58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(57, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(57, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(57, 10, new TFormula("='Budget_M Obra'!J58*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(57, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J58*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 1);
             fmt.Font.Name = "Arial";
@@ -3286,43 +5593,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 4, new TFormula("='Budget_M Obra'!D59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 5, new TFormula("='Budget_M Obra'!E59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 6, new TFormula("='Budget_M Obra'!F59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 7, new TFormula("='Budget_M Obra'!G59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 8, new TFormula("='Budget_M Obra'!H59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 9, new TFormula("='Budget_M Obra'!I59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(58, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(58, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(58, 10, new TFormula("='Budget_M Obra'!J59*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(58, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J59*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(59, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -3502,43 +5816,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 4, new TFormula("='Budget_M Obra'!D62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 5, new TFormula("='Budget_M Obra'!E62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 6, new TFormula("='Budget_M Obra'!F62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 7, new TFormula("='Budget_M Obra'!G62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 8, new TFormula("='Budget_M Obra'!H62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 9, new TFormula("='Budget_M Obra'!I62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(61, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(61, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(61, 10, new TFormula("='Budget_M Obra'!J62*Budget_Supuestos!$B$74"));
+            xls.SetCellValue(61, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J62*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 1);
             fmt.Font.Name = "Arial";
@@ -3561,43 +5882,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 4, new TFormula("='Budget_M Obra'!D63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 5, new TFormula("='Budget_M Obra'!E63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 6, new TFormula("='Budget_M Obra'!F63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 7, new TFormula("='Budget_M Obra'!G63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 8, new TFormula("='Budget_M Obra'!H63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 9, new TFormula("='Budget_M Obra'!I63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(62, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(62, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(62, 10, new TFormula("='Budget_M Obra'!J63*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(62, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J63*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 1);
             fmt.Font.Name = "Arial";
@@ -3620,43 +5948,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 4, new TFormula("='Budget_M Obra'!D64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 5, new TFormula("='Budget_M Obra'!E64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 6, new TFormula("='Budget_M Obra'!F64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 7, new TFormula("='Budget_M Obra'!G64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 8, new TFormula("='Budget_M Obra'!H64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 9, new TFormula("='Budget_M Obra'!I64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(63, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(63, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(63, 10, new TFormula("='Budget_M Obra'!J64*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(63, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J64*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(64, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -3880,43 +6215,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 4, new TFormula("='Budget_M Obra'!D68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 5, new TFormula("='Budget_M Obra'!E68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 6, new TFormula("='Budget_M Obra'!F68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 7, new TFormula("='Budget_M Obra'!G68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 8, new TFormula("='Budget_M Obra'!H68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 9, new TFormula("='Budget_M Obra'!I68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(67, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(67, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(67, 10, new TFormula("='Budget_M Obra'!J68*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(67, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J68*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 1);
             fmt.Font.Name = "Arial";
@@ -3937,43 +6279,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 4, new TFormula("='Budget_M Obra'!D69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 5, new TFormula("='Budget_M Obra'!E69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 6, new TFormula("='Budget_M Obra'!F69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 7, new TFormula("='Budget_M Obra'!G69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 8, new TFormula("='Budget_M Obra'!H69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 9, new TFormula("='Budget_M Obra'!I69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(68, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
             fmt.Format = "#,##0";
             xls.SetCellFormat(68, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(68, 10, new TFormula("='Budget_M Obra'!J69*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(68, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J69*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(69, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -4119,43 +6468,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 4, new TFormula("='Budget_M Obra'!D71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 5, new TFormula("='Budget_M Obra'!E71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 6, new TFormula("='Budget_M Obra'!F71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 7, new TFormula("='Budget_M Obra'!G71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 8, new TFormula("='Budget_M Obra'!H71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 9, new TFormula("='Budget_M Obra'!I71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(71, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(71, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(71, 10, new TFormula("='Budget_M Obra'!J71*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(71, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J71*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 1);
             fmt.Font.Name = "Arial";
@@ -4176,43 +6532,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 4, new TFormula("='Budget_M Obra'!D72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 5, new TFormula("='Budget_M Obra'!E72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 6, new TFormula("='Budget_M Obra'!F72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 7, new TFormula("='Budget_M Obra'!G72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 8, new TFormula("='Budget_M Obra'!H72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 9, new TFormula("='Budget_M Obra'!I72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(72, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(72, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(72, 10, new TFormula("='Budget_M Obra'!J72*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(72, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J72*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 1);
             fmt.Font.Name = "Arial";
@@ -4233,43 +6596,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 4, new TFormula("='Budget_M Obra'!D73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 5, new TFormula("='Budget_M Obra'!E73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 6, new TFormula("='Budget_M Obra'!F73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 7, new TFormula("='Budget_M Obra'!G73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 8, new TFormula("='Budget_M Obra'!H73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 9, new TFormula("='Budget_M Obra'!I73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(73, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(73, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(73, 10, new TFormula("='Budget_M Obra'!J73*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(73, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J73*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 1);
             fmt.Font.Name = "Arial";
@@ -4290,43 +6660,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 4, new TFormula("='Budget_M Obra'!D74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 5, new TFormula("='Budget_M Obra'!E74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 6, new TFormula("='Budget_M Obra'!F74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 7, new TFormula("='Budget_M Obra'!G74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 8, new TFormula("='Budget_M Obra'!H74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 9, new TFormula("='Budget_M Obra'!I74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(74, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(74, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(74, 10, new TFormula("='Budget_M Obra'!J74*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(74, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J74*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 1);
             fmt.Font.Name = "Arial";
@@ -4347,43 +6724,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 4, new TFormula("='Budget_M Obra'!D75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 5, new TFormula("='Budget_M Obra'!E75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 6, new TFormula("='Budget_M Obra'!F75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 7, new TFormula("='Budget_M Obra'!G75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 8, new TFormula("='Budget_M Obra'!H75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 9, new TFormula("='Budget_M Obra'!I75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(75, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(75, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(75, 10, new TFormula("='Budget_M Obra'!J75*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(75, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J75*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 1);
             fmt.Font.Name = "Arial";
@@ -4404,43 +6788,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 4, new TFormula("='Budget_M Obra'!D76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 5, new TFormula("='Budget_M Obra'!E76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 6, new TFormula("='Budget_M Obra'!F76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 7, new TFormula("='Budget_M Obra'!G76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 8, new TFormula("='Budget_M Obra'!H76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 9, new TFormula("='Budget_M Obra'!I76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(76, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(76, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(76, 10, new TFormula("='Budget_M Obra'!J76*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(76, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J76*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 1);
             fmt.Font.Name = "Arial";
@@ -4461,43 +6852,50 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 4, new TFormula("='Budget_M Obra'!D77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 5, new TFormula("='Budget_M Obra'!E77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 6, new TFormula("='Budget_M Obra'!F77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 7, new TFormula("='Budget_M Obra'!G77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 8, new TFormula("='Budget_M Obra'!H77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 9, new TFormula("='Budget_M Obra'!I77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(77, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
             fmt.Format = "#,##0";
             xls.SetCellFormat(77, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(77, 10, new TFormula("='Budget_M Obra'!J77*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(77, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J77*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(78, 1);
             fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -4908,47 +7306,56 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(85, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 2, new TFormula("='Budget_M Obra'!B87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 3, new TFormula("='Budget_M Obra'!C87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 4, new TFormula("='Budget_M Obra'!D87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 5, new TFormula("='Budget_M Obra'!E87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 6, new TFormula("='Budget_M Obra'!F87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 7, new TFormula("='Budget_M Obra'!G87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 8, new TFormula("='Budget_M Obra'!H87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 9, new TFormula("='Budget_M Obra'!I87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(85, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(85, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(85, 10, new TFormula("='Budget_M Obra'!J87*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(85, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J87*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 1);
             fmt.WrapText = true;
@@ -4959,47 +7366,56 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(86, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 2, new TFormula("='Budget_M Obra'!B85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 3, new TFormula("='Budget_M Obra'!C85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 4, new TFormula("='Budget_M Obra'!D85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 5, new TFormula("='Budget_M Obra'!E85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 6, new TFormula("='Budget_M Obra'!F85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 7, new TFormula("='Budget_M Obra'!G85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 8, new TFormula("='Budget_M Obra'!H85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 9, new TFormula("='Budget_M Obra'!I85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(86, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(86, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(86, 10, new TFormula("='Budget_M Obra'!J85*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(86, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J85*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 1);
             fmt.WrapText = true;
@@ -5010,47 +7426,56 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(87, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 2, new TFormula("='Budget_M Obra'!B89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 3, new TFormula("='Budget_M Obra'!C89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 4, new TFormula("='Budget_M Obra'!D89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 5, new TFormula("='Budget_M Obra'!E89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 6, new TFormula("='Budget_M Obra'!F89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 7, new TFormula("='Budget_M Obra'!G89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 8, new TFormula("='Budget_M Obra'!H89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 9, new TFormula("='Budget_M Obra'!I89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(87, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(87, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(87, 10, new TFormula("='Budget_M Obra'!J89*Budget_Supuestos!$B$71"));
+            xls.SetCellValue(87, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J89*'[Coffee Interactive"
+            + " Tool 2.0  06_12_18.xlsx]Budget_Supuestos'!$B$71"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 1);
             fmt.WrapText = true;
@@ -5061,47 +7486,47 @@ namespace CoffeeInfrastructure.Flexcel
             fmt = xls.GetCellVisibleFormatDef(88, 2);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 2, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 2, new TFormula("='Budget_M Obra'!B91"));
+            xls.SetCellValue(88, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!B91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 3);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 3, new TFormula("='Budget_M Obra'!C91"));
+            xls.SetCellValue(88, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!C91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 4);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 4, new TFormula("='Budget_M Obra'!D91"));
+            xls.SetCellValue(88, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!D91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 5, new TFormula("='Budget_M Obra'!E91"));
+            xls.SetCellValue(88, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!E91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 6, new TFormula("='Budget_M Obra'!F91"));
+            xls.SetCellValue(88, 6, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!F91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 7, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 7, new TFormula("='Budget_M Obra'!G91"));
+            xls.SetCellValue(88, 7, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!G91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 8);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 8, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 8, new TFormula("='Budget_M Obra'!H91"));
+            xls.SetCellValue(88, 8, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!H91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 9);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 9, new TFormula("='Budget_M Obra'!I91"));
+            xls.SetCellValue(88, 9, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!I91"));
 
             fmt = xls.GetCellVisibleFormatDef(88, 10);
             fmt.Font.Color = TUIColor.FromArgb(0x33, 0x66, 0xFF);
             xls.SetCellFormat(88, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(88, 10, new TFormula("='Budget_M Obra'!J91"));
+            xls.SetCellValue(88, 10, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Budget_M Obra'!J91"));
 
             fmt = xls.GetCellVisibleFormatDef(89, 1);
             fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -5118,9 +7543,44 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(89, 9, new TFormula("=SUM(I85:I88)"));
             xls.SetCellValue(89, 10, new TFormula("=SUM(J85:J88)"));
 
+            //Comments
+
+            TRTFRun[] Runs;
+            Runs = new TRTFRun[2];
+            Runs[0].FirstChar = 0;
+            TFlxFont fnt;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Style = TFlxFontStyles.Bold;
+            fnt.Scheme = TFontScheme.None;
+            Runs[0].FontIndex = xls.AddFont(fnt);
+            Runs[1].FirstChar = 15;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Scheme = TFontScheme.None;
+            Runs[1].FontIndex = xls.AddFont(fnt);
+            xls.SetComment(61, 10, new TRichString("Juan Hernandez:\nIn 07/10/18 adjusted to multiply by the jornal price. Then dias de"
+            + " recoleccion * jornal (no * cuanto paga por caja, este nos es el dato de numero de"
+            + " cajas sino numero de dias) de recoleccion)", Runs, xls));
+
+            //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
+            TCommentProperties CommentProps = TCommentProperties.CreateStandard(61, 10, xls);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 60, 134, 11, 213, 62, 18, 25, 142);
+
+            //Excel by doesn't autofit the comment box so it can hold all text.
+            //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
+            //To have FlexCel autofit the comment for you, you can do it with the following code:
+
+            //    CommentProps.Anchor = xls.AutofitComment(new TRichString("Juan Hernandez:\nIn 07/10/18 adjusted to multiply by the jornal price. Then dias de"
+            //    + " recoleccion * jornal (no * cuanto paga por caja, este nos es el dato de numero de"
+            //    + " cajas sino numero de dias) de recoleccion)", Runs, xls), 1.5, true, 1.1, 0, CommentProps.Anchor);
+
+            xls.SetCommentProperties(61, 10, CommentProps);
+
             //Cell selection and scroll position.
-            xls.SelectCell(1, 12, false);
-            xls.ScrollWindow(1, 3);
+            xls.SelectCell(40, 13, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -5134,7 +7594,7 @@ namespace CoffeeInfrastructure.Flexcel
             //But if you are editing a file and want to preserve the original creation date, you need to either set PreserveCreationDate to true:
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
 
         }
 

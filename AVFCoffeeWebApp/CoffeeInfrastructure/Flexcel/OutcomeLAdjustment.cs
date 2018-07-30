@@ -11,51 +11,73 @@ namespace CoffeeInfrastructure.Flexcel
     {
         public void Outcome_L_Adjustment(ExcelFile xls)
         {
-            //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
+            xls.NewFile(31, TExcelFileFormat.v2010);    //Create a new Excel file with 31 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
-            xls.SheetName = "Inputs 1.0";
+            xls.SheetName = "Metrics";
             xls.ActiveSheet = 2;
-            xls.SheetName = "Outcome 1.0";
+            xls.SheetName = "Inputs 1.0";
             xls.ActiveSheet = 3;
-            xls.SheetName = "DATABASE_Schema";
+            xls.SheetName = "Inputs advance 2.0 (eng)";
             xls.ActiveSheet = 4;
-            xls.SheetName = "Outcome TOTAL_Adj";
+            xls.SheetName = "Outcome 1.0";
             xls.ActiveSheet = 5;
-            xls.SheetName = "Outcome_Y_Adjustment";
+            xls.SheetName = "Additional 2.0";
             xls.ActiveSheet = 6;
-            xls.SheetName = "Outcome_L Adjustment";
+            xls.SheetName = "Fixed 2.0";
             xls.ActiveSheet = 7;
-            xls.SheetName = "Proportions";
+            xls.SheetName = "Variable 2.0";
             xls.ActiveSheet = 8;
-            xls.SheetName = "Inputs advanced";
+            xls.SheetName = "General Budget 2.0";
             xls.ActiveSheet = 9;
-            xls.SheetName = "Budget_Supuestos";
+            xls.SheetName = "DATABASE_Schema";
             xls.ActiveSheet = 10;
-            xls.SheetName = "Budget_Equipo";
+            xls.SheetName = "Inputs 2.0 Conv. default values";
             xls.ActiveSheet = 11;
-            xls.SheetName = "Budget_M Obra";
+            xls.SheetName = "Inputs 2.0 Conv. new inputs";
             xls.ActiveSheet = 12;
-            xls.SheetName = "Budget_Presupuesto";
+            xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
             xls.ActiveSheet = 13;
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Inputs TOT advanced";
             xls.ActiveSheet = 14;
-            xls.SheetName = "Budget_Establecimiento";
+            xls.SheetName = "Gral Conf. Summary";
             xls.ActiveSheet = 15;
-            xls.SheetName = "Budget_Sostenemiento";
+            xls.SheetName = "Inputs 1.0 default values";
             xls.ActiveSheet = 16;
-            xls.SheetName = "Inputs 1.0_metric_currency";
+            xls.SheetName = "Inputs 1.0 Conv. new values";
             xls.ActiveSheet = 17;
-            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.SheetName = "Outcome TOTAL_Adj";
             xls.ActiveSheet = 18;
-            xls.SheetName = "Conversiones";
+            xls.SheetName = "Outcome_Y_Adjustment";
             xls.ActiveSheet = 19;
-            xls.SheetName = "Proporción de productividad";
+            xls.SheetName = "Outcome_L Adjustment";
             xls.ActiveSheet = 20;
+            xls.SheetName = "Proportions";
+            xls.ActiveSheet = 21;
+            xls.SheetName = "Budget_Supuestos";
+            xls.ActiveSheet = 22;
+            xls.SheetName = "Budget_Equipo";
+            xls.ActiveSheet = 23;
+            xls.SheetName = "Budget_M Obra";
+            xls.ActiveSheet = 24;
+            xls.SheetName = "Budget_Presupuesto";
+            xls.ActiveSheet = 25;
+            xls.SheetName = "Budget_Valor de M Obra";
+            xls.ActiveSheet = 26;
+            xls.SheetName = "Budget_Establecimiento";
+            xls.ActiveSheet = 27;
+            xls.SheetName = "Budget_Sostenemiento";
+            xls.ActiveSheet = 28;
+            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.ActiveSheet = 29;
+            xls.SheetName = "Conversiones";
+            xls.ActiveSheet = 30;
+            xls.SheetName = "Proporción de productividad";
+            xls.ActiveSheet = 31;
             xls.SheetName = "Inputs 1.0 (Ref)";
 
-            xls.ActiveSheet = 6;    //Set the sheet we are working in.
+            xls.ActiveSheet = 19;    //Set the sheet we are working in.
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
@@ -107,33 +129,33 @@ namespace CoffeeInfrastructure.Flexcel
             TXlsNamedRange Range;
             string RangeName;
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 14, 32, "=Budget_Establecimiento!$A$3:$C$53");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 14, 14, 3, 1, 53, 3, 32);
+            Range = new TXlsNamedRange(RangeName, 26, 32, "=Budget_Establecimiento!$A$3:$C$53");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 26, 26, 3, 1, 53, 3, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 11, 32, "='Budget_M Obra'!$A$1:$K$86");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 11, 11, 1, 1, 86, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 12, 32, "=Budget_Presupuesto!$A$34:$J$46");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 12, 12, 34, 1, 46, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 24, 32, "=Budget_Presupuesto!$A$34:$J$46");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 24, 24, 34, 1, 46, 10, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 15, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 15, 15, 1, 1, 44, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 27, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 27, 27, 1, 1, 44, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 9, 32, "=Budget_Supuestos!$A$276:$G$297");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 9, 9, 276, 1, 297, 7, 32);
+            Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 13, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 13, 13, 2, 1, 85, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 25, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 25, 25, 2, 1, 85, 10, 32);
             xls.SetNamedRange(Range);
 
 
@@ -232,33 +254,32 @@ namespace CoffeeInfrastructure.Flexcel
             xls.DefaultRowHeight = 280;
 
             xls.SetRowHeight(1, 660);    //33.00 * 20
-            xls.SetRowHeight(2, 1240);    //62.00 * 20
+            xls.SetRowHeight(2, 1200);    //60.00 * 20
 
             TFlxFormat RowFmt;
             RowFmt = xls.GetFormat(xls.GetRowFormat(2));
             RowFmt.Font.Size20 = 200;
             RowFmt.HAlignment = THFlxAlignment.center;
             xls.SetRowFormat(2, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(3, 520);    //26.00 * 20
+            xls.SetRowHeight(3, 560);    //28.00 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(3));
             RowFmt.Font.Size20 = 200;
             RowFmt.VAlignment = TVFlxAlignment.top;
             xls.SetRowFormat(3, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(4, 1040);    //52.00 * 20
+            xls.SetRowHeight(4, 1120);    //56.00 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(4));
             RowFmt.Font.Size20 = 200;
             RowFmt.VAlignment = TVFlxAlignment.top;
             xls.SetRowFormat(4, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(5, 520);    //26.00 * 20
-            xls.SetRowHeight(6, 1300);    //65.00 * 20
-            xls.SetRowHeight(10, 780);    //39.00 * 20
-            xls.SetRowHeight(11, 520);    //26.00 * 20
-            xls.SetRowHeight(12, 1040);    //52.00 * 20
-            xls.SetRowHeight(13, 520);    //26.00 * 20
-            xls.SetRowHeight(14, 1300);    //65.00 * 20
-            xls.SetRowHeight(16, 520);    //26.00 * 20
+            xls.SetRowHeight(5, 560);    //28.00 * 20
+            xls.SetRowHeight(6, 1400);    //70.00 * 20
+            xls.SetRowHeight(10, 840);    //42.00 * 20
+            xls.SetRowHeight(11, 560);    //28.00 * 20
+            xls.SetRowHeight(12, 1120);    //56.00 * 20
+            xls.SetRowHeight(13, 560);    //28.00 * 20
+            xls.SetRowHeight(14, 1400);    //70.00 * 20
 
             //Merged Cells
             xls.MergeCells(1, 1, 1, 5);
@@ -320,7 +341,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.WrapText = true;
             xls.SetCellFormat(1, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(1, 10, "Diferencia asumiendo Y dado (1419.6 pounds/ht)");
+            xls.SetCellValue(1, 10, "Diferencia asumiendo Y dado (1419.6 pounds/ht = 14 Quntales/ha)");
 
             fmt = xls.GetCellVisibleFormatDef(1, 11);
             fmt.HAlignment = THFlxAlignment.center;
@@ -355,13 +376,18 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(2, 3);
             fmt.Font.Size20 = 200;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.Font.Family = 0;
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.WrapText = true;
             xls.SetCellFormat(2, 3, xls.AddFormat(fmt));
-            xls.SetCellValue(2, 3, "Costo producción cereza (Pesos/Hectarea)");
+            xls.SetCellValue(2, 3, "Costo producción PERGAMINO ((Pesos/Hectarea)");
 
             fmt = xls.GetCellVisibleFormatDef(2, 4);
             fmt.Font.Size20 = 200;
@@ -385,13 +411,18 @@ namespace CoffeeInfrastructure.Flexcel
 
             fmt = xls.GetCellVisibleFormatDef(2, 9);
             fmt.Font.Size20 = 200;
+            fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
             fmt.Font.Style = TFlxFontStyles.Bold;
+            fmt.Font.Family = 0;
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
+            fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
+            fmt.FillPattern.FgColor = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+            fmt.FillPattern.BgColor = TExcelColor.Automatic;
             fmt.HAlignment = THFlxAlignment.center;
             fmt.WrapText = true;
             xls.SetCellFormat(2, 9, xls.AddFormat(fmt));
-            xls.SetCellValue(2, 9, "Costo producción cereza (Pesos/Hectarea)");
+            xls.SetCellValue(2, 9, "Costo producción PERGAMINO ((Pesos/Hectarea)");
 
             fmt = xls.GetCellVisibleFormatDef(2, 10);
             fmt.Font.Size20 = 200;
@@ -401,7 +432,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.WrapText = true;
             xls.SetCellFormat(2, 10, xls.AddFormat(fmt));
-            xls.SetCellValue(2, 10, "DIFERENCIA Costo producción cereza (Pesos/Hectarea)");
+            xls.SetCellValue(2, 10, "DIFERENCIA Costo producción pergamino (Pesos/Hectarea)");
 
             fmt = xls.GetCellVisibleFormatDef(2, 11);
             fmt.HAlignment = THFlxAlignment.center;
@@ -1202,8 +1233,42 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(16, 3, xls.AddFormat(fmt));
             xls.SetCellValue(16, 3, new TFormula("=(C8/Conversiones!C14)/Conversiones!F24"));
 
+            //Comments
+
+            TRTFRun[] Runs;
+            Runs = new TRTFRun[2];
+            Runs[0].FirstChar = 0;
+            TFlxFont fnt;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Style = TFlxFontStyles.Bold;
+            fnt.Scheme = TFontScheme.None;
+            Runs[0].FontIndex = xls.AddFont(fnt);
+            Runs[1].FirstChar = 15;
+            fnt = xls.GetDefaultFont;
+            fnt.Size20 = 180;
+            fnt.Color = TExcelColor.Automatic;
+            fnt.Scheme = TFontScheme.None;
+            Runs[1].FontIndex = xls.AddFont(fnt);
+            xls.SetComment(1, 9, new TRichString("Juan Hernandez:\nTo understand this reference go to the file:\nCoffee Interactive"
+            + " tool 1.0 10_23_17\n", Runs, xls));
+
+            //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
+            TCommentProperties CommentProps = TCommentProperties.CreateStandard(1, 9, xls);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 1, 12, 10, 69, 4, 31, 11, 351);
+
+            //Excel by doesn't autofit the comment box so it can hold all text.
+            //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
+            //To have FlexCel autofit the comment for you, you can do it with the following code:
+
+            //    CommentProps.Anchor = xls.AutofitComment(new TRichString("Juan Hernandez:\nTo understand this reference go to the file:\nCoffee Interactive"
+            //    + " tool 1.0 10_23_17\n", Runs, xls), 1.5, true, 1.1, 0, CommentProps.Anchor);
+
+            xls.SetCommentProperties(1, 9, CommentProps);
+
             //Cell selection and scroll position.
-            xls.SelectCell(3, 3, false);
+            xls.SelectCell(6, 10, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -1217,7 +1282,7 @@ namespace CoffeeInfrastructure.Flexcel
             //But if you are editing a file and want to preserve the original creation date, you need to either set PreserveCreationDate to true:
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
 
 
         }

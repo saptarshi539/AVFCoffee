@@ -11,51 +11,73 @@ namespace CoffeeInfrastructure.Flexcel
     {
         public void inputs1Ref(ExcelFile xls)
         {
-            //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
+            xls.NewFile(31, TExcelFileFormat.v2010);    //Create a new Excel file with 31 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
-            xls.SheetName = "Inputs 1.0";
+            xls.SheetName = "Metrics";
             xls.ActiveSheet = 2;
-            xls.SheetName = "Outcome 1.0";
+            xls.SheetName = "Inputs 1.0";
             xls.ActiveSheet = 3;
-            xls.SheetName = "DATABASE_Schema";
+            xls.SheetName = "Inputs advance 2.0 (eng)";
             xls.ActiveSheet = 4;
-            xls.SheetName = "Outcome TOTAL_Adj";
+            xls.SheetName = "Outcome 1.0";
             xls.ActiveSheet = 5;
-            xls.SheetName = "Outcome_Y_Adjustment";
+            xls.SheetName = "Additional 2.0";
             xls.ActiveSheet = 6;
-            xls.SheetName = "Outcome_L Adjustment";
+            xls.SheetName = "Fixed 2.0";
             xls.ActiveSheet = 7;
-            xls.SheetName = "Proportions";
+            xls.SheetName = "Variable 2.0";
             xls.ActiveSheet = 8;
-            xls.SheetName = "Inputs advanced";
+            xls.SheetName = "General Budget 2.0";
             xls.ActiveSheet = 9;
-            xls.SheetName = "Budget_Supuestos";
+            xls.SheetName = "DATABASE_Schema";
             xls.ActiveSheet = 10;
-            xls.SheetName = "Budget_Equipo";
+            xls.SheetName = "Inputs 2.0 Conv. default values";
             xls.ActiveSheet = 11;
-            xls.SheetName = "Budget_M Obra";
+            xls.SheetName = "Inputs 2.0 Conv. new inputs";
             xls.ActiveSheet = 12;
-            xls.SheetName = "Budget_Presupuesto";
+            xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
             xls.ActiveSheet = 13;
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Inputs TOT advanced";
             xls.ActiveSheet = 14;
-            xls.SheetName = "Budget_Establecimiento";
+            xls.SheetName = "Gral Conf. Summary";
             xls.ActiveSheet = 15;
-            xls.SheetName = "Budget_Sostenemiento";
+            xls.SheetName = "Inputs 1.0 default values";
             xls.ActiveSheet = 16;
-            xls.SheetName = "Inputs 1.0_metric_currency";
+            xls.SheetName = "Inputs 1.0 Conv. new values";
             xls.ActiveSheet = 17;
-            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.SheetName = "Outcome TOTAL_Adj";
             xls.ActiveSheet = 18;
-            xls.SheetName = "Conversiones";
+            xls.SheetName = "Outcome_Y_Adjustment";
             xls.ActiveSheet = 19;
-            xls.SheetName = "Proporción de productividad";
+            xls.SheetName = "Outcome_L Adjustment";
             xls.ActiveSheet = 20;
+            xls.SheetName = "Proportions";
+            xls.ActiveSheet = 21;
+            xls.SheetName = "Budget_Supuestos";
+            xls.ActiveSheet = 22;
+            xls.SheetName = "Budget_Equipo";
+            xls.ActiveSheet = 23;
+            xls.SheetName = "Budget_M Obra";
+            xls.ActiveSheet = 24;
+            xls.SheetName = "Budget_Presupuesto";
+            xls.ActiveSheet = 25;
+            xls.SheetName = "Budget_Valor de M Obra";
+            xls.ActiveSheet = 26;
+            xls.SheetName = "Budget_Establecimiento";
+            xls.ActiveSheet = 27;
+            xls.SheetName = "Budget_Sostenemiento";
+            xls.ActiveSheet = 28;
+            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.ActiveSheet = 29;
+            xls.SheetName = "Conversiones";
+            xls.ActiveSheet = 30;
+            xls.SheetName = "Proporción de productividad";
+            xls.ActiveSheet = 31;
             xls.SheetName = "Inputs 1.0 (Ref)";
 
-            xls.ActiveSheet = 20;    //Set the sheet we are working in.
+            xls.ActiveSheet = 31;    //Set the sheet we are working in.
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
@@ -107,33 +129,33 @@ namespace CoffeeInfrastructure.Flexcel
             TXlsNamedRange Range;
             string RangeName;
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 14, 32, "=Budget_Establecimiento!$A$3:$C$53");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 14, 14, 3, 1, 53, 3, 32);
+            Range = new TXlsNamedRange(RangeName, 26, 32, "=Budget_Establecimiento!$A$3:$C$53");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 26, 26, 3, 1, 53, 3, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 11, 32, "='Budget_M Obra'!$A$1:$K$86");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 11, 11, 1, 1, 86, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 12, 32, "=Budget_Presupuesto!$A$34:$J$46");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 12, 12, 34, 1, 46, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 24, 32, "=Budget_Presupuesto!$A$34:$J$46");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 24, 24, 34, 1, 46, 10, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 15, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 15, 15, 1, 1, 44, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 27, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 27, 27, 1, 1, 44, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 9, 32, "=Budget_Supuestos!$A$276:$G$297");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 9, 9, 276, 1, 297, 7, 32);
+            Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 13, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 13, 13, 2, 1, 85, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 25, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 25, 25, 2, 1, 85, 10, 32);
             xls.SetNamedRange(Range);
 
 
@@ -156,7 +178,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(7, 7, 2176);    //(7.75 + 0.75) * 256
 
-            xls.SetColWidth(8, 8, 2261);    //(8.08 + 0.75) * 256
+            xls.SetColWidth(8, 8, 3242);    //(11.91 + 0.75) * 256
 
             xls.SetColWidth(9, 9, 1578);    //(5.41 + 0.75) * 256
 
@@ -164,9 +186,9 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.SetColWidth(11, 16384, 2261);    //(8.08 + 0.75) * 256
 
-            xls.SetRowHeight(15, 930);    //46.50 * 20
-            xls.SetRowHeight(17, 930);    //46.50 * 20
-            xls.SetRowHeight(19, 620);    //31.00 * 20
+            xls.SetRowHeight(15, 900);    //45.00 * 20
+            xls.SetRowHeight(17, 900);    //45.00 * 20
+            xls.SetRowHeight(19, 600);    //30.00 * 20
             xls.SetRowHeight(27, 320);    //16.00 * 20
             xls.SetRowHeight(28, 320);    //16.00 * 20
             xls.SetRowHeight(29, 320);    //16.00 * 20
@@ -188,6 +210,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(12, 4, 0);
             xls.SetCellValue(14, 3, "Salary");
             xls.SetCellValue(14, 4, 93.1);
+            xls.SetCellValue(14, 8, "Pounds/ha");
 
             TFlxFormat fmt;
             fmt = xls.GetCellVisibleFormatDef(15, 3);
@@ -195,6 +218,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellFormat(15, 3, xls.AddFormat(fmt));
             xls.SetCellValue(15, 3, "How many quintales of coffee do you produce on average in one year per hectare?");
             xls.SetCellValue(15, 4, 14);
+            xls.SetCellValue(15, 8, new TFormula("=D15*Conversiones!C14"));
 
             fmt = xls.GetCellVisibleFormatDef(17, 3);
             fmt.WrapText = true;
@@ -583,8 +607,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(43, 11, new TFormula("=K31*Conversiones!$F$24"));
 
             //Cell selection and scroll position.
-            xls.SelectCell(52, 13, false);
-            xls.ScrollWindow(18, 1);
+            xls.SelectCell(6, 3, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
@@ -598,7 +621,7 @@ namespace CoffeeInfrastructure.Flexcel
             //But if you are editing a file and want to preserve the original creation date, you need to either set PreserveCreationDate to true:
             //    xls.DocumentProperties.PreserveCreationDate = true;
             //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
-            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-07T22:31:31Z");
+            //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
 
         }
 
