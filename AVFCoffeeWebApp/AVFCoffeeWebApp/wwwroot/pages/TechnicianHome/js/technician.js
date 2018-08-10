@@ -1,4 +1,11 @@
-﻿function change() {
+﻿
+
+$(document).on('ready', function () {
+    debugger;
+    Metrics(apiURL);
+});
+
+function change() {
     $("#Metrics").removeClass("mdl-navigation__link")
     $("#Metrics").addClass("mdl-navigation__link is-active");
 }
@@ -26,6 +33,145 @@ function slideinput() {
 
 function slidemetric() {
     window.location.href = "/TechnicianHome";
+}
+
+function saveMetrics() {
+    var data1 = new Array();
+    data1.push($("#coffeeparchment").val());
+    data1.push($("#length").val());
+    data1.push($("#farmarea").val());
+    data1.push($("#weight").val());
+    data1.push($("#capacity").val());
+    data1.push($("#currency").val());
+    console.log(data1);
+    var data = JSON.stringify(data1);
+    $.ajax({
+        type: "POST",
+        url: apiURL + "TechnicianHomeAPI/savemetrics",
+        data: data,
+        contentType: "application/json",
+        success: function (result) {
+            $("#savebutton").attr('style', 'background-color:#FFFFFF; float:right; border-color:bisque');
+            $("#savebutton").attr('onclick', '');
+        }
+    });
+}
+
+function change() {
+    $("#savebutton").attr('style', 'background-color:#00838F; float:right; border-color:bisque');
+    $("#savebutton").attr('onclick', 'saveMetrics()');
+}
+
+function Metrics(apiURL) {
+    debugger;
+    $.ajax({
+        type: "GET",
+        url: apiURL + "TechnicianHomeAPI/metrics",
+        contentType: "application/json",
+        success: function (result) {
+            console.log(result);
+            var info = result["technicianloginfo"];
+            var metrics = info["Metrics"];
+            for (var property in metrics) {
+
+                //console.log(property, metrics[property]);
+                if (metrics[property]) {
+                    if (property === "coffeemeasurekilograms") {
+                        $("#coffeeparchment").val('Kilograms');
+                    }
+                    if (property === "coffeemeasurepounds") {
+                        $("#coffeeparchment").val('Pounds');
+                    }
+                    if (property === "coffeemeasurecargas") {
+                        $("#coffeeparchment").val('Cargas');
+                    }
+                    if (property === "coffeemeasurequintales") {
+                        $("#coffeeparchment").val('Quintales');
+                    }
+                    if (property === "coffeemeasurearrobas") {
+                        $("#coffeeparchment").val('Arrobas');
+                    }
+
+                    if (property === "lengthmeasurefeet") {
+                        $("#length").val('Feet');
+                    }
+                    if (property === "lengthmeasuremeters") {
+                        $("#length").val('Meters');
+                    }
+                    if (property === "farmareameasurehectares") {
+                        $("#farmarea").val('Hectares');
+                    }
+                    if (property === "farmareameasuremanzanas") {
+                        $("#farmarea").val('Manzanas');
+                    }
+                    if (property === "applicationmeasurekilograms") {
+                        $("#weight").val('Kilograms');
+                    }
+
+                    if (property === "applicationmeasurepounds") {
+                        $("#weight").val('Pounds');
+                    }
+                    if (property === "capacitymeasuregallons") {
+                        $("#capacity").val('Gallons');
+                    }
+
+                    if (property === "capacitymeasureliters") {
+                        $("#capacity").val('Liters');
+                    }
+
+                    if (property === "currencyboliviaboliviano") {
+                        $("#currency").val('Bolivian Boliviano');
+                    }
+                    if (property === "currencybrazilreal") {
+                        $("#currency").val('Brazilian Real');
+                    }
+                    if (property === "currencycolombiapeso") {
+                        $("#currency").val('Colombian Peso');
+                    }
+                    if (property === "currencycostaricacolon") {
+                        $("#currency").val('Costa Rican Colon');
+                    }
+                    if (property === "currencycubapeso") {
+                        $("#currency").val('Cuban Peso');
+                    }
+                    if (property === "currencyguatemalaquetzal") {
+                        $("#currency").val('Guatemalan Quetzal');
+                    }
+                    if (property === "currencyhaitigourde") {
+                        $("#currency").val('Haitian Gourde');
+                    }
+                    if (property === "currencyhonduraslempira") {
+                        $("#currency").val('Honduran Lempira');
+                    }
+                    if (property === "currencyjamaicadollar") {
+                        $("#currency").val('Jamaican Dollar');
+                    }
+                    if (property === "currencymexicopeso") {
+                        $("#currency").val('Mexican Peso');
+                    }
+                    if (property === "currencynicaraguacordoba") {
+                        $("#currency").val('Nicaraguan Cordoba');
+                    }
+                    if (property === "currencyperusol") {
+                        $("#currency").val('Peruvian Sol');
+                    }
+                    if (property === "currencyusdollar") {
+                        $("#currency").val('USD');
+                    }
+                    if (property === "currencyvenezuelabolivar") {
+                        $("#currency").val('Venezuelan Bolivar');
+                    }
+                    
+                }
+            }
+            //$("#savebutton").attr('style', 'background-color:#ffffff; float:right; border-color:bisque');
+        },
+        error: function (res, status) {
+            if (status === "error") {
+                console.log("error");
+            }
+        }
+    });
 }
 
 function laborslide() {

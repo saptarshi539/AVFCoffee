@@ -37,6 +37,8 @@ namespace AVFCoffeeWebApp
             services.AddTransient<IFlexcelsum, Flexcelsum>();
 
             services.AddTransient<IFarmer, Farmer>();
+
+            services.AddTransient<ITechnicianFlexcelSum, TechnicianFlexcelSum>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

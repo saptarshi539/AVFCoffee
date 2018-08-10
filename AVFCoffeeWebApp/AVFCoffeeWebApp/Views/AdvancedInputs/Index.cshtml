@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/lib/unify/assets/vendor/master-slider/source/assets/css/masterslider.main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
+    <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
     <script src="~/pages/TechnicianHome/js/technician.js"></script>
     @*<script src="/lib/unify/assets/js/hs.core.js"></script>
         <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
@@ -47,76 +48,76 @@
                     </div>
                 </div>
             </div>
-           
-                <div id="slider">
-                    <ul class="list-unstyled">
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1" style="cursor:pointer" onclick="laborslide()">
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Labor</strong>
 
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
+            <div id="slider">
+                <ul class="list-unstyled">
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1" style="cursor:pointer" onclick="laborslide()">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Labor</strong>
 
+                                <i class="hs-admin-angle-right"></i>
                             </div>
-                        </li>
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
 
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Additional Income and Remuneration</strong>
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
-                                
-                            </div>
-                        </li>
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Cost of materials and Inputs</strong>
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
-                                @*<span class="d-block">is offering free coffee</span>*@
-                            </div>
-                        </li>
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Equipment and reusable materials</strong>
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
 
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Additional Income and Remuneration</strong>
+                                <i class="hs-admin-angle-right"></i>
                             </div>
-                        </li>
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                            @*<div class="d-flex g-mt-2 g-mr-15">
-                        <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img17.jpg" alt="Image Description">
-                    </div>*@
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Administrative Costs, taxes and land</strong>
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
 
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Cost of materials and Inputs</strong>
+                                <i class="hs-admin-angle-right"></i>
                             </div>
-                        </li>
-                        <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                            <div class="media-body">
-                                <div class="d-flex justify-content-between">
-                                    <strong>Transportation</strong>
-                                    <i class="hs-admin-angle-right"></i>
-                                </div>
+                            @*<span class="d-block">is offering free coffee</span>*@
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Equipment and reusable materials</strong>
+                                <i class="hs-admin-angle-right"></i>
+                            </div>
 
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        @*<div class="d-flex g-mt-2 g-mr-15">
+                                <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img17.jpg" alt="Image Description">
+                            </div>*@
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Administrative Costs, taxes and land</strong>
+                                <i class="hs-admin-angle-right"></i>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
-                <a onclick="pressadvanced()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
+
+                        </div>
+                    </li>
+                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                        <div class="media-body">
+                            <div class="d-flex justify-content-between">
+                                <strong>Transportation</strong>
+                                <i class="hs-admin-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
             </div>
-
+            <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
+            <a onclick="pressadvanced()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
         </div>
-   
+
+    </div>
+
 
 
 </body>

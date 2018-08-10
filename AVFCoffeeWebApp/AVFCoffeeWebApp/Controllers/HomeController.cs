@@ -25,44 +25,52 @@ namespace AVFCoffeeWebApp.Controllers
 
         public IActionResult Index()
         {
-            ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                var cooperativeID = User.GetCooperativeID();
-                var username = User.GetGivenName();
-                var userID = User.GetId();
-                var language = User.GetSiupinPolicyName();
-                UserInfoDTO user = new UserInfoDTO();
-                user.Language = language;
-                user.UserID = userID;
-                user.UserName = username;
+                ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;
+                if (User.Identity.IsAuthenticated)
+                {
+                    var cooperativeID = User.GetCooperativeID();
+                    var username = User.GetGivenName();
+                    var userID = User.GetId();
+                    var language = User.GetSiupinPolicyName();
+                    UserInfoDTO user = new UserInfoDTO();
+                    user.Language = language;
+                    user.UserID = userID;
+                    user.UserName = username;
 
-                cellSumController.SaveUser(user, cooperativeID);
-                //make call to service
-                var inputOutputObject = cellSumController.GetOutputStatus(User.GetId());
-                var outp = inputOutputObject.loginfo["Outputs"];
-                var json = JsonConvert.SerializeObject(outp);
-                Dictionary<String, object> prod = JsonConvert.DeserializeObject<Dictionary<String, object>>(json);
-                var prodOutput = prod["ProducerOutputEnglish"];
-                ProducerOutputEnglishDTO producerEnglish = JsonConvert.DeserializeObject<ProducerOutputEnglishDTO>(prodOutput.ToString());
-                var stats = producerEnglish.status;
-                if (stats == true)
-                 {
-                     return RedirectToAction("", "Results");
-                 }
-                 else if ( stats == false)
-                 {
-                     return RedirectToAction("", "Input");
-                 }
-                 else
-                 {
-                     return PartialView();
-                 }
-             }
+                    cellSumController.SaveUser(user, cooperativeID);
+                    //make call to service
+                    var inputOutputObject = cellSumController.GetOutputStatus(User.GetId());
+                    var outp = inputOutputObject.loginfo["Outputs"];
+                    var json = JsonConvert.SerializeObject(outp);
+                    Dictionary<String, object> prod = JsonConvert.DeserializeObject<Dictionary<String, object>>(json);
+                    var prodOutput = prod["ProducerOutputEnglish"];
+                    ProducerOutputEnglishDTO producerEnglish = JsonConvert.DeserializeObject<ProducerOutputEnglishDTO>(prodOutput.ToString());
+                    var stats = producerEnglish.status;
+                    if (stats == true)
+                    {
+                        return RedirectToAction("", "Results");
+                    }
+                    else if (stats == false)
+                    {
+                        return RedirectToAction("", "Input");
+                    }
+                    else
+                    {
+                        return PartialView();
+                    }
+                }
 
-            else
+                else
+                {
+                    return PartialView(ViewData["apiURL"]);
+                }
+            }
+            catch (Exception e)
             {
-                return PartialView(ViewData["apiURL"]);
+                Console.WriteLine(e.InnerException);
+                return View(e);
             }
         }
 

@@ -13,49 +13,79 @@ namespace CoffeeInfrastructure.Flexcel
             ProducerOutputSpanishDTO producerOutputSpanishDTO = new ProducerOutputSpanishDTO();
             ProducerOutputEnglishDTO producerOutputEnglishDTO = new ProducerOutputEnglishDTO();
             coopOutputDTO coopOutputDTO = new coopOutputDTO();
+            xls.NewFile(34, TExcelFileFormat.v2016);    //Create a new Excel file with 34 sheets.
+
             //Set the names of the sheets
             xls.ActiveSheet = 1;
-            xls.SheetName = "Inputs 1.0";
+            xls.SheetName = "Metrics";
             xls.ActiveSheet = 2;
-            xls.SheetName = "Outcome 1.0";
+            xls.SheetName = "Inputs 1.0";
             xls.ActiveSheet = 3;
-            xls.SheetName = "DATABASE_Schema";
+            xls.SheetName = "Inputs advance 2.0 (eng)";
             xls.ActiveSheet = 4;
-            xls.SheetName = "Outcome TOTAL_Adj";
+            xls.SheetName = "Outcome 1.0";
             xls.ActiveSheet = 5;
-            xls.SheetName = "Outcome_Y_Adjustment";
+            xls.SheetName = "Additional 2.0";
             xls.ActiveSheet = 6;
-            xls.SheetName = "Outcome_L Adjustment";
+            xls.SheetName = "Fixed 2.0";
             xls.ActiveSheet = 7;
-            xls.SheetName = "Proportions";
+            xls.SheetName = "Variable 2.0";
             xls.ActiveSheet = 8;
-            xls.SheetName = "Inputs advanced";
+            xls.SheetName = "General Budget 2.0";
             xls.ActiveSheet = 9;
-            xls.SheetName = "Budget_Supuestos";
+            xls.SheetName = "DATABASE_Schema";
             xls.ActiveSheet = 10;
-            xls.SheetName = "Budget_Equipo";
+            xls.SheetName = "Inputs 2.0 Conv. default values";
             xls.ActiveSheet = 11;
-            xls.SheetName = "Budget_M Obra";
+            xls.SheetName = "Inputs 2.0 Conv. new inputs";
             xls.ActiveSheet = 12;
-            xls.SheetName = "Budget_Presupuesto";
+            xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
             xls.ActiveSheet = 13;
-            xls.SheetName = "Budget_Valor de M Obra";
+            xls.SheetName = "Inputs TOT advanced";
             xls.ActiveSheet = 14;
-            xls.SheetName = "Budget_Establecimiento";
+            xls.SheetName = "Gral Conf. Summary";
             xls.ActiveSheet = 15;
-            xls.SheetName = "Budget_Sostenemiento";
+            xls.SheetName = "Inputs 1.0 default values";
             xls.ActiveSheet = 16;
-            xls.SheetName = "Inputs 1.0_metric_currency";
+            xls.SheetName = "Inputs 1.0 Conv. new values";
             xls.ActiveSheet = 17;
-            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.SheetName = "Outcome TOTAL_Adj";
             xls.ActiveSheet = 18;
-            xls.SheetName = "Conversiones";
+            xls.SheetName = "Outcome_Y_Adjustment";
             xls.ActiveSheet = 19;
-            xls.SheetName = "Proporción de productividad";
+            xls.SheetName = "Outcome_L Adjustment";
             xls.ActiveSheet = 20;
+            xls.SheetName = "Proportions";
+            xls.ActiveSheet = 21;
+            xls.SheetName = "Budget_Supuestos";
+            xls.ActiveSheet = 22;
+            xls.SheetName = "Budget_Equipo";
+            xls.ActiveSheet = 23;
+            xls.SheetName = "Budget_M Obra";
+            xls.ActiveSheet = 24;
+            xls.SheetName = "Budget_M Obra_1";
+            xls.ActiveSheet = 25;
+            xls.SheetName = "Budget_Valor de M Obra_1";
+            xls.ActiveSheet = 26;
+            xls.SheetName = "Budget_Establecimiento_1";
+            xls.ActiveSheet = 27;
+            xls.SheetName = "Budget_Presupuesto";
+            xls.ActiveSheet = 28;
+            xls.SheetName = "Budget_Valor de M Obra";
+            xls.ActiveSheet = 29;
+            xls.SheetName = "Budget_Establecimiento";
+            xls.ActiveSheet = 30;
+            xls.SheetName = "Budget_Sostenemiento";
+            xls.ActiveSheet = 31;
+            xls.SheetName = "Outcome 1.0 pre_metric_currency";
+            xls.ActiveSheet = 32;
+            xls.SheetName = "Conversiones";
+            xls.ActiveSheet = 33;
+            xls.SheetName = "Proporción de productividad";
+            xls.ActiveSheet = 34;
             xls.SheetName = "Inputs 1.0 (Ref)";
 
-            xls.ActiveSheet = 3;    //Set the sheet we are working in.
+            xls.ActiveSheet = 9;    //Set the sheet we are working in.
 
             //Global Workbook Options
             xls.OptionsAutoCompressPictures = false;
@@ -107,33 +137,33 @@ namespace CoffeeInfrastructure.Flexcel
             TXlsNamedRange Range;
             string RangeName;
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 14, 32, "=Budget_Establecimiento!$A$3:$C$53");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 14, 14, 3, 1, 53, 3, 32);
+            Range = new TXlsNamedRange(RangeName, 29, 32, "=Budget_Establecimiento!$A$3:$C$53");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 29, 29, 3, 1, 53, 3, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 11, 32, "='Budget_M Obra'!$A$1:$K$86");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 11, 11, 1, 1, 86, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 12, 32, "=Budget_Presupuesto!$A$34:$J$46");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 12, 12, 34, 1, 46, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 27, 32, "=Budget_Presupuesto!$A$34:$J$46");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 27, 27, 34, 1, 46, 10, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 15, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 15, 15, 1, 1, 44, 11, 32);
+            Range = new TXlsNamedRange(RangeName, 30, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 30, 30, 1, 1, 44, 11, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 9, 32, "=Budget_Supuestos!$A$276:$G$297");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 9, 9, 276, 1, 297, 7, 32);
+            Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
             xls.SetNamedRange(Range);
 
             RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-            Range = new TXlsNamedRange(RangeName, 13, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-            //You could also use: Range = new TXlsNamedRange(RangeName, 13, 13, 2, 1, 85, 10, 32);
+            Range = new TXlsNamedRange(RangeName, 28, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+            //You could also use: Range = new TXlsNamedRange(RangeName, 28, 28, 2, 1, 85, 10, 32);
             xls.SetNamedRange(Range);
 
 
@@ -143,56 +173,143 @@ namespace CoffeeInfrastructure.Flexcel
             xls.PrintOptions = TPrintOptions.Orientation;
             xls.PrintPaperSize = TPaperSize.Letter;
 
+            //Theme - You might use GetTheme/SetTheme methods here instead.
+            xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
+            xls.SetColorTheme(TThemeColor.Foreground2, TUIColor.FromArgb(0x1F, 0x49, 0x7D));
+            xls.SetColorTheme(TThemeColor.Accent1, TUIColor.FromArgb(0x4F, 0x81, 0xBD));
+            xls.SetColorTheme(TThemeColor.Accent2, TUIColor.FromArgb(0xC0, 0x50, 0x4D));
+            xls.SetColorTheme(TThemeColor.Accent3, TUIColor.FromArgb(0x9B, 0xBB, 0x59));
+            xls.SetColorTheme(TThemeColor.Accent4, TUIColor.FromArgb(0x80, 0x64, 0xA2));
+            xls.SetColorTheme(TThemeColor.Accent5, TUIColor.FromArgb(0x4B, 0xAC, 0xC6));
+            xls.SetColorTheme(TThemeColor.Accent6, TUIColor.FromArgb(0xF7, 0x96, 0x46));
+            xls.SetColorTheme(TThemeColor.HyperLink, TUIColor.FromArgb(0x00, 0x00, 0xFF));
+            xls.SetColorTheme(TThemeColor.FollowedHyperLink, TUIColor.FromArgb(0x80, 0x00, 0x80));
+
+            //Major font
+            TThemeTextFont MajorLatin = new TThemeTextFont("Cambria", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeTextFont MajorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeTextFont MajorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeFont MajorFont = new TThemeFont(MajorLatin, MajorEastAsian, MajorComplexScript);
+            MajorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
+            MajorFont.AddFont("Hang", "맑은 고딕");
+            MajorFont.AddFont("Hans", "宋体");
+            MajorFont.AddFont("Hant", "新細明體");
+            MajorFont.AddFont("Arab", "Times New Roman");
+            MajorFont.AddFont("Hebr", "Times New Roman");
+            MajorFont.AddFont("Thai", "Tahoma");
+            MajorFont.AddFont("Ethi", "Nyala");
+            MajorFont.AddFont("Beng", "Vrinda");
+            MajorFont.AddFont("Gujr", "Shruti");
+            MajorFont.AddFont("Khmr", "MoolBoran");
+            MajorFont.AddFont("Knda", "Tunga");
+            MajorFont.AddFont("Guru", "Raavi");
+            MajorFont.AddFont("Cans", "Euphemia");
+            MajorFont.AddFont("Cher", "Plantagenet Cherokee");
+            MajorFont.AddFont("Yiii", "Microsoft Yi Baiti");
+            MajorFont.AddFont("Tibt", "Microsoft Himalaya");
+            MajorFont.AddFont("Thaa", "MV Boli");
+            MajorFont.AddFont("Deva", "Mangal");
+            MajorFont.AddFont("Telu", "Gautami");
+            MajorFont.AddFont("Taml", "Latha");
+            MajorFont.AddFont("Syrc", "Estrangelo Edessa");
+            MajorFont.AddFont("Orya", "Kalinga");
+            MajorFont.AddFont("Mlym", "Kartika");
+            MajorFont.AddFont("Laoo", "DokChampa");
+            MajorFont.AddFont("Sinh", "Iskoola Pota");
+            MajorFont.AddFont("Mong", "Mongolian Baiti");
+            MajorFont.AddFont("Viet", "Times New Roman");
+            MajorFont.AddFont("Uigh", "Microsoft Uighur");
+            MajorFont.AddFont("Geor", "Sylfaen");
+            xls.SetThemeFont(TFontScheme.Major, MajorFont);
+
+            //Minor font
+            TThemeTextFont MinorLatin = new TThemeTextFont("Calibri", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeTextFont MinorEastAsian = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeTextFont MinorComplexScript = new TThemeTextFont("", null, TPitchFamily.DEFAULT_PITCH__UNKNOWN_FONT_FAMILY, TFontCharSet.Default);
+            TThemeFont MinorFont = new TThemeFont(MinorLatin, MinorEastAsian, MinorComplexScript);
+            MinorFont.AddFont("Jpan", "ＭＳ Ｐゴシック");
+            MinorFont.AddFont("Hang", "맑은 고딕");
+            MinorFont.AddFont("Hans", "宋体");
+            MinorFont.AddFont("Hant", "新細明體");
+            MinorFont.AddFont("Arab", "Arial");
+            MinorFont.AddFont("Hebr", "Arial");
+            MinorFont.AddFont("Thai", "Tahoma");
+            MinorFont.AddFont("Ethi", "Nyala");
+            MinorFont.AddFont("Beng", "Vrinda");
+            MinorFont.AddFont("Gujr", "Shruti");
+            MinorFont.AddFont("Khmr", "DaunPenh");
+            MinorFont.AddFont("Knda", "Tunga");
+            MinorFont.AddFont("Guru", "Raavi");
+            MinorFont.AddFont("Cans", "Euphemia");
+            MinorFont.AddFont("Cher", "Plantagenet Cherokee");
+            MinorFont.AddFont("Yiii", "Microsoft Yi Baiti");
+            MinorFont.AddFont("Tibt", "Microsoft Himalaya");
+            MinorFont.AddFont("Thaa", "MV Boli");
+            MinorFont.AddFont("Deva", "Mangal");
+            MinorFont.AddFont("Telu", "Gautami");
+            MinorFont.AddFont("Taml", "Latha");
+            MinorFont.AddFont("Syrc", "Estrangelo Edessa");
+            MinorFont.AddFont("Orya", "Kalinga");
+            MinorFont.AddFont("Mlym", "Kartika");
+            MinorFont.AddFont("Laoo", "DokChampa");
+            MinorFont.AddFont("Sinh", "Iskoola Pota");
+            MinorFont.AddFont("Mong", "Mongolian Baiti");
+            MinorFont.AddFont("Viet", "Arial");
+            MinorFont.AddFont("Uigh", "Microsoft Uighur");
+            MinorFont.AddFont("Geor", "Sylfaen");
+            xls.SetThemeFont(TFontScheme.Minor, MinorFont);
+
             //Set up rows and columns
-            xls.DefaultColWidth = 2261;
+            xls.DefaultColWidth = 2272;
 
             xls.SetColWidth(1, 1, 5248);    //(19.75 + 0.75) * 256
 
-            xls.SetColWidth(2, 2, 5162);    //(19.41 + 0.75) * 256
+            xls.SetColWidth(2, 2, 5152);    //(19.38 + 0.75) * 256
 
-            xls.SetColWidth(3, 3, 4949);    //(18.58 + 0.75) * 256
+            xls.SetColWidth(3, 3, 4960);    //(18.63 + 0.75) * 256
 
-            xls.SetColWidth(4, 4, 6186);    //(23.41 + 0.75) * 256
+            xls.SetColWidth(4, 4, 6176);    //(23.38 + 0.75) * 256
 
-            xls.SetColWidth(5, 5, 6314);    //(23.91 + 0.75) * 256
+            xls.SetColWidth(5, 5, 6304);    //(23.88 + 0.75) * 256
 
-            xls.SetColWidth(6, 6, 6954);    //(26.41 + 0.75) * 256
+            xls.SetColWidth(6, 6, 6944);    //(26.38 + 0.75) * 256
 
-            xls.SetColWidth(7, 7, 5290);    //(19.91 + 0.75) * 256
+            xls.SetColWidth(7, 7, 5280);    //(19.88 + 0.75) * 256
 
-            xls.SetColWidth(8, 8, 4138);    //(15.41 + 0.75) * 256
+            xls.SetColWidth(8, 8, 4128);    //(15.38 + 0.75) * 256
 
-            xls.SetColWidth(9, 9, 5461);    //(20.58 + 0.75) * 256
+            xls.SetColWidth(9, 9, 5472);    //(20.63 + 0.75) * 256
 
-            xls.SetColWidth(10, 10, 6485);    //(24.58 + 0.75) * 256
+            xls.SetColWidth(10, 10, 6496);    //(24.63 + 0.75) * 256
 
             xls.SetColWidth(11, 11, 3456);    //(12.75 + 0.75) * 256
 
-            xls.SetColWidth(12, 12, 3754);    //(13.91 + 0.75) * 256
+            xls.SetColWidth(12, 12, 3744);    //(13.88 + 0.75) * 256
 
-            xls.SetColWidth(13, 16384, 2261);    //(8.08 + 0.75) * 256
+            xls.SetColWidth(13, 16384, 2272);    //(8.13 + 0.75) * 256
+            xls.DefaultRowHeight = 315;
 
             TFlxFormat RowFmt;
             RowFmt = xls.GetFormat(xls.GetRowFormat(14));
             RowFmt.HAlignment = THFlxAlignment.center;
             xls.SetRowFormat(14, xls.AddFormat(RowFmt));
 
-            xls.SetRowHeight(15, 620);    //31.00 * 20
+            xls.SetRowHeight(15, 619);    //30.95 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(19));
             RowFmt.HAlignment = THFlxAlignment.center;
             xls.SetRowFormat(19, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(20, 640);    //32.00 * 20
-            xls.SetRowHeight(25, 700);    //35.00 * 20
-            xls.SetRowHeight(34, 620);    //31.00 * 20
+            xls.SetRowHeight(20, 642);    //32.10 * 20
+            xls.SetRowHeight(25, 702);    //35.10 * 20
+            xls.SetRowHeight(34, 630);    //31.50 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(34));
             RowFmt.HAlignment = THFlxAlignment.center;
             RowFmt.VAlignment = TVFlxAlignment.center;
             xls.SetRowFormat(34, xls.AddFormat(RowFmt));
-            xls.SetRowHeight(35, 740);    //37.00 * 20
-            xls.SetRowHeight(40, 370);    //18.50 * 20
-            xls.SetRowHeight(42, 290);    //14.50 * 20
+            xls.SetRowHeight(35, 739);    //36.95 * 20
+            xls.SetRowHeight(40, 375);    //18.75 * 20
+            xls.SetRowHeight(42, 300);    //15.00 * 20
 
             RowFmt = xls.GetFormat(xls.GetRowFormat(42));
             RowFmt.Font.Size20 = 220;
@@ -1270,7 +1387,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             xls.SetCellFormat(29, 4, xls.AddFormat(fmt));
-            xls.SetCellValue(29, 4, new TFormula("='Inputs 1.0'!E9"));
+            xls.SetCellValue(29, 4, new TFormula("='Inputs 1.0'!$E$10"));
 
             fmt = xls.GetCellVisibleFormatDef(29, 5);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
@@ -1283,7 +1400,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             xls.SetCellFormat(29, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(29, 5, new TFormula("='Inputs 1.0'!E10"));
+            xls.SetCellValue(29, 5, new TFormula("='Inputs 1.0'!$E$11"));
 
             fmt = xls.GetCellVisibleFormatDef(29, 6);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
@@ -1296,7 +1413,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.Borders.Bottom.Style = TFlxBorderStyle.Thin;
             fmt.Borders.Bottom.Color = TExcelColor.Automatic;
             xls.SetCellFormat(29, 6, xls.AddFormat(fmt));
-            xls.SetCellValue(29, 6, new TFormula("='Inputs 1.0'!E11"));
+            xls.SetCellValue(29, 6, new TFormula("='Inputs 1.0'!$E$12"));
 
             fmt = xls.GetCellVisibleFormatDef(29, 7);
             fmt.Font.Color = TUIColor.FromArgb(0x00, 0x80, 0x00);
@@ -2381,7 +2498,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             TCommentProperties CommentProps = TCommentProperties.CreateStandard(15, 10, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 14, 51, 10, 121, 16, 0, 10, 738);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 14, 49, 10, 121, 16, 0, 10, 736);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -2409,7 +2526,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             CommentProps = TCommentProperties.CreateStandard(36, 1, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 35, 103, 2, 89, 62, 116, 3, 358);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 35, 104, 2, 89, 62, 116, 3, 357);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -2437,7 +2554,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             CommentProps = TCommentProperties.CreateStandard(60, 4, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 59, 51, 5, 73, 62, 81, 5, 612);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 59, 49, 5, 73, 62, 81, 5, 613);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -2465,7 +2582,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
             CommentProps = TCommentProperties.CreateStandard(60, 5, xls);
-            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 58, 73, 6, 66, 62, 35, 6, 556);
+            CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 58, 73, 6, 66, 62, 35, 6, 557);
 
             //Excel by doesn't autofit the comment box so it can hold all text.
             //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -2476,10 +2593,11 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCommentProperties(60, 5, CommentProps);
 
             //Cell selection and scroll position.
-            xls.SelectCell(30, 7, false);
+            xls.SelectCell(28, 8, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
+
 
             xls.Recalc();
             var cp = Convert.ToDouble(xls.GetCellValue(15, 6));

@@ -21,7 +21,7 @@ namespace AVFCoffeeWebApp.Controllers
                 _iconfiguration = iconfiguration;
                 _env = env;
             }
-            [Authorize]
+            //[Authorize]
         public IActionResult Index()
         {
                 ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;

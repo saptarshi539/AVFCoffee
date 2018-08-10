@@ -1,9 +1,7 @@
-﻿using CoffeeCore.Interfaces;
+﻿
 using FlexCel.Core;
-using FlexCel.XlsAdapter;
 using System;
-using System.Collections.Generic;
-using System.IO;
+
 
 namespace CoffeeInfrastructure.Flexcel
 {

@@ -1,10 +1,18 @@
 ﻿
 @{
+    ViewData["Title"] = "Calcucafe";
     Layout = "_LayoutTechnician";
 }
 
 <!-- Uses a transparent header that draws on top of the layout's background -->
 <!doctype html>
+@section Scripts {
+<script>
+        var apiURL = "@ViewData["apiURL"]";
+</script> 
+<script src="~/pages/TechnicianHome/js/technician.js"></script>
+   
+}
 
 <html lang="en">
 
@@ -14,42 +22,39 @@
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
     <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/pages/TechnicianHome/js/technician.js"></script>
     
     <script src="/lib/unify/assets/js/hs.core.js"></script>
-    
-        <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
-        <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-        <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.header.js"></script>
-        <script src="/lib/unify/assets/vendor/slick-carousel/slick/slick.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.scroll-nav.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.tabs.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
-        <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>
-
+    <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
+    <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.header.js"></script>
+    <script src="/lib/unify/assets/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.scroll-nav.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.tabs.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
+    <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
+    <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>
 
     <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
         <div class="container-fluid g-pa-50">
             <div class="row">
-                
-                    <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
-                        <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
-                            <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
-                                <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
-                            </div>
-                            <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
-                                <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
-                                <div class="ms-thumb-ol"></div>
-                            </div>
-                            <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
-                                <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
-                            </div>
+
+                <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
+                    <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
+                        <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
+                        </div>
+                        <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
                             <div class="ms-thumb-ol"></div>
                         </div>
-                    
+                        <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
+                            <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
+                        </div>
+                        <div class="ms-thumb-ol"></div>
+                    </div>
+
                 </div>
             </div>
             <div id="slider">
@@ -58,13 +63,13 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>The Most common measure for coffee parchment</strong>
-                                <select class="custom-select mb-3" id="coffeeparchment" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="coffeeparchment" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Kilograms</option>
-                                    <option value="2">Pounds</option>
-                                    <option value="3">Quintales</option>
-                                    <option value="4">Arrobas</option>
-                                    <option value="5">Cargas</option>
+                                    <option value="Kilograms">Kilograms</option>
+                                    <option value="Pounds">Pounds</option>
+                                    <option value="Quintales">Quintales</option>
+                                    <option value="Arrobas">Arrobas</option>
+                                    <option value="Cargas">Cargas</option>
                                 </select>
 
                             </div>
@@ -76,10 +81,10 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>The most common measure of length</strong>
-                                <select class="custom-select mb-3" id="length" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="length" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Meters</option>
-                                    <option value="2">Feet</option>
+                                    <option value="Meters">Meters</option>
+                                    <option value="Feet">Feet</option>
                                 </select>
                             </div>
                             @*<span class="d-block">sent you a message</span>*@
@@ -89,10 +94,10 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>The most common measure for the farm area</strong>
-                                <select class="custom-select mb-3" id="farmarea" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="farmarea" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Hectares</option>
-                                    <option value="2">Manzanas</option>
+                                    <option value="Hectares">Hectares</option>
+                                    <option value="Manzanas">Manzanas</option>
                                 </select>
                             </div>
                             @*<span class="d-block">is offering free coffee</span>*@
@@ -102,10 +107,10 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>The most common measure for input weight</strong>
-                                <select class="custom-select mb-3" id="weight" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="weight" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Kilograms</option>
-                                    <option value="2">Pounds</option>
+                                    <option value="Kilograms">Kilograms</option>
+                                    <option value="Pounds">Pounds</option>
                                 </select>
                             </div>
                             @*<span class="d-block">sent you a message</span>*@
@@ -118,10 +123,10 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>The most common measure for capacity</strong>
-                                <select class="custom-select mb-3" id="capacity" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="capacity" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Liters</option>
-                                    <option value="2">Gallons</option>
+                                    <option value="Liters">Liters</option>
+                                    <option value="Gallons">Gallons</option>
 
                                 </select>
                             </div>
@@ -132,38 +137,41 @@
                         <div class="media-body">
                             <div class="d-flex justify-content-between">
                                 <strong>Country currency</strong>
-                                <select class="custom-select mb-3" id="currency" style="width:auto">
+                                <select onchange="change()" class="custom-select mb-3" id="currency" style="width:auto">
                                     <option selected="">Choose...</option>
-                                    <option value="1">Bolivian Boliviano</option>
-                                    <option value="2">Brazilian Real</option>
-                                    <option value="3">Colombian Peso</option>
-                                    <option value="4">Costa Rican Colon</option>
-                                    <option value="5">Cuban Peso</option>
-                                    <option value="6">Guatemalan Quetzal</option>
-                                    <option value="7">Jamaican Dollar</option>
-                                    <option value="8">Honduran Lempira</option>
-                                    <option value="9">Haitian Gourde</option>
-                                    <option value="10">Mexican Peso</option>
-                                    <option value="11">Nicaraguan Cordoba</option>
-                                    <option value="12">Peruvian Sol</option>
-                                    <option value="13">USD</option>
-                                    <option value="14">Venezuelan Bolivar</option>
+                                    <option value="Bolivian Boliviano">Bolivian Boliviano</option>
+                                    <option value="Brazilian Real">Brazilian Real</option>
+                                    <option value="Colombian Peso">Colombian Peso</option>
+                                    <option value="Costa Rican Colon">Costa Rican Colon</option>
+                                    <option value="Cuban Peso">Cuban Peso</option>
+                                    <option value="Guatemalan Quetzal">Guatemalan Quetzal</option>
+                                    <option value="Jamaican Dollar">Jamaican Dollar</option>
+                                    <option value="Honduran Lempira">Honduran Lempira</option>
+                                    <option value="Haitian Gourde">Haitian Gourde</option>
+                                    <option value="Mexican Peso">Mexican Peso</option>
+                                    <option value="Nicaraguan Cordoba">Nicaraguan Cordoba</option>
+                                    <option value="Peruvian Sol">Peruvian Sol</option>
+                                    <option value="USD">USD</option>
+                                    <option value="Venezuelan Bolivar">Venezuelan Bolivar</option>
                                 </select>
                             </div>
-                            @*<span class="d-block">sent you a message</span>*@
+                            @*<span class="d-block">sent you a message </span>*@
                         </div>
                     </li>
                 </ul>
-                <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
+                <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" id="savebutton" style="float:right; border-color:bisque; background-color:#ffffff">Save</a>
                 <a onclick="press()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
             </div>
-            
+
         </div>
     </div>
 
 
 </body>
 </html>
+
+
+
 
 
 

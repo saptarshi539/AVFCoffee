@@ -23,7 +23,7 @@
 //})
 
 function abc(apiURL) {
-    var phoneNumber = $("#home-demobtn").val();
+    var phoneNumber = $("#seedcoll").val();
     console.log(phoneNumber);
     $.ajax({
         type: "GET",
@@ -34,7 +34,7 @@ function abc(apiURL) {
             //console.log(result);
             if (result === true) {
                 console.log("true")
-                window.location.href = "/home"
+                window.location.href = "/results"
             } else {
                 $("#incorrectPhone").html("Please enter correct Phone number");
             }
