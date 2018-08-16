@@ -21,6 +21,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         public TechnicianLoginInfoDTO GetUserMetrics()
         {
+
             TechnicianLoginInfoDTO tlInfo = new TechnicianLoginInfoDTO();
             MetricsInputDTO minput = new MetricsInputDTO();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
@@ -74,7 +75,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void saveUserMetrics(String[] data)
         {
-           
+
             //MetricsInputDTO metricsInputDTO = new MetricsInputDTO();
             var coffeemeasurekilograms = false;
             var coffeemeasurepounds = false;
@@ -111,13 +112,16 @@ namespace CoffeeInfrastructure.Flexcel
             else if (data[0] == "Pounds")
             {
                 coffeemeasurepounds = true;
-            } else if (data[0] == "Quintales")
+            }
+            else if (data[0] == "Quintales")
             {
                 coffeemeasurequintales = true;
-            } else if (data[0] == "Arrobas")
+            }
+            else if (data[0] == "Arrobas")
             {
                 coffeemeasurearrobas = true;
-            } else if (data[0] == "Cargas")
+            }
+            else if (data[0] == "Cargas")
             {
                 coffeemeasurecargas = true;
             }
@@ -125,7 +129,8 @@ namespace CoffeeInfrastructure.Flexcel
             if (data[1] == "Meters")
             {
                 lengthmeasuremeters = true;
-            } else if (data[1] == "Feet")
+            }
+            else if (data[1] == "Feet")
             {
                 lengthmeasurefeet = true;
             }
@@ -133,7 +138,8 @@ namespace CoffeeInfrastructure.Flexcel
             if (data[2] == "Hectares")
             {
                 farmareameasurehectares = true;
-            } else if (data[2] == "Manzanas")
+            }
+            else if (data[2] == "Manzanas")
             {
                 farmareameasuremanzanas = true;
             }
@@ -141,7 +147,8 @@ namespace CoffeeInfrastructure.Flexcel
             if (data[3] == "Kilograms")
             {
                 applicationmeasurekilograms = true;
-            } else if (data[3] == "Pounds")
+            }
+            else if (data[3] == "Pounds")
             {
                 applicationmeasurepounds = true;
             }
@@ -149,12 +156,13 @@ namespace CoffeeInfrastructure.Flexcel
             if (data[4] == "Liters")
             {
                 capacitymeasureliters = true;
-            } else if (data[4] == "Gallons")
+            }
+            else if (data[4] == "Gallons")
             {
                 capacitymeasuregallons = true;
             }
 
-            
+
             if (data[5] == "Bolivian Boliviano")
             {
                 currencyboliviaboliviano = true;
@@ -202,10 +210,12 @@ namespace CoffeeInfrastructure.Flexcel
             else if (data[5] == "Peruvian Sol")
             {
                 currencyperusol = true;
-            } else if (data[5] == "USD")
+            }
+            else if (data[5] == "USD")
             {
                 currencyusdollar = true;
-            } else if (data[5] == "Venezuelan Bolivar")
+            }
+            else if (data[5] == "Venezuelan Bolivar")
             {
                 currencyvenezuelabolivar = true;
             }
@@ -259,9 +269,9 @@ namespace CoffeeInfrastructure.Flexcel
             //throw new NotImplementedException();
         }
 
-        public void saveUserAdvancedInputs()
+        public void saveUserAdvancedInputs(ChartInputAdvancedDTO inputAdvancedDTO)
         {
-            ChartInputAdvancedDTO inputAdvancedDTO = new ChartInputAdvancedDTO();
+            //ChartInputAdvancedDTO inputAdvancedDTO = new ChartInputAdvancedDTO();
             //save user inputs
             String timeStamp = DateTime.Now.ToString();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
@@ -301,7 +311,7 @@ namespace CoffeeInfrastructure.Flexcel
                    ",[ACUSuperviseInvest],[ACUAdministInvest],[ACUTrainingInvest],[ACUExtraOrdInvest],[TGSeedPurchase],[TGWoodTransportation]" +
                    ",[TGSandTransportation],[TGOthers],[TNSoilTransportation],[TNSacksMaterialShopping],[TNOthers],[TLPWoodTransportation]" +
                    ",[TLPCompostTransportation],[TLPPlantTransportation],[TLPOthers],[TOtherEquipment],[TOtherLaborTransportation]" +
-                   ",[TOtherCoffeeTransportation],[TOtherSupervisingActivities],[TOthers]) VALUES" +
+                   ",[TOtherCoffeeTransportation],[TOtherSupervisingActivities],[TOthers],[UserID]) VALUES" +
                    "(@TimeStamp,@LGerminationSeedCollection,@LGerminationSeedSelection,@LGerminationNurseryConstruction, " +
                    "@LGerminationSeedingSupportIrrigation,@LGerminationOthers,@LNurseryConstruction,@LNurseryDrawnPulled" +
                    ",@LNurseryClean,@LNurserySoilPreparationFertilizer,@LNurseryFilledLockedBags,@LNurseryButterflySowing" +
@@ -337,11 +347,12 @@ namespace CoffeeInfrastructure.Flexcel
                    ",@ACUSuperviseInvest,@ACUAdministInvest,@ACUTrainingInvest,@ACUExtraOrdInvest,@TGSeedPurchase,@TGWoodTransportation" +
                    ",@TGSandTransportation,@TGOthers,@TNSoilTransportation,@TNSacksMaterialShopping,@TNOthers,@TLPWoodTransportation" +
                    ",@TLPCompostTransportation,@TLPPlantTransportation,@TLPOthers,@TOtherEquipment,@TOtherLaborTransportation" +
-                   ",@TOtherCoffeeTransportation,@TOtherSupervisingActivities,@TOthers))");
+                   ",@TOtherCoffeeTransportation,@TOtherSupervisingActivities,@TOthers,@UserID))");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
                 SqlCommand command = new SqlCommand(sqlQuery);
+                command.Parameters.AddWithValue("@UserID", "1234");
                 command.Parameters.AddWithValue("@LGerminationSeedCollection", inputAdvancedDTO.LGerminationSeedCollection);
                 command.Parameters.AddWithValue("@LGerminationSeedSelection", inputAdvancedDTO.LGerminationSeedSelection);
                 command.Parameters.AddWithValue("@LGerminationNurseryConstruction", inputAdvancedDTO.LGerminationNurseryConstruction);
@@ -552,6 +563,651 @@ namespace CoffeeInfrastructure.Flexcel
                     Console.WriteLine("Error inserting data into Database!");
             }
             throw new NotImplementedException();
+        }
+
+        public Dictionary<string, object> getInputs()
+        {
+            MetricsInputDTO minput = new MetricsInputDTO();
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                var id = "1234";
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[CoopGeneralConfig] where CoopID = @coopid", con);
+                comm.Parameters.AddWithValue("@coopid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        minput.coffeemeasurekilograms = Convert.ToBoolean(reader["CoffeeMeasureKilograms"].ToString());
+                        minput.coffeemeasurepounds = Convert.ToBoolean(reader["CoffeeMeasurePounds"].ToString());
+                        minput.coffeemeasurequintales = Convert.ToBoolean(reader["CoffeeMeasureQuintales"].ToString());
+                        minput.coffeemeasurearrobas = Convert.ToBoolean(reader["CoffeeMeasureArrobas"].ToString());
+                        minput.coffeemeasurecargas = Convert.ToBoolean(reader["CoffeeMeasureCargas"].ToString());
+                        minput.lengthmeasuremeters = Convert.ToBoolean(reader["LengthMeasureMeters"].ToString());
+                        minput.lengthmeasurefeet = Convert.ToBoolean(reader["LengthMeasureFeet"].ToString());
+                        minput.farmareameasurehectares = Convert.ToBoolean(reader["FarmAreaMeasureHectares"].ToString());
+                        minput.farmareameasuremanzanas = Convert.ToBoolean(reader["FarmAreaMeasureManzanas"].ToString());
+                        minput.applicationmeasurekilograms = Convert.ToBoolean(reader["ApplicationMeasureKilograms"].ToString());
+                        minput.applicationmeasurepounds = Convert.ToBoolean(reader["ApplicationMeasurePounds"].ToString());
+                        minput.capacitymeasureliters = Convert.ToBoolean(reader["CapacityMeasureLiters"].ToString());
+                        minput.capacitymeasuregallons = Convert.ToBoolean(reader["CapacityMeasureGallons"].ToString());
+                        minput.currencyboliviaboliviano = Convert.ToBoolean(reader["CurrencyBoliviaBoliviano"].ToString());
+                        minput.currencybrazilreal = Convert.ToBoolean(reader["CurrencyBrazilReal"].ToString());
+                        minput.currencycolombiapeso = Convert.ToBoolean(reader["CurrencyColombiaPeso"].ToString());
+                        minput.currencycostaricacolon = Convert.ToBoolean(reader["CurrencyCostaRicaColon"].ToString());
+                        minput.currencycubapeso = Convert.ToBoolean(reader["CurrencyCubaPeso"].ToString());
+                        minput.currencyguatemalaquetzal = Convert.ToBoolean(reader["CurrencyGuatemalaQuetzal"].ToString());
+                        minput.currencyhaitigourde = Convert.ToBoolean(reader["CurrencyHaitiGourde"].ToString());
+                        minput.currencyhonduraslempira = Convert.ToBoolean(reader["CurrencyHondurasLempira"].ToString());
+                        minput.currencyjamaicadollar = Convert.ToBoolean(reader["CurrencyJamaicaDollar"].ToString());
+                        minput.currencymexicopeso = Convert.ToBoolean(reader["CurrencyMexicoPeso"].ToString());
+                        minput.currencynicaraguacordoba = Convert.ToBoolean(reader["CurrencyNicaraguaCordoba"].ToString());
+                        minput.currencyperusol = Convert.ToBoolean(reader["CurrencyPeruSol"].ToString());
+                        minput.currencyusdollar = Convert.ToBoolean(reader["CurrencyUSDollar"].ToString());
+                        minput.currencyvenezuelabolivar = Convert.ToBoolean(reader["CurrencyVenezuelaBolivar"].ToString());
+                    }
+                }
+            }
+            MetricsDTO md = new MetricsDTO();
+            if (minput.applicationmeasurekilograms)
+            {
+                md.applicationmeasurekilograms = 1;
+            } else
+            {
+                md.applicationmeasurekilograms = 0;
+            }
+            if (minput.applicationmeasurepounds)
+            {
+                md.applicationmeasurepounds = 1;
+            }
+            else
+            {
+                md.applicationmeasurepounds = 0;
+            }
+            if (minput.capacitymeasuregallons)
+            {
+                md.capacitymeasuregallons = 1;
+            }
+            else
+            {
+                md.capacitymeasuregallons = 0;
+            }
+            if (minput.capacitymeasureliters)
+            {
+                md.capacitymeasureliters = 1;
+            }
+            else
+            {
+                md.capacitymeasureliters = 0;
+            }
+
+            if (minput.coffeemeasurearrobas)
+            {
+                md.coffeemeasurearrobas = 1;
+            }
+            else
+            {
+                md.coffeemeasurearrobas = 0;
+            }
+            if (minput.coffeemeasurecargas)
+            {
+                md.coffeemeasurecargas = 1;
+            }
+            else
+            {
+                md.coffeemeasurecargas = 0;
+            }
+
+            if (minput.coffeemeasurekilograms)
+            {
+                md.coffeemeasurekilograms = 1;
+            }
+            else
+            {
+                md.coffeemeasurekilograms = 0;
+            }
+
+            if (minput.coffeemeasurepounds)
+            {
+                md.coffeemeasurepounds = 1;
+            }
+            else
+            {
+                md.coffeemeasurepounds = 0;
+            }
+            if (minput.coffeemeasurequintales)
+            {
+                md.coffeemeasurequintales = 1;
+            }
+            else
+            {
+                md.coffeemeasurequintales = 0;
+            }
+            if (minput.currencyboliviaboliviano)
+            {
+                md.currencyboliviaboliviano = 1;
+            }
+            else
+            {
+                md.currencyboliviaboliviano = 0;
+            }
+            if (minput.currencybrazilreal)
+            {
+                md.currencybrazilreal = 1;
+            }
+            else
+            {
+                md.currencybrazilreal = 0;
+            }
+            if (minput.currencycolombiapeso)
+            {
+                md.currencycolombiapeso = 1;
+            }
+            else
+            {
+                md.currencycolombiapeso = 0;
+            }
+            if (minput.currencycostaricacolon)
+            {
+                md.currencycostaricacolon = 1;
+            }
+            else
+            {
+                md.currencycostaricacolon = 0;
+            }
+            if (minput.currencycubapeso)
+            {
+                md.currencycubapeso = 1;
+            }
+            else
+            {
+                md.currencycubapeso = 0;
+            }
+
+            if (minput.currencyguatemalaquetzal)
+            {
+                md.currencyguatemalaquetzal = 1;
+            }
+            else
+            {
+                md.currencyguatemalaquetzal = 0;
+            }
+
+            if (minput.currencyhaitigourde)
+            {
+                md.currencyhaitigourde = 1;
+            }
+            else
+            {
+                md.currencyhaitigourde = 0;
+            }
+
+            if (minput.currencyhonduraslempira)
+            {
+                md.currencyhonduraslempira = 1;
+            }
+            else
+            {
+                md.currencyhonduraslempira = 0;
+            }
+
+            if (minput.currencyjamaicadollar)
+            {
+                md.currencyjamaicadollar = 1;
+            }
+            else
+            {
+                md.currencyjamaicadollar = 0;
+            }
+
+            if (minput.currencymexicopeso)
+            {
+                md.currencymexicopeso = 1;
+            }
+            else
+            {
+                md.currencymexicopeso = 0;
+            }
+
+            if (minput.currencynicaraguacordoba)
+            {
+                md.currencynicaraguacordoba = 1;
+            }
+            else
+            {
+                md.currencynicaraguacordoba = 0;
+            }
+
+            if (minput.currencyperusol)
+            {
+                md.currencyperusol = 1;
+            }
+            else
+            {
+                md.currencyperusol = 0;
+            }
+
+            if (minput.currencyusdollar)
+            {
+                md.currencyusdollar = 1;
+            }
+            else
+            {
+                md.currencyusdollar = 0;
+            }
+
+            if (minput.currencyvenezuelabolivar)
+            {
+                md.currencyvenezuelabolivar = 1;
+            }
+            else
+            {
+                md.currencyvenezuelabolivar = 0;
+            }
+            if (minput.farmareameasurehectares)
+            {
+                md.farmareameasurehectares = 1;
+            }
+            else
+            {
+                md.farmareameasurehectares = 0;
+            }
+            if (minput.farmareameasuremanzanas)
+            {
+                md.farmareameasuremanzanas = 1;
+            }
+            else
+            {
+                md.farmareameasuremanzanas = 0;
+            }
+
+            if (minput.lengthmeasurefeet)
+            {
+                md.lengthmeasurefeet = 1;
+            }
+            else
+            {
+                md.lengthmeasurefeet = 0;
+            }
+
+            if (minput.lengthmeasuremeters)
+            {
+                md.lengthmeasuremeters = 1;
+            }
+            else
+            {
+                md.lengthmeasuremeters = 0;
+            }
+            XlsFile xls = new XlsFile(true);
+            TWorkspace workspace = new TWorkspace();
+
+            InAdvanced inAdvanced = new InAdvanced();
+            Language language = new Language();
+            Metrics_English metrics_English = new Metrics_English();
+            Metrics_Spanish metrics_Spanish = new Metrics_Spanish();
+            InputsAdvanced2English inputsAdvanced2English = new InputsAdvanced2English();
+            InputsAdvanced2Spanish inputsAdvanced2Spanish = new InputsAdvanced2Spanish();
+            AdvancedInputs advancedInputs = new AdvancedInputs();
+            Budget_Equipo budget_Equipo = new Budget_Equipo();
+            Budget_Establecimiento budget_Establecimiento = new Budget_Establecimiento();
+            Budget_M_Obra budget_M_Obra = new Budget_M_Obra();
+            Budget_Presupuesto budget_Presupuesto = new Budget_Presupuesto();
+            Budget_Sostenemiento budget_Sostenemiento = new Budget_Sostenemiento();
+            Budget_Valor_de_M_Obra budget_Valor_De_M_Obra = new Budget_Valor_de_M_Obra();
+            Proportions proportions = new Proportions();
+            Gral_Conf gral_Conf = new Gral_Conf();
+            Metrics metrics = new Metrics();
+            Conversiones conversiones = new Conversiones();
+            Prporcion_de_productividad prporcion = new Prporcion_de_productividad();
+            Inputs_TOT inputs_TOT_advanced = new Inputs_TOT();
+            Inputs_2_Conv inputs_2_Conv = new Inputs_2_Conv();
+            Inputs_1 inputs_1 = new Inputs_1();
+            DatabaseSchema databaseSchema = new DatabaseSchema();
+            General_Conf_Summary_Spa conf_Summary_Spa = new General_Conf_Summary_Spa();
+            OutcomeTotalAdj outcomeTotalAdj = new OutcomeTotalAdj();
+            OutcomeYAdjustment outcomeYAdjustment = new OutcomeYAdjustment();
+            Output1_pre_metric_currency output1_Pre_Metric_Currency = new Output1_pre_metric_currency();
+            OutcomeLAdjustment outcomeLAdjustment = new OutcomeLAdjustment();
+            Output output = new Output();
+            Inputs_1_Ref inputs_1_Ref = new Inputs_1_Ref();
+            Inputs inputs = new Inputs();
+            workspace.Add("Coffee Interactive Tool 2.0 08_10_18.xlsx", xls);
+            //databaseSchema.Database_Schema(xls, workspace);
+            ////xls.Recalc();
+            //conf_Summary_Spa.GeneralConfSummarySpa(xls);
+            ////xls.Recalc();
+            //inputs_1.CreateFile(xls);
+            ////xls.Recalc();
+            //inputs_2_Conv.Inputs_2_Conv_inputs(xls);
+            ////xls.Recalc();
+
+            //inputs_TOT_advanced.CreateFile(xls);
+            ////xls.Recalc();
+            //prporcion.ProporcionDeProductividad(xls);
+            ////xls.Recalc();
+            //proportions.proportions(xls);
+            ////xls.Recalc();
+            //advancedInputs.Budget_Supuestos(xls);
+            ////xls.Recalc();
+            //budget_Equipo.BudgetEquipo(xls);
+            ////xls.Recalc();
+            //budget_Establecimiento.BudgetEstablecimiento(xls);
+            ////xls.Recalc();
+            //budget_M_Obra.BudgetMObra(xls);
+            ////xls.Recalc();
+            //budget_Presupuesto.BudgetPresupuesto(xls);
+            ////xls.Recalc();
+            //budget_Sostenemiento.BudgetSostenemiento(xls);
+            ////xls.Recalc();
+            //budget_Valor_De_M_Obra.Budget_Valor_M_De_Obra(xls);
+            ////xls.Recalc();
+            //inputsAdvanced2English.InputAdvanced2English(xls);
+            ////xls.Recalc();
+            //inputsAdvanced2Spanish.InputAdvancedSpanish(xls);
+            //xls.Recalc();
+            language.language(xls);
+            //xls.Recalc();
+            metrics_English.MetricsEnglish(xls);
+            //xls.Recalc();
+            metrics_Spanish.MetricsSpanish(xls);
+            //xls.Recalc();
+            outcomeLAdjustment.Outcome_L_Adjustment(xls);
+            //xls.Recalc();
+            outcomeYAdjustment.Outcome_Y_Adjustment(xls);
+            //xls.Recalc();
+            output1_Pre_Metric_Currency.Output1PreMetricCurrency(xls);
+            //xls.Recalc();
+            outcomeTotalAdj.Outcome_TOTAL_Adj(xls);
+            //xls.Recalc();
+            inputs_1_Ref.inputs1Ref(xls);
+            //xls.Recalc();
+            conversiones.conversiones(xls);
+            //xls.Recalc(true);
+            metrics.metrics(xls, md);
+            //xls.Recalc();
+
+            //xls.Recalc();
+            gral_Conf.Gral_Conf_Summary(xls);
+            //xls.Recalc();
+
+
+
+            //inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles,
+            //    costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
+            var advancedInputsDict = inAdvanced.Inputs_Advanced(xls);
+
+
+            return advancedInputsDict;
+        }
+
+        public ChartInputAdvancedDTO getInputValues()
+        {
+            ChartInputAdvancedDTO inputsAdvanced = new ChartInputAdvancedDTO();
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                var id = "1234";
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid", con);
+                comm.Parameters.AddWithValue("@userid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        inputsAdvanced.LGerminationSeedCollection = Convert.ToDouble(reader["LGerminationSeedCollection"].ToString());
+                        inputsAdvanced.LGerminationSeedSelection = Convert.ToDouble(reader["LGerminationSeedSelection"].ToString());
+                        inputsAdvanced.LGerminationNurseryConstruction = Convert.ToDouble(reader["LGerminationNurseryConstruction"].ToString());
+                        inputsAdvanced.LGerminationSeedingSupportIrrigation = Convert.ToDouble(reader["LGerminationSeedingSupportIrrigation"].ToString());
+                        inputsAdvanced.LGerminationOthers = Convert.ToDouble(reader["LGerminationOthers"].ToString());
+                        inputsAdvanced.LNurseryConstruction = Convert.ToDouble(reader["LNurseryConstruction"].ToString());
+                        inputsAdvanced.LNurseryDrawnPulled = Convert.ToDouble(reader["LNurseryDrawnPulled"].ToString());
+                        inputsAdvanced.LNurseryClean = Convert.ToDouble(reader["LNurseryClean"].ToString());
+                        inputsAdvanced.LNurserySoilPreparationFertilizer = Convert.ToDouble(reader["LNurserySoilPreparationFertilizer"].ToString());
+                        inputsAdvanced.LNurseryFilledLockedBags = Convert.ToDouble(reader["LNurseryFilledLockedBags"].ToString());
+                        inputsAdvanced.LNurseryButterflySowing = Convert.ToDouble(reader["LNurseryButterflySowing"].ToString());
+                        inputsAdvanced.LNurseryIrrigation = Convert.ToDouble(reader["LNurseryIrrigation"].ToString());
+                        inputsAdvanced.LNurseryFoliarApplication = Convert.ToDouble(reader["LNurseryFoliarApplication"].ToString());
+                        inputsAdvanced.LNurseryReseeding = Convert.ToDouble(reader["LNurseryReseeding"].ToString());
+                        inputsAdvanced.LNurseryOthers = Convert.ToDouble(reader["LNurseryOthers"].ToString());
+                        inputsAdvanced.LPPFieldCleaning = Convert.ToDouble(reader["LPPFieldCleaning"].ToString());
+                        inputsAdvanced.LPPCuttingTrees = Convert.ToDouble(reader["LPPCuttingTrees"].ToString());
+                        inputsAdvanced.LPPWoodCollection = Convert.ToDouble(reader["LPPWoodCollection"].ToString());
+                        inputsAdvanced.LPPWoodChopping = Convert.ToDouble(reader["LPPWoodChopping"].ToString());
+                        inputsAdvanced.LPPCoffeeLayout = Convert.ToDouble(reader["LPPCoffeeLayout"].ToString());
+                        inputsAdvanced.LPPHoleDigging = Convert.ToDouble(reader["LPPHoleDigging"].ToString());
+                        inputsAdvanced.LPPSeedlingTransportation = Convert.ToDouble(reader["LPPSeedlingTransportation"].ToString());
+                        inputsAdvanced.LPPSeedlingTransplant = Convert.ToDouble(reader["LPPSeedlingTransplant"].ToString());
+                        inputsAdvanced.LPPShadeAdjustment = Convert.ToDouble(reader["LPPShadeAdjustment"].ToString());
+                        inputsAdvanced.LPPCompostMixing = Convert.ToDouble(reader["LPPCompostMixing"].ToString());
+                        inputsAdvanced.LPPOthers = Convert.ToDouble(reader["LPPOthers"].ToString());
+                        inputsAdvanced.LPPYWeeding = Convert.ToDouble(reader["LPPYWeeding"].ToString());
+                        inputsAdvanced.LPPYOrganic = Convert.ToDouble(reader["LPPYOrganic"].ToString());
+                        inputsAdvanced.LPPYChemical = Convert.ToDouble(reader["LPPYChemical"].ToString());
+                        inputsAdvanced.LPPYFoliarSpraying = Convert.ToDouble(reader["LPPYFoliarSpraying"].ToString());
+                        inputsAdvanced.LPPYOther = Convert.ToDouble(reader["LPPYOther"].ToString());
+                        inputsAdvanced.LHPMYManualWeeding = Convert.ToDouble(reader["LHPMYManualWeeding"].ToString());
+                        inputsAdvanced.LHPMYChemicalWeeding = Convert.ToDouble(reader["LHPMYChemicalWeeding"].ToString());
+                        inputsAdvanced.LHPMYOrganicFertilizers = Convert.ToDouble(reader["LHPMYOrganicFertilizers"].ToString());
+                        inputsAdvanced.LHPMYChemicalFertilizers = Convert.ToDouble(reader["LHPMYChemicalFertilizers"].ToString());
+                        inputsAdvanced.LHPMYFoliarSpraying = Convert.ToDouble(reader["LHPMYFoliarSpraying"].ToString());
+                        inputsAdvanced.LHPMYHedgerowsConstruction = Convert.ToDouble(reader["LHPMYHedgerowsConstruction"].ToString());
+                        inputsAdvanced.LHPMYShadetreePruning = Convert.ToDouble(reader["LHPMYShadetreePruning"].ToString());
+                        inputsAdvanced.LHPMYPestControl = Convert.ToDouble(reader["LHPMYPestControl"].ToString());
+                        inputsAdvanced.LHPMYCoffeeGrowManagement = Convert.ToDouble(reader["LHPMYCoffeeGrowManagement"].ToString());
+                        inputsAdvanced.LHPMYOthers = Convert.ToDouble(reader["LHPMYOthers"].ToString());
+                        inputsAdvanced.LHPHYCoffeeCollecDays = Convert.ToDouble(reader["LHPHYCoffeeCollecDays"].ToString());
+                        inputsAdvanced.LHPHYAdditionDays = Convert.ToDouble(reader["LHPHYAdditionDays"].ToString());
+                        inputsAdvanced.LHPPYFermentation = Convert.ToDouble(reader["LHPPYFermentation"].ToString());
+                        inputsAdvanced.LHPPYWashing = Convert.ToDouble(reader["LHPPYWashing"].ToString());
+                        inputsAdvanced.LHPPYDrying = Convert.ToDouble(reader["LHPPYDrying"].ToString());
+                        inputsAdvanced.LHPPYScreening = Convert.ToDouble(reader["LHPPYScreening"].ToString());
+                        inputsAdvanced.LHPPYSelection = Convert.ToDouble(reader["LHPPYSelection"].ToString());
+                        inputsAdvanced.LHPPYStorage = Convert.ToDouble(reader["LHPPYStorage"].ToString());
+                        inputsAdvanced.LHPPYCoffeewastewater = Convert.ToDouble(reader["LHPPYCoffeewastewater"].ToString());
+                        inputsAdvanced.LHPPYPulpManagement = Convert.ToDouble(reader["LHPPYPulpManagement"].ToString());
+                        inputsAdvanced.LHPPYOthers = Convert.ToDouble(reader["LHPPYOthers"].ToString());
+                        inputsAdvanced.LHPMMManualWeeding = Convert.ToDouble(reader["LHPMMManualWeeding"].ToString());
+                        inputsAdvanced.LHPMMChemicalWeeding = Convert.ToDouble(reader["LHPMMChemicalWeeding"].ToString());
+                        inputsAdvanced.LHPMMOrganicFertilizers = Convert.ToDouble(reader["LHPMMOrganicFertilizers"].ToString());
+                        inputsAdvanced.LHPMMChemicalFertilizers = Convert.ToDouble(reader["LHPMMChemicalFertilizers"].ToString());
+                        inputsAdvanced.LHPMMFoliarSpraying = Convert.ToDouble(reader["LHPMMFoliarSpraying"].ToString());
+                        inputsAdvanced.LHPMMHedgerowsConstruction = Convert.ToDouble(reader["LHPMMHedgerowsConstruction"].ToString());
+                        inputsAdvanced.LHPMMShadetreePruning = Convert.ToDouble(reader["LHPMMShadetreePruning"].ToString());
+                        inputsAdvanced.LHPMMPestControl = Convert.ToDouble(reader["LHPMMPestControl"].ToString());
+                        inputsAdvanced.LHPMMCoffeeGrowManagement = Convert.ToDouble(reader["LHPMMCoffeeGrowManagement"].ToString());
+                        inputsAdvanced.LHPMMOthers = Convert.ToDouble(reader["LHPMMOthers"].ToString());
+                        inputsAdvanced.LHPHMCoffeeCollecDays = Convert.ToDouble(reader["LHPHMCoffeeCollecDays"].ToString());
+                        inputsAdvanced.LHPHMAdditionDays = Convert.ToDouble(reader["LHPHMAdditionDays"].ToString());
+                        inputsAdvanced.LHPPMFermentation = Convert.ToDouble(reader["LHPPMFermentation"].ToString());
+                        inputsAdvanced.LHPPMWashing = Convert.ToDouble(reader["LHPPMWashing"].ToString());
+                        inputsAdvanced.LHPPMDrying = Convert.ToDouble(reader["LHPPMDrying"].ToString());
+                        inputsAdvanced.LHPPMScreening = Convert.ToDouble(reader["LHPPMScreening"].ToString());
+                        inputsAdvanced.LHPPMSelection = Convert.ToDouble(reader["LHPPMSelection"].ToString());
+                        inputsAdvanced.LHPPMStorage = Convert.ToDouble(reader["LHPPMStorage"].ToString());
+                        inputsAdvanced.LHPPMCoffeewastewater = Convert.ToDouble(reader["LHPPMCoffeewastewater"].ToString());
+                        inputsAdvanced.LHPPMPulpManagement = Convert.ToDouble(reader["LHPPMPulpManagement"].ToString());
+                        inputsAdvanced.LHPPMOthers = Convert.ToDouble(reader["LHPPMOthers"].ToString());
+                        inputsAdvanced.LHPMOManualWeeding = Convert.ToDouble(reader["LHPMOManualWeeding"].ToString());
+                        inputsAdvanced.LHPMOChemicalWeeding = Convert.ToDouble(reader["LHPMOChemicalWeeding"].ToString());
+                        inputsAdvanced.LHPMOOrganicFertilizers = Convert.ToDouble(reader["LHPMOOrganicFertilizers"].ToString());
+                        inputsAdvanced.LHPMOChemicalFertilizers = Convert.ToDouble(reader["LHPMOChemicalFertilizers"].ToString());
+                        inputsAdvanced.LHPMOFoliarSpraying = Convert.ToDouble(reader["LHPMOFoliarSpraying"].ToString());
+                        inputsAdvanced.LHPMOHedgerowsConstruction = Convert.ToDouble(reader["LHPMOHedgerowsConstruction"].ToString());
+                        inputsAdvanced.LHPMOShadetreePruning = Convert.ToDouble(reader["LHPMOShadetreePruning"].ToString());
+                        inputsAdvanced.LHPMOPestControl = Convert.ToDouble(reader["LHPMOPestControl"].ToString());
+                        inputsAdvanced.LHPMOCoffeeGrowManagement = Convert.ToDouble(reader["LHPMOCoffeeGrowManagement"].ToString());
+                        inputsAdvanced.LHPMOOthers = Convert.ToDouble(reader["LHPMOOthers"].ToString());
+                        inputsAdvanced.LHPHOCoffeeCollecDays = Convert.ToDouble(reader["LHPHOCoffeeCollecDays"].ToString());
+                        inputsAdvanced.LHPHOAdditionDays = Convert.ToDouble(reader["LHPHOAdditionDays"].ToString());
+                        inputsAdvanced.LHPPOFermentation = Convert.ToDouble(reader["LHPPOFermentation"].ToString());
+                        inputsAdvanced.LHPPOWashing = Convert.ToDouble(reader["LHPPOWashing"].ToString());
+                        inputsAdvanced.LHPPODrying = Convert.ToDouble(reader["LHPPODrying"].ToString());
+                        inputsAdvanced.LHPPOScreening = Convert.ToDouble(reader["LHPPOScreening"].ToString());
+                        inputsAdvanced.LHPPOSelection = Convert.ToDouble(reader["LHPPOSelection"].ToString());
+                        inputsAdvanced.LHPPOStorage = Convert.ToDouble(reader["LHPPOStorage"].ToString());
+                        inputsAdvanced.LHPPOCoffeewastewater = Convert.ToDouble(reader["LHPPOCoffeewastewater"].ToString());
+                        inputsAdvanced.LHPPOPulpManagement = Convert.ToDouble(reader["LHPPOPulpManagement"].ToString());
+                        inputsAdvanced.LHPPOOthers = Convert.ToDouble(reader["LHPPOOthers"].ToString());
+                        inputsAdvanced.IIFood = Convert.ToDouble(reader["IIFood"].ToString());
+                        inputsAdvanced.IIAdditionalTransfers = Convert.ToDouble(reader["IIAdditionalTransfers"].ToString());
+                        inputsAdvanced.IIDaysoftraining = Convert.ToDouble(reader["IIDaysoftraining"].ToString());
+                        inputsAdvanced.ICCreditfromcooperative = Convert.ToDouble(reader["ICCreditfromcooperative"].ToString());
+                        inputsAdvanced.ICCreditfromcooperativeTime = Convert.ToDouble(reader["ICCreditfromcooperativeTime"].ToString());
+                        inputsAdvanced.ICCreditfromcooperativeInterest = Convert.ToDouble(reader["ICCreditfromcooperativeInterest"].ToString());
+                        inputsAdvanced.ICCreditfromagent = Convert.ToDouble(reader["ICCreditfromagent"].ToString());
+                        inputsAdvanced.ICCreditfromagentTime = Convert.ToDouble(reader["ICCreditfromagentTime"].ToString());
+                        inputsAdvanced.ICCreditfromagentInterest = Convert.ToDouble(reader["ICCreditfromagentInterest"].ToString());
+                        //inputsAdvanced.CostGerminator = Convert.ToDouble(reader["CostGerminator"].ToString());
+                        inputsAdvanced.CostGerminatorSeeds = Convert.ToDouble(reader["CostGerminatorSeeds"].ToString());
+                        inputsAdvanced.CostGerminatorSeedbed = Convert.ToDouble(reader["CostGerminatorSeedbed"].ToString());
+                        inputsAdvanced.CostGerminatorSandSubstrate = Convert.ToDouble(reader["CostGerminatorSandSubstrate"].ToString());
+                        inputsAdvanced.CostGerminatorCalciumSulfide = Convert.ToDouble(reader["CostGerminatorCalciumSulfide"].ToString());
+                        inputsAdvanced.CostGerminatorLime = Convert.ToDouble(reader["CostGerminatorLime"].ToString());
+                        inputsAdvanced.CostGerminatorPlastic = Convert.ToDouble(reader["CostGerminatorPlastic"].ToString());
+                        inputsAdvanced.CostGerminatorOthers = Convert.ToDouble(reader["CostGerminatorOthers"].ToString());
+                        inputsAdvanced.CostNurseryFertilizer = Convert.ToDouble(reader["CostNurseryFertilizer"].ToString());
+                        inputsAdvanced.CostNurseryPlasticBags = Convert.ToDouble(reader["CostNurseryPlasticBags"].ToString());
+                        inputsAdvanced.CostNurseryNetting = Convert.ToDouble(reader["CostNurseryNetting"].ToString());
+                        inputsAdvanced.CostNurseryStuds = Convert.ToDouble(reader["CostNurseryStuds"].ToString());
+                        inputsAdvanced.CostNurseryWire = Convert.ToDouble(reader["CostNurseryWire"].ToString());
+                        inputsAdvanced.CostNurseryCiclonics = Convert.ToDouble(reader["CostNurseryCiclonics"].ToString());
+                        inputsAdvanced.CostNurseryStaples = Convert.ToDouble(reader["CostNurseryStaples"].ToString());
+                        inputsAdvanced.CostNurserySoil = Convert.ToDouble(reader["CostNurserySoil"].ToString());
+                        inputsAdvanced.CostNurseryBioFert = Convert.ToDouble(reader["CostNurseryBioFert"].ToString());
+                        inputsAdvanced.CostNurseryAgroChemicals = Convert.ToDouble(reader["CostNurseryAgroChemicals"].ToString());
+                        inputsAdvanced.CostNurseryFungicide = Convert.ToDouble(reader["CostNurseryFungicide"].ToString());
+                        inputsAdvanced.CostNurseryPhosphoricRock = Convert.ToDouble(reader["CostNurseryPhosphoricRock"].ToString());
+                        inputsAdvanced.CostNurseryOthers = Convert.ToDouble(reader["CostNurseryOthers"].ToString());
+                        inputsAdvanced.CostFLPPOrganicFert = Convert.ToDouble(reader["CostFLPPOrganicFert"].ToString());
+                        inputsAdvanced.CostFLPPChemicalFert = Convert.ToDouble(reader["CostFLPPChemicalFert"].ToString());
+                        inputsAdvanced.CostFVGOrganicFert = Convert.ToDouble(reader["CostFVGOrganicFert"].ToString());
+                        inputsAdvanced.CostFVGChemicalFert = Convert.ToDouble(reader["CostFVGChemicalFert"].ToString());
+                        inputsAdvanced.CostFMOtherFert = Convert.ToDouble(reader["CostFMOtherFert"].ToString());
+                        inputsAdvanced.CostFMOrganicFoliar = Convert.ToDouble(reader["CostFMOrganicFoliar"].ToString());
+                        inputsAdvanced.CostFMChemicalFoliar = Convert.ToDouble(reader["CostFMChemicalFoliar"].ToString());
+                        inputsAdvanced.CostFMGasFuel = Convert.ToDouble(reader["CostFMGasFuel"].ToString());
+                        inputsAdvanced.CostFMOthers = Convert.ToDouble(reader["CostFMOthers"].ToString());
+                        inputsAdvanced.EGEManualSprayer = Convert.ToDouble(reader["EGEManualSprayer"].ToString());
+                        inputsAdvanced.EGELifespam1 = Convert.ToDouble(reader["EGELifespam1"].ToString());
+                        inputsAdvanced.EGEMachetes = Convert.ToDouble(reader["EGEMachetes"].ToString());
+                        inputsAdvanced.EGELifespam2 = Convert.ToDouble(reader["EGELifespam2"].ToString());
+                        inputsAdvanced.EGEShovel = Convert.ToDouble(reader["EGEShovel"].ToString());
+                        inputsAdvanced.EGELifespam3 = Convert.ToDouble(reader["EGELifespam3"].ToString());
+                        inputsAdvanced.EGEHoe = Convert.ToDouble(reader["EGEHoe"].ToString());
+                        inputsAdvanced.EGELifespam4 = Convert.ToDouble(reader["EGELifespam4"].ToString());
+                        inputsAdvanced.EGEWheelBarrow = Convert.ToDouble(reader["EGEWheelBarrow"].ToString());
+                        inputsAdvanced.EGELifespam5 = Convert.ToDouble(reader["EGELifespam5"].ToString());
+                        inputsAdvanced.EGELime = Convert.ToDouble(reader["EGELime"].ToString());
+                        inputsAdvanced.EGELifespam6 = Convert.ToDouble(reader["EGELifespam6"].ToString());
+                        inputsAdvanced.EGEAuger = Convert.ToDouble(reader["EGEAuger"].ToString());
+                        inputsAdvanced.EGELifespam7 = Convert.ToDouble(reader["EGELifespam7"].ToString());
+                        inputsAdvanced.EGEMetalBar = Convert.ToDouble(reader["EGEMetalBar"].ToString());
+                        inputsAdvanced.EGELifespam8 = Convert.ToDouble(reader["EGELifespam8"].ToString());
+                        inputsAdvanced.EGEHose = Convert.ToDouble(reader["EGEHose"].ToString());
+                        inputsAdvanced.EGELifespam9 = Convert.ToDouble(reader["EGELifespam9"].ToString());
+                        inputsAdvanced.EGESprinklers = Convert.ToDouble(reader["EGESprinklers"].ToString());
+                        inputsAdvanced.EGELifespam10 = Convert.ToDouble(reader["EGELifespam10"].ToString());
+                        inputsAdvanced.EGEChainSaw = Convert.ToDouble(reader["EGEChainSaw"].ToString());
+                        inputsAdvanced.EGELifespam11 = Convert.ToDouble(reader["EGELifespam11"].ToString());
+                        inputsAdvanced.EGEHandSaw = Convert.ToDouble(reader["EGEHandSaw"].ToString());
+                        inputsAdvanced.EGELifespam12 = Convert.ToDouble(reader["EGELifespam12"].ToString());
+                        inputsAdvanced.EGEMotorPump = Convert.ToDouble(reader["EGEMotorPump"].ToString());
+                        inputsAdvanced.EGELifespam13 = Convert.ToDouble(reader["EGELifespam13"].ToString());
+                        inputsAdvanced.EGEPrunningScissors = Convert.ToDouble(reader["EGEPrunningScissors"].ToString());
+                        inputsAdvanced.EGELifespam14 = Convert.ToDouble(reader["EGELifespam14"].ToString());
+                        inputsAdvanced.EGEAxe = Convert.ToDouble(reader["EGEAxe"].ToString());
+                        inputsAdvanced.EGELifespam15 = Convert.ToDouble(reader["EGELifespam15"].ToString());
+                        inputsAdvanced.EEHScale = Convert.ToDouble(reader["EEHScale"].ToString());
+                        inputsAdvanced.EEHLifespam1 = Convert.ToDouble(reader["EEHLifespam1"].ToString());
+                        inputsAdvanced.EEHVehicle = Convert.ToDouble(reader["EEHVehicle"].ToString());
+                        inputsAdvanced.EEHLifespam2 = Convert.ToDouble(reader["EEHLifespam2"].ToString());
+                        inputsAdvanced.EEHWorkAnimal = Convert.ToDouble(reader["EEHWorkAnimal"].ToString());
+                        inputsAdvanced.EEHLifespam3 = Convert.ToDouble(reader["EEHLifespam3"].ToString());
+                        inputsAdvanced.EEHMotorcycle = Convert.ToDouble(reader["EEHMotorcycle"].ToString());
+                        inputsAdvanced.EEHLifespam4 = Convert.ToDouble(reader["EEHLifespam4"].ToString());
+                        inputsAdvanced.EEHBags = Convert.ToDouble(reader["EEHBags"].ToString());
+                        inputsAdvanced.EEHLifespam5 = Convert.ToDouble(reader["EEHLifespam5"].ToString());
+                        inputsAdvanced.EEHSack = Convert.ToDouble(reader["EEHSack"].ToString());
+                        inputsAdvanced.EEHLifespam6 = Convert.ToDouble(reader["EEHLifespam6"].ToString());
+                        inputsAdvanced.EEHStraw = Convert.ToDouble(reader["EEHStraw"].ToString());
+                        inputsAdvanced.EEHLifespam7 = Convert.ToDouble(reader["EEHLifespam7"].ToString());
+                        inputsAdvanced.EEHBaskets = Convert.ToDouble(reader["EEHBaskets"].ToString());
+                        inputsAdvanced.EEHLifespam8 = Convert.ToDouble(reader["EEHLifespam8"].ToString());
+                        inputsAdvanced.EEHBoxes = Convert.ToDouble(reader["EEHBoxes"].ToString());
+                        inputsAdvanced.EEHLifespam9 = Convert.ToDouble(reader["EEHLifespam9"].ToString());
+                        inputsAdvanced.EEHOthers = Convert.ToDouble(reader["EEHOthers"].ToString());
+                        inputsAdvanced.EEHLifespam10 = Convert.ToDouble(reader["EEHLifespam10"].ToString());
+                        inputsAdvanced.EEPPulperMachine = Convert.ToDouble(reader["EEPPulperMachine"].ToString());
+                        inputsAdvanced.EEPLifespam1 = Convert.ToDouble(reader["EEPLifespam1"].ToString());
+                        inputsAdvanced.EEPTolca = Convert.ToDouble(reader["EEPTolca"].ToString());
+                        inputsAdvanced.EEPLifespam2 = Convert.ToDouble(reader["EEPLifespam2"].ToString());
+                        inputsAdvanced.EEPEngine = Convert.ToDouble(reader["EEPEngine"].ToString());
+                        inputsAdvanced.EEPLifespam3 = Convert.ToDouble(reader["EEPLifespam3"].ToString());
+                        inputsAdvanced.EEPTanks = Convert.ToDouble(reader["EEPTanks"].ToString());
+                        inputsAdvanced.EEPLifespam4 = Convert.ToDouble(reader["EEPLifespam4"].ToString());
+                        inputsAdvanced.EEPWaterChannel = Convert.ToDouble(reader["EEPWaterChannel"].ToString());
+                        inputsAdvanced.EEPLifespam5 = Convert.ToDouble(reader["EEPLifespam5"].ToString());
+                        inputsAdvanced.EEPPVCPipes = Convert.ToDouble(reader["EEPPVCPipes"].ToString());
+                        inputsAdvanced.EEPLifespam6 = Convert.ToDouble(reader["EEPLifespam6"].ToString());
+                        inputsAdvanced.EEPFilteringSystem = Convert.ToDouble(reader["EEPFilteringSystem"].ToString());
+                        inputsAdvanced.EEPLifespam7 = Convert.ToDouble(reader["EEPLifespam7"].ToString());
+                        inputsAdvanced.EEPScreeningMachine = Convert.ToDouble(reader["EEPScreeningMachine"].ToString());
+                        inputsAdvanced.EEPLifespam8 = Convert.ToDouble(reader["EEPLifespam8"].ToString());
+                        inputsAdvanced.EEPDesmucilaginador = Convert.ToDouble(reader["EEPDesmucilaginador"].ToString());
+                        inputsAdvanced.EEPLifespam9 = Convert.ToDouble(reader["EEPLifespam9"].ToString());
+                        inputsAdvanced.EEPMotorPump = Convert.ToDouble(reader["EEPMotorPump"].ToString());
+                        inputsAdvanced.EEPLifespam10 = Convert.ToDouble(reader["EEPLifespam10"].ToString());
+                        inputsAdvanced.EEPOthersWetInput = Convert.ToDouble(reader["EEPOthersWetInput"].ToString());
+                        inputsAdvanced.EEPLifespam11 = Convert.ToDouble(reader["EEPLifespam11"].ToString());
+                        inputsAdvanced.EEPConcrete = Convert.ToDouble(reader["EEPConcrete"].ToString());
+                        inputsAdvanced.EEPLifespam12 = Convert.ToDouble(reader["EEPLifespam12"].ToString());
+                        inputsAdvanced.EEPPlastic = Convert.ToDouble(reader["EEPPlastic"].ToString());
+                        inputsAdvanced.EEPLifespam13 = Convert.ToDouble(reader["EEPLifespam13"].ToString());
+                        inputsAdvanced.EEPRake = Convert.ToDouble(reader["EEPRake"].ToString());
+                        inputsAdvanced.EEPLifespam14 = Convert.ToDouble(reader["EEPLifespam14"].ToString());
+                        inputsAdvanced.EEPBroom = Convert.ToDouble(reader["EEPBroom"].ToString());
+                        inputsAdvanced.EEPLifespam15 = Convert.ToDouble(reader["EEPLifespam15"].ToString());
+                        inputsAdvanced.EEPStorageRoom = Convert.ToDouble(reader["EEPStorageRoom"].ToString());
+                        inputsAdvanced.EEPLifespam16 = Convert.ToDouble(reader["EEPLifespam16"].ToString());
+                        inputsAdvanced.EEPOthersDryInput = Convert.ToDouble(reader["EEPOthersDryInput"].ToString());
+                        inputsAdvanced.EEPLifespam17 = Convert.ToDouble(reader["EEPLifespam17"].ToString());
+                        inputsAdvanced.ACCApplicationFee = Convert.ToDouble(reader["ACCApplicationFee"].ToString());
+                        inputsAdvanced.ACCAnnualMembership = Convert.ToDouble(reader["ACCAnnualMembership"].ToString());
+                        inputsAdvanced.ACCLifeInsurance = Convert.ToDouble(reader["ACCLifeInsurance"].ToString());
+                        inputsAdvanced.ACCFLOCertification = Convert.ToDouble(reader["ACCFLOCertification"].ToString());
+                        inputsAdvanced.ACCOrganicCertification = Convert.ToDouble(reader["ACCOrganicCertification"].ToString());
+                        inputsAdvanced.ACLLandValue = Convert.ToDouble(reader["ACLLandValue"].ToString());
+                        inputsAdvanced.ACLPropertyTax = Convert.ToDouble(reader["ACLPropertyTax"].ToString());
+                        inputsAdvanced.ACUSuperviseInvest = Convert.ToDouble(reader["ACUSuperviseInvest"].ToString());
+                        inputsAdvanced.ACUAdministInvest = Convert.ToDouble(reader["ACUAdministInvest"].ToString());
+                        inputsAdvanced.ACUTrainingInvest = Convert.ToDouble(reader["ACUTrainingInvest"].ToString());
+                        inputsAdvanced.ACUExtraOrdInvest = Convert.ToDouble(reader["ACUExtraOrdInvest"].ToString());
+                        inputsAdvanced.TGSeedPurchase = Convert.ToDouble(reader["TGSeedPurchase"].ToString());
+                        inputsAdvanced.TGWoodTransportation = Convert.ToDouble(reader["TGWoodTransportation"].ToString());
+                        inputsAdvanced.TGSandTransportation = Convert.ToDouble(reader["TGSandTransportation"].ToString());
+                        inputsAdvanced.TGOthers = Convert.ToDouble(reader["TGOthers"].ToString());
+                        inputsAdvanced.TNSoilTransportation = Convert.ToDouble(reader["TNSoilTransportation"].ToString());
+                        inputsAdvanced.TNSacksMaterialShopping = Convert.ToDouble(reader["TNSacksMaterialShopping"].ToString());
+                        inputsAdvanced.TNOthers = Convert.ToDouble(reader["TNOthers"].ToString());
+                        inputsAdvanced.TLPWoodTransportation = Convert.ToDouble(reader["TLPWoodTransportation"].ToString());
+                        inputsAdvanced.TLPCompostTransportation = Convert.ToDouble(reader["TLPCompostTransportation"].ToString());
+                        inputsAdvanced.TLPPlantTransportation = Convert.ToDouble(reader["TLPPlantTransportation"].ToString());
+                        inputsAdvanced.TLPOthers = Convert.ToDouble(reader["TLPOthers"].ToString());
+                        inputsAdvanced.TOtherEquipment = Convert.ToDouble(reader["TOtherEquipment"].ToString());
+                        inputsAdvanced.TOtherLaborTransportation = Convert.ToDouble(reader["TOtherLaborTransportation"].ToString());
+                        inputsAdvanced.TOtherCoffeeTransportation = Convert.ToDouble(reader["TOtherCoffeeTransportation"].ToString());
+                        inputsAdvanced.TOtherSupervisingActivities = Convert.ToDouble(reader["TOtherSupervisingActivities"].ToString());
+                        inputsAdvanced.TOthers = Convert.ToDouble(reader["TOthers"].ToString());
+                    }
+                }
+                con.Close();
+            }
+            return inputsAdvanced;
         }
     }
 }

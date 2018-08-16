@@ -1,177 +1,188 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Calcucafe";
-    Layout = "_LayoutTechnician";
+    //Layout = "_LayoutTechnician";
 }
 
 <!-- Uses a transparent header that draws on top of the layout's background -->
 <!doctype html>
-@section Scripts {
-<script>
+@*@section Scripts {*@
+<script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+    <script>
         var apiURL = "@ViewData["apiURL"]";
-</script> 
-<script src="~/pages/TechnicianHome/js/technician.js"></script>
-   
-}
+    </script>
+    <script src="/pages/TechnicianHome/js/technician.js" asp-append-version="true"></script>
+
+@*}*@
 
 <html lang="en">
-
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="~/style.css">
+    <title>CalcuCafé</title>
+</head>
 <body>
-    <link rel="stylesheet" href="/lib/unify/assets/css/custom.css" asp-append-version="true" />
-    <link rel="stylesheet" href="/lib/unify/assets/vendor/master-slider/source/assets/css/masterslider.main.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
-    <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
-    
-    <script src="/lib/unify/assets/js/hs.core.js"></script>
-    <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
-    <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-    <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.header.js"></script>
-    <script src="/lib/unify/assets/vendor/slick-carousel/slick/slick.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.scroll-nav.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.tabs.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
-    <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
-    <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>
-
-    <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
-        <div class="container-fluid g-pa-50">
-            <div class="row">
-
-                <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
-                    <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
-                        <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-frame" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
-                            <div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="generalsettings" onclick="slidesettings()">General Settings</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-ol"></div>
-                    </div>
-
-                </div>
-            </div>
-            <div id="slider">
-                <ul class="list-unstyled">
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>The Most common measure for coffee parchment</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="coffeeparchment" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Kilograms">Kilograms</option>
-                                    <option value="Pounds">Pounds</option>
-                                    <option value="Quintales">Quintales</option>
-                                    <option value="Arrobas">Arrobas</option>
-                                    <option value="Cargas">Cargas</option>
-                                </select>
-
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>The most common measure of length</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="length" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Meters">Meters</option>
-                                    <option value="Feet">Feet</option>
-                                </select>
-                            </div>
-                            @*<span class="d-block">sent you a message</span>*@
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>The most common measure for the farm area</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="farmarea" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Hectares">Hectares</option>
-                                    <option value="Manzanas">Manzanas</option>
-                                </select>
-                            </div>
-                            @*<span class="d-block">is offering free coffee</span>*@
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>The most common measure for input weight</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="weight" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Kilograms">Kilograms</option>
-                                    <option value="Pounds">Pounds</option>
-                                </select>
-                            </div>
-                            @*<span class="d-block">sent you a message</span>*@
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        @*<div class="d-flex g-mt-2 g-mr-15">
-                                <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img17.jpg" alt="Image Description">
-                            </div>*@
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>The most common measure for capacity</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="capacity" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Liters">Liters</option>
-                                    <option value="Gallons">Gallons</option>
-
-                                </select>
-                            </div>
-                            @*<span class="d-block">sent you a message</span>*@
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Country currency</strong>
-                                <select onchange="change()" class="custom-select mb-3" id="currency" style="width:auto">
-                                    <option selected="">Choose...</option>
-                                    <option value="Bolivian Boliviano">Bolivian Boliviano</option>
-                                    <option value="Brazilian Real">Brazilian Real</option>
-                                    <option value="Colombian Peso">Colombian Peso</option>
-                                    <option value="Costa Rican Colon">Costa Rican Colon</option>
-                                    <option value="Cuban Peso">Cuban Peso</option>
-                                    <option value="Guatemalan Quetzal">Guatemalan Quetzal</option>
-                                    <option value="Jamaican Dollar">Jamaican Dollar</option>
-                                    <option value="Honduran Lempira">Honduran Lempira</option>
-                                    <option value="Haitian Gourde">Haitian Gourde</option>
-                                    <option value="Mexican Peso">Mexican Peso</option>
-                                    <option value="Nicaraguan Cordoba">Nicaraguan Cordoba</option>
-                                    <option value="Peruvian Sol">Peruvian Sol</option>
-                                    <option value="USD">USD</option>
-                                    <option value="Venezuelan Bolivar">Venezuelan Bolivar</option>
-                                </select>
-                            </div>
-                            @*<span class="d-block">sent you a message </span>*@
-                        </div>
-                    </li>
-                </ul>
-                <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" id="savebutton" style="float:right; border-color:bisque; background-color:#ffffff">Save</a>
-                <a onclick="press()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
-            </div>
-
+    <!-- Top Navigation -->
+    <div class="nav-top">
+        <ul>
+            <li id="hamburger">
+                <img src="menu.svg" width="24" height="24" alt="menu">
+            </li>
+            <li id="brand">
+                <a href=""><img src="logo.svg" width="146" height="32" alt="CalcuCafé"></a>
+            </li>
+        </ul>
+        <ul class="nav-profile">
+            <li>
+                <a href=""><img src="avatar.png" width="36" height="36" alt="avatar"></a>
+            </li>
+            <li>
+                <a id="user-name" href="">Martín Rojas</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Side Navigation Drawer -->
+    <div id="nav-drawer" class="nav-side">
+        <ul>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="./icons/trending.svg" alt="">
+                    Analytics
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="./icons/list.svg" alt="">
+                    Farmers
+                </a>
+            </li>
+            <li class="nav-side-link active-section">
+                <a href="">
+                    <img class="menu-icon" src="./icons/settings-active.svg" alt="">
+                    Coop Settings
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="./icons/help.svg" alt="">
+                    Help
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="tabs">
+            <div class="tab-link tab-active"><a href="TechnicianHome">METRICS</a></div>
+            <div class="tab-link"><a href="AdvancedInputs">ADVANCED INPUT</a></div>
+        </div>
+        <!-- List of Input Values -->
+        <div class="list-item">
+            <div class="list-title-value">The most common measure for coffee parchment</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="coffeeparchment">
+                    <option selected="">Choose...</option>
+                    <option value="Kilograms">Kilograms</option>
+                    <option value="Pounds">Pounds</option>
+                    <option value="Quintales">Quintales</option>
+                    <option value="Arrobas">Arrobas</option>
+                    <option value="Cargas">Cargas</option>
+                </select>
+            </form>
+        </div>
+        <div class="list-item">
+            <div class="list-title-value">The most common measure of length</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="length">
+                    <option selected="">Choose...</option>
+                    <option value="Meters">Meters</option>
+                    <option value="Feet">Feet</option>
+                </select>
+            </form>
+        </div>
+        <div class="list-item">
+            <div class="list-title-value">The most common measure for the farm area</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="farmarea">
+                    <option selected="">Choose...</option>
+                    <option value="Hectares">Hectares</option>
+                    <option value="Manzanas">Manzanas</option>
+                </select>
+            </form>
+        </div>
+        <div class="list-item">
+            <div class="list-title-value">The most common measure for input weight</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="weight">
+                    <option selected="">Choose...</option>
+                    <option value="Kilograms">Kilograms</option>
+                    <option value="Pounds">Pounds</option>
+                </select>
+            </form>
+        </div>
+        <div class="list-item">
+            <div class="list-title-value">The most common measure for capacity</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="capacity">
+                    <option selected="">Choose...</option>
+                    <option value="Liters">Liters</option>
+                    <option value="Gallons">Gallons</option>
+                </select>
+            </form>
+        </div>
+        <div class="list-item">
+            <div class="list-title-value">Country Currency</div>
+            <form class="input-form" autocomplete="off">
+                <select onchange="change()" class="input-value drop-down" id="currency">
+                    <option selected="">Choose...</option>
+                    <option value="Bolivian Boliviano">Bolivian Boliviano</option>
+                    <option value="Brazilian Real">Brazilian Real</option>
+                    <option value="Colombian Peso">Colombian Peso</option>
+                    <option value="Costa Rican Colon">Costa Rican Colon</option>
+                    <option value="Cuban Peso">Cuban Peso</option>
+                    <option value="Guatemalan Quetzal">Guatemalan Quetzal</option>
+                    <option value="Jamaican Dollar">Jamaican Dollar</option>
+                    <option value="Honduran Lempira">Honduran Lempira</option>
+                    <option value="Haitian Gourde">Haitian Gourde</option>
+                    <option value="Mexican Peso">Mexican Peso</option>
+                    <option value="Nicaraguan Cordoba">Nicaraguan Cordoba</option>
+                    <option value="Peruvian Sol">Peruvian Sol</option>
+                    <option value="USD">USD</option>
+                    <option value="Venezuelan Bolivar">Venezuelan Bolivar</option>
+                </select>
+            </form>
+        </div>
+        <!-- Enabled Save Buttons -->
+        <!-- <div class="input-buttons">
+    <button class="outlined-button" type="button">DISCARD CHANGES</button>
+    <button class="contained-button" type="button">SAVE</button>
+    </div> -->
+        <!-- Disabled Save Buttons -->
+        <div class="input-buttons">
+            <button class="outlined-button-disabled" type="button" onclick="press()">DISCARD CHANGES</button>
+            <button class="contained-button-disabled" type="button" id="savebutton">SAVE</button>
         </div>
     </div>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
-
+            // Collapsable Hamburger Menu
+            $("#hamburger").click(function () {
+                if ($("#nav-drawer").css("display") == "block") {
+                    $("#nav-drawer").hide();
+                    $(".main-content").css('margin-left', '0px')
+                } else {
+                    $("#nav-drawer").show();
+                    $(".main-content").css('margin-left', '300px')
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-

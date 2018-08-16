@@ -36,6 +36,7 @@ namespace CoffeeCore.DTO
         public Double LPPYOrganic { get; set; }
         public Double LPPYChemical { get; set; }
         public Double LPPYFoliarSpraying { get; set; }
+        public Double LPPYOther { get; set; }
         public Double LHPMYManualWeeding { get; set; }
         public Double LHPMYChemicalWeeding { get; set; }
         public Double LHPMYOrganicFertilizers { get; set; }
@@ -139,47 +140,89 @@ namespace CoffeeCore.DTO
         public Double CostFMGasFuel { get; set; }
         public Double CostFMOthers { get; set; }
         public Double EGEManualSprayer { get; set; }
+        public Double EGELifespam1 { get; set; }
         public Double EGEMachetes { get; set; }
+        public Double EGELifespam2 { get; set; }
         public Double EGEShovel { get; set; }
+        public Double EGELifespam3 { get; set; }
         public Double EGEHoe { get; set; }
+        public Double EGELifespam4 { get; set; }
         public Double EGEWheelBarrow { get; set; }
+        public Double EGELifespam5 { get; set; }
         public Double EGELime { get; set; }
+        public Double EGELifespam6 { get; set; }
         public Double EGEAuger { get; set; }
+        public Double EGELifespam7 { get; set; }
         public Double EGEMetalBar { get; set; }
+        public Double EGELifespam8 { get; set; }
         public Double EGEHose { get; set; }
+        public Double EGELifespam9 { get; set; }
         public Double EGESprinklers { get; set; }
+        public Double EGELifespam10 { get; set; }
         public Double EGEChainSaw { get; set; }
+        public Double EGELifespam11 { get; set; }
         public Double EGEHandSaw { get; set; }
+        public Double EGELifespam12 { get; set; }
         public Double EGEMotorPump { get; set; }
+        public Double EGELifespam13 { get; set; }
         public Double EGEPrunningScissors { get; set; }
+        public Double EGELifespam14 { get; set; }
         public Double EGEAxe { get; set; }
+        public Double EGELifespam15 { get; set; }
         public Double EEHScale { get; set; }
+        public Double EEHLifespam1 { get; set; }
         public Double EEHVehicle { get; set; }
+        public Double EEHLifespam2 { get; set; }
         public Double EEHWorkAnimal { get; set; }
+        public Double EEHLifespam3 { get; set; }
         public Double EEHMotorcycle { get; set; }
+        public Double EEHLifespam4 { get; set; }
         public Double EEHBags { get; set; }
+        public Double EEHLifespam5 { get; set; }
         public Double EEHSack { get; set; }
+        public Double EEHLifespam6 { get; set; }
         public Double EEHStraw { get; set; }
+        public Double EEHLifespam7 { get; set; }
         public Double EEHBaskets { get; set; }
+        public Double EEHLifespam8 { get; set; }
         public Double EEHBoxes { get; set; }
+        public Double EEHLifespam9 { get; set; }
         public Double EEHOthers { get; set; }
+        public Double EEHLifespam10 { get; set; }
         public Double EEPPulperMachine { get; set; }
+        public Double EEPLifespam1 { get; set; }
         public Double EEPTolca { get; set; }
+        public Double EEPLifespam2 { get; set; }
         public Double EEPEngine { get; set; }
+        public Double EEPLifespam3 { get; set; }
         public Double EEPTanks { get; set; }
+        public Double EEPLifespam4 { get; set; }
         public Double EEPWaterChannel { get; set; }
+        public Double EEPLifespam5 { get; set; }
         public Double EEPPVCPipes { get; set; }
+        public Double EEPLifespam6 { get; set; }
         public Double EEPFilteringSystem { get; set; }
+        public Double EEPLifespam7 { get; set; }
         public Double EEPScreeningMachine { get; set; }
+        public Double EEPLifespam8 { get; set; }
         public Double EEPDesmucilaginador { get; set; }
+        public Double EEPLifespam9 { get; set; }
         public Double EEPMotorPump { get; set; }
+        public Double EEPLifespam10 { get; set; }
         public Double EEPOthersWetInput { get; set; }
+        public Double EEPLifespam11 { get; set; }
         public Double EEPConcrete { get; set; }
+        public Double EEPLifespam12 { get; set; }
         public Double EEPPlastic { get; set; }
+        public Double EEPLifespam13 { get; set; }
         public Double EEPRake { get; set; }
+        public Double EEPLifespam14 { get; set; }
         public Double EEPBroom { get; set; }
+        public Double EEPLifespam15 { get; set; }
         public Double EEPStorageRoom { get; set; }
+        public Double EEPLifespam16 { get; set; }
         public Double EEPOthersDryInput { get; set; }
+        public Double EEPLifespam17 { get; set; }
         public Double ACCApplicationFee { get; set; }
         public Double ACCAnnualMembership { get; set; }
         public Double ACCLifeInsurance { get; set; }

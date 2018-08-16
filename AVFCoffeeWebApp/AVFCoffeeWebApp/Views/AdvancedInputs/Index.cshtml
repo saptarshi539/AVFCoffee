@@ -1,127 +1,158 @@
-﻿
-@{
-    Layout = "_LayoutTechnician";
-}
-
-<!-- Uses a transparent header that draws on top of the layout's background -->
+﻿<!-- Uses a transparent header that draws on top of the layout's background -->
 <!doctype html>
+@*@section Scripts {*@
+<script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+<script>
+        var apiURL = "@ViewData["apiURL"]";
+</script>
+
+<script>
+    $(document).ready(function () {
+        
+        // Collapsable Hamburger Menu
+        $("#hamburger").click(function () {
+            if ($("#nav-drawer").css("display") == "block") {
+                $("#nav-drawer").hide();
+                $(".main-content").css('margin-left', '0px')
+            } else {
+                $("#nav-drawer").show();
+                $(".main-content").css('margin-left', '300px')
+            }
+        });
+    });
+
+
+</script>
+
+<script src="~/pages/TechnicianHome/AdvancedInputs/js/advancedInputs.js" asp-append-version="true"></script>
+
+@*}*@
+
 
 <html lang="en">
+<head>
 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="~/style.css">
+    <title>CalcuCafé</title>
+</head>
 <body>
-    <link rel="stylesheet" href="/lib/unify/assets/css/custom.css" asp-append-version="true" />
-    <link rel="stylesheet" href="/lib/unify/assets/vendor/master-slider/source/assets/css/masterslider.main.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/lib/unify/assets/vendor/slick-carousel/slick/slick.css" asp-append-version="true" />
-    <script src="/lib/jquery/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/pages/TechnicianHome/js/technician.js"></script>
-    @*<script src="/lib/unify/assets/js/hs.core.js"></script>
-        <script src="~/lib/unify/assets/vendor/master-slider/source/assets/js/masterslider.min.js"></script>
-        <script src="~/lib/unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-        <script src="lib/unify/assets/vendor/gmaps/gmaps.min.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.header.js"></script>
-        <script src="/lib/unify/assets/vendor/slick-carousel/slick/slick.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.scroll-nav.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.tabs.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.carousel.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.cubeportfolio.js"></script>
-        <script src="/lib/unify/assets/js/components/gmap/hs.map.js"></script>
-        <script src="/lib/unify/assets/js/components/hs.go-to.js"></script>*@
-
-
-    <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
-        <div class="g-pa-50">
-            <div class="row">
-                <div class="ms-thumb-list ms-tabs ms-dir-h ms-align-top" style="top: 0px; height: 50px; opacity: 1;z-index:0">
-                    <div class="ms-thumbs-cont" style="width: 1650px; left: 0px;">
-                        <div class="ms-thumb-frame" id="selectmetric" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="metrics" onclick="slidemetric()">Metrics</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-frame ms-thumb-frame-selected" id="selectinput" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="advancedinputs" onclick="slideinput()">Advanced Inputs</div>
-                            <div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-frame" id="selectsettings" style="width: 550px; height: 50px; margin-right: 0px;">
-                            <div class="ms-thumb" id="generalsettings">General Settings</div><div class="ms-thumb-ol"></div>
-                        </div>
-                        <div class="ms-thumb-ol"></div>
-                    </div>
+    <!-- Top Navigation -->
+    <div class="nav-top">
+        <ul>
+            <li id="hamburger">
+                <img src="menu.svg" width="24" height="24" alt="menu">
+            </li>
+            <li id="brand">
+                <a href=""><img src="logo.svg" width="146" height="32" alt="CalcuCafé"></a>
+            </li>
+        </ul>
+        <ul class="nav-profile">
+            <li>
+                <a href=""><img src="avatar.png" width="36" height="36" alt="avatar"></a>
+            </li>
+            <li>
+                <a id="user-name" href="">Martín Rojas</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Side Navigation Drawer -->
+    <div id="nav-drawer" class="nav-side">
+        <ul>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/trending.svg" alt="">
+                    Analytics
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/list.svg" alt="">
+                    Farmers
+                </a>
+            </li>
+            <li class="nav-side-link active-section">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/settings-active.svg" alt="">
+                    Coop Settings
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/help.svg" alt="">
+                    Help
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="tabs">
+            <div class="tab-link"><a href="TechnicianHome">METRICS</a></div>
+            <div class="tab-link tab-active"><a href="AdvancedInputs">ADVANCED INPUT</a></div>
+        </div>
+        <div id="Inputs">
+            <div class="breadcrumbs">
+                <div class="crumb">
+                    All Categories
                 </div>
             </div>
 
-            <div id="slider">
-                <ul class="list-unstyled">
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1" style="cursor:pointer" onclick="laborslide()">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Labor</strong>
-
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Additional Income and Remuneration</strong>
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Cost of materials and Inputs</strong>
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-                            @*<span class="d-block">is offering free coffee</span>*@
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Equipment and reusable materials</strong>
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        @*<div class="d-flex g-mt-2 g-mr-15">
-                                <img class="g-width-40 g-height-40 rounded-circle" src="../../assets/img-temp/100x100/img17.jpg" alt="Image Description">
-                            </div>*@
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Administrative Costs, taxes and land</strong>
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="media g-brd-around g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
-                        <div class="media-body">
-                            <div class="d-flex justify-content-between">
-                                <strong>Transportation</strong>
-                                <i class="hs-admin-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <a class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:#00838F">Save</a>
-            <a onclick="pressadvanced()" class="btn btn-md u-btn-primary g-mr-10 g-mb-30" style="float:right; background-color:bisque;color:#00838F">Discard Changes</a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title">Labor</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title">Additional income and remunertion</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title">Cost of materials and inputs</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title" id="equipment">Equipment and reusable material</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title">Administrative costs, taxes and land</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
+            <a href="">
+                <div class="list-item">
+                    <div class="list-title">Transportation</div>
+                    <div class="list-chevron"><img src="~/icons/chevron-right.svg" alt=""></div>
+                </div>
+            </a>
         </div>
-
+        <!-- <div class="list-item">
+      <div class="list-title">Seed Collection</div>
+      <form autocomplete="off">
+        <input type="text" name="firstname"><br>
+      </form>
+    </div> -->
     </div>
-
+    <!-- JavaScript -->
 
 
 </body>
 </html>
+
 
 
 

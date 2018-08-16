@@ -66,7 +66,7 @@ namespace CoffeeInfrastructure.Flexcel
             xls.Recalc();
             inputs_1_Metric_Currency.Inputs1MetricCurrency(xls);
             xls.Recalc();
-            advanced.Inputs_advanced(xls);
+            advanced.Inputs_Advanced(xls);
             xls.Recalc();
             proportions.proportions(xls);
             xls.Recalc();

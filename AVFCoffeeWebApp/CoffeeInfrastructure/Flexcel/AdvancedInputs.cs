@@ -9,85 +9,96 @@ public class AdvancedInputs
    
     public void Budget_Supuestos(ExcelFile xls)
     {
-        xls.NewFile(35, TExcelFileFormat.v2016);    //Create a new Excel file with 35 sheets.
+        //xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
 
         //Set the names of the sheets
         xls.ActiveSheet = 1;
-        xls.SheetName = "Metrics";
+        xls.SheetName = "Language";
         xls.ActiveSheet = 2;
-        xls.SheetName = "Inputs 1.0";
+        xls.SheetName = "Metrics Spanish";
         xls.ActiveSheet = 3;
-        xls.SheetName = "Inputs advance 2.0 (eng)";
+        xls.SheetName = "Metrics English";
         xls.ActiveSheet = 4;
-        xls.SheetName = "Outcome 1.0";
+        xls.SheetName = "Inputs 1.0_Spa";
         xls.ActiveSheet = 5;
-        xls.SheetName = "Additional 2.0";
+        xls.SheetName = "Inputs 1.0_Eng";
         xls.ActiveSheet = 6;
-        xls.SheetName = "Fixed 2.0";
+        xls.SheetName = "Inputs advance 2.0_Spa";
         xls.ActiveSheet = 7;
-        xls.SheetName = "Variable 2.0";
+        xls.SheetName = "Inputs advance 2.0_Eng";
         xls.ActiveSheet = 8;
-        xls.SheetName = "General Budget 2.0";
+        xls.SheetName = "Outcome 1.0";
         xls.ActiveSheet = 9;
-        xls.SheetName = "DATABASE_Schema";
+        xls.SheetName = "Additional 2.0";
         xls.ActiveSheet = 10;
-        xls.SheetName = "Inputs 2.0 Conv. default values";
+        xls.SheetName = "Fixed 2.0";
         xls.ActiveSheet = 11;
-        xls.SheetName = "Inputs 2.0 Conv. new inputs";
+        xls.SheetName = "Variable 2.0";
         xls.ActiveSheet = 12;
-        xls.SheetName = "Inputs advanced 2.0 (esp_eng)";
+        xls.SheetName = "General Budget 2.0";
         xls.ActiveSheet = 13;
-        xls.SheetName = "Inputs TOT advanced";
+        xls.SheetName = "DATABASE_Schema";
         xls.ActiveSheet = 14;
-        xls.SheetName = "Gral Conf. Summary";
+        xls.SheetName = "Metrics";
         xls.ActiveSheet = 15;
-        xls.SheetName = "Inputs 1.0 default values";
+        xls.SheetName = "Inputs 1.0";
         xls.ActiveSheet = 16;
-        xls.SheetName = "Inputs 1.0 Conv. new values";
+        xls.SheetName = "Inputs advance 2.0";
         xls.ActiveSheet = 17;
-        xls.SheetName = "Outcome TOTAL_Adj";
+        xls.SheetName = "Inputs 2.0 Conv. default values";
         xls.ActiveSheet = 18;
-        xls.SheetName = "Outcome_Y_Adjustment";
+        xls.SheetName = "Inputs 2.0 Conv. new inputs";
         xls.ActiveSheet = 19;
-        xls.SheetName = "Outcome_L Adjustment";
+        xls.SheetName = "Inputs TOT advanced";
         xls.ActiveSheet = 20;
-        xls.SheetName = "Proportions";
+        xls.SheetName = "Gral Conf. Summary_Spa";
         xls.ActiveSheet = 21;
-        xls.SheetName = "Budget_Supuestos";
+        xls.SheetName = "Gral Conf. Summary";
         xls.ActiveSheet = 22;
-        xls.SheetName = "Budget_Equipo";
+        xls.SheetName = "Inputs 1.0 default values";
         xls.ActiveSheet = 23;
-        xls.SheetName = "Budget_M Obra";
+        xls.SheetName = "Inputs 1.0 Conv. new values";
         xls.ActiveSheet = 24;
-        xls.SheetName = "Budget_M Obra_1";
+        xls.SheetName = "Outcome TOTAL_Adj";
         xls.ActiveSheet = 25;
-        xls.SheetName = "Budget_Valor de M Obra_1";
+        xls.SheetName = "Outcome_Y_Adjustment";
         xls.ActiveSheet = 26;
-        xls.SheetName = "Budget_Establecimiento_1";
+        xls.SheetName = "Outcome_L Adjustment";
         xls.ActiveSheet = 27;
-        xls.SheetName = "Sheet1";
+        xls.SheetName = "Proportions";
         xls.ActiveSheet = 28;
-        xls.SheetName = "Budget_Presupuesto";
+        xls.SheetName = "Budget_Supuestos";
         xls.ActiveSheet = 29;
-        xls.SheetName = "Budget_Valor de M Obra";
+        xls.SheetName = "Budget_Equipo";
         xls.ActiveSheet = 30;
-        xls.SheetName = "Budget_Establecimiento";
+        xls.SheetName = "Budget_M Obra";
         xls.ActiveSheet = 31;
-        xls.SheetName = "Budget_Sostenemiento";
+        xls.SheetName = "Budget_Presupuesto";
         xls.ActiveSheet = 32;
-        xls.SheetName = "Outcome 1.0 pre_metric_currency";
+        xls.SheetName = "Budget_Valor de M Obra";
         xls.ActiveSheet = 33;
-        xls.SheetName = "Conversiones";
+        xls.SheetName = "Budget_Establecimiento";
         xls.ActiveSheet = 34;
-        xls.SheetName = "Proporción de productividad";
+        xls.SheetName = "Budget_Sostenemiento";
         xls.ActiveSheet = 35;
+        xls.SheetName = "Outcome 1.0 pre_metric_currency";
+        xls.ActiveSheet = 36;
+        xls.SheetName = "Conversiones";
+        xls.ActiveSheet = 37;
+        xls.SheetName = "Proporción de productividad";
+        xls.ActiveSheet = 38;
         xls.SheetName = "Inputs 1.0 (Ref)";
 
-        xls.ActiveSheet = 27;    //Set the sheet we are working in.
+        xls.ActiveSheet = 28;    //Set the sheet we are working in.
 
         //Global Workbook Options
         xls.OptionsAutoCompressPictures = false;
         xls.OptionsMultithreadRecalc = 0;
+
+        //Sheet Options
+        xls.SheetName = "Budget_Supuestos";
+        xls.SheetZoom = 75;
+        xls.SheetView = new TSheetView(TSheetViewType.Normal, true, true, 75, 75, 0);
 
         //Styles.
         TFlxFormat StyleFmt;
@@ -132,38 +143,54 @@ public class AdvancedInputs
         TXlsNamedRange Range;
         string RangeName;
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 30, 32, "=Budget_Establecimiento!$A$3:$C$53");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 30, 30, 3, 1, 53, 3, 32);
+        Range = new TXlsNamedRange(RangeName, 33, 32, "=Budget_Establecimiento!$A$3:$C$53");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 33, 33, 3, 1, 53, 3, 32);
         xls.SetNamedRange(Range);
 
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 23, 32, "='Budget_M Obra'!$A$1:$K$86");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 23, 23, 1, 1, 86, 11, 32);
+        Range = new TXlsNamedRange(RangeName, 30, 32, "='Budget_M Obra'!$A$1:$K$86");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 30, 30, 1, 1, 86, 11, 32);
         xls.SetNamedRange(Range);
 
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 28, 32, "=Budget_Presupuesto!$A$34:$J$46");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 28, 28, 34, 1, 46, 10, 32);
+        Range = new TXlsNamedRange(RangeName, 31, 32, "=Budget_Presupuesto!$A$34:$J$46");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 31, 31, 34, 1, 46, 10, 32);
         xls.SetNamedRange(Range);
 
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 31, 32, "=Budget_Sostenemiento!$A$1:$K$44");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 31, 31, 1, 1, 44, 11, 32);
+        Range = new TXlsNamedRange(RangeName, 34, 32, "=Budget_Sostenemiento!$A$1:$K$44");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 34, 34, 1, 1, 44, 11, 32);
         xls.SetNamedRange(Range);
 
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 21, 32, "=Budget_Supuestos!$A$276:$G$297");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 21, 21, 276, 1, 297, 7, 32);
+        Range = new TXlsNamedRange(RangeName, 28, 32, "=Budget_Supuestos!$A$276:$G$297");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 28, 28, 276, 1, 297, 7, 32);
         xls.SetNamedRange(Range);
 
         RangeName = TXlsNamedRange.GetInternalName(InternalNameRange.Print_Area);
-        Range = new TXlsNamedRange(RangeName, 29, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
-        //You could also use: Range = new TXlsNamedRange(RangeName, 29, 29, 2, 1, 85, 10, 32);
+        Range = new TXlsNamedRange(RangeName, 32, 32, "='Budget_Valor de M Obra'!$A$2:$J$85");
+        //You could also use: Range = new TXlsNamedRange(RangeName, 32, 32, 2, 1, 85, 10, 32);
         xls.SetNamedRange(Range);
 
 
         //Printer Settings
-        xls.PrintOptions = TPrintOptions.Orientation | TPrintOptions.NoPls;
+
+        //You can set the margins in 2 ways, the one commented here or the one below:
+        //    TXlsMargins PrintMargins = xls.GetPrintMargins();
+        //    PrintMargins.Left = 0.75;
+        //    PrintMargins.Top = 1;
+        //    PrintMargins.Right = 0.75;
+        //    PrintMargins.Bottom = 1;
+        //    PrintMargins.Header = 0.5;
+        //    PrintMargins.Footer = 0.5;
+        //    xls.SetPrintMargins(PrintMargins);
+        xls.SetPrintMargins(new TXlsMargins(0.75, 1, 0.75, 1, 0.5, 0.5));
+        xls.PrintToFit = true;
+        xls.PrintScale = 61;
+        xls.PrintXResolution = 600;
+        xls.PrintYResolution = 600;
+        xls.PrintOptions = TPrintOptions.None;
+        xls.PrintPaperSize = TPaperSize.Letter;
 
         //Theme - You might use GetTheme/SetTheme methods here instead.
         xls.SetColorTheme(TThemeColor.Background2, TUIColor.FromArgb(0xEE, 0xEC, 0xE1));
@@ -252,7 +279,45 @@ public class AdvancedInputs
         xls.SetThemeFont(TFontScheme.Minor, MinorFont);
 
         //Set up rows and columns
-        xls.DefaultColWidth = 2304;
+        xls.DefaultColWidth = 2816;
+
+        xls.SetColWidth(1, 1, 12704);    //(48.88 + 0.75) * 256
+
+        xls.SetColWidth(2, 2, 6368);    //(24.13 + 0.75) * 256
+
+        xls.SetColWidth(3, 3, 8576);    //(32.75 + 0.75) * 256
+
+        xls.SetColWidth(4, 5, 7296);    //(27.75 + 0.75) * 256
+
+        xls.SetColWidth(6, 6, 12512);    //(48.13 + 0.75) * 256
+
+        xls.SetColWidth(7, 7, 7584);    //(28.88 + 0.75) * 256
+
+        xls.SetColWidth(8, 9, 5792);    //(21.88 + 0.75) * 256
+
+        xls.SetColWidth(10, 10, 7968);    //(30.38 + 0.75) * 256
+
+        xls.SetColWidth(11, 11, 6304);    //(23.88 + 0.75) * 256
+
+        xls.SetColWidth(12, 12, 5664);    //(21.38 + 0.75) * 256
+
+        xls.SetColWidth(13, 13, 7200);    //(27.38 + 0.75) * 256
+
+        xls.SetColWidth(14, 14, 7456);    //(28.38 + 0.75) * 256
+
+        xls.SetColWidth(15, 15, 5632);    //(21.25 + 0.75) * 256
+
+        xls.SetColWidth(16, 21, 2816);    //(10.25 + 0.75) * 256
+
+        xls.SetColWidth(22, 22, 3840);    //(14.25 + 0.75) * 256
+
+        xls.SetColWidth(23, 23, 5664);    //(21.38 + 0.75) * 256
+
+        xls.SetColWidth(24, 24, 7040);    //(26.75 + 0.75) * 256
+
+        xls.SetColWidth(25, 25, 6528);    //(24.75 + 0.75) * 256
+
+        xls.SetColWidth(26, 16384, 2816);    //(10.25 + 0.75) * 256
         xls.DefaultRowHeight = 315;
 
         xls.SetRowHeight(1, 420);    //21.00 * 20
@@ -285,112 +350,64 @@ public class AdvancedInputs
         xls.SetRowHeight(44, 360);    //18.00 * 20
         xls.SetRowHeight(46, 420);    //21.00 * 20
         xls.SetRowHeight(47, 330);    //16.50 * 20
-        xls.SetRowHeight(48, 4425);    //221.25 * 20
-        xls.SetRowHeight(49, 3150);    //157.50 * 20
-        xls.SetRowHeight(50, 2205);    //110.25 * 20
-        xls.SetRowHeight(52, 1260);    //63.00 * 20
-        xls.SetRowHeight(55, 3780);    //189.00 * 20
-        xls.SetRowHeight(56, 4725);    //236.25 * 20
-        xls.SetRowHeight(59, 945);    //47.25 * 20
-        xls.SetRowHeight(60, 630);    //31.50 * 20
-        xls.SetRowHeight(62, 8190);    //409.50 * 20
+        xls.SetRowHeight(48, 960);    //48.00 * 20
+        xls.SetRowHeight(49, 630);    //31.50 * 20
+        xls.SetRowHeight(55, 630);    //31.50 * 20
+        xls.SetRowHeight(56, 1260);    //63.00 * 20
+        xls.SetRowHeight(62, 1575);    //78.75 * 20
         xls.SetRowHeight(76, 420);    //21.00 * 20
-        xls.SetRowHeight(79, 5355);    //267.75 * 20
-        xls.SetRowHeight(81, 1575);    //78.75 * 20
-        xls.SetRowHeight(82, 1575);    //78.75 * 20
-        xls.SetRowHeight(83, 1575);    //78.75 * 20
-        xls.SetRowHeight(84, 1575);    //78.75 * 20
-        xls.SetRowHeight(85, 1575);    //78.75 * 20
-        xls.SetRowHeight(86, 1575);    //78.75 * 20
-        xls.SetRowHeight(87, 1575);    //78.75 * 20
-        xls.SetRowHeight(88, 1575);    //78.75 * 20
-        xls.SetRowHeight(97, 1575);    //78.75 * 20
-        xls.SetRowHeight(98, 1575);    //78.75 * 20
-        xls.SetRowHeight(99, 1575);    //78.75 * 20
-        xls.SetRowHeight(100, 1575);    //78.75 * 20
-        xls.SetRowHeight(101, 1575);    //78.75 * 20
-        xls.SetRowHeight(102, 1575);    //78.75 * 20
-        xls.SetRowHeight(103, 1575);    //78.75 * 20
-        xls.SetRowHeight(104, 1575);    //78.75 * 20
-        xls.SetRowHeight(109, 3465);    //173.25 * 20
-        xls.SetRowHeight(111, 1575);    //78.75 * 20
-        xls.SetRowHeight(112, 1575);    //78.75 * 20
-        xls.SetRowHeight(113, 1575);    //78.75 * 20
-        xls.SetRowHeight(114, 1575);    //78.75 * 20
-        xls.SetRowHeight(115, 1575);    //78.75 * 20
-        xls.SetRowHeight(116, 1575);    //78.75 * 20
-        xls.SetRowHeight(117, 1575);    //78.75 * 20
-        xls.SetRowHeight(118, 1575);    //78.75 * 20
-        xls.SetRowHeight(125, 3465);    //173.25 * 20
-        xls.SetRowHeight(127, 1575);    //78.75 * 20
-        xls.SetRowHeight(128, 1575);    //78.75 * 20
-        xls.SetRowHeight(129, 1575);    //78.75 * 20
-        xls.SetRowHeight(130, 1575);    //78.75 * 20
-        xls.SetRowHeight(131, 1575);    //78.75 * 20
-        xls.SetRowHeight(132, 1575);    //78.75 * 20
-        xls.SetRowHeight(133, 1575);    //78.75 * 20
-        xls.SetRowHeight(134, 1575);    //78.75 * 20
+        xls.SetRowHeight(79, 945);    //47.25 * 20
+        xls.SetRowHeight(81, 342);    //17.10 * 20
+        xls.SetRowHeight(109, 945);    //47.25 * 20
+        xls.SetRowHeight(111, 319);    //15.95 * 20
+        xls.SetRowHeight(125, 945);    //47.25 * 20
+        xls.SetRowHeight(127, 319);    //15.95 * 20
         xls.SetRowHeight(139, 420);    //21.00 * 20
-        xls.SetRowHeight(143, 3150);    //157.50 * 20
+        xls.SetRowHeight(143, 630);    //31.50 * 20
         xls.SetRowHeight(157, 375);    //18.75 * 20
-        xls.SetRowHeight(158, 3150);    //157.50 * 20
-        xls.SetRowHeight(170, 3150);    //157.50 * 20
+        xls.SetRowHeight(158, 630);    //31.50 * 20
+        xls.SetRowHeight(170, 630);    //31.50 * 20
+        xls.SetRowHeight(183, 600);    //30.00 * 20
+        xls.SetRowHeight(184, 300);    //15.00 * 20
         xls.SetRowHeight(226, 420);    //21.00 * 20
-        xls.SetRowHeight(228, 2520);    //126.00 * 20
-        xls.SetRowHeight(256, 1215);    //60.75 * 20
-        xls.SetRowHeight(257, 615);    //30.75 * 20
-        xls.SetRowHeight(258, 615);    //30.75 * 20
-        xls.SetRowHeight(259, 915);    //45.75 * 20
-        xls.SetRowHeight(260, 615);    //30.75 * 20
-        xls.SetRowHeight(266, 2205);    //110.25 * 20
-        xls.SetRowHeight(267, 615);    //30.75 * 20
-        xls.SetRowHeight(268, 615);    //30.75 * 20
-        xls.SetRowHeight(269, 915);    //45.75 * 20
-        xls.SetRowHeight(270, 615);    //30.75 * 20
-        xls.SetRowHeight(276, 2520);    //126.00 * 20
-        xls.SetRowHeight(280, 615);    //30.75 * 20
-        xls.SetRowHeight(281, 615);    //30.75 * 20
-        xls.SetRowHeight(282, 915);    //45.75 * 20
-        xls.SetRowHeight(283, 615);    //30.75 * 20
-        xls.SetRowHeight(285, 2115);    //105.75 * 20
-        xls.SetRowHeight(289, 615);    //30.75 * 20
-        xls.SetRowHeight(298, 1260);    //63.00 * 20
-        xls.SetRowHeight(348, 4410);    //220.50 * 20
-        xls.SetRowHeight(349, 2835);    //141.75 * 20
-        xls.SetRowHeight(350, 3780);    //189.00 * 20
-        xls.SetRowHeight(370, 2115);    //105.75 * 20
-        xls.SetRowHeight(371, 3960);    //198.00 * 20
-        xls.SetRowHeight(372, 3915);    //195.75 * 20
-        xls.SetRowHeight(388, 1575);    //78.75 * 20
-        xls.SetRowHeight(393, 2835);    //141.75 * 20
-        xls.SetRowHeight(395, 2835);    //141.75 * 20
-        xls.SetRowHeight(399, 2415);    //120.75 * 20
-        xls.SetRowHeight(400, 2835);    //141.75 * 20
-        xls.SetRowHeight(408, 3015);    //150.75 * 20
-        xls.SetRowHeight(416, 6615);    //330.75 * 20
-        xls.SetRowHeight(418, 3015);    //150.75 * 20
-        xls.SetRowHeight(421, 3615);    //180.75 * 20
-        xls.SetRowHeight(422, 4215);    //210.75 * 20
-        xls.SetRowHeight(424, 6015);    //300.75 * 20
-        xls.SetRowHeight(425, 720);    //36.00 * 20
-        xls.SetRowHeight(426, 3600);    //180.00 * 20
-        xls.SetRowHeight(427, 1440);    //72.00 * 20
+        xls.SetRowHeight(228, 945);    //47.25 * 20
+        xls.SetRowHeight(229, 300);    //15.00 * 20
+        xls.SetRowHeight(230, 300);    //15.00 * 20
+        xls.SetRowHeight(266, 630);    //31.50 * 20
+        xls.SetRowHeight(276, 900);    //45.00 * 20
+        xls.SetRowHeight(348, 630);    //31.50 * 20
+        xls.SetRowHeight(349, 630);    //31.50 * 20
+        xls.SetRowHeight(350, 630);    //31.50 * 20
+        xls.SetRowHeight(371, 720);    //36.00 * 20
+        xls.SetRowHeight(372, 615);    //30.75 * 20
+        xls.SetRowHeight(393, 630);    //31.50 * 20
+        xls.SetRowHeight(395, 630);    //31.50 * 20
+        xls.SetRowHeight(400, 630);    //31.50 * 20
+        xls.SetRowHeight(408, 615);    //30.75 * 20
+        xls.SetRowHeight(416, 1215);    //60.75 * 20
+        xls.SetRowHeight(418, 615);    //30.75 * 20
+        xls.SetRowHeight(421, 615);    //30.75 * 20
+        xls.SetRowHeight(422, 615);    //30.75 * 20
+        xls.SetRowHeight(424, 915);    //45.75 * 20
+        xls.SetRowHeight(425, 360);    //18.00 * 20
+        xls.SetRowHeight(426, 720);    //36.00 * 20
+        xls.SetRowHeight(427, 360);    //18.00 * 20
         xls.SetRowHeight(428, 360);    //18.00 * 20
-        xls.SetRowHeight(429, 2160);    //108.00 * 20
-        xls.SetRowHeight(430, 2160);    //108.00 * 20
-        xls.SetRowHeight(431, 2160);    //108.00 * 20
+        xls.SetRowHeight(429, 360);    //18.00 * 20
+        xls.SetRowHeight(430, 360);    //18.00 * 20
+        xls.SetRowHeight(431, 360);    //18.00 * 20
         xls.SetRowHeight(432, 360);    //18.00 * 20
         xls.SetRowHeight(433, 360);    //18.00 * 20
 
         //Merged Cells
-        xls.MergeCells(229, 6, 231, 6);
         xls.MergeCells(230, 2, 231, 2);
         xls.MergeCells(56, 16, 56, 19);
         xls.MergeCells(143, 4, 143, 6);
+        xls.MergeCells(194, 4, 194, 6);
         xls.MergeCells(158, 9, 158, 10);
         xls.MergeCells(170, 4, 170, 6);
+        xls.MergeCells(229, 6, 231, 6);
         xls.MergeCells(183, 4, 183, 6);
-        xls.MergeCells(194, 4, 194, 6);
 
         //Set the cell values
         TFlxFormat fmt;
@@ -491,7 +508,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(6, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(6, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F152"));
+        xls.SetCellValue(6, 2, new TFormula("='Inputs TOT advanced'!F152"));
 
         fmt = xls.GetCellVisibleFormatDef(6, 3);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -509,7 +526,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(6, 8, xls.AddFormat(fmt));
-        xls.SetCellValue(6, 8, new TFormula("=IF(B6=\".\",C6/'[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!$C$7,B6)"));
+        xls.SetCellValue(6, 8, new TFormula("=IF(B6=\".\",C6/Conversiones!$C$7,B6)"));
         xls.SetCellValue(7, 1, "Area de la finca en total");
 
         fmt = xls.GetCellVisibleFormatDef(7, 2);
@@ -519,7 +536,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(7, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(7, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F151"));
+        xls.SetCellValue(7, 2, new TFormula("='Inputs TOT advanced'!F151"));
 
         fmt = xls.GetCellVisibleFormatDef(7, 3);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -537,7 +554,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(7, 8, xls.AddFormat(fmt));
-        xls.SetCellValue(7, 8, new TFormula("=IF(B7=\".\",C7/'[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!$C$7,B7)"));
+        xls.SetCellValue(7, 8, new TFormula("=IF(B7=\".\",C7/Conversiones!$C$7,B7)"));
 
         fmt = xls.GetCellVisibleFormatDef(8, 8);
         fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
@@ -767,7 +784,7 @@ public class AdvancedInputs
         xls.SetCellFormat(18, 1, xls.AddFormat(fmt));
         xls.SetCellValue(18, 1, "Arabe");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -775,9 +792,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(18, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(18, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F157"));
+        xls.SetCellValue(18, 2, new TFormula("='Inputs TOT advanced'!F157"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -805,7 +822,7 @@ public class AdvancedInputs
         xls.SetCellFormat(19, 1, xls.AddFormat(fmt));
         xls.SetCellValue(19, 1, "Borbon");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -813,9 +830,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(19, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(19, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F158"));
+        xls.SetCellValue(19, 2, new TFormula("='Inputs TOT advanced'!F158"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -844,7 +861,7 @@ public class AdvancedInputs
         xls.SetCellFormat(20, 1, xls.AddFormat(fmt));
         xls.SetCellValue(20, 1, "Catimore");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -852,9 +869,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(20, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(20, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F159"));
+        xls.SetCellValue(20, 2, new TFormula("='Inputs TOT advanced'!F159"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -883,7 +900,7 @@ public class AdvancedInputs
         xls.SetCellFormat(21, 1, xls.AddFormat(fmt));
         xls.SetCellValue(21, 1, "Catuai");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -891,9 +908,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(21, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(21, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F160"));
+        xls.SetCellValue(21, 2, new TFormula("='Inputs TOT advanced'!F160"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -922,7 +939,7 @@ public class AdvancedInputs
         xls.SetCellFormat(22, 1, xls.AddFormat(fmt));
         xls.SetCellValue(22, 1, "Caturra");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -930,9 +947,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(22, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(22, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F161"));
+        xls.SetCellValue(22, 2, new TFormula("='Inputs TOT advanced'!F161"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -961,7 +978,7 @@ public class AdvancedInputs
         xls.SetCellFormat(23, 1, xls.AddFormat(fmt));
         xls.SetCellValue(23, 1, "Colombia");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -969,9 +986,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(23, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(23, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F162"));
+        xls.SetCellValue(23, 2, new TFormula("='Inputs TOT advanced'!F162"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1000,7 +1017,7 @@ public class AdvancedInputs
         xls.SetCellFormat(24, 1, xls.AddFormat(fmt));
         xls.SetCellValue(24, 1, "Costa Rica");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1008,9 +1025,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(24, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(24, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F163"));
+        xls.SetCellValue(24, 2, new TFormula("='Inputs TOT advanced'!F163"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1039,7 +1056,7 @@ public class AdvancedInputs
         xls.SetCellFormat(25, 1, xls.AddFormat(fmt));
         xls.SetCellValue(25, 1, "Castillo");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1047,9 +1064,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(25, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(25, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F164"));
+        xls.SetCellValue(25, 2, new TFormula("='Inputs TOT advanced'!F164"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1078,7 +1095,7 @@ public class AdvancedInputs
         xls.SetCellFormat(26, 1, xls.AddFormat(fmt));
         xls.SetCellValue(26, 1, "Giesha");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1086,9 +1103,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(26, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(26, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F165"));
+        xls.SetCellValue(26, 2, new TFormula("='Inputs TOT advanced'!F165"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1117,7 +1134,7 @@ public class AdvancedInputs
         xls.SetCellFormat(27, 1, xls.AddFormat(fmt));
         xls.SetCellValue(27, 1, "Icafe 90");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1125,9 +1142,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(27, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(27, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F166"));
+        xls.SetCellValue(27, 2, new TFormula("='Inputs TOT advanced'!F166"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1156,7 +1173,7 @@ public class AdvancedInputs
         xls.SetCellFormat(28, 1, xls.AddFormat(fmt));
         xls.SetCellValue(28, 1, "Icatu");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1164,9 +1181,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(28, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(28, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F167"));
+        xls.SetCellValue(28, 2, new TFormula("='Inputs TOT advanced'!F167"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1195,7 +1212,7 @@ public class AdvancedInputs
         xls.SetCellFormat(29, 1, xls.AddFormat(fmt));
         xls.SetCellValue(29, 1, "Lempira");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1203,9 +1220,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(29, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(29, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F168"));
+        xls.SetCellValue(29, 2, new TFormula("='Inputs TOT advanced'!F168"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1234,7 +1251,7 @@ public class AdvancedInputs
         xls.SetCellFormat(30, 1, xls.AddFormat(fmt));
         xls.SetCellValue(30, 1, "Maragogype o Marago");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1242,9 +1259,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(30, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(30, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F169"));
+        xls.SetCellValue(30, 2, new TFormula("='Inputs TOT advanced'!F169"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1273,7 +1290,7 @@ public class AdvancedInputs
         xls.SetCellFormat(31, 1, xls.AddFormat(fmt));
         xls.SetCellValue(31, 1, "Pacamara");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1281,9 +1298,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(31, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(31, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F170"));
+        xls.SetCellValue(31, 2, new TFormula("='Inputs TOT advanced'!F170"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1312,7 +1329,7 @@ public class AdvancedInputs
         xls.SetCellFormat(32, 1, xls.AddFormat(fmt));
         xls.SetCellValue(32, 1, "Pache");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1320,9 +1337,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(32, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(32, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F171"));
+        xls.SetCellValue(32, 2, new TFormula("='Inputs TOT advanced'!F171"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1351,7 +1368,7 @@ public class AdvancedInputs
         xls.SetCellFormat(33, 1, xls.AddFormat(fmt));
         xls.SetCellValue(33, 1, "Parainema");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1359,9 +1376,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(33, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(33, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F172"));
+        xls.SetCellValue(33, 2, new TFormula("='Inputs TOT advanced'!F172"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1390,7 +1407,7 @@ public class AdvancedInputs
         xls.SetCellFormat(34, 1, xls.AddFormat(fmt));
         xls.SetCellValue(34, 1, "Suprema");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1398,9 +1415,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(34, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(34, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F173"));
+        xls.SetCellValue(34, 2, new TFormula("='Inputs TOT advanced'!F173"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1429,7 +1446,7 @@ public class AdvancedInputs
         xls.SetCellFormat(35, 1, xls.AddFormat(fmt));
         xls.SetCellValue(35, 1, "Tipico");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1437,9 +1454,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(35, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(35, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F174"));
+        xls.SetCellValue(35, 2, new TFormula("='Inputs TOT advanced'!F174"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1468,7 +1485,7 @@ public class AdvancedInputs
         xls.SetCellFormat(36, 1, xls.AddFormat(fmt));
         xls.SetCellValue(36, 1, "Villaserechi");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1476,9 +1493,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(36, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(36, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F175"));
+        xls.SetCellValue(36, 2, new TFormula("='Inputs TOT advanced'!F175"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1507,7 +1524,7 @@ public class AdvancedInputs
         xls.SetCellFormat(37, 1, xls.AddFormat(fmt));
         xls.SetCellValue(37, 1, "Otra variedad:");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Foreground2, 0.799981688894314);
@@ -1515,9 +1532,9 @@ public class AdvancedInputs
         fmt.Format = "";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(37, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(37, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F176"));
+        xls.SetCellValue(37, 2, new TFormula("='Inputs TOT advanced'!F176"));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1541,7 +1558,7 @@ public class AdvancedInputs
         xls.SetCellFormat(37, 8, xls.AddFormat(fmt));
         xls.SetCellValue(38, 1, "Arboles en Total");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
@@ -1572,7 +1589,7 @@ public class AdvancedInputs
         fmt.Borders.Right.Color = TExcelColor.Automatic;
         xls.SetCellFormat(38, 8, xls.AddFormat(fmt));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         xls.SetCellFormat(39, 2, xls.AddFormat(fmt));
 
         fmt = xls.GetCellVisibleFormatDef(39, 3);
@@ -1595,7 +1612,7 @@ public class AdvancedInputs
         fmt.Borders.Right.Color = TExcelColor.Automatic;
         xls.SetCellFormat(39, 8, xls.AddFormat(fmt));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         xls.SetCellFormat(40, 2, xls.AddFormat(fmt));
 
         fmt = xls.GetCellVisibleFormatDef(40, 3);
@@ -1688,7 +1705,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(42, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(42, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F178"));
+        xls.SetCellValue(42, 2, new TFormula("='Inputs TOT advanced'!F178"));
 
         fmt = xls.GetCellVisibleFormatDef(42, 3);
         fmt.Format = "0";
@@ -1722,7 +1739,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(43, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(43, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179"));
+        xls.SetCellValue(43, 2, new TFormula("='Inputs TOT advanced'!F179"));
 
         fmt = xls.GetCellVisibleFormatDef(43, 3);
         fmt.Format = "0";
@@ -1745,7 +1762,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(44, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(44, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F180"));
+        xls.SetCellValue(44, 2, new TFormula("='Inputs TOT advanced'!F180"));
 
         fmt = xls.GetCellVisibleFormatDef(44, 3);
         fmt.Format = "0";
@@ -1876,7 +1893,7 @@ public class AdvancedInputs
         fmt.Format = "0.000";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(48, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(48, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F196"));
+        xls.SetCellValue(48, 2, new TFormula("='Inputs TOT advanced'!F196"));
 
         fmt = xls.GetCellVisibleFormatDef(48, 3);
         fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -1933,7 +1950,7 @@ public class AdvancedInputs
         fmt.Format = "0.000";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(49, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(49, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F196"));
+        xls.SetCellValue(49, 2, new TFormula("='Inputs TOT advanced'!F196"));
 
         fmt = xls.GetCellVisibleFormatDef(49, 3);
         fmt.HAlignment = THFlxAlignment.right;
@@ -1945,7 +1962,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent3, 0.399975585192419);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(49, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(49, 4, new TFormula("=D48/'[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!C11"));
+        xls.SetCellValue(49, 4, new TFormula("=D48/Conversiones!C11"));
 
         fmt = xls.GetCellVisibleFormatDef(49, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -1977,7 +1994,7 @@ public class AdvancedInputs
         fmt.Format = "0.000";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(50, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(50, 2, new TFormula("=IF(B49=\".\",\".\",B49/'[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!D14)"));
+        xls.SetCellValue(50, 2, new TFormula("=IF(B49=\".\",\".\",B49/Conversiones!D14)"));
 
         fmt = xls.GetCellVisibleFormatDef(50, 8);
         fmt.Borders.Left.Style = TFlxBorderStyle.Medium;
@@ -2059,7 +2076,7 @@ public class AdvancedInputs
         fmt.Format = "0.00000";
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(55, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(55, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F197"));
+        xls.SetCellValue(55, 2, new TFormula("='Inputs TOT advanced'!F197"));
 
         fmt = xls.GetCellVisibleFormatDef(56, 1);
         fmt.HAlignment = THFlxAlignment.center;
@@ -2176,7 +2193,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(57, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(57, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F198"));
+        xls.SetCellValue(57, 4, new TFormula("='Inputs TOT advanced'!F198"));
 
         fmt = xls.GetCellVisibleFormatDef(57, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -2223,7 +2240,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(58, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(58, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F199"));
+        xls.SetCellValue(58, 4, new TFormula("='Inputs TOT advanced'!F199"));
 
         fmt = xls.GetCellVisibleFormatDef(58, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -2270,7 +2287,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(59, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(59, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F200"));
+        xls.SetCellValue(59, 4, new TFormula("='Inputs TOT advanced'!F200"));
 
         fmt = xls.GetCellVisibleFormatDef(59, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -2315,7 +2332,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(60, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(60, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F201"));
+        xls.SetCellValue(60, 4, new TFormula("='Inputs TOT advanced'!F201"));
 
         fmt = xls.GetCellVisibleFormatDef(60, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -2630,14 +2647,14 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.000";
         xls.SetCellFormat(67, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(67, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!$F$24"));
+        xls.SetCellValue(67, 2, new TFormula("=Conversiones!$F$24"));
         xls.SetCellValue(67, 3, "PES/USD");
 
         fmt = xls.GetCellVisibleFormatDef(68, 1);
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(68, 1, xls.AddFormat(fmt));
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         xls.SetCellFormat(68, 2, xls.AddFormat(fmt));
 
         fmt = xls.GetCellVisibleFormatDef(69, 1);
@@ -2650,7 +2667,7 @@ public class AdvancedInputs
         xls.SetCellFormat(69, 1, xls.AddFormat(fmt));
         xls.SetCellValue(69, 1, "Jornal");
 
-        fmt = xls.GetStyle("Percent 2", true);
+        fmt = xls.GetStyle(xls.GetBuiltInStyleName(TBuiltInStyle.Percent, 0), true);
         xls.SetCellFormat(69, 2, xls.AddFormat(fmt));
         xls.SetCellValue(70, 2, "PES");
         xls.SetCellValue(70, 3, "USD");
@@ -2660,7 +2677,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Font.Scheme = TFontScheme.None;
         xls.SetCellFormat(71, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(71, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F202+B75"));
+        xls.SetCellValue(71, 2, new TFormula("='Inputs TOT advanced'!F202+B75"));
 
         fmt = xls.GetCellVisibleFormatDef(71, 3);
         fmt.Font.Color = TExcelColor.Automatic;
@@ -2682,7 +2699,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent1, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(72, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(72, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F205"));
+        xls.SetCellValue(72, 2, new TFormula("='Inputs TOT advanced'!F205"));
 
         fmt = xls.GetCellVisibleFormatDef(72, 3);
         fmt.Font.Color = TExcelColor.Automatic;
@@ -2719,9 +2736,9 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(74, 2);
         fmt.Format = "0.00";
         xls.SetCellFormat(74, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(74, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F144"));
+        xls.SetCellValue(74, 2, new TFormula("='Inputs TOT advanced'!F144"));
         xls.SetCellValue(75, 1, "Alimentacion Recolector");
-        xls.SetCellValue(75, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F204"));
+        xls.SetCellValue(75, 2, new TFormula("='Inputs TOT advanced'!F204"));
 
         fmt = xls.GetCellVisibleFormatDef(76, 1);
         fmt.Font.Size20 = 320;
@@ -2862,6 +2879,26 @@ public class AdvancedInputs
         fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
         xls.SetCellFormat(76, 27, xls.AddFormat(fmt));
 
+        fmt = xls.GetCellVisibleFormatDef(76, 28);
+        fmt.Font.Size20 = 320;
+        fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+        xls.SetCellFormat(76, 28, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(76, 29);
+        fmt.Font.Size20 = 320;
+        fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+        xls.SetCellFormat(76, 29, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(76, 30);
+        fmt.Font.Size20 = 320;
+        fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+        xls.SetCellFormat(76, 30, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(76, 31);
+        fmt.Font.Size20 = 320;
+        fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
+        xls.SetCellFormat(76, 31, xls.AddFormat(fmt));
+
         fmt = xls.GetCellVisibleFormatDef(78, 1);
         fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -2890,7 +2927,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0";
         xls.SetCellFormat(79, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(79, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F219"));
+        xls.SetCellValue(79, 2, new TFormula("='Inputs TOT advanced'!F219"));
 
         fmt = xls.GetCellVisibleFormatDef(79, 3);
         fmt.WrapText = true;
@@ -2990,7 +3027,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(83, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(83, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F222"));
+        xls.SetCellValue(83, 4, new TFormula("='Inputs TOT advanced'!F222"));
 
         fmt = xls.GetCellVisibleFormatDef(83, 5);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -3200,7 +3237,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0";
         xls.SetCellFormat(91, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(91, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F223"));
+        xls.SetCellValue(91, 2, new TFormula("='Inputs TOT advanced'!F223"));
 
         fmt = xls.GetCellVisibleFormatDef(91, 13);
         fmt.Font.Style = TFlxFontStyles.Bold;
@@ -3443,7 +3480,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0";
         xls.SetCellFormat(94, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(94, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F226"));
+        xls.SetCellValue(94, 2, new TFormula("='Inputs TOT advanced'!F226"));
 
         fmt = xls.GetCellVisibleFormatDef(94, 3);
         fmt.Font.Style = TFlxFontStyles.Bold;
@@ -3547,7 +3584,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(95, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(95, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F227"));
+        xls.SetCellValue(95, 2, new TFormula("='Inputs TOT advanced'!F227"));
 
         fmt = xls.GetCellVisibleFormatDef(95, 3);
         fmt.Font.Style = TFlxFontStyles.Bold;
@@ -4175,7 +4212,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(109, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(109, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F230"));
+        xls.SetCellValue(109, 2, new TFormula("='Inputs TOT advanced'!F230"));
 
         fmt = xls.GetCellVisibleFormatDef(109, 3);
         fmt.WrapText = true;
@@ -4305,7 +4342,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0.00";
         xls.SetCellFormat(110, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(110, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F235"));
+        xls.SetCellValue(110, 2, new TFormula("='Inputs TOT advanced'!F235"));
         xls.SetCellValue(110, 3, "Preparacion terreno (Año 0) ");
 
         fmt = xls.GetCellVisibleFormatDef(110, 4);
@@ -4470,6 +4507,15 @@ public class AdvancedInputs
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(110, 27, xls.AddFormat(fmt));
 
+        fmt = xls.GetCellVisibleFormatDef(110, 29);
+        fmt.HAlignment = THFlxAlignment.center;
+        xls.SetCellFormat(110, 29, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(110, 30);
+        fmt.Font.Color = TExcelColor.Automatic;
+        fmt.Font.Scheme = TFontScheme.None;
+        xls.SetCellFormat(110, 30, xls.AddFormat(fmt));
+
         fmt = xls.GetCellVisibleFormatDef(111, 1);
         fmt.Font.Style = TFlxFontStyles.Bold;
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -4481,7 +4527,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(111, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(111, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(111, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F233"));
+        xls.SetCellValue(111, 2, new TFormula("='Inputs TOT advanced'!F233"));
 
         fmt = xls.GetCellVisibleFormatDef(111, 3);
         fmt.WrapText = true;
@@ -4563,6 +4609,10 @@ public class AdvancedInputs
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(111, 27, xls.AddFormat(fmt));
 
+        fmt = xls.GetCellVisibleFormatDef(111, 29);
+        fmt.HAlignment = THFlxAlignment.center;
+        xls.SetCellFormat(111, 29, xls.AddFormat(fmt));
+
         fmt = xls.GetCellVisibleFormatDef(112, 1);
         fmt.Font.Style = TFlxFontStyles.Bold;
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -4574,7 +4624,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(112, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(112, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(112, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F239"));
+        xls.SetCellValue(112, 2, new TFormula("='Inputs TOT advanced'!F239"));
 
         fmt = xls.GetCellVisibleFormatDef(112, 3);
         fmt.WrapText = true;
@@ -5354,7 +5404,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(125, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(125, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F240"));
+        xls.SetCellValue(125, 2, new TFormula("='Inputs TOT advanced'!F240"));
 
         fmt = xls.GetCellVisibleFormatDef(125, 3);
         fmt.WrapText = true;
@@ -5484,7 +5534,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(126, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(126, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F245"));
+        xls.SetCellValue(126, 2, new TFormula("='Inputs TOT advanced'!F245"));
         xls.SetCellValue(126, 3, "Preparacion terreno (Año 0) ");
 
         fmt = xls.GetCellVisibleFormatDef(126, 4);
@@ -5650,6 +5700,15 @@ public class AdvancedInputs
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(126, 27, xls.AddFormat(fmt));
 
+        fmt = xls.GetCellVisibleFormatDef(126, 29);
+        fmt.HAlignment = THFlxAlignment.center;
+        xls.SetCellFormat(126, 29, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(126, 30);
+        fmt.Font.Color = TExcelColor.Automatic;
+        fmt.Font.Scheme = TFontScheme.None;
+        xls.SetCellFormat(126, 30, xls.AddFormat(fmt));
+
         fmt = xls.GetCellVisibleFormatDef(127, 1);
         fmt.Font.Style = TFlxFontStyles.Bold;
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -5663,7 +5722,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Font.Scheme = TFontScheme.None;
         xls.SetCellFormat(127, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(127, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F243"));
+        xls.SetCellValue(127, 2, new TFormula("='Inputs TOT advanced'!F243"));
 
         fmt = xls.GetCellVisibleFormatDef(127, 3);
         fmt.WrapText = true;
@@ -5745,6 +5804,10 @@ public class AdvancedInputs
         fmt.HAlignment = THFlxAlignment.center;
         xls.SetCellFormat(127, 27, xls.AddFormat(fmt));
 
+        fmt = xls.GetCellVisibleFormatDef(127, 29);
+        fmt.HAlignment = THFlxAlignment.center;
+        xls.SetCellFormat(127, 29, xls.AddFormat(fmt));
+
         fmt = xls.GetCellVisibleFormatDef(128, 1);
         fmt.Font.Style = TFlxFontStyles.Bold;
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -5756,7 +5819,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(128, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(128, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(128, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F249"));
+        xls.SetCellValue(128, 2, new TFormula("='Inputs TOT advanced'!F249"));
 
         fmt = xls.GetCellVisibleFormatDef(128, 3);
         fmt.WrapText = true;
@@ -6846,7 +6909,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(147, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(147, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F78"));
+        xls.SetCellValue(147, 12, new TFormula("='Inputs TOT advanced'!F78"));
 
         fmt = xls.GetCellVisibleFormatDef(147, 13);
         fmt.Format = "0.0";
@@ -6933,7 +6996,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(148, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(148, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F78"));
+        xls.SetCellValue(148, 12, new TFormula("='Inputs TOT advanced'!F78"));
 
         fmt = xls.GetCellVisibleFormatDef(148, 13);
         fmt.Format = "0.0";
@@ -7020,7 +7083,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(149, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(149, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F105"));
+        xls.SetCellValue(149, 12, new TFormula("='Inputs TOT advanced'!F105"));
 
         fmt = xls.GetCellVisibleFormatDef(149, 13);
         fmt.Format = "0.0";
@@ -7107,7 +7170,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(150, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(150, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F105"));
+        xls.SetCellValue(150, 12, new TFormula("='Inputs TOT advanced'!F105"));
 
         fmt = xls.GetCellVisibleFormatDef(150, 13);
         fmt.Format = "0.0";
@@ -7194,7 +7257,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(151, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(151, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F132"));
+        xls.SetCellValue(151, 12, new TFormula("='Inputs TOT advanced'!F132"));
 
         fmt = xls.GetCellVisibleFormatDef(151, 13);
         fmt.Format = "0.0";
@@ -7282,7 +7345,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(152, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(152, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F132"));
+        xls.SetCellValue(152, 12, new TFormula("='Inputs TOT advanced'!F132"));
 
         fmt = xls.GetCellVisibleFormatDef(152, 13);
         fmt.Format = "0.0";
@@ -7366,7 +7429,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0000";
         xls.SetCellFormat(153, 12, xls.AddFormat(fmt));
-        xls.SetCellValue(153, 12, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F132"));
+        xls.SetCellValue(153, 12, new TFormula("='Inputs TOT advanced'!F132"));
 
         fmt = xls.GetCellVisibleFormatDef(153, 13);
         fmt.Format = "0.0";
@@ -7451,7 +7514,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(156, 8);
         fmt.Format = "0";
         xls.SetCellFormat(156, 8, xls.AddFormat(fmt));
-        xls.SetCellValue(156, 12, new TFormula("=L155*'[Coffee Interactive Tool 2.0  06_12_18.xlsx]Conversiones'!C14"));
+        xls.SetCellValue(156, 12, new TFormula("=L155*Conversiones!C14"));
 
         fmt = xls.GetCellVisibleFormatDef(157, 1);
         fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -9893,7 +9956,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(187, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(187, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F77"));
+        xls.SetCellValue(187, 4, new TFormula("='Inputs TOT advanced'!F77"));
 
         fmt = xls.GetCellVisibleFormatDef(187, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -9942,7 +10005,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(188, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(188, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F77"));
+        xls.SetCellValue(188, 4, new TFormula("='Inputs TOT advanced'!F77"));
 
         fmt = xls.GetCellVisibleFormatDef(188, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -9991,7 +10054,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(189, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(189, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F104"));
+        xls.SetCellValue(189, 4, new TFormula("='Inputs TOT advanced'!F104"));
 
         fmt = xls.GetCellVisibleFormatDef(189, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -10040,7 +10103,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(190, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(190, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F104"));
+        xls.SetCellValue(190, 4, new TFormula("='Inputs TOT advanced'!F104"));
 
         fmt = xls.GetCellVisibleFormatDef(190, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -10089,7 +10152,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(191, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(191, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F131"));
+        xls.SetCellValue(191, 4, new TFormula("='Inputs TOT advanced'!F131"));
 
         fmt = xls.GetCellVisibleFormatDef(191, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -10138,7 +10201,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(192, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(192, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F131"));
+        xls.SetCellValue(192, 4, new TFormula("='Inputs TOT advanced'!F131"));
 
         fmt = xls.GetCellVisibleFormatDef(192, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -10187,7 +10250,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(193, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(193, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F131"));
+        xls.SetCellValue(193, 4, new TFormula("='Inputs TOT advanced'!F131"));
 
         fmt = xls.GetCellVisibleFormatDef(193, 5);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -11670,7 +11733,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(232, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(232, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F252"));
+        xls.SetCellValue(232, 2, new TFormula("='Inputs TOT advanced'!F252"));
 
         fmt = xls.GetCellVisibleFormatDef(232, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11692,7 +11755,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(233, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(233, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F253"));
+        xls.SetCellValue(233, 2, new TFormula("='Inputs TOT advanced'!F253"));
 
         fmt = xls.GetCellVisibleFormatDef(233, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11714,7 +11777,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(234, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(234, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F254"));
+        xls.SetCellValue(234, 2, new TFormula("='Inputs TOT advanced'!F254"));
 
         fmt = xls.GetCellVisibleFormatDef(234, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11736,7 +11799,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(235, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(235, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F255"));
+        xls.SetCellValue(235, 2, new TFormula("='Inputs TOT advanced'!F255"));
 
         fmt = xls.GetCellVisibleFormatDef(235, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11754,7 +11817,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(236, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(236, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F256"));
+        xls.SetCellValue(236, 2, new TFormula("='Inputs TOT advanced'!F256"));
 
         fmt = xls.GetCellVisibleFormatDef(236, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11772,7 +11835,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(237, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(237, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F257"));
+        xls.SetCellValue(237, 2, new TFormula("='Inputs TOT advanced'!F257"));
 
         fmt = xls.GetCellVisibleFormatDef(237, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11795,7 +11858,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(238, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(238, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F258"));
+        xls.SetCellValue(238, 2, new TFormula("='Inputs TOT advanced'!F258"));
 
         fmt = xls.GetCellVisibleFormatDef(238, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11831,7 +11894,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(241, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(241, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F260"));
+        xls.SetCellValue(241, 2, new TFormula("='Inputs TOT advanced'!F260"));
 
         fmt = xls.GetCellVisibleFormatDef(241, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11849,7 +11912,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(242, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(242, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F261"));
+        xls.SetCellValue(242, 2, new TFormula("='Inputs TOT advanced'!F261"));
 
         fmt = xls.GetCellVisibleFormatDef(242, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11867,7 +11930,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(243, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(243, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F262"));
+        xls.SetCellValue(243, 2, new TFormula("='Inputs TOT advanced'!F262"));
 
         fmt = xls.GetCellVisibleFormatDef(243, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11889,7 +11952,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(244, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(244, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F263"));
+        xls.SetCellValue(244, 2, new TFormula("='Inputs TOT advanced'!F263"));
 
         fmt = xls.GetCellVisibleFormatDef(244, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11907,7 +11970,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(245, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(245, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F264"));
+        xls.SetCellValue(245, 2, new TFormula("='Inputs TOT advanced'!F264"));
 
         fmt = xls.GetCellVisibleFormatDef(245, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11925,7 +11988,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(246, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(246, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F265"));
+        xls.SetCellValue(246, 2, new TFormula("='Inputs TOT advanced'!F265"));
 
         fmt = xls.GetCellVisibleFormatDef(246, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11944,7 +12007,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(247, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(247, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F266"));
+        xls.SetCellValue(247, 2, new TFormula("='Inputs TOT advanced'!F266"));
 
         fmt = xls.GetCellVisibleFormatDef(247, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11963,7 +12026,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(248, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(248, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F267"));
+        xls.SetCellValue(248, 2, new TFormula("='Inputs TOT advanced'!F267"));
 
         fmt = xls.GetCellVisibleFormatDef(248, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -11982,7 +12045,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(249, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(249, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F268"));
+        xls.SetCellValue(249, 2, new TFormula("='Inputs TOT advanced'!F268"));
 
         fmt = xls.GetCellVisibleFormatDef(249, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12006,7 +12069,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(250, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(250, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F269"));
+        xls.SetCellValue(250, 2, new TFormula("='Inputs TOT advanced'!F269"));
 
         fmt = xls.GetCellVisibleFormatDef(250, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12029,7 +12092,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(251, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(251, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F270"));
+        xls.SetCellValue(251, 2, new TFormula("='Inputs TOT advanced'!F270"));
 
         fmt = xls.GetCellVisibleFormatDef(251, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12051,7 +12114,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(252, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(252, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F271"));
+        xls.SetCellValue(252, 2, new TFormula("='Inputs TOT advanced'!F271"));
 
         fmt = xls.GetCellVisibleFormatDef(252, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12074,7 +12137,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(253, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(253, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F272"));
+        xls.SetCellValue(253, 2, new TFormula("='Inputs TOT advanced'!F272"));
 
         fmt = xls.GetCellVisibleFormatDef(253, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12129,7 +12192,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(256, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(256, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F274"));
+        xls.SetCellValue(256, 2, new TFormula("='Inputs TOT advanced'!F274"));
 
         fmt = xls.GetCellVisibleFormatDef(256, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12172,7 +12235,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(258, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(258, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F275"));
+        xls.SetCellValue(258, 2, new TFormula("='Inputs TOT advanced'!F275"));
 
         fmt = xls.GetCellVisibleFormatDef(258, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12197,7 +12260,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(259, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(259, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F276"));
+        xls.SetCellValue(259, 2, new TFormula("='Inputs TOT advanced'!F276"));
 
         fmt = xls.GetCellVisibleFormatDef(259, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12223,7 +12286,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(260, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(260, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F277"));
+        xls.SetCellValue(260, 2, new TFormula("='Inputs TOT advanced'!F277"));
 
         fmt = xls.GetCellVisibleFormatDef(260, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12246,8 +12309,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TUIColor.FromArgb(0xCC, 0xFF, 0xCC);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(261, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(261, 2, new TFormula("=IF('[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179=1,0,'[Coffee"
-        + " Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F278)"));
+        xls.SetCellValue(261, 2, new TFormula("=IF('Inputs TOT advanced'!F179=1,0,'Inputs TOT advanced'!F278)"));
 
         fmt = xls.GetCellVisibleFormatDef(261, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12270,7 +12332,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(262, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(262, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F279"));
+        xls.SetCellValue(262, 2, new TFormula("='Inputs TOT advanced'!F279"));
 
         fmt = xls.GetCellVisibleFormatDef(262, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12293,7 +12355,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(263, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(263, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F280"));
+        xls.SetCellValue(263, 2, new TFormula("='Inputs TOT advanced'!F280"));
 
         fmt = xls.GetCellVisibleFormatDef(263, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12383,7 +12445,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(266, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(266, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F282"));
+        xls.SetCellValue(266, 2, new TFormula("='Inputs TOT advanced'!F282"));
 
         fmt = xls.GetCellVisibleFormatDef(266, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12431,7 +12493,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(268, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(268, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F283"));
+        xls.SetCellValue(268, 2, new TFormula("='Inputs TOT advanced'!F283"));
 
         fmt = xls.GetCellVisibleFormatDef(268, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12458,7 +12520,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(269, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(269, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F284"));
+        xls.SetCellValue(269, 2, new TFormula("='Inputs TOT advanced'!F284"));
 
         fmt = xls.GetCellVisibleFormatDef(269, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12486,7 +12548,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(270, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(270, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F285"));
+        xls.SetCellValue(270, 2, new TFormula("='Inputs TOT advanced'!F285"));
 
         fmt = xls.GetCellVisibleFormatDef(270, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12515,8 +12577,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(271, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(271, 2, new TFormula("=IF('[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179=1,0,'[Coffee"
-        + " Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F286)"));
+        xls.SetCellValue(271, 2, new TFormula("=IF('Inputs TOT advanced'!F179=1,0,'Inputs TOT advanced'!F286)"));
 
         fmt = xls.GetCellVisibleFormatDef(271, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12545,7 +12606,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(272, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(272, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F287"));
+        xls.SetCellValue(272, 2, new TFormula("='Inputs TOT advanced'!F287"));
 
         fmt = xls.GetCellVisibleFormatDef(272, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12573,7 +12634,7 @@ public class AdvancedInputs
         fmt.Format = "#,##0";
         fmt.HAlignment = THFlxAlignment.right;
         xls.SetCellFormat(273, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(273, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F288"));
+        xls.SetCellValue(273, 2, new TFormula("='Inputs TOT advanced'!F288"));
 
         fmt = xls.GetCellVisibleFormatDef(273, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12708,7 +12769,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(279, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(279, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!$F$290"));
+        xls.SetCellValue(279, 2, new TFormula("='Inputs TOT advanced'!$F$290"));
 
         fmt = xls.GetCellVisibleFormatDef(279, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12752,7 +12813,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(281, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(281, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F291"));
+        xls.SetCellValue(281, 2, new TFormula("='Inputs TOT advanced'!F291"));
 
         fmt = xls.GetCellVisibleFormatDef(281, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12781,7 +12842,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(282, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(282, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F292"));
+        xls.SetCellValue(282, 2, new TFormula("='Inputs TOT advanced'!F292"));
 
         fmt = xls.GetCellVisibleFormatDef(282, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12810,7 +12871,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(283, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(283, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F293"));
+        xls.SetCellValue(283, 2, new TFormula("='Inputs TOT advanced'!F293"));
 
         fmt = xls.GetCellVisibleFormatDef(283, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12838,7 +12899,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(284, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(284, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F294"));
+        xls.SetCellValue(284, 2, new TFormula("='Inputs TOT advanced'!F294"));
 
         fmt = xls.GetCellVisibleFormatDef(284, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12867,8 +12928,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(285, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(285, 2, new TFormula("=IF('[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179=1,0,'[Coffee"
-        + " Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F295)"));
+        xls.SetCellValue(285, 2, new TFormula("=IF('Inputs TOT advanced'!F179=1,0,'Inputs TOT advanced'!F295)"));
 
         fmt = xls.GetCellVisibleFormatDef(285, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12895,7 +12955,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(286, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(286, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F296"));
+        xls.SetCellValue(286, 2, new TFormula("='Inputs TOT advanced'!F296"));
 
         fmt = xls.GetCellVisibleFormatDef(286, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12933,7 +12993,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(288, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(288, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F297"));
+        xls.SetCellValue(288, 2, new TFormula("='Inputs TOT advanced'!F297"));
 
         fmt = xls.GetCellVisibleFormatDef(288, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -12978,7 +13038,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(290, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(290, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F298"));
+        xls.SetCellValue(290, 2, new TFormula("='Inputs TOT advanced'!F298"));
 
         fmt = xls.GetCellVisibleFormatDef(290, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13006,7 +13066,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(291, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(291, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F299"));
+        xls.SetCellValue(291, 2, new TFormula("='Inputs TOT advanced'!F299"));
 
         fmt = xls.GetCellVisibleFormatDef(291, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13034,7 +13094,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(292, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(292, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F300"));
+        xls.SetCellValue(292, 2, new TFormula("='Inputs TOT advanced'!F300"));
 
         fmt = xls.GetCellVisibleFormatDef(292, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13063,8 +13123,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(293, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(293, 2, new TFormula("=IF('[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179=1,0,'[Coffee"
-        + " Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F301)"));
+        xls.SetCellValue(293, 2, new TFormula("=IF('Inputs TOT advanced'!F179=1,0,'Inputs TOT advanced'!F301)"));
 
         fmt = xls.GetCellVisibleFormatDef(293, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13092,7 +13151,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(294, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(294, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F302"));
+        xls.SetCellValue(294, 2, new TFormula("='Inputs TOT advanced'!F302"));
 
         fmt = xls.GetCellVisibleFormatDef(294, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13119,7 +13178,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(295, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(295, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F303"));
+        xls.SetCellValue(295, 2, new TFormula("='Inputs TOT advanced'!F303"));
 
         fmt = xls.GetCellVisibleFormatDef(295, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13239,7 +13298,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(300, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(300, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F306"));
+        xls.SetCellValue(300, 2, new TFormula("='Inputs TOT advanced'!F306"));
 
         fmt = xls.GetCellVisibleFormatDef(300, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13248,7 +13307,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(300, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(300, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F307"));
+        xls.SetCellValue(300, 3, new TFormula("='Inputs TOT advanced'!F307"));
 
         fmt = xls.GetCellVisibleFormatDef(300, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13262,7 +13321,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(301, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(301, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F308"));
+        xls.SetCellValue(301, 2, new TFormula("='Inputs TOT advanced'!F308"));
 
         fmt = xls.GetCellVisibleFormatDef(301, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13271,7 +13330,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(301, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(301, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F309"));
+        xls.SetCellValue(301, 3, new TFormula("='Inputs TOT advanced'!F309"));
 
         fmt = xls.GetCellVisibleFormatDef(301, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13285,7 +13344,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(302, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(302, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F310"));
+        xls.SetCellValue(302, 2, new TFormula("='Inputs TOT advanced'!F310"));
 
         fmt = xls.GetCellVisibleFormatDef(302, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13294,7 +13353,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(302, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(302, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F311"));
+        xls.SetCellValue(302, 3, new TFormula("='Inputs TOT advanced'!F311"));
 
         fmt = xls.GetCellVisibleFormatDef(302, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13308,7 +13367,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(303, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(303, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F312"));
+        xls.SetCellValue(303, 2, new TFormula("='Inputs TOT advanced'!F312"));
 
         fmt = xls.GetCellVisibleFormatDef(303, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13317,7 +13376,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(303, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(303, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F313"));
+        xls.SetCellValue(303, 3, new TFormula("='Inputs TOT advanced'!F313"));
 
         fmt = xls.GetCellVisibleFormatDef(303, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13331,7 +13390,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(304, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(304, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F314"));
+        xls.SetCellValue(304, 2, new TFormula("='Inputs TOT advanced'!F314"));
 
         fmt = xls.GetCellVisibleFormatDef(304, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13340,7 +13399,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(304, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(304, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F315"));
+        xls.SetCellValue(304, 3, new TFormula("='Inputs TOT advanced'!F315"));
 
         fmt = xls.GetCellVisibleFormatDef(304, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13354,7 +13413,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(305, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(305, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F316"));
+        xls.SetCellValue(305, 2, new TFormula("='Inputs TOT advanced'!F316"));
 
         fmt = xls.GetCellVisibleFormatDef(305, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13363,7 +13422,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(305, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(305, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F317"));
+        xls.SetCellValue(305, 3, new TFormula("='Inputs TOT advanced'!F317"));
 
         fmt = xls.GetCellVisibleFormatDef(305, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13377,7 +13436,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(306, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(306, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F318"));
+        xls.SetCellValue(306, 2, new TFormula("='Inputs TOT advanced'!F318"));
 
         fmt = xls.GetCellVisibleFormatDef(306, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13386,7 +13445,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(306, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(306, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F319"));
+        xls.SetCellValue(306, 3, new TFormula("='Inputs TOT advanced'!F319"));
 
         fmt = xls.GetCellVisibleFormatDef(306, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13400,7 +13459,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(307, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(307, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F320"));
+        xls.SetCellValue(307, 2, new TFormula("='Inputs TOT advanced'!F320"));
 
         fmt = xls.GetCellVisibleFormatDef(307, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13409,7 +13468,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(307, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(307, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F321"));
+        xls.SetCellValue(307, 3, new TFormula("='Inputs TOT advanced'!F321"));
 
         fmt = xls.GetCellVisibleFormatDef(307, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13423,7 +13482,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(308, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(308, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F322"));
+        xls.SetCellValue(308, 2, new TFormula("='Inputs TOT advanced'!F322"));
 
         fmt = xls.GetCellVisibleFormatDef(308, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13432,7 +13491,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(308, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(308, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F323"));
+        xls.SetCellValue(308, 3, new TFormula("='Inputs TOT advanced'!F323"));
 
         fmt = xls.GetCellVisibleFormatDef(308, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13446,7 +13505,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(309, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(309, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F324"));
+        xls.SetCellValue(309, 2, new TFormula("='Inputs TOT advanced'!F324"));
 
         fmt = xls.GetCellVisibleFormatDef(309, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13455,7 +13514,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(309, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(309, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F325"));
+        xls.SetCellValue(309, 3, new TFormula("='Inputs TOT advanced'!F325"));
 
         fmt = xls.GetCellVisibleFormatDef(309, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13469,7 +13528,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(310, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(310, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F326"));
+        xls.SetCellValue(310, 2, new TFormula("='Inputs TOT advanced'!F326"));
 
         fmt = xls.GetCellVisibleFormatDef(310, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13478,7 +13537,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(310, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(310, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F327"));
+        xls.SetCellValue(310, 3, new TFormula("='Inputs TOT advanced'!F327"));
 
         fmt = xls.GetCellVisibleFormatDef(310, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13492,7 +13551,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(311, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(311, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F328"));
+        xls.SetCellValue(311, 2, new TFormula("='Inputs TOT advanced'!F328"));
 
         fmt = xls.GetCellVisibleFormatDef(311, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13501,7 +13560,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(311, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(311, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F329"));
+        xls.SetCellValue(311, 3, new TFormula("='Inputs TOT advanced'!F329"));
 
         fmt = xls.GetCellVisibleFormatDef(311, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13515,7 +13574,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(312, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(312, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F330"));
+        xls.SetCellValue(312, 2, new TFormula("='Inputs TOT advanced'!F330"));
 
         fmt = xls.GetCellVisibleFormatDef(312, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13524,7 +13583,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(312, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(312, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F331"));
+        xls.SetCellValue(312, 3, new TFormula("='Inputs TOT advanced'!F331"));
 
         fmt = xls.GetCellVisibleFormatDef(312, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13538,7 +13597,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(313, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(313, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F332"));
+        xls.SetCellValue(313, 2, new TFormula("='Inputs TOT advanced'!F332"));
 
         fmt = xls.GetCellVisibleFormatDef(313, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13547,7 +13606,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(313, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(313, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F333"));
+        xls.SetCellValue(313, 3, new TFormula("='Inputs TOT advanced'!F333"));
 
         fmt = xls.GetCellVisibleFormatDef(313, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13561,7 +13620,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(314, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(314, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F334"));
+        xls.SetCellValue(314, 2, new TFormula("='Inputs TOT advanced'!F334"));
 
         fmt = xls.GetCellVisibleFormatDef(314, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13570,7 +13629,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.0";
         xls.SetCellFormat(314, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(314, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F335"));
+        xls.SetCellValue(314, 3, new TFormula("='Inputs TOT advanced'!F335"));
 
         fmt = xls.GetCellVisibleFormatDef(314, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13614,7 +13673,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(317, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(317, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F358"));
+        xls.SetCellValue(317, 2, new TFormula("='Inputs TOT advanced'!F358"));
 
         fmt = xls.GetCellVisibleFormatDef(317, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13622,7 +13681,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(317, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(317, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F359"));
+        xls.SetCellValue(317, 3, new TFormula("='Inputs TOT advanced'!F359"));
 
         fmt = xls.GetCellVisibleFormatDef(317, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13636,7 +13695,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(318, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(318, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F360"));
+        xls.SetCellValue(318, 2, new TFormula("='Inputs TOT advanced'!F360"));
 
         fmt = xls.GetCellVisibleFormatDef(318, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13644,7 +13703,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(318, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(318, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F361"));
+        xls.SetCellValue(318, 3, new TFormula("='Inputs TOT advanced'!F361"));
 
         fmt = xls.GetCellVisibleFormatDef(318, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13658,7 +13717,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(319, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(319, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F362"));
+        xls.SetCellValue(319, 2, new TFormula("='Inputs TOT advanced'!F362"));
 
         fmt = xls.GetCellVisibleFormatDef(319, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13666,7 +13725,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(319, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(319, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F363"));
+        xls.SetCellValue(319, 3, new TFormula("='Inputs TOT advanced'!F363"));
 
         fmt = xls.GetCellVisibleFormatDef(319, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13680,7 +13739,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(320, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(320, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F364"));
+        xls.SetCellValue(320, 2, new TFormula("='Inputs TOT advanced'!F364"));
 
         fmt = xls.GetCellVisibleFormatDef(320, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13688,7 +13747,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(320, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(320, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F365"));
+        xls.SetCellValue(320, 3, new TFormula("='Inputs TOT advanced'!F365"));
 
         fmt = xls.GetCellVisibleFormatDef(320, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13702,7 +13761,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(321, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(321, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F366"));
+        xls.SetCellValue(321, 2, new TFormula("='Inputs TOT advanced'!F366"));
 
         fmt = xls.GetCellVisibleFormatDef(321, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13710,7 +13769,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(321, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(321, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F367"));
+        xls.SetCellValue(321, 3, new TFormula("='Inputs TOT advanced'!F367"));
 
         fmt = xls.GetCellVisibleFormatDef(321, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13724,7 +13783,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(322, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(322, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F368"));
+        xls.SetCellValue(322, 2, new TFormula("='Inputs TOT advanced'!F368"));
 
         fmt = xls.GetCellVisibleFormatDef(322, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13732,7 +13791,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(322, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(322, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F369"));
+        xls.SetCellValue(322, 3, new TFormula("='Inputs TOT advanced'!F369"));
 
         fmt = xls.GetCellVisibleFormatDef(322, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13746,7 +13805,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(323, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(323, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F370"));
+        xls.SetCellValue(323, 2, new TFormula("='Inputs TOT advanced'!F370"));
 
         fmt = xls.GetCellVisibleFormatDef(323, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13754,7 +13813,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(323, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(323, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F371"));
+        xls.SetCellValue(323, 3, new TFormula("='Inputs TOT advanced'!F371"));
 
         fmt = xls.GetCellVisibleFormatDef(323, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13768,7 +13827,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(324, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(324, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F372"));
+        xls.SetCellValue(324, 2, new TFormula("='Inputs TOT advanced'!F372"));
 
         fmt = xls.GetCellVisibleFormatDef(324, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13776,7 +13835,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(324, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(324, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F373"));
+        xls.SetCellValue(324, 3, new TFormula("='Inputs TOT advanced'!F373"));
 
         fmt = xls.GetCellVisibleFormatDef(324, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13790,7 +13849,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(325, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(325, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F374"));
+        xls.SetCellValue(325, 2, new TFormula("='Inputs TOT advanced'!F374"));
 
         fmt = xls.GetCellVisibleFormatDef(325, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13798,7 +13857,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(325, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(325, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F375"));
+        xls.SetCellValue(325, 3, new TFormula("='Inputs TOT advanced'!F375"));
 
         fmt = xls.GetCellVisibleFormatDef(325, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13812,7 +13871,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(326, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(326, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F376"));
+        xls.SetCellValue(326, 2, new TFormula("='Inputs TOT advanced'!F376"));
 
         fmt = xls.GetCellVisibleFormatDef(326, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13820,7 +13879,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(326, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(326, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F377"));
+        xls.SetCellValue(326, 3, new TFormula("='Inputs TOT advanced'!F377"));
 
         fmt = xls.GetCellVisibleFormatDef(326, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13834,7 +13893,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(327, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(327, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F378"));
+        xls.SetCellValue(327, 2, new TFormula("='Inputs TOT advanced'!F378"));
 
         fmt = xls.GetCellVisibleFormatDef(327, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13842,7 +13901,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(327, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(327, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F379"));
+        xls.SetCellValue(327, 3, new TFormula("='Inputs TOT advanced'!F379"));
 
         fmt = xls.GetCellVisibleFormatDef(327, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13875,7 +13934,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(329, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(329, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F380"));
+        xls.SetCellValue(329, 2, new TFormula("='Inputs TOT advanced'!F380"));
 
         fmt = xls.GetCellVisibleFormatDef(329, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13883,7 +13942,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(329, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(329, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F381"));
+        xls.SetCellValue(329, 3, new TFormula("='Inputs TOT advanced'!F381"));
 
         fmt = xls.GetCellVisibleFormatDef(329, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13897,7 +13956,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(330, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(330, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F382"));
+        xls.SetCellValue(330, 2, new TFormula("='Inputs TOT advanced'!F382"));
 
         fmt = xls.GetCellVisibleFormatDef(330, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13905,7 +13964,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(330, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(330, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F383"));
+        xls.SetCellValue(330, 3, new TFormula("='Inputs TOT advanced'!F383"));
 
         fmt = xls.GetCellVisibleFormatDef(330, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13919,7 +13978,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(331, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(331, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F384"));
+        xls.SetCellValue(331, 2, new TFormula("='Inputs TOT advanced'!F384"));
 
         fmt = xls.GetCellVisibleFormatDef(331, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13927,7 +13986,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(331, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(331, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F385"));
+        xls.SetCellValue(331, 3, new TFormula("='Inputs TOT advanced'!F385"));
         xls.SetCellValue(332, 1, "Escoba");
 
         fmt = xls.GetCellVisibleFormatDef(332, 2);
@@ -13937,7 +13996,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(332, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(332, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F386"));
+        xls.SetCellValue(332, 2, new TFormula("='Inputs TOT advanced'!F386"));
 
         fmt = xls.GetCellVisibleFormatDef(332, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13945,7 +14004,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(332, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(332, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F387"));
+        xls.SetCellValue(332, 3, new TFormula("='Inputs TOT advanced'!F387"));
         xls.SetCellValue(333, 1, "Bodega");
 
         fmt = xls.GetCellVisibleFormatDef(333, 2);
@@ -13955,7 +14014,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(333, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(333, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F388"));
+        xls.SetCellValue(333, 2, new TFormula("='Inputs TOT advanced'!F388"));
 
         fmt = xls.GetCellVisibleFormatDef(333, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13963,7 +14022,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(333, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(333, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F389"));
+        xls.SetCellValue(333, 3, new TFormula("='Inputs TOT advanced'!F389"));
 
         fmt = xls.GetCellVisibleFormatDef(333, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13977,7 +14036,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "#,##0";
         xls.SetCellFormat(334, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(334, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F390"));
+        xls.SetCellValue(334, 2, new TFormula("='Inputs TOT advanced'!F390"));
 
         fmt = xls.GetCellVisibleFormatDef(334, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -13985,7 +14044,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(334, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(334, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F391"));
+        xls.SetCellValue(334, 3, new TFormula("='Inputs TOT advanced'!F391"));
 
         fmt = xls.GetCellVisibleFormatDef(334, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14010,7 +14069,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(336, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(336, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F337"));
+        xls.SetCellValue(336, 2, new TFormula("='Inputs TOT advanced'!F337"));
 
         fmt = xls.GetCellVisibleFormatDef(336, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14018,7 +14077,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(336, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(336, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F338"));
+        xls.SetCellValue(336, 3, new TFormula("='Inputs TOT advanced'!F338"));
 
         fmt = xls.GetCellVisibleFormatDef(336, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14031,7 +14090,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(337, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(337, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F339"));
+        xls.SetCellValue(337, 2, new TFormula("='Inputs TOT advanced'!F339"));
 
         fmt = xls.GetCellVisibleFormatDef(337, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14039,7 +14098,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(337, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(337, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F340"));
+        xls.SetCellValue(337, 3, new TFormula("='Inputs TOT advanced'!F340"));
 
         fmt = xls.GetCellVisibleFormatDef(337, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14052,7 +14111,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(338, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(338, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F341"));
+        xls.SetCellValue(338, 2, new TFormula("='Inputs TOT advanced'!F341"));
 
         fmt = xls.GetCellVisibleFormatDef(338, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14060,7 +14119,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(338, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(338, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F342"));
+        xls.SetCellValue(338, 3, new TFormula("='Inputs TOT advanced'!F342"));
 
         fmt = xls.GetCellVisibleFormatDef(338, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14073,7 +14132,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(339, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(339, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F345"));
+        xls.SetCellValue(339, 2, new TFormula("='Inputs TOT advanced'!F345"));
 
         fmt = xls.GetCellVisibleFormatDef(339, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14081,7 +14140,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(339, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(339, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F346"));
+        xls.SetCellValue(339, 3, new TFormula("='Inputs TOT advanced'!F346"));
 
         fmt = xls.GetCellVisibleFormatDef(339, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14094,7 +14153,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(340, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(340, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F347"));
+        xls.SetCellValue(340, 2, new TFormula("='Inputs TOT advanced'!F347"));
 
         fmt = xls.GetCellVisibleFormatDef(340, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14102,7 +14161,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(340, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(340, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F348"));
+        xls.SetCellValue(340, 3, new TFormula("='Inputs TOT advanced'!F348"));
 
         fmt = xls.GetCellVisibleFormatDef(340, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14115,7 +14174,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(341, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(341, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F349"));
+        xls.SetCellValue(341, 2, new TFormula("='Inputs TOT advanced'!F349"));
 
         fmt = xls.GetCellVisibleFormatDef(341, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14123,7 +14182,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(341, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(341, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F350"));
+        xls.SetCellValue(341, 3, new TFormula("='Inputs TOT advanced'!F350"));
 
         fmt = xls.GetCellVisibleFormatDef(341, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14136,7 +14195,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(342, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(342, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F351"));
+        xls.SetCellValue(342, 2, new TFormula("='Inputs TOT advanced'!F351"));
 
         fmt = xls.GetCellVisibleFormatDef(342, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14144,7 +14203,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(342, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(342, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F352"));
+        xls.SetCellValue(342, 3, new TFormula("='Inputs TOT advanced'!F352"));
 
         fmt = xls.GetCellVisibleFormatDef(342, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14157,7 +14216,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(343, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(343, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F353"));
+        xls.SetCellValue(343, 2, new TFormula("='Inputs TOT advanced'!F353"));
 
         fmt = xls.GetCellVisibleFormatDef(343, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14165,7 +14224,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(343, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(343, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F354"));
+        xls.SetCellValue(343, 3, new TFormula("='Inputs TOT advanced'!F354"));
 
         fmt = xls.GetCellVisibleFormatDef(343, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14178,7 +14237,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(344, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(344, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F343"));
+        xls.SetCellValue(344, 2, new TFormula("='Inputs TOT advanced'!F343"));
 
         fmt = xls.GetCellVisibleFormatDef(344, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14186,7 +14245,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(344, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(344, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F344"));
+        xls.SetCellValue(344, 3, new TFormula("='Inputs TOT advanced'!F344"));
 
         fmt = xls.GetCellVisibleFormatDef(344, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14199,7 +14258,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(345, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(345, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F355"));
+        xls.SetCellValue(345, 2, new TFormula("='Inputs TOT advanced'!F355"));
 
         fmt = xls.GetCellVisibleFormatDef(345, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14207,7 +14266,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(345, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(345, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F356"));
+        xls.SetCellValue(345, 3, new TFormula("='Inputs TOT advanced'!F356"));
 
         fmt = xls.GetCellVisibleFormatDef(345, 4);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14283,7 +14342,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.WrapText = true;
         xls.SetCellFormat(348, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(348, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F393"));
+        xls.SetCellValue(348, 2, new TFormula("='Inputs TOT advanced'!F393"));
 
         fmt = xls.GetCellVisibleFormatDef(348, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14299,7 +14358,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(348, 4, xls.AddFormat(fmt));
-        xls.SetCellValue(348, 4, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F394"));
+        xls.SetCellValue(348, 4, new TFormula("='Inputs TOT advanced'!F394"));
 
         fmt = xls.GetCellVisibleFormatDef(348, 5);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14334,7 +14393,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(349, 5);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(349, 5, xls.AddFormat(fmt));
-        xls.SetCellValue(349, 5, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F395"));
+        xls.SetCellValue(349, 5, new TFormula("='Inputs TOT advanced'!F395"));
         xls.SetCellValue(349, 6, "kw ");
 
         fmt = xls.GetCellVisibleFormatDef(350, 1);
@@ -14403,7 +14462,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(355, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(355, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F43"));
+        xls.SetCellValue(355, 2, new TFormula("='Inputs TOT advanced'!F43"));
 
         fmt = xls.GetCellVisibleFormatDef(355, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14438,7 +14497,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "# ??/??";
         xls.SetCellFormat(356, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(356, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F44"));
+        xls.SetCellValue(356, 2, new TFormula("='Inputs TOT advanced'!F44"));
 
         fmt = xls.GetCellVisibleFormatDef(356, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14474,7 +14533,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(357, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(357, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F45"));
+        xls.SetCellValue(357, 2, new TFormula("='Inputs TOT advanced'!F45"));
 
         fmt = xls.GetCellVisibleFormatDef(357, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14509,7 +14568,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(358, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(358, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F46"));
+        xls.SetCellValue(358, 2, new TFormula("='Inputs TOT advanced'!F46"));
 
         fmt = xls.GetCellVisibleFormatDef(358, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14547,7 +14606,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(360, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(360, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F48"));
+        xls.SetCellValue(360, 2, new TFormula("='Inputs TOT advanced'!F48"));
 
         fmt = xls.GetCellVisibleFormatDef(360, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14578,7 +14637,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(361, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(361, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F49"));
+        xls.SetCellValue(361, 2, new TFormula("='Inputs TOT advanced'!F49"));
 
         fmt = xls.GetCellVisibleFormatDef(361, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14609,7 +14668,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(362, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(362, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F50"));
+        xls.SetCellValue(362, 2, new TFormula("='Inputs TOT advanced'!F50"));
 
         fmt = xls.GetCellVisibleFormatDef(362, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14645,7 +14704,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(364, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(364, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F52"));
+        xls.SetCellValue(364, 2, new TFormula("='Inputs TOT advanced'!F52"));
 
         fmt = xls.GetCellVisibleFormatDef(364, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14676,7 +14735,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(365, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(365, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F53"));
+        xls.SetCellValue(365, 2, new TFormula("='Inputs TOT advanced'!F53"));
 
         fmt = xls.GetCellVisibleFormatDef(365, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14707,7 +14766,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(366, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(366, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F54"));
+        xls.SetCellValue(366, 2, new TFormula("='Inputs TOT advanced'!F54"));
 
         fmt = xls.GetCellVisibleFormatDef(366, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14736,7 +14795,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(367, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(367, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F55"));
+        xls.SetCellValue(367, 2, new TFormula("='Inputs TOT advanced'!F55"));
 
         fmt = xls.GetCellVisibleFormatDef(367, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14772,7 +14831,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(369, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(369, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F57"));
+        xls.SetCellValue(369, 2, new TFormula("='Inputs TOT advanced'!F57"));
 
         fmt = xls.GetCellVisibleFormatDef(369, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14819,7 +14878,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(370, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(370, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F58"));
+        xls.SetCellValue(370, 2, new TFormula("='Inputs TOT advanced'!F58"));
 
         fmt = xls.GetCellVisibleFormatDef(370, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14867,7 +14926,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(371, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(371, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F59"));
+        xls.SetCellValue(371, 2, new TFormula("='Inputs TOT advanced'!F59"));
 
         fmt = xls.GetCellVisibleFormatDef(371, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14906,7 +14965,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(372, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(372, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F60"));
+        xls.SetCellValue(372, 2, new TFormula("='Inputs TOT advanced'!F60"));
 
         fmt = xls.GetCellVisibleFormatDef(372, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -14950,7 +15009,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0.00";
         xls.SetCellFormat(373, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(373, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F61"));
+        xls.SetCellValue(373, 2, new TFormula("='Inputs TOT advanced'!F61"));
 
         fmt = xls.GetCellVisibleFormatDef(373, 3);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
@@ -15031,7 +15090,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(380, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(380, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F398"));
+        xls.SetCellValue(380, 2, new TFormula("='Inputs TOT advanced'!F398"));
         xls.SetCellValue(381, 1, "Membresía annual");
 
         fmt = xls.GetCellVisibleFormatDef(381, 3);
@@ -15040,7 +15099,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(381, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(381, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F399"));
+        xls.SetCellValue(381, 3, new TFormula("='Inputs TOT advanced'!F399"));
         xls.SetCellValue(382, 1, "Seguro de vida");
 
         fmt = xls.GetCellVisibleFormatDef(382, 3);
@@ -15049,7 +15108,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(382, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(382, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F400"));
+        xls.SetCellValue(382, 3, new TFormula("='Inputs TOT advanced'!F400"));
 
         fmt = xls.GetCellVisibleFormatDef(383, 1);
         fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -15062,7 +15121,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(383, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(383, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F401"));
+        xls.SetCellValue(383, 3, new TFormula("='Inputs TOT advanced'!F401"));
 
         fmt = xls.GetCellVisibleFormatDef(384, 1);
         fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -15075,7 +15134,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(384, 3, xls.AddFormat(fmt));
-        xls.SetCellValue(384, 3, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F402"));
+        xls.SetCellValue(384, 3, new TFormula("='Inputs TOT advanced'!F402"));
 
         fmt = xls.GetCellVisibleFormatDef(386, 1);
         fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -15103,7 +15162,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(387, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(387, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F404"));
+        xls.SetCellValue(387, 2, new TFormula("='Inputs TOT advanced'!F404"));
 
         fmt = xls.GetCellVisibleFormatDef(388, 1);
         fmt.Font.Style = TFlxFontStyles.Bold;
@@ -15132,7 +15191,7 @@ public class AdvancedInputs
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         fmt.Format = "0";
         xls.SetCellFormat(389, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(389, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F405"));
+        xls.SetCellValue(389, 2, new TFormula("='Inputs TOT advanced'!F405"));
 
         fmt = xls.GetCellVisibleFormatDef(389, 3);
         fmt.FillPattern.Pattern = TFlxPatternStyle.Solid;
@@ -15172,7 +15231,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(393, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(393, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!$F$408"));
+        xls.SetCellValue(393, 2, new TFormula("='Inputs TOT advanced'!$F$408"));
 
         fmt = xls.GetCellVisibleFormatDef(395, 1);
         fmt.Font.Color = TUIColor.FromArgb(0xFF, 0x00, 0x00);
@@ -15186,7 +15245,7 @@ public class AdvancedInputs
         fmt.FillPattern.FgColor = TExcelColor.FromTheme(TThemeColor.Accent5, 0.799981688894314);
         fmt.FillPattern.BgColor = TExcelColor.Automatic;
         xls.SetCellFormat(395, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(395, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F406"));
+        xls.SetCellValue(395, 2, new TFormula("='Inputs TOT advanced'!F406"));
 
         fmt = xls.GetCellVisibleFormatDef(398, 1);
         fmt.Font.Color = TExcelColor.FromTheme(TThemeColor.Background1);
@@ -15216,7 +15275,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(399, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(399, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(399, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F146"));
+        xls.SetCellValue(399, 2, new TFormula("='Inputs TOT advanced'!F146"));
 
         fmt = xls.GetCellVisibleFormatDef(400, 1);
         fmt.Font.Name = "Arial";
@@ -15238,7 +15297,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(400, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(400, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(400, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F149"));
+        xls.SetCellValue(400, 2, new TFormula("='Inputs TOT advanced'!F149"));
 
         fmt = xls.GetCellVisibleFormatDef(403, 1);
         fmt.Font.Name = "Arial";
@@ -15274,7 +15333,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(404, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(404, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(404, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F178"));
+        xls.SetCellValue(404, 2, new TFormula("='Inputs TOT advanced'!F178"));
 
         fmt = xls.GetCellVisibleFormatDef(405, 1);
         fmt.Font.Name = "Arial";
@@ -15294,7 +15353,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(405, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(405, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(405, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F179"));
+        xls.SetCellValue(405, 2, new TFormula("='Inputs TOT advanced'!F179"));
 
         fmt = xls.GetCellVisibleFormatDef(406, 1);
         fmt.Font.Name = "Arial";
@@ -15314,7 +15373,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(406, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(406, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(406, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F180"));
+        xls.SetCellValue(406, 2, new TFormula("='Inputs TOT advanced'!F180"));
 
         fmt = xls.GetCellVisibleFormatDef(408, 1);
         fmt.Font.Name = "Arial";
@@ -15351,7 +15410,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(409, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(409, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(409, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F182"));
+        xls.SetCellValue(409, 2, new TFormula("='Inputs TOT advanced'!F182"));
 
         fmt = xls.GetCellVisibleFormatDef(410, 1);
         fmt.Font.Name = "Arial";
@@ -15371,7 +15430,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(410, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(410, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(410, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F183"));
+        xls.SetCellValue(410, 2, new TFormula("='Inputs TOT advanced'!F183"));
 
         fmt = xls.GetCellVisibleFormatDef(411, 1);
         fmt.Font.Name = "Arial";
@@ -15391,7 +15450,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(411, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(411, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(411, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F184"));
+        xls.SetCellValue(411, 2, new TFormula("='Inputs TOT advanced'!F184"));
 
         fmt = xls.GetCellVisibleFormatDef(412, 1);
         fmt.Font.Name = "Arial";
@@ -15411,7 +15470,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(412, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(412, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(412, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F185"));
+        xls.SetCellValue(412, 2, new TFormula("='Inputs TOT advanced'!F185"));
 
         fmt = xls.GetCellVisibleFormatDef(413, 1);
         fmt.Font.Name = "Arial";
@@ -15448,7 +15507,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(416, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(416, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(416, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F197"));
+        xls.SetCellValue(416, 2, new TFormula("='Inputs TOT advanced'!F197"));
 
         fmt = xls.GetCellVisibleFormatDef(418, 1);
         fmt.Font.Name = "Arial";
@@ -15483,7 +15542,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(421, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(421, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(421, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F206"));
+        xls.SetCellValue(421, 2, new TFormula("='Inputs TOT advanced'!F206"));
 
         fmt = xls.GetCellVisibleFormatDef(422, 1);
         fmt.Font.Name = "Arial";
@@ -15495,7 +15554,7 @@ public class AdvancedInputs
         fmt = xls.GetCellVisibleFormatDef(422, 2);
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         xls.SetCellFormat(422, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(422, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F207"));
+        xls.SetCellValue(422, 2, new TFormula("='Inputs TOT advanced'!F207"));
 
         fmt = xls.GetCellVisibleFormatDef(423, 1);
         fmt.Font.Name = "Arial";
@@ -15542,7 +15601,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(425, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(425, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F209"));
+        xls.SetCellValue(425, 2, new TFormula("='Inputs TOT advanced'!F209"));
 
         fmt = xls.GetCellVisibleFormatDef(425, 3);
         fmt.Format = "0%";
@@ -15569,7 +15628,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(426, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(426, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F210"));
+        xls.SetCellValue(426, 2, new TFormula("='Inputs TOT advanced'!F210"));
 
         fmt = xls.GetCellVisibleFormatDef(426, 3);
         fmt.Format = "0%";
@@ -15598,7 +15657,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(427, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(427, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F211"));
+        xls.SetCellValue(427, 2, new TFormula("='Inputs TOT advanced'!F211"));
 
         fmt = xls.GetCellVisibleFormatDef(427, 3);
         fmt.Format = "0%";
@@ -15625,7 +15684,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(428, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(428, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F212"));
+        xls.SetCellValue(428, 2, new TFormula("='Inputs TOT advanced'!F212"));
 
         fmt = xls.GetCellVisibleFormatDef(428, 3);
         fmt.Format = "0%";
@@ -15652,7 +15711,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(429, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(429, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F213"));
+        xls.SetCellValue(429, 2, new TFormula("='Inputs TOT advanced'!F213"));
 
         fmt = xls.GetCellVisibleFormatDef(429, 3);
         fmt.Format = "0%";
@@ -15679,7 +15738,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(430, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(430, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F214"));
+        xls.SetCellValue(430, 2, new TFormula("='Inputs TOT advanced'!F214"));
 
         fmt = xls.GetCellVisibleFormatDef(430, 3);
         fmt.Format = "0%";
@@ -15707,7 +15766,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(431, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(431, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F215"));
+        xls.SetCellValue(431, 2, new TFormula("='Inputs TOT advanced'!F215"));
 
         fmt = xls.GetCellVisibleFormatDef(431, 3);
         fmt.Format = "0%";
@@ -15734,7 +15793,7 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(432, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(432, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F216"));
+        xls.SetCellValue(432, 2, new TFormula("='Inputs TOT advanced'!F216"));
 
         fmt = xls.GetCellVisibleFormatDef(433, 1);
         fmt.Font.Name = "Arial";
@@ -15757,7 +15816,89 @@ public class AdvancedInputs
         fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
         fmt.Format = "0";
         xls.SetCellFormat(433, 2, xls.AddFormat(fmt));
-        xls.SetCellValue(433, 2, new TFormula("='[Coffee Interactive Tool 2.0  06_12_18.xlsx]Inputs TOT advanced'!F217"));
+        xls.SetCellValue(433, 2, new TFormula("='Inputs TOT advanced'!F217"));
+
+        fmt = xls.GetCellVisibleFormatDef(444, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Style = TFlxFontStyles.Bold | TFlxFontStyles.Italic;
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.WrapText = true;
+        xls.SetCellFormat(444, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(444, 2);
+        fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+        xls.SetCellFormat(444, 2, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(444, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(444, 3, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(445, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.HAlignment = THFlxAlignment.right;
+        fmt.WrapText = true;
+        xls.SetCellFormat(445, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(445, 2);
+        fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+        xls.SetCellFormat(445, 2, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(445, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(445, 3, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(446, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Color = TExcelColor.Automatic;
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.HAlignment = THFlxAlignment.right;
+        fmt.WrapText = true;
+        xls.SetCellFormat(446, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(446, 2);
+        fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+        xls.SetCellFormat(446, 2, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(446, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(446, 3, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(447, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.HAlignment = THFlxAlignment.right;
+        fmt.VAlignment = TVFlxAlignment.top;
+        fmt.WrapText = true;
+        xls.SetCellFormat(447, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(447, 2);
+        fmt.Font.Color = TUIColor.FromArgb(0x00, 0x00, 0xFF);
+        xls.SetCellFormat(447, 2, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(447, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(447, 3, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(448, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.HAlignment = THFlxAlignment.right;
+        xls.SetCellFormat(448, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(448, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(448, 3, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(449, 1);
+        fmt.Font.Name = "Arial";
+        fmt.Font.Scheme = TFontScheme.None;
+        fmt.HAlignment = THFlxAlignment.right;
+        xls.SetCellFormat(449, 1, xls.AddFormat(fmt));
+
+        fmt = xls.GetCellVisibleFormatDef(449, 3);
+        fmt.Format = "0%";
+        xls.SetCellFormat(449, 3, xls.AddFormat(fmt));
 
         //Comments
 
@@ -15781,7 +15922,7 @@ public class AdvancedInputs
 
         //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
         TCommentProperties CommentProps = TCommentProperties.CreateStandard(148, 3, xls);
-        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 147, 134, 4, 213, 151, 0, 6, 242);
+        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 144, 0, 4, 67, 147, 134, 4, 719);
 
         //Excel by doesn't autofit the comment box so it can hold all text.
         //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -15811,7 +15952,7 @@ public class AdvancedInputs
 
         //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
         CommentProps = TCommentProperties.CreateStandard(183, 4, xls);
-        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 182, 134, 7, 213, 182, 134, 9, 441);
+        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 194, 36, 5, 647, 194, 36, 6, 199);
 
         //Excel by doesn't autofit the comment box so it can hold all text.
         //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -15843,7 +15984,7 @@ public class AdvancedInputs
 
         //You probably don't need to call the lines below. This code is needed only if you want to change the comment box properties like color or default location
         CommentProps = TCommentProperties.CreateStandard(349, 1, xls);
-        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 348, 246, 2, 213, 349, 51, 4, 242);
+        CommentProps.Anchor = new TClientAnchor(TFlxAnchorType.DontMoveAndDontResize, 349, 73, 2, 77, 350, 115, 2, 823);
 
         //Excel by doesn't autofit the comment box so it can hold all text.
         //There is an option in TCommentProperties, but if you use it Excel will show the text in a single line.
@@ -15854,11 +15995,11 @@ public class AdvancedInputs
         xls.SetCommentProperties(349, 1, CommentProps);
 
         //Cell selection and scroll position.
-        xls.SelectCell(15, 15, false);
+        xls.SelectCell(27, 6, false);
 
         //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
         xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
-        xls.Recalc();
+
         //You will normally not set LastSavedBy, since this is a new file.
         //If you don't set it, FlexCel will use the creator instead.
         //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");
@@ -15869,6 +16010,7 @@ public class AdvancedInputs
         //    xls.DocumentProperties.PreserveCreationDate = true;
         //Or you can hardcode a creating date by setting it in UTC time, ISO8601 format:
         //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
+
 
     }
 }

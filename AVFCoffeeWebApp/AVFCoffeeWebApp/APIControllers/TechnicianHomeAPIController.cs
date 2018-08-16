@@ -63,5 +63,65 @@ namespace AVFCoffeeWebApp.APIControllers
             }
 
         }
+
+        [Route("getinputs")]
+        [HttpGet]
+        [Produces("application/json")]
+        public IActionResult GetInputs()
+        {
+            try
+            {
+
+                var inputs = technianflexcelSum.getInputs();
+                
+                return Ok(inputs);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("getinputvalues")]
+        [HttpGet]
+        [Produces("application/json")]
+        public IActionResult GetInputValues()
+        {
+            try
+            {
+
+                var inputs = technianflexcelSum.getInputValues();
+
+                return Ok(inputs);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("saveinputvalues")]
+        [HttpPost]
+        [Produces("application/json")]
+        public IActionResult SaveInputValues([FromBody]ChartInputAdvancedDTO advancedInputsValues)
+        {
+            try
+            {
+
+                technianflexcelSum.saveUserAdvancedInputs(advancedInputsValues);
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
     }
 }
