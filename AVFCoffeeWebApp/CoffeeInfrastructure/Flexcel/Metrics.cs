@@ -8,7 +8,7 @@ namespace CoffeeInfrastructure.Flexcel
     {
         public void metrics(ExcelFile xls, MetricsDTO md)
         {
-            //xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
+            xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;

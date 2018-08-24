@@ -1,5 +1,5 @@
 ﻿
-
+var lang = localStorage.getItem("selectedLanguage");
 $(document).on('ready', function () {
     debugger;
     Metrics(apiURL);
@@ -39,6 +39,7 @@ function slidemetric() {
 
 function saveMetrics() {
     var data1 = new Array();
+    data1.push(lang);
     data1.push($("#coffeeparchment").val());
     data1.push($("#length").val());
     data1.push($("#farmarea").val());
@@ -67,6 +68,8 @@ function change() {
 
 function Metrics(apiURL) {
     debugger;
+    var selected = localStorage.getItem("selectedLanguage")
+    console.log(selected);
     $.ajax({
         type: "GET",
         url: apiURL + "TechnicianHomeAPI/metrics",
@@ -83,91 +86,93 @@ function Metrics(apiURL) {
 
                 //console.log(property, metrics[property]);
                 if (metrics[property]) {
-                    if (property === "coffeemeasurekilograms") {
-                        $("#coffeeparchment").val('Kilograms');
-                    }
-                    if (property === "coffeemeasurepounds") {
-                        $("#coffeeparchment").val('Pounds');
-                    }
-                    if (property === "coffeemeasurecargas") {
-                        $("#coffeeparchment").val('Cargas');
-                    }
-                    if (property === "coffeemeasurequintales") {
-                        $("#coffeeparchment").val('Quintales');
-                    }
-                    if (property === "coffeemeasurearrobas") {
-                        $("#coffeeparchment").val('Arrobas');
-                    }
+                    //if (selected === "EN") {
+                        if (property === "coffeemeasurekilograms") {
+                            $("#coffeeparchment").val('Kilograms');
+                        }
+                        if (property === "coffeemeasurepounds") {
+                            $("#coffeeparchment").val('Pounds');
+                        }
+                        if (property === "coffeemeasurecargas") {
+                            $("#coffeeparchment").val('Cargas');
+                        }
+                        if (property === "coffeemeasurequintales") {
+                            $("#coffeeparchment").val('Quintales');
+                        }
+                        if (property === "coffeemeasurearrobas") {
+                            $("#coffeeparchment").val('Arrobas');
+                        }
 
-                    if (property === "lengthmeasurefeet") {
-                        $("#length").val('Feet');
-                    }
-                    if (property === "lengthmeasuremeters") {
-                        $("#length").val('Meters');
-                    }
-                    if (property === "farmareameasurehectares") {
-                        $("#farmarea").val('Hectares');
-                    }
-                    if (property === "farmareameasuremanzanas") {
-                        $("#farmarea").val('Manzanas');
-                    }
-                    if (property === "applicationmeasurekilograms") {
-                        $("#weight").val('Kilograms');
-                    }
+                        if (property === "lengthmeasurefeet") {
+                            $("#length").val('Feet');
+                        }
+                        if (property === "lengthmeasuremeters") {
+                            $("#length").val('Meters');
+                        }
+                        if (property === "farmareameasurehectares") {
+                            $("#farmarea").val('Hectares');
+                        }
+                        if (property === "farmareameasuremanzanas") {
+                            $("#farmarea").val('Manzanas');
+                        }
+                        if (property === "applicationmeasurekilograms") {
+                            $("#weight").val('Kilograms');
+                        }
 
-                    if (property === "applicationmeasurepounds") {
-                        $("#weight").val('Pounds');
-                    }
-                    if (property === "capacitymeasuregallons") {
-                        $("#capacity").val('Gallons');
-                    }
+                        if (property === "applicationmeasurepounds") {
+                            $("#weight").val('Pounds');
+                        }
+                        if (property === "capacitymeasuregallons") {
+                            $("#capacity").val('Gallons');
+                        }
 
-                    if (property === "capacitymeasureliters") {
-                        $("#capacity").val('Liters');
-                    }
+                        if (property === "capacitymeasureliters") {
+                            $("#capacity").val('Liters');
+                        }
 
-                    if (property === "currencyboliviaboliviano") {
-                        $("#currency").val('Bolivian Boliviano');
-                    }
-                    if (property === "currencybrazilreal") {
-                        $("#currency").val('Brazilian Real');
-                    }
-                    if (property === "currencycolombiapeso") {
-                        $("#currency").val('Colombian Peso');
-                    }
-                    if (property === "currencycostaricacolon") {
-                        $("#currency").val('Costa Rican Colon');
-                    }
-                    if (property === "currencycubapeso") {
-                        $("#currency").val('Cuban Peso');
-                    }
-                    if (property === "currencyguatemalaquetzal") {
-                        $("#currency").val('Guatemalan Quetzal');
-                    }
-                    if (property === "currencyhaitigourde") {
-                        $("#currency").val('Haitian Gourde');
-                    }
-                    if (property === "currencyhonduraslempira") {
-                        $("#currency").val('Honduran Lempira');
-                    }
-                    if (property === "currencyjamaicadollar") {
-                        $("#currency").val('Jamaican Dollar');
-                    }
-                    if (property === "currencymexicopeso") {
-                        $("#currency").val('Mexican Peso');
-                    }
-                    if (property === "currencynicaraguacordoba") {
-                        $("#currency").val('Nicaraguan Cordoba');
-                    }
-                    if (property === "currencyperusol") {
-                        $("#currency").val('Peruvian Sol');
-                    }
-                    if (property === "currencyusdollar") {
-                        $("#currency").val('USD');
-                    }
-                    if (property === "currencyvenezuelabolivar") {
-                        $("#currency").val('Venezuelan Bolivar');
-                    }
+                        if (property === "currencyboliviaboliviano") {
+                            $("#currency").val('Bolivian Boliviano');
+                        }
+                        if (property === "currencybrazilreal") {
+                            $("#currency").val('Brazilian Real');
+                        }
+                        if (property === "currencycolombiapeso") {
+                            $("#currency").val('Colombian Peso');
+                        }
+                        if (property === "currencycostaricacolon") {
+                            $("#currency").val('Costa Rican Colon');
+                        }
+                        if (property === "currencycubapeso") {
+                            $("#currency").val('Cuban Peso');
+                        }
+                        if (property === "currencyguatemalaquetzal") {
+                            $("#currency").val('Guatemalan Quetzal');
+                        }
+                        if (property === "currencyhaitigourde") {
+                            $("#currency").val('Haitian Gourde');
+                        }
+                        if (property === "currencyhonduraslempira") {
+                            $("#currency").val('Honduran Lempira');
+                        }
+                        if (property === "currencyjamaicadollar") {
+                            $("#currency").val('Jamaican Dollar');
+                        }
+                        if (property === "currencymexicopeso") {
+                            $("#currency").val('Mexican Peso');
+                        }
+                        if (property === "currencynicaraguacordoba") {
+                            $("#currency").val('Nicaraguan Cordoba');
+                        }
+                        if (property === "currencyperusol") {
+                            $("#currency").val('Peruvian Sol');
+                        }
+                        if (property === "currencyusdollar") {
+                            $("#currency").val('USD');
+                        }
+                        if (property === "currencyvenezuelabolivar") {
+                            $("#currency").val('Venezuelan Bolivar');
+                        }
+                    //} 
                     
                 }
             }

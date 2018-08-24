@@ -9,7 +9,7 @@ namespace CoffeeInfrastructure.Flexcel
     {
         public void language(ExcelFile xls)
         {
-            xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
+            //xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
@@ -300,7 +300,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
-            xls.Recalc();
+            //xls.Recalc();
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");

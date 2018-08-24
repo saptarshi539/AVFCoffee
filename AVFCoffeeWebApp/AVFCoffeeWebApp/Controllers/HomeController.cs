@@ -50,7 +50,8 @@ namespace AVFCoffeeWebApp.Controllers
                     var stats = producerEnglish.status;
                     if (stats == true)
                     {
-                        return RedirectToAction("", "Results");
+                        //return RedirectToAction("", "Results");
+                        return RedirectToAction("", "TechnicianHome");
                     }
                     else if (stats == false)
                     {

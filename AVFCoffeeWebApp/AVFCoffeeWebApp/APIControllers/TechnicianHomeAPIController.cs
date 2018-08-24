@@ -67,12 +67,12 @@ namespace AVFCoffeeWebApp.APIControllers
         [Route("getinputs")]
         [HttpGet]
         [Produces("application/json")]
-        public IActionResult GetInputs()
+        public IActionResult GetInputs(string language)
         {
             try
             {
 
-                var inputs = technianflexcelSum.getInputs();
+                var inputs = technianflexcelSum.getInputs(language);
                 
                 return Ok(inputs);
             }

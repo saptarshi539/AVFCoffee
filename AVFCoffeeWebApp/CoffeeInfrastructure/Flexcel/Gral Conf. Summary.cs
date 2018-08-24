@@ -1635,9 +1635,9 @@ namespace CoffeeInfrastructure.Flexcel
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.CreateTimeDate, "2015-01-08T03:31:31Z");
 
 
-            xls.Recalc(true);
+            //xls.Recalc(true);
             
-            var s = xls.GetCellValue(23, 9);
+            //var s = xls.GetCellValue(23, 9);
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");

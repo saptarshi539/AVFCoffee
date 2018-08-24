@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Coffee.APIControllers;
+using CoffeeCore.DTO;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Extensions;
@@ -10,16 +12,18 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Logging;
+using CoffeeInfrastructure.Helpers;
 using Microsoft.Extensions.Options;
 
 namespace AVFCoffeeWebApp.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountController(IOptions<AzureAdB2COptions> b2cOptions)
+        //CellSumController cellSumController;
+
+        public AccountController( IOptions<AzureAdB2COptions> b2cOptions)
         {
+            //cellSumController = cellSum;
             Options = b2cOptions.Value;
         }
 
@@ -34,6 +38,18 @@ namespace AVFCoffeeWebApp.Controllers
             {
                 var properties = new AuthenticationProperties() { RedirectUri = "/TechnicianHome" };
                 properties.Items[AzureAdB2COptions.PolicyAuthenticationProperty] = Options.SpanishSignUpSignInPolicyId;
+                //if (User.Identity.IsAuthenticated)
+                //{
+                //    //var cooperativeID = User.GetCooperativeID();
+                //    var username = User.GetGivenName();
+                //    var userID = User.GetId();
+                //    var language = User.GetSiupinPolicyName();
+                //    UserInfoDTO user = new UserInfoDTO();
+                //    user.Language = language;
+                //    user.UserID = userID;
+                //    user.UserName = username;
+                //    cellSumController.UpdateUser(user);
+                //}
                 return Challenge(properties, OpenIdConnectDefaults.AuthenticationScheme);
                 
             }

@@ -13,7 +13,7 @@ namespace CoffeeInfrastructure.Flexcel
             ProducerOutputSpanishDTO producerOutputSpanishDTO = new ProducerOutputSpanishDTO();
             ProducerOutputEnglishDTO producerOutputEnglishDTO = new ProducerOutputEnglishDTO();
             coopOutputDTO coopOutputDTO = new coopOutputDTO();
-            xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
+            //xls.NewFile(38, TExcelFileFormat.v2016);    //Create a new Excel file with 38 sheets.
 
             //Set the names of the sheets
             xls.ActiveSheet = 1;
@@ -2602,7 +2602,7 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Cell selection and scroll position.
             xls.SelectCell(15, 4, false);
-
+            //xls.Recalc();
             var cp = Convert.ToDouble(xls.GetCellValue(15, 6));
             var cps = Convert.ToDouble(xls.GetCellValue(15, 7));
             var tcp = Convert.ToDouble(xls.GetCellValue(15, 8));

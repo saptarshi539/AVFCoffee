@@ -3,7 +3,9 @@ using CoffeeCore.Interfaces;
 using FlexCel.Core;
 using FlexCel.XlsAdapter;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -75,7 +77,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         public void saveUserMetrics(String[] data)
         {
-
+            string language = data[0].ToString();
             //MetricsInputDTO metricsInputDTO = new MetricsInputDTO();
             var coffeemeasurekilograms = false;
             var coffeemeasurepounds = false;
@@ -104,120 +106,174 @@ namespace CoffeeInfrastructure.Flexcel
             var currencyperusol = false;
             var currencyusdollar = false;
             var currencyvenezuelabolivar = false;
-
-            if (data[0] == "Kilograms")
+            MetricsDTO md = new MetricsDTO();
+            md.coffeemeasurekilograms = 0;
+            md.coffeemeasurepounds = 0;
+            md.coffeemeasurequintales = 0;
+            md.currencyboliviaboliviano = 0;
+            md.applicationmeasurekilograms = 0;
+            md.applicationmeasurepounds = 0;
+            md.capacitymeasuregallons = 0;
+            md.capacitymeasureliters = 0;
+            md.coffeemeasurearrobas = 0;
+            md.coffeemeasurecargas = 0;
+            md.currencybrazilreal = 0;
+            md.currencycolombiapeso = 0;
+            md.currencycostaricacolon = 0;
+            md.currencycubapeso = 0;
+            md.currencyguatemalaquetzal = 0;
+            md.currencyhaitigourde = 0;
+            md.currencyhonduraslempira = 0;
+            md.currencyjamaicadollar = 0;
+            md.currencymexicopeso = 0;
+            md.currencynicaraguacordoba = 0;
+            md.currencyperusol = 0;
+            md.currencyusdollar = 0;
+            md.currencyvenezuelabolivar = 0;
+            md.farmareameasurehectares = 0;
+            md.farmareameasuremanzanas = 0;
+            md.lengthmeasurefeet = 0;
+            md.lengthmeasuremeters = 0;
+            if (data[1] == "Kilograms")
             {
                 coffeemeasurekilograms = true;
-            }
-            else if (data[0] == "Pounds")
+                md.coffeemeasurekilograms = 1;
+            } 
+            else if (data[1] == "Pounds")
             {
                 coffeemeasurepounds = true;
+                md.coffeemeasurepounds = 1;
             }
-            else if (data[0] == "Quintales")
+            else if (data[1] == "Quintales")
             {
                 coffeemeasurequintales = true;
+                md.coffeemeasurequintales = 1;
             }
-            else if (data[0] == "Arrobas")
+            else if (data[1] == "Arrobas")
             {
                 coffeemeasurearrobas = true;
+                md.coffeemeasurearrobas = 1;
             }
-            else if (data[0] == "Cargas")
+            else if (data[1] == "Cargas")
             {
                 coffeemeasurecargas = true;
+                md.coffeemeasurecargas = 1;
             }
 
-            if (data[1] == "Meters")
+            if (data[2] == "Meters")
             {
                 lengthmeasuremeters = true;
+                md.lengthmeasuremeters = 1;
             }
-            else if (data[1] == "Feet")
+            else if (data[2] == "Feet")
             {
                 lengthmeasurefeet = true;
+                md.lengthmeasurefeet = 1;
             }
 
-            if (data[2] == "Hectares")
+            if (data[3] == "Hectares")
             {
                 farmareameasurehectares = true;
+                md.farmareameasurehectares = 1;
             }
-            else if (data[2] == "Manzanas")
+            else if (data[3] == "Manzanas")
             {
                 farmareameasuremanzanas = true;
+                md.farmareameasuremanzanas = 1;
             }
 
-            if (data[3] == "Kilograms")
+            if (data[4] == "Kilograms")
             {
                 applicationmeasurekilograms = true;
+                md.applicationmeasurekilograms = 1;
             }
-            else if (data[3] == "Pounds")
+            else if (data[4] == "Pounds")
             {
                 applicationmeasurepounds = true;
+                md.applicationmeasurepounds = 1;
             }
 
-            if (data[4] == "Liters")
+            if (data[5] == "Liters")
             {
                 capacitymeasureliters = true;
+                md.capacitymeasureliters = 1;
             }
-            else if (data[4] == "Gallons")
+            else if (data[5] == "Gallons")
             {
                 capacitymeasuregallons = true;
+                md.capacitymeasuregallons = 1;
             }
 
 
-            if (data[5] == "Bolivian Boliviano")
+            if (data[6] == "Bolivian Boliviano")
             {
                 currencyboliviaboliviano = true;
+                md.currencyboliviaboliviano = 1;
             }
-            else if (data[5] == "Brazilian Real")
+            else if (data[6] == "Brazilian Real")
             {
                 currencybrazilreal = true;
+                md.currencybrazilreal = 1;
             }
-            else if (data[5] == "Colombian Peso")
+            else if (data[6] == "Colombian Peso")
             {
                 currencycolombiapeso = true;
+                md.currencycolombiapeso = 1;
             }
-            else if (data[5] == "Costa Rican Colon")
+            else if (data[6] == "Costa Rican Colon")
             {
                 currencycostaricacolon = true;
+                md.currencycostaricacolon = 1;
             }
-            else if (data[5] == "Cuban Peso")
+            else if (data[6] == "Cuban Peso")
             {
                 currencycubapeso = true;
+                md.currencycubapeso = 1;
             }
-            else if (data[5] == "Guatemalan Quetzal")
+            else if (data[6] == "Guatemalan Quetzal")
             {
                 currencyguatemalaquetzal = true;
+                md.currencyguatemalaquetzal = 1;
             }
-            else if (data[5] == "Jamaican Dollar")
+            else if (data[6] == "Jamaican Dollar")
             {
                 currencyjamaicadollar = true;
+                md.currencyjamaicadollar = 1;
             }
-            else if (data[5] == "Honduran Lempira")
+            else if (data[6] == "Honduran Lempira")
             {
                 currencyhonduraslempira = true;
+                md.currencyhonduraslempira = 1;
             }
-            else if (data[5] == "Haitian Gourde")
+            else if (data[6] == "Haitian Gourde")
             {
                 currencyhaitigourde = true;
+                md.currencyhaitigourde = 1;
             }
-            else if (data[5] == "Mexican Peso")
+            else if (data[6] == "Mexican Peso")
             {
                 currencymexicopeso = true;
+                md.currencymexicopeso = 1;
             }
-            else if (data[5] == "Nicaraguan Cordoba")
+            else if (data[6] == "Nicaraguan Cordoba")
             {
                 currencynicaraguacordoba = true;
+                md.currencynicaraguacordoba = 1;
             }
-            else if (data[5] == "Peruvian Sol")
+            else if (data[6] == "Peruvian Sol")
             {
                 currencyperusol = true;
+                md.currencyperusol = 1;
             }
-            else if (data[5] == "USD")
+            else if (data[6] == "USD")
             {
                 currencyusdollar = true;
+                md.currencyusdollar = 1;
             }
-            else if (data[5] == "Venezuelan Bolivar")
+            else if (data[6] == "Venezuelan Bolivar")
             {
                 currencyvenezuelabolivar = true;
+                md.currencyvenezuelabolivar = 1;
             }
 
 
@@ -265,10 +321,677 @@ namespace CoffeeInfrastructure.Flexcel
                 comm.Parameters.AddWithValue("@currvene", currencyvenezuelabolivar);
                 int result = comm.ExecuteNonQuery();
             }
-
+            UpdateAdvancedInputs(md, language);
             //throw new NotImplementedException();
         }
+        private void UpdateAdvancedInputs(MetricsDTO metricsDTO, string Language)
+        {
+            Inputs_2 inputs_2 = new Inputs_2();
+            InAdvanced inAdvanced = new InAdvanced();
+            Language language = new Language();
+            Metrics_English metrics_English = new Metrics_English();
+            Metrics_Spanish metrics_Spanish = new Metrics_Spanish();
+            InputsAdvanced2English inputsAdvanced2English = new InputsAdvanced2English();
+            InputsAdvanced2Spanish inputsAdvanced2Spanish = new InputsAdvanced2Spanish();
+            AdvancedInputs advancedInputs = new AdvancedInputs();
+            Budget_Equipo budget_Equipo = new Budget_Equipo();
+            Budget_Establecimiento budget_Establecimiento = new Budget_Establecimiento();
+            Budget_M_Obra budget_M_Obra = new Budget_M_Obra();
+            Budget_Presupuesto budget_Presupuesto = new Budget_Presupuesto();
+            Budget_Sostenemiento budget_Sostenemiento = new Budget_Sostenemiento();
+            Budget_Valor_de_M_Obra budget_Valor_De_M_Obra = new Budget_Valor_de_M_Obra();
+            Proportions proportions = new Proportions();
+            Gral_Conf gral_Conf = new Gral_Conf();
+            Metrics metrics = new Metrics();
+            Conversiones conversiones = new Conversiones();
+            Prporcion_de_productividad prporcion = new Prporcion_de_productividad();
+            Inputs_TOT inputs_TOT_advanced = new Inputs_TOT();
+            Inputs_2_Conv inputs_2_Conv = new Inputs_2_Conv();
+            Inputs_1 inputs_1 = new Inputs_1();
+            DatabaseSchema databaseSchema = new DatabaseSchema();
+            General_Conf_Summary_Spa conf_Summary_Spa = new General_Conf_Summary_Spa();
+            OutcomeTotalAdj outcomeTotalAdj = new OutcomeTotalAdj();
+            OutcomeYAdjustment outcomeYAdjustment = new OutcomeYAdjustment();
+            Output1_pre_metric_currency output1_Pre_Metric_Currency = new Output1_pre_metric_currency();
+            OutcomeLAdjustment outcomeLAdjustment = new OutcomeLAdjustment();
+            Output output = new Output();
+            InputsEnglish inputsEnglish = new InputsEnglish();
+            InputsSpanish inputsSpanish = new InputsSpanish();
+            Inputs_1_Ref inputs_1_Ref = new Inputs_1_Ref();
+            Input_1 input_1 = new Input_1();
+            Inputs inputs = new Inputs();
+            XlsFile xls = new XlsFile(true);
+            TWorkspace workspace = new TWorkspace();
+            workspace.Add(xls.ActiveFileName, xls);
 
+            //databaseSchema.Database_Schema(xls, workspace);
+            ////xls.Recalc();
+            //conf_Summary_Spa.GeneralConfSummarySpa(xls);
+            ////xls.Recalc();
+            //inputs_1.CreateFile(xls);
+            ////xls.Recalc();
+            //inputs_2_Conv.Inputs_2_Conv_inputs(xls);
+            ////xls.Recalc();
+
+            //inputs_TOT_advanced.CreateFile(xls);
+            ////xls.Recalc();
+            //prporcion.ProporcionDeProductividad(xls);
+            ////xls.Recalc();
+            //proportions.proportions(xls);
+            ////xls.Recalc();
+            //advancedInputs.Budget_Supuestos(xls);
+            ////xls.Recalc();
+            //budget_Equipo.BudgetEquipo(xls);
+            ////xls.Recalc();
+            //budget_Establecimiento.BudgetEstablecimiento(xls);
+            ////xls.Recalc();
+            //budget_M_Obra.BudgetMObra(xls);
+            ////xls.Recalc();
+            //budget_Presupuesto.BudgetPresupuesto(xls);
+            ////xls.Recalc();
+            //budget_Sostenemiento.BudgetSostenemiento(xls);
+            ////xls.Recalc();
+            //budget_Valor_De_M_Obra.Budget_Valor_M_De_Obra(xls);
+            ////xls.Recalc();
+            metrics.metrics(xls, metricsDTO);
+            language.language(xls);
+            inputs_1.CreateFile(xls);
+            //xls.Recalc();
+            metrics_English.MetricsEnglish(xls);
+            //xls.Recalc();
+            metrics_Spanish.MetricsSpanish(xls);
+            inputs_2.Inputs_2_Default(xls);
+            databaseSchema.Database_Schema(xls, workspace);
+            inputs_2_Conv.Inputs_2_Conv_inputs(xls);
+            inputsAdvanced2English.InputAdvanced2English(xls);
+            //xls.Recalc();
+            if (Language == "EN")
+            {
+                inputsAdvanced2Spanish.InputAdvancedSpanish(xls, Language);
+            }
+            inputsEnglish.InputEnglish(xls);
+            inputsSpanish.InputSpanish(xls);
+            input_1.Input_1_default(xls);
+            //xls.Recalc();
+
+
+            //xls.Recalc();
+            //outcomeLAdjustment.Outcome_L_Adjustment(xls);
+            //xls.Recalc();
+            //outcomeYAdjustment.Outcome_Y_Adjustment(xls);
+            //xls.Recalc();
+            //output1_Pre_Metric_Currency.Output1PreMetricCurrency(xls);
+            //xls.Recalc();
+            //outcomeTotalAdj.Outcome_TOTAL_Adj(xls);
+            //xls.Recalc();
+            inputs_1_Ref.inputs1Ref(xls);
+            //xls.Recalc();
+            conversiones.conversiones(xls);
+            //xls.Recalc(true);
+
+
+            //xls.Recalc();
+
+            //xls.Recalc();
+            gral_Conf.Gral_Conf_Summary(xls);
+            conf_Summary_Spa.GeneralConfSummarySpa(xls);
+            //xls.Recalc();
+            //return new Dictionary<string, object>();
+
+
+            double earlyHectares = 0;
+            double peakHectares = 0;
+            double oldHectares = 0;
+            bool conventional = false;
+            bool organic = false;
+            bool transition = false;
+            double workerSalarySoles = 0;
+            double productionQuintales = 0;
+            double costPriceSolesPerQuintal = 0;
+            double expSolesChem = 0;
+            double expSolesOrg = 0;
+            double transportCostSoles = 0;
+            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles,
+                costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
+            var advancedInputsDict = new Dictionary<string, object>();
+
+            if (Language == "EN")
+            {
+
+                advancedInputsDict = inAdvanced.Inputs_Advanced(xls);
+
+            }
+            else
+            {
+                advancedInputsDict = inputsAdvanced2Spanish.InputAdvancedSpanish(xls, Language);
+            }
+
+            var time = "";
+            var conn1 = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn1))
+            {
+                con.Open();
+                var id = "1234";
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid)", con);
+                comm.Parameters.AddWithValue("@userid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        time = reader["TimeStamp"].ToString();
+                    }
+                    reader.Close();
+                }
+
+                con.Close();
+            }
+            var conn2 = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            string sqlQuery = String.Format("Update [AVFCoffee].[dbo].[UserInputsAdvanced] " +
+               "set [LGerminationSeedCollection] = @LGerminationSeedCollection, " +
+                    "[LGerminationSeedSelection] = @LGerminationSeedSelection, " +
+            "[LGerminationNurseryConstruction] = @LGerminationNurseryConstruction, " +
+            "[LGerminationSeedingSupportIrrigation] = @LGerminationSeedingSupportIrrigation, " +
+            "[LGerminationOthers] = @LGerminationOthers, " +
+            "[LNurseryConstruction] = @LNurseryConstruction, " +
+            "[LNurseryDrawnPulled] = @LNurseryDrawnPulled, " +
+            "[LNurseryClean] = @LNurseryClean, " +
+            "[LNurserySoilPreparationFertilizer] = @LNurserySoilPreparationFertilizer, " +
+            "[LNurseryFilledLockedBags] = @LNurseryFilledLockedBags, " +
+            "[LNurseryButterflySowing] = @LNurseryButterflySowing, " +
+            "[LNurseryIrrigation] = @LNurseryIrrigation, " +
+            "[LNurseryFoliarApplication] = @LNurseryFoliarApplication, " +
+            "[LNurseryReseeding] = @LNurseryReseeding, " +
+            "[LNurseryOthers] = @LNurseryOthers, " +
+            "[LPPFieldCleaning] = @LPPFieldCleaning, " +
+            "[LPPCuttingTrees] = @LPPCuttingTrees, " +
+            "[LPPWoodCollection] = @LPPWoodCollection, " +
+            "[LPPWoodChopping] = @LPPWoodChopping, " +
+            "[LPPCoffeeLayout] = @LPPCoffeeLayout, " +
+            "[LPPHoleDigging] = @LPPHoleDigging, " +
+            "[LPPSeedlingTransportation] = @LPPSeedlingTransportation, " +
+            "[LPPSeedlingTransplant] = @LPPSeedlingTransplant, " +
+            "[LPPShadeAdjustment] = @LPPShadeAdjustment, " +
+            "[LPPCompostMixing] = @LPPCompostMixing, " +
+            "[LPPOthers] = @LPPOthers, " +
+            "[LPPYWeeding] = @LPPYWeeding, " +
+            "[LPPYOrganic] = @LPPYOrganic, " +
+            "[LPPYChemical] = @LPPYChemical, " +
+            "[LPPYFoliarSpraying] = @LPPYFoliarSpraying, " +
+            "[LPPYOther] = @LPPYOther, " +
+            "[LHPMYManualWeeding] = @LHPMYManualWeeding, " +
+            "[LHPMYChemicalWeeding] = @LHPMYChemicalWeeding, " +
+            "[LHPMYOrganicFertilizers] = @LHPMYOrganicFertilizers, " +
+            "[LHPMYChemicalFertilizers] = @LHPMYChemicalFertilizers, " +
+            "[LHPMYFoliarSpraying] = @LHPMYFoliarSpraying, " +
+            "[LHPMYHedgerowsConstruction] = @LHPMYHedgerowsConstruction, " +
+            "[LHPMYShadetreePruning] = @LHPMYShadetreePruning, " +
+            "[LHPMYPestControl] = @LHPMYPestControl, " +
+            "[LHPMYCoffeeGrowManagement] = @LHPMYCoffeeGrowManagement, " +
+            "[LHPMYOthers] = @LHPMYOthers, " +
+            "[LHPHYCoffeeCollecDays] = @LHPHYCoffeeCollecDays, " +
+            "[LHPHYAdditionDays] = @LHPHYAdditionDays, " +
+            "[LHPPYFermentation] = @LHPPYFermentation, " +
+            "[LHPPYWashing] = @LHPPYWashing, " +
+            "[LHPPYDrying] = @LHPPYDrying, " +
+            "[LHPPYScreening] = @LHPPYScreening, " +
+            "[LHPPYSelection] = @LHPPYSelection, " +
+            "[LHPPYStorage] = @LHPPYStorage, " +
+            "[LHPPYCoffeewastewater] = @LHPPYCoffeewastewater, " +
+            "[LHPPYPulpManagement] = @LHPPYPulpManagement, " +
+            "[LHPPYOthers] = @LHPPYOthers, " +
+            "[LHPMMManualWeeding] = @LHPMMManualWeeding, " +
+            "[LHPMMChemicalWeeding] = @LHPMMChemicalWeeding, " +
+            "[LHPMMOrganicFertilizers] = @LHPMMOrganicFertilizers, " +
+            "[LHPMMChemicalFertilizers] = @LHPMMChemicalFertilizers, " +
+            "[LHPMMFoliarSpraying] = @LHPMMFoliarSpraying, " +
+            "[LHPMMHedgerowsConstruction] = @LHPMMHedgerowsConstruction, " +
+            "[LHPMMShadetreePruning] = @LHPMMShadetreePruning, " +
+            "[LHPMMPestControl] = @LHPMMPestControl, " +
+            "[LHPMMCoffeeGrowManagement] = @LHPMMCoffeeGrowManagement, " +
+            "[LHPMMOthers] = @LHPMMOthers, " +
+            "[LHPHMCoffeeCollecDays] = @LHPHMCoffeeCollecDays, " +
+            "[LHPHMAdditionDays] = @LHPHMAdditionDays, " +
+            "[LHPPMFermentation] = @LHPPMFermentation, " +
+            "[LHPPMWashing] = @LHPPMWashing, " +
+            "[LHPPMDrying] = @LHPPMDrying, " +
+            "[LHPPMScreening] = @LHPPMScreening, " +
+            "[LHPPMSelection] = @LHPPMSelection, " +
+            "[LHPPMStorage] = @LHPPMStorage, " +
+            "[LHPPMCoffeewastewater] = @LHPPMCoffeewastewater, " +
+            "[LHPPMPulpManagement] = @LHPPMPulpManagement, " +
+            "[LHPPMOthers] = @LHPPMOthers, " +
+            "[LHPMOManualWeeding] = @LHPMOManualWeeding, " +
+            "[LHPMOChemicalWeeding] = @LHPMOChemicalWeeding, " +
+            "[LHPMOOrganicFertilizers] = @LHPMOOrganicFertilizers, " +
+            "[LHPMOChemicalFertilizers] = @LHPMOChemicalFertilizers, " +
+            "[LHPMOFoliarSpraying] = @LHPMOFoliarSpraying, " +
+            "[LHPMOHedgerowsConstruction] = @LHPMOHedgerowsConstruction, " +
+            "[LHPMOShadetreePruning] = @LHPMOShadetreePruning, " +
+            "[LHPMOPestControl] = @LHPMOPestControl, " +
+            "[LHPMOCoffeeGrowManagement] = @LHPMOCoffeeGrowManagement, " +
+            "[LHPMOOthers] = @LHPMOOthers, " +
+            "[LHPHOCoffeeCollecDays] = @LHPHOCoffeeCollecDays, " +
+            "[LHPHOAdditionDays] = @LHPHOAdditionDays, " +
+            "[LHPPOFermentation] = @LHPPOFermentation, " +
+            "[LHPPOWashing] = @LHPPOWashing, " +
+            "[LHPPODrying] = @LHPPODrying, " +
+            "[LHPPOScreening] = @LHPPOScreening, " +
+            "[LHPPOSelection] = @LHPPOSelection, " +
+            "[LHPPOStorage] = @LHPPOStorage, " +
+            "[LHPPOCoffeewastewater] = @LHPPOCoffeewastewater, " +
+            "[LHPPOPulpManagement] = @LHPPOPulpManagement, " +
+            "[LHPPOOthers] = @LHPPOOthers, " +
+            "[IIFood] = @IIFood, " +
+            "[IIAdditionalTransfers] = @IIAdditionalTransfers, " +
+            "[IIDaysoftraining] = @IIDaysoftraining, " +
+            "[ICCreditfromcooperative] = @ICCreditfromcooperative, " +
+            "[ICCreditfromcooperativeTime] = @ICCreditfromcooperativeTime, " +
+            "[ICCreditfromcooperativeInterest] = @ICCreditfromcooperativeInterest, " +
+            "[ICCreditfromagent] = @ICCreditfromagent, " +
+            "[ICCreditfromagentTime] = @ICCreditfromagentTime, " +
+            "[ICCreditfromagentInterest] = @ICCreditfromagentInterest, " +
+            //"[CostGerminator] = @CostGerminator, " +
+            "[CostGerminatorSeeds] = @CostGerminatorSeeds, " +
+            "[CostGerminatorSeedbed] = @CostGerminatorSeedbed, " +
+            "[CostGerminatorSandSubstrate] = @CostGerminatorSandSubstrate, " +
+            "[CostGerminatorCalciumSulfide] = @CostGerminatorCalciumSulfide, " +
+            "[CostGerminatorLime] = @CostGerminatorLime, " +
+            "[CostGerminatorPlastic] = @CostGerminatorPlastic, " +
+            "[CostGerminatorOthers] = @CostGerminatorOthers, " +
+            "[CostNurseryFertilizer] = @CostNurseryFertilizer, " +
+            "[CostNurseryPlasticBags] = @CostNurseryPlasticBags, " +
+            "[CostNurseryNetting] = @CostNurseryNetting, " +
+            "[CostNurseryStuds] = @CostNurseryStuds, " +
+            "[CostNurseryWire] = @CostNurseryWire, " +
+            "[CostNurseryCiclonics] = @CostNurseryCiclonics, " +
+            "[CostNurseryStaples] = @CostNurseryStaples, " +
+            "[CostNurserySoil] = @CostNurserySoil, " +
+            "[CostNurseryBioFert] = @CostNurseryBioFert, " +
+            "[CostNurseryAgroChemicals] = @CostNurseryAgroChemicals, " +
+            "[CostNurseryFungicide] = @CostNurseryFungicide, " +
+            "[CostNurseryPhosphoricRock] = @CostNurseryPhosphoricRock, " +
+            "[CostNurseryOthers] = @CostNurseryOthers, " +
+            "[CostFLPPOrganicFert] = @CostFLPPOrganicFert, " +
+            "[CostFLPPChemicalFert] = @CostFLPPChemicalFert, " +
+            "[CostFVGOrganicFert] = @CostFVGOrganicFert, " +
+            "[CostFVGChemicalFert] = @CostFVGChemicalFert, " +
+            "[CostFMOtherFert] = @CostFMOtherFert, " +
+            "[CostFMOrganicFoliar] = @CostFMOrganicFoliar, " +
+            "[CostFMChemicalFoliar] = @CostFMChemicalFoliar, " +
+            "[CostFMGasFuel] = @CostFMGasFuel, " +
+            "[CostFMOthers] = @CostFMOthers, " +
+            "[EGEManualSprayer] = @EGEManualSprayer, " +
+            "[EGELifespam1] = @EGELifespam1, " +
+            "[EGEMachetes] = @EGEMachetes, " +
+            "[EGELifespam2] = @EGELifespam2, " +
+            "[EGEShovel] = @EGEShovel, " +
+            "[EGELifespam3] = @EGELifespam3, " +
+            "[EGEHoe] = @EGEHoe, " +
+            "[EGELifespam4] = @EGELifespam4, " +
+            "[EGEWheelBarrow] = @EGEWheelBarrow, " +
+            "[EGELifespam5] = @EGELifespam5, " +
+            "[EGELime] = @EGELime, " +
+            "[EGELifespam6] = @EGELifespam6, " +
+            "[EGEAuger] = @EGEAuger, " +
+            "[EGELifespam7] = @EGELifespam7, " +
+            "[EGEMetalBar] = @EGEMetalBar, " +
+            "[EGELifespam8] = @EGELifespam8, " +
+            "[EGEHose] = @EGEHose, " +
+            "[EGELifespam9] = @EGELifespam9, " +
+            "[EGESprinklers] = @EGESprinklers, " +
+            "[EGELifespam10] = @EGELifespam10, " +
+            "[EGEChainSaw] = @EGEChainSaw, " +
+            "[EGELifespam11] = @EGELifespam11, " +
+            "[EGEHandSaw] = @EGEHandSaw, " +
+            "[EGELifespam12] = @EGELifespam12, " +
+            "[EGEMotorPump] = @EGEMotorPump, " +
+            "[EGELifespam13] = @EGELifespam13, " +
+            "[EGEPrunningScissors] = @EGEPrunningScissors, " +
+            "[EGELifespam14] = @EGELifespam14, " +
+            "[EGEAxe] = @EGEAxe, " +
+            "[EGELifespam15] = @EGELifespam15, " +
+            "[EEHScale] = @EEHScale, " +
+            "[EEHLifespam1] = @EEHLifespam1, " +
+            "[EEHVehicle] = @EEHVehicle, " +
+            "[EEHLifespam2] = @EEHLifespam2, " +
+            "[EEHWorkAnimal] = @EEHWorkAnimal, " +
+            "[EEHLifespam3] = @EEHLifespam3, " +
+            "[EEHMotorcycle] = @EEHMotorcycle, " +
+            "[EEHLifespam4] = @EEHLifespam4, " +
+            "[EEHBags] = @EEHBags, " +
+            "[EEHLifespam5] = @EEHLifespam5, " +
+            "[EEHSack] = @EEHSack, " +
+            "[EEHLifespam6] = @EEHLifespam6, " +
+            "[EEHStraw] = @EEHStraw, " +
+            "[EEHLifespam7] = @EEHLifespam7, " +
+            "[EEHBaskets] = @EEHBaskets, " +
+            "[EEHLifespam8] = @EEHLifespam8, " +
+            "[EEHBoxes] = @EEHBoxes, " +
+            "[EEHLifespam9] = @EEHLifespam9, " +
+            "[EEHOthers] = @EEHOthers, " +
+            "[EEHLifespam10] = @EEHLifespam10, " +
+            "[EEPPulperMachine] = @EEPPulperMachine, " +
+            "[EEPLifespam1] = @EEPLifespam1, " +
+            "[EEPTolca] = @EEPTolca, " +
+            "[EEPLifespam2] = @EEPLifespam2, " +
+            "[EEPEngine] = @EEPEngine, " +
+            "[EEPLifespam3] = @EEPLifespam3, " +
+            "[EEPTanks] = @EEPTanks, " +
+            "[EEPLifespam4] = @EEPLifespam4, " +
+            "[EEPWaterChannel] = @EEPWaterChannel, " +
+            "[EEPLifespam5] = @EEPLifespam5, " +
+            "[EEPPVCPipes] = @EEPPVCPipes, " +
+            "[EEPLifespam6] = @EEPLifespam6, " +
+            "[EEPFilteringSystem] = @EEPFilteringSystem, " +
+            "[EEPLifespam7] = @EEPLifespam7, " +
+            "[EEPScreeningMachine] = @EEPScreeningMachine, " +
+            "[EEPLifespam8] = @EEPLifespam8, " +
+            "[EEPDesmucilaginador] = @EEPDesmucilaginador, " +
+            "[EEPLifespam9] = @EEPLifespam9, " +
+            "[EEPMotorPump] = @EEPMotorPump, " +
+            "[EEPLifespam10] = @EEPLifespam10, " +
+            "[EEPOthersWetInput] = @EEPOthersWetInput, " +
+            "[EEPLifespam11] = @EEPLifespam11, " +
+            "[EEPConcrete] = @EEPConcrete, " +
+            "[EEPLifespam12] = @EEPLifespam12, " +
+            "[EEPPlastic] = @EEPPlastic, " +
+            "[EEPLifespam13] = @EEPLifespam13, " +
+            "[EEPRake] = @EEPRake, " +
+            "[EEPLifespam14] = @EEPLifespam14, " +
+            "[EEPBroom] = @EEPBroom, " +
+            "[EEPLifespam15] = @EEPLifespam15, " +
+            "[EEPStorageRoom] = @EEPStorageRoom, " +
+            "[EEPLifespam16] = @EEPLifespam16, " +
+            "[EEPOthersDryInput] = @EEPOthersDryInput, " +
+            "[EEPLifespam17] = @EEPLifespam17, " +
+            "[ACCApplicationFee] = @ACCApplicationFee, " +
+            "[ACCAnnualMembership] = @ACCAnnualMembership, " +
+            "[ACCLifeInsurance] = @ACCLifeInsurance, " +
+            "[ACCFLOCertification] = @ACCFLOCertification, " +
+            "[ACCOrganicCertification] = @ACCOrganicCertification, " +
+            "[ACLLandValue] = @ACLLandValue, " +
+            "[ACLPropertyTax] = @ACLPropertyTax, " +
+            "[ACUSuperviseInvest] = @ACUSuperviseInvest, " +
+            "[ACUAdministInvest] = @ACUAdministInvest, " +
+            "[ACUTrainingInvest] = @ACUTrainingInvest, " +
+            "[ACUExtraOrdInvest] = @ACUExtraOrdInvest, " +
+            "[TGSeedPurchase] = @TGSeedPurchase, " +
+            "[TGWoodTransportation] = @TGWoodTransportation, " +
+            "[TGSandTransportation] = @TGSandTransportation, " +
+            "[TGOthers] = @TGOthers, " +
+            "[TNSoilTransportation] = @TNSoilTransportation, " +
+            "[TNSacksMaterialShopping] = @TNSacksMaterialShopping, " +
+            "[TNOthers] = @TNOthers, " +
+            "[TLPWoodTransportation] = @TLPWoodTransportation, " +
+            "[TLPCompostTransportation] = @TLPCompostTransportation, " +
+            "[TLPPlantTransportation] = @TLPPlantTransportation, " +
+            "[TLPOthers] = @TLPOthers, " +
+            "[TOtherEquipment] = @TOtherEquipment, " +
+            "[TOtherLaborTransportation] = @TOtherLaborTransportation, " +
+            "[TOtherCoffeeTransportation] = @TOtherCoffeeTransportation, " +
+            "[TOtherSupervisingActivities] = @TOtherSupervisingActivities, " +
+            "[TOthers] = @TOthers WHERE [UserID] = @UserID and [TimeStamp] = @time");
+            IList listInputs = (IList)advancedInputsDict["Inputs"];
+            using (SqlConnection connect = new SqlConnection(conn2))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(sqlQuery, connect);
+                command.Parameters.AddWithValue("@UserID", "1234");
+                command.Parameters.AddWithValue("@time", time);
+                command.Parameters.AddWithValue("@LGerminationSeedCollection", listInputs[0]);
+                command.Parameters.AddWithValue("@LGerminationSeedSelection", listInputs[1]);
+                command.Parameters.AddWithValue("@LGerminationNurseryConstruction", listInputs[2]);
+                command.Parameters.AddWithValue("@LGerminationSeedingSupportIrrigation", listInputs[3]);
+                command.Parameters.AddWithValue("@LGerminationOthers", listInputs[4]);
+                command.Parameters.AddWithValue("@LNurseryConstruction", listInputs[5]);
+                command.Parameters.AddWithValue("@LNurseryDrawnPulled", listInputs[6]);
+                command.Parameters.AddWithValue("@LNurseryClean", listInputs[7]);
+                command.Parameters.AddWithValue("@LNurserySoilPreparationFertilizer", listInputs[8]);
+                command.Parameters.AddWithValue("@LNurseryFilledLockedBags", listInputs[9]);
+                command.Parameters.AddWithValue("@LNurseryButterflySowing", listInputs[10]);
+                command.Parameters.AddWithValue("@LNurseryIrrigation", listInputs[11]);
+                command.Parameters.AddWithValue("@LNurseryFoliarApplication", listInputs[12]);
+                command.Parameters.AddWithValue("@LNurseryReseeding", listInputs[13]);
+                command.Parameters.AddWithValue("@LNurseryOthers", listInputs[14]);
+                command.Parameters.AddWithValue("@LPPFieldCleaning", listInputs[15]);
+                command.Parameters.AddWithValue("@LPPCuttingTrees", listInputs[16]);
+                command.Parameters.AddWithValue("@LPPWoodCollection", listInputs[17]);
+                command.Parameters.AddWithValue("@LPPWoodChopping", listInputs[18]);
+                command.Parameters.AddWithValue("@LPPCoffeeLayout", listInputs[19]);
+                command.Parameters.AddWithValue("@LPPHoleDigging", listInputs[20]);
+                command.Parameters.AddWithValue("@LPPSeedlingTransportation", listInputs[21]);
+                command.Parameters.AddWithValue("@LPPSeedlingTransplant", listInputs[22]);
+                command.Parameters.AddWithValue("@LPPShadeAdjustment", listInputs[23]);
+                command.Parameters.AddWithValue("@LPPCompostMixing", listInputs[24]);
+                command.Parameters.AddWithValue("@LPPOthers", listInputs[25]);
+                command.Parameters.AddWithValue("@LPPYWeeding", listInputs[26]);
+                command.Parameters.AddWithValue("@LPPYOrganic", listInputs[27]);
+                command.Parameters.AddWithValue("@LPPYChemical", listInputs[28]);
+                command.Parameters.AddWithValue("@LPPYFoliarSpraying", listInputs[29]);
+                command.Parameters.AddWithValue("@LPPYOther", listInputs[30]);
+                command.Parameters.AddWithValue("@LHPMYManualWeeding", listInputs[31]);
+                command.Parameters.AddWithValue("@LHPMYChemicalWeeding", listInputs[32]);
+                command.Parameters.AddWithValue("@LHPMYOrganicFertilizers", listInputs[33]);
+                command.Parameters.AddWithValue("@LHPMYChemicalFertilizers", listInputs[34]);
+                command.Parameters.AddWithValue("@LHPMYFoliarSpraying", listInputs[35]);
+                command.Parameters.AddWithValue("@LHPMYHedgerowsConstruction", listInputs[36]);
+                command.Parameters.AddWithValue("@LHPMYShadetreePruning", listInputs[37]);
+                command.Parameters.AddWithValue("@LHPMYPestControl", listInputs[38]);
+                command.Parameters.AddWithValue("@LHPMYCoffeeGrowManagement", listInputs[39]);
+                command.Parameters.AddWithValue("@LHPMYOthers", listInputs[40]);
+                command.Parameters.AddWithValue("@LHPHYCoffeeCollecDays", listInputs[41]);
+                command.Parameters.AddWithValue("@LHPHYAdditionDays", listInputs[42]);
+                command.Parameters.AddWithValue("@LHPPYFermentation", listInputs[43]);
+                command.Parameters.AddWithValue("@LHPPYWashing", listInputs[44]);
+                command.Parameters.AddWithValue("@LHPPYDrying", listInputs[45]);
+                command.Parameters.AddWithValue("@LHPPYScreening", listInputs[46]);
+                command.Parameters.AddWithValue("@LHPPYSelection", listInputs[47]);
+                command.Parameters.AddWithValue("@LHPPYStorage", listInputs[48]);
+                command.Parameters.AddWithValue("@LHPPYCoffeewastewater", listInputs[49]);
+                command.Parameters.AddWithValue("@LHPPYPulpManagement", listInputs[50]);
+                command.Parameters.AddWithValue("@LHPPYOthers", listInputs[51]);
+                command.Parameters.AddWithValue("@LHPMMManualWeeding", listInputs[52]);
+                command.Parameters.AddWithValue("@LHPMMChemicalWeeding", listInputs[53]);
+                command.Parameters.AddWithValue("@LHPMMOrganicFertilizers", listInputs[54]);
+                command.Parameters.AddWithValue("@LHPMMChemicalFertilizers", listInputs[55]);
+                command.Parameters.AddWithValue("@LHPMMFoliarSpraying", listInputs[56]);
+                command.Parameters.AddWithValue("@LHPMMHedgerowsConstruction", listInputs[57]);
+                command.Parameters.AddWithValue("@LHPMMShadetreePruning", listInputs[58]);
+                command.Parameters.AddWithValue("@LHPMMPestControl", listInputs[59]);
+                command.Parameters.AddWithValue("@LHPMMCoffeeGrowManagement", listInputs[60]);
+                command.Parameters.AddWithValue("@LHPMMOthers", listInputs[61]);
+                command.Parameters.AddWithValue("@LHPHMCoffeeCollecDays", listInputs[62]);
+                command.Parameters.AddWithValue("@LHPHMAdditionDays", listInputs[63]);
+                command.Parameters.AddWithValue("@LHPPMFermentation", listInputs[64]);
+                command.Parameters.AddWithValue("@LHPPMWashing", listInputs[65]);
+                command.Parameters.AddWithValue("@LHPPMDrying", listInputs[66]);
+                command.Parameters.AddWithValue("@LHPPMScreening", listInputs[67]);
+                command.Parameters.AddWithValue("@LHPPMSelection", listInputs[68]);
+                command.Parameters.AddWithValue("@LHPPMStorage", listInputs[69]);
+                command.Parameters.AddWithValue("@LHPPMCoffeewastewater", listInputs[70]);
+                command.Parameters.AddWithValue("@LHPPMPulpManagement", listInputs[71]);
+                command.Parameters.AddWithValue("@LHPPMOthers", listInputs[72]);
+                command.Parameters.AddWithValue("@LHPMOManualWeeding", listInputs[73]);
+                command.Parameters.AddWithValue("@LHPMOChemicalWeeding", listInputs[74]);
+                command.Parameters.AddWithValue("@LHPMOOrganicFertilizers", listInputs[75]);
+                command.Parameters.AddWithValue("@LHPMOChemicalFertilizers", listInputs[76]);
+                command.Parameters.AddWithValue("@LHPMOFoliarSpraying", listInputs[77]);
+                command.Parameters.AddWithValue("@LHPMOHedgerowsConstruction", listInputs[78]);
+                command.Parameters.AddWithValue("@LHPMOShadetreePruning", listInputs[79]);
+                command.Parameters.AddWithValue("@LHPMOPestControl", listInputs[80]);
+                command.Parameters.AddWithValue("@LHPMOCoffeeGrowManagement", listInputs[81]);
+                command.Parameters.AddWithValue("@LHPMOOthers", listInputs[82]);
+                command.Parameters.AddWithValue("@LHPHOCoffeeCollecDays", listInputs[83]);
+                command.Parameters.AddWithValue("@LHPHOAdditionDays", listInputs[84]);
+                command.Parameters.AddWithValue("@LHPPOFermentation", listInputs[85]);
+                command.Parameters.AddWithValue("@LHPPOWashing", listInputs[86]);
+                command.Parameters.AddWithValue("@LHPPODrying", listInputs[87]);
+                command.Parameters.AddWithValue("@LHPPOScreening", listInputs[88]);
+                command.Parameters.AddWithValue("@LHPPOSelection", listInputs[89]);
+                command.Parameters.AddWithValue("@LHPPOStorage", listInputs[90]);
+                command.Parameters.AddWithValue("@LHPPOCoffeewastewater", listInputs[91]);
+                command.Parameters.AddWithValue("@LHPPOPulpManagement", listInputs[92]);
+                command.Parameters.AddWithValue("@LHPPOOthers", listInputs[93]);
+                command.Parameters.AddWithValue("@IIFood", listInputs[94]);
+                command.Parameters.AddWithValue("@IIAdditionalTransfers", listInputs[95]);
+                command.Parameters.AddWithValue("@IIDaysoftraining", listInputs[96]);
+                command.Parameters.AddWithValue("@ICCreditfromcooperative", listInputs[97]);
+                command.Parameters.AddWithValue("@ICCreditfromcooperativeTime", listInputs[98]);
+                command.Parameters.AddWithValue("@ICCreditfromcooperativeInterest", listInputs[99]);
+                command.Parameters.AddWithValue("@ICCreditfromagent", listInputs[100]);
+                command.Parameters.AddWithValue("@ICCreditfromagentTime", listInputs[101]);
+                command.Parameters.AddWithValue("@ICCreditfromagentInterest", listInputs[102]);
+                //command.Parameters.AddWithValue.CostGerminator = Convert.ToDouble(reader["CostGerminator", listInputs[7]);
+                command.Parameters.AddWithValue("@CostGerminatorSeeds", listInputs[103]);
+                command.Parameters.AddWithValue("@CostGerminatorSeedbed", listInputs[104]);
+                command.Parameters.AddWithValue("@CostGerminatorSandSubstrate", listInputs[105]);
+                command.Parameters.AddWithValue("@CostGerminatorCalciumSulfide", listInputs[106]);
+                command.Parameters.AddWithValue("@CostGerminatorLime", listInputs[107]);
+                command.Parameters.AddWithValue("@CostGerminatorPlastic", listInputs[108]);
+                command.Parameters.AddWithValue("@CostGerminatorOthers", listInputs[109]);
+                command.Parameters.AddWithValue("@CostNurseryFertilizer", listInputs[110]);
+                command.Parameters.AddWithValue("@CostNurseryPlasticBags", listInputs[111]);
+                command.Parameters.AddWithValue("@CostNurseryNetting", listInputs[112]);
+                command.Parameters.AddWithValue("@CostNurseryStuds", listInputs[113]);
+                command.Parameters.AddWithValue("@CostNurseryWire", listInputs[114]);
+                command.Parameters.AddWithValue("@CostNurseryCiclonics", listInputs[115]);
+                command.Parameters.AddWithValue("@CostNurseryStaples", listInputs[116]);
+                command.Parameters.AddWithValue("@CostNurserySoil", listInputs[117]);
+                command.Parameters.AddWithValue("@CostNurseryBioFert", listInputs[118]);
+                command.Parameters.AddWithValue("@CostNurseryAgroChemicals", listInputs[119]);
+                command.Parameters.AddWithValue("@CostNurseryFungicide", listInputs[120]);
+                command.Parameters.AddWithValue("@CostNurseryPhosphoricRock", listInputs[121]);
+                command.Parameters.AddWithValue("@CostNurseryOthers", listInputs[122]);
+                command.Parameters.AddWithValue("@CostFLPPOrganicFert", listInputs[123]);
+                command.Parameters.AddWithValue("@CostFLPPChemicalFert", listInputs[124]);
+                command.Parameters.AddWithValue("@CostFVGOrganicFert", listInputs[125]);
+                command.Parameters.AddWithValue("@CostFVGChemicalFert", listInputs[126]);
+                command.Parameters.AddWithValue("@CostFMOtherFert", listInputs[127]);
+                command.Parameters.AddWithValue("@CostFMOrganicFoliar", listInputs[128]);
+                command.Parameters.AddWithValue("@CostFMChemicalFoliar", listInputs[129]);
+                command.Parameters.AddWithValue("@CostFMGasFuel", listInputs[130]);
+                command.Parameters.AddWithValue("@CostFMOthers", listInputs[131]);
+                command.Parameters.AddWithValue("@EGEManualSprayer", listInputs[132]);
+                command.Parameters.AddWithValue("@EGELifespam1", listInputs[133]);
+                command.Parameters.AddWithValue("@EGEMachetes", listInputs[134]);
+                command.Parameters.AddWithValue("@EGELifespam2", listInputs[135]);
+                command.Parameters.AddWithValue("@EGEShovel", listInputs[136]);
+                command.Parameters.AddWithValue("@EGELifespam3", listInputs[137]);
+                command.Parameters.AddWithValue("@EGEHoe", listInputs[138]);
+                command.Parameters.AddWithValue("@EGELifespam4", listInputs[139]);
+                command.Parameters.AddWithValue("@EGEWheelBarrow", listInputs[140]);
+                command.Parameters.AddWithValue("@EGELifespam5", listInputs[141]);
+                command.Parameters.AddWithValue("@EGELime", listInputs[142]);
+                command.Parameters.AddWithValue("@EGELifespam6", listInputs[143]);
+                command.Parameters.AddWithValue("@EGEAuger", listInputs[144]);
+                command.Parameters.AddWithValue("@EGELifespam7", listInputs[145]);
+                command.Parameters.AddWithValue("@EGEMetalBar", listInputs[146]);
+                command.Parameters.AddWithValue("@EGELifespam8", listInputs[147]);
+                command.Parameters.AddWithValue("@EGEHose", listInputs[148]);
+                command.Parameters.AddWithValue("@EGELifespam9", listInputs[149]);
+                command.Parameters.AddWithValue("@EGESprinklers", listInputs[150]);
+                command.Parameters.AddWithValue("@EGELifespam10", listInputs[151]);
+                command.Parameters.AddWithValue("@EGEChainSaw", listInputs[152]);
+                command.Parameters.AddWithValue("@EGELifespam11", listInputs[153]);
+                command.Parameters.AddWithValue("@EGEHandSaw", listInputs[154]);
+                command.Parameters.AddWithValue("@EGELifespam12", listInputs[155]);
+                command.Parameters.AddWithValue("@EGEMotorPump", listInputs[156]);
+                command.Parameters.AddWithValue("@EGELifespam13", listInputs[157]);
+                command.Parameters.AddWithValue("@EGEPrunningScissors", listInputs[158]);
+                command.Parameters.AddWithValue("@EGELifespam14", listInputs[159]);
+                command.Parameters.AddWithValue("@EGEAxe", listInputs[160]);
+                command.Parameters.AddWithValue("@EGELifespam15", listInputs[161]);
+                command.Parameters.AddWithValue("@EEHScale", listInputs[162]);
+                command.Parameters.AddWithValue("@EEHLifespam1", listInputs[163]);
+                command.Parameters.AddWithValue("@EEHVehicle", listInputs[164]);
+                command.Parameters.AddWithValue("@EEHLifespam2", listInputs[165]);
+                command.Parameters.AddWithValue("@EEHWorkAnimal", listInputs[166]);
+                command.Parameters.AddWithValue("@EEHLifespam3", listInputs[167]);
+                command.Parameters.AddWithValue("@EEHMotorcycle", listInputs[168]);
+                command.Parameters.AddWithValue("@EEHLifespam4", listInputs[169]);
+                command.Parameters.AddWithValue("@EEHBags", listInputs[170]);
+                command.Parameters.AddWithValue("@EEHLifespam5", listInputs[171]);
+                command.Parameters.AddWithValue("@EEHSack", listInputs[172]);
+                command.Parameters.AddWithValue("@EEHLifespam6", listInputs[173]);
+                command.Parameters.AddWithValue("@EEHStraw", listInputs[174]);
+                command.Parameters.AddWithValue("@EEHLifespam7", listInputs[175]);
+                command.Parameters.AddWithValue("@EEHBaskets", listInputs[176]);
+                command.Parameters.AddWithValue("@EEHLifespam8", listInputs[177]);
+                command.Parameters.AddWithValue("@EEHBoxes", listInputs[178]);
+                command.Parameters.AddWithValue("@EEHLifespam9", listInputs[179]);
+                command.Parameters.AddWithValue("@EEHOthers", listInputs[180]);
+                command.Parameters.AddWithValue("@EEHLifespam10", listInputs[181]);
+                command.Parameters.AddWithValue("@EEPPulperMachine", listInputs[182]);
+                command.Parameters.AddWithValue("@EEPLifespam1", listInputs[183]);
+                command.Parameters.AddWithValue("@EEPTolca", listInputs[184]);
+                command.Parameters.AddWithValue("@EEPLifespam2", listInputs[185]);
+                command.Parameters.AddWithValue("@EEPEngine", listInputs[186]);
+                command.Parameters.AddWithValue("@EEPLifespam3", listInputs[187]);
+                command.Parameters.AddWithValue("@EEPTanks", listInputs[188]);
+                command.Parameters.AddWithValue("@EEPLifespam4", listInputs[189]);
+                command.Parameters.AddWithValue("@EEPWaterChannel", listInputs[190]);
+                command.Parameters.AddWithValue("@EEPLifespam5", listInputs[191]);
+                command.Parameters.AddWithValue("@EEPPVCPipes", listInputs[192]);
+                command.Parameters.AddWithValue("@EEPLifespam6", listInputs[193]);
+                command.Parameters.AddWithValue("@EEPFilteringSystem", listInputs[194]);
+                command.Parameters.AddWithValue("@EEPLifespam7", listInputs[195]);
+                command.Parameters.AddWithValue("@EEPScreeningMachine", listInputs[196]);
+                command.Parameters.AddWithValue("@EEPLifespam8", listInputs[197]);
+                command.Parameters.AddWithValue("@EEPDesmucilaginador", listInputs[198]);
+                command.Parameters.AddWithValue("@EEPLifespam9", listInputs[199]);
+                command.Parameters.AddWithValue("@EEPMotorPump", listInputs[200]);
+                command.Parameters.AddWithValue("@EEPLifespam10", listInputs[201]);
+                command.Parameters.AddWithValue("@EEPOthersWetInput", listInputs[202]);
+                command.Parameters.AddWithValue("@EEPLifespam11", listInputs[203]);
+                command.Parameters.AddWithValue("@EEPConcrete", listInputs[204]);
+                command.Parameters.AddWithValue("@EEPLifespam12", listInputs[205]);
+                command.Parameters.AddWithValue("@EEPPlastic", listInputs[206]);
+                command.Parameters.AddWithValue("@EEPLifespam13", listInputs[207]);
+                command.Parameters.AddWithValue("@EEPRake", listInputs[208]);
+                command.Parameters.AddWithValue("@EEPLifespam14", listInputs[209]);
+                command.Parameters.AddWithValue("@EEPBroom", listInputs[210]);
+                command.Parameters.AddWithValue("@EEPLifespam15", listInputs[211]);
+                command.Parameters.AddWithValue("@EEPStorageRoom", listInputs[212]);
+                command.Parameters.AddWithValue("@EEPLifespam16", listInputs[213]);
+                command.Parameters.AddWithValue("@EEPOthersDryInput", listInputs[214]);
+                command.Parameters.AddWithValue("@EEPLifespam17", listInputs[215]);
+                command.Parameters.AddWithValue("@ACCApplicationFee", listInputs[216]);
+                command.Parameters.AddWithValue("@ACCAnnualMembership", listInputs[217]);
+                command.Parameters.AddWithValue("@ACCLifeInsurance", listInputs[218]);
+                command.Parameters.AddWithValue("@ACCFLOCertification", listInputs[219]);
+                command.Parameters.AddWithValue("@ACCOrganicCertification", listInputs[220]);
+                command.Parameters.AddWithValue("@ACLLandValue", listInputs[221]);
+                command.Parameters.AddWithValue("@ACLPropertyTax", listInputs[222]);
+                command.Parameters.AddWithValue("@ACUSuperviseInvest", listInputs[223]);
+                command.Parameters.AddWithValue("@ACUAdministInvest", listInputs[224]);
+                command.Parameters.AddWithValue("@ACUTrainingInvest", listInputs[225]);
+                command.Parameters.AddWithValue("@ACUExtraOrdInvest", listInputs[226]);
+                command.Parameters.AddWithValue("@TGSeedPurchase", listInputs[227]);
+                command.Parameters.AddWithValue("@TGWoodTransportation", listInputs[228]);
+                command.Parameters.AddWithValue("@TGSandTransportation", listInputs[229]);
+                command.Parameters.AddWithValue("@TGOthers", listInputs[230]);
+                command.Parameters.AddWithValue("@TNSoilTransportation", listInputs[231]);
+                command.Parameters.AddWithValue("@TNSacksMaterialShopping", listInputs[232]);
+                command.Parameters.AddWithValue("@TNOthers", listInputs[233]);
+                command.Parameters.AddWithValue("@TLPWoodTransportation", listInputs[234]);
+                command.Parameters.AddWithValue("@TLPCompostTransportation", listInputs[235]);
+                command.Parameters.AddWithValue("@TLPPlantTransportation", listInputs[236]);
+                command.Parameters.AddWithValue("@TLPOthers", listInputs[237]);
+                command.Parameters.AddWithValue("@TOtherEquipment", listInputs[238]);
+                command.Parameters.AddWithValue("@TOtherLaborTransportation", listInputs[239]);
+                command.Parameters.AddWithValue("@TOtherCoffeeTransportation", listInputs[240]);
+                command.Parameters.AddWithValue("@TOtherSupervisingActivities", listInputs[241]);
+                command.Parameters.AddWithValue("@TOthers", listInputs[242]);
+
+                command.ExecuteNonQuery();
+                connect.Close();
+            }
+
+
+
+        }
         public void saveUserAdvancedInputs(ChartInputAdvancedDTO inputAdvancedDTO)
         {
             //ChartInputAdvancedDTO inputAdvancedDTO = new ChartInputAdvancedDTO();
@@ -311,8 +1034,13 @@ namespace CoffeeInfrastructure.Flexcel
                    ",[ACUSuperviseInvest],[ACUAdministInvest],[ACUTrainingInvest],[ACUExtraOrdInvest],[TGSeedPurchase],[TGWoodTransportation]" +
                    ",[TGSandTransportation],[TGOthers],[TNSoilTransportation],[TNSacksMaterialShopping],[TNOthers],[TLPWoodTransportation]" +
                    ",[TLPCompostTransportation],[TLPPlantTransportation],[TLPOthers],[TOtherEquipment],[TOtherLaborTransportation]" +
-                   ",[TOtherCoffeeTransportation],[TOtherSupervisingActivities],[TOthers],[UserID]) VALUES" +
-                   "(@TimeStamp,@LGerminationSeedCollection,@LGerminationSeedSelection,@LGerminationNurseryConstruction, " +
+                   ",[TOtherCoffeeTransportation],[TOtherSupervisingActivities],[TOthers],[LPPYOther],[EGELifespam1],[EGELifespam2]" +
+                   ",[EGELifespam3],[EGELifespam4],[EGELifespam5],[EGELifespam6],[EGELifespam7],[EGELifespam8],[EGELifespam9],[EGELifespam10]" +
+                   ",[EGELifespam11],[EGELifespam12],[EGELifespam13],[EGELifespam14],[EGELifespam15],[EEHLifespam1],[EEHLifespam2],[EEHLifespam3]" +
+                   ",[EEHLifespam4],[EEHLifespam5],[EEHLifespam6],[EEHLifespam7],[EEHLifespam8],[EEHLifespam9],[EEHLifespam10],[EEPLifespam1]" +
+                   ",[EEPLifespam2],[EEPLifespam3],[EEPLifespam4],[EEPLifespam5],[EEPLifespam6],[EEPLifespam7],[EEPLifespam8],[EEPLifespam9],[CoopID]" +
+                   ",[EEPLifespam10],[EEPLifespam11],[EEPLifespam12],[EEPLifespam13],[EEPLifespam14],[EEPLifespam15],[EEPLifespam16],[EEPLifespam17],[UserID]) VALUES" +
+                   " (@TimeStamp,@LGerminationSeedCollection,@LGerminationSeedSelection,@LGerminationNurseryConstruction, " +
                    "@LGerminationSeedingSupportIrrigation,@LGerminationOthers,@LNurseryConstruction,@LNurseryDrawnPulled" +
                    ",@LNurseryClean,@LNurserySoilPreparationFertilizer,@LNurseryFilledLockedBags,@LNurseryButterflySowing" +
                    ",@LNurseryIrrigation,@LNurseryFoliarApplication,@LNurseryReseeding,@LNurseryOthers,@LPPFieldCleaning" +
@@ -347,12 +1075,18 @@ namespace CoffeeInfrastructure.Flexcel
                    ",@ACUSuperviseInvest,@ACUAdministInvest,@ACUTrainingInvest,@ACUExtraOrdInvest,@TGSeedPurchase,@TGWoodTransportation" +
                    ",@TGSandTransportation,@TGOthers,@TNSoilTransportation,@TNSacksMaterialShopping,@TNOthers,@TLPWoodTransportation" +
                    ",@TLPCompostTransportation,@TLPPlantTransportation,@TLPOthers,@TOtherEquipment,@TOtherLaborTransportation" +
-                   ",@TOtherCoffeeTransportation,@TOtherSupervisingActivities,@TOthers,@UserID))");
+                   ",@TOtherCoffeeTransportation,@TOtherSupervisingActivities,@TOthers,@LPPYOther,@EGELifespam1,@EGELifespam2" +
+                   ",@EGELifespam3,@EGELifespam4,@EGELifespam5,@EGELifespam6,@EGELifespam7,@EGELifespam8,@EGELifespam9,@EGELifespam10" +
+                   ",@EGELifespam11,@EGELifespam12,@EGELifespam13,@EGELifespam14,@EGELifespam15,@EEHLifespam1,@EEHLifespam2,@EEHLifespam3" +
+                   ",@EEHLifespam4,@EEHLifespam5,@EEHLifespam6,@EEHLifespam7,@EEHLifespam8,@EEHLifespam9,@EEHLifespam10,@EEPLifespam1" +
+                   ",@EEPLifespam2,@EEPLifespam3,@EEPLifespam4,@EEPLifespam5,@EEPLifespam6,@EEPLifespam7,@EEPLifespam8,@EEPLifespam9,@CoopID" +
+                   ",@EEPLifespam10,@EEPLifespam11,@EEPLifespam12,@EEPLifespam13,@EEPLifespam14,@EEPLifespam15,@EEPLifespam16,@EEPLifespam17,@UserID)");
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 connect.Open();
                 SqlCommand command = new SqlCommand(sqlQuery);
                 command.Parameters.AddWithValue("@UserID", "1234");
+                command.Parameters.AddWithValue("@CoopID", "1111");
                 command.Parameters.AddWithValue("@LGerminationSeedCollection", inputAdvancedDTO.LGerminationSeedCollection);
                 command.Parameters.AddWithValue("@LGerminationSeedSelection", inputAdvancedDTO.LGerminationSeedSelection);
                 command.Parameters.AddWithValue("@LGerminationNurseryConstruction", inputAdvancedDTO.LGerminationNurseryConstruction);
@@ -554,6 +1288,49 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@TOtherCoffeeTransportation", inputAdvancedDTO.TOtherCoffeeTransportation);
                 command.Parameters.AddWithValue("@TOtherSupervisingActivities", inputAdvancedDTO.TOtherSupervisingActivities);
                 command.Parameters.AddWithValue("@TOthers", inputAdvancedDTO.TOthers);
+                command.Parameters.AddWithValue("@LPPYOther", inputAdvancedDTO.LPPYOther);
+                command.Parameters.AddWithValue("@EGELifespam1", inputAdvancedDTO.EGELifespam1);
+                command.Parameters.AddWithValue("@EGELifespam2", inputAdvancedDTO.EGELifespam2);
+                command.Parameters.AddWithValue("@EGELifespam3", inputAdvancedDTO.EGELifespam3);
+                command.Parameters.AddWithValue("@EGELifespam4", inputAdvancedDTO.EGELifespam4);
+                command.Parameters.AddWithValue("@EGELifespam5", inputAdvancedDTO.EGELifespam5);
+                command.Parameters.AddWithValue("@EGELifespam6", inputAdvancedDTO.EGELifespam6);
+                command.Parameters.AddWithValue("@EGELifespam7", inputAdvancedDTO.EGELifespam7);
+                command.Parameters.AddWithValue("@EGELifespam8", inputAdvancedDTO.EGELifespam8);
+                command.Parameters.AddWithValue("@EGELifespam9", inputAdvancedDTO.EGELifespam9);
+                command.Parameters.AddWithValue("@EGELifespam10", inputAdvancedDTO.EGELifespam10);
+                command.Parameters.AddWithValue("@EGELifespam11", inputAdvancedDTO.EGELifespam11);
+                command.Parameters.AddWithValue("@EGELifespam12", inputAdvancedDTO.EGELifespam12);
+                command.Parameters.AddWithValue("@EGELifespam13", inputAdvancedDTO.EGELifespam13);
+                command.Parameters.AddWithValue("@EGELifespam14", inputAdvancedDTO.EGELifespam14);
+                command.Parameters.AddWithValue("@EGELifespam15", inputAdvancedDTO.EGELifespam15);
+                command.Parameters.AddWithValue("@EEHLifespam1", inputAdvancedDTO.EEHLifespam1);
+                command.Parameters.AddWithValue("@EEHLifespam2", inputAdvancedDTO.EEHLifespam2);
+                command.Parameters.AddWithValue("@EEHLifespam3", inputAdvancedDTO.EEHLifespam3);
+                command.Parameters.AddWithValue("@EEHLifespam4", inputAdvancedDTO.EEHLifespam4);
+                command.Parameters.AddWithValue("@EEHLifespam5", inputAdvancedDTO.EEHLifespam5);
+                command.Parameters.AddWithValue("@EEHLifespam6", inputAdvancedDTO.EEHLifespam6);
+                command.Parameters.AddWithValue("@EEHLifespam7", inputAdvancedDTO.EEHLifespam7);
+                command.Parameters.AddWithValue("@EEHLifespam8", inputAdvancedDTO.EEHLifespam8);
+                command.Parameters.AddWithValue("@EEHLifespam9", inputAdvancedDTO.EEHLifespam9);
+                command.Parameters.AddWithValue("@EEHLifespam10", inputAdvancedDTO.EEHLifespam10);
+                command.Parameters.AddWithValue("@EEPLifespam1", inputAdvancedDTO.EEPLifespam1);
+                command.Parameters.AddWithValue("@EEPLifespam2", inputAdvancedDTO.EEPLifespam2);
+                command.Parameters.AddWithValue("@EEPLifespam3", inputAdvancedDTO.EEPLifespam3);
+                command.Parameters.AddWithValue("@EEPLifespam4", inputAdvancedDTO.EEPLifespam4);
+                command.Parameters.AddWithValue("@EEPLifespam5", inputAdvancedDTO.EEPLifespam5);
+                command.Parameters.AddWithValue("@EEPLifespam6", inputAdvancedDTO.EEPLifespam6);
+                command.Parameters.AddWithValue("@EEPLifespam7", inputAdvancedDTO.EEPLifespam7);
+                command.Parameters.AddWithValue("@EEPLifespam8", inputAdvancedDTO.EEPLifespam8);
+                command.Parameters.AddWithValue("@EEPLifespam9", inputAdvancedDTO.EEPLifespam9);
+                command.Parameters.AddWithValue("@EEPLifespam10", inputAdvancedDTO.EEPLifespam10);
+                command.Parameters.AddWithValue("@EEPLifespam11", inputAdvancedDTO.EEPLifespam11);
+                command.Parameters.AddWithValue("@EEPLifespam12", inputAdvancedDTO.EEPLifespam12);
+                command.Parameters.AddWithValue("@EEPLifespam13", inputAdvancedDTO.EEPLifespam13);
+                command.Parameters.AddWithValue("@EEPLifespam14", inputAdvancedDTO.EEPLifespam14);
+                command.Parameters.AddWithValue("@EEPLifespam15", inputAdvancedDTO.EEPLifespam15);
+                command.Parameters.AddWithValue("@EEPLifespam16", inputAdvancedDTO.EEPLifespam16);
+                command.Parameters.AddWithValue("@EEPLifespam17", inputAdvancedDTO.EEPLifespam17);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
                 command.Connection = connect;
                 int result = command.ExecuteNonQuery();
@@ -562,11 +1339,50 @@ namespace CoffeeInfrastructure.Flexcel
                 if (result < 0)
                     Console.WriteLine("Error inserting data into Database!");
             }
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        public Dictionary<string, object> getInputs()
+        private void English(string lang)
         {
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            var language = "";
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @UserID", con);
+                comm.Parameters.AddWithValue("@UserID", "0747ba8f-c8e3-42b6-9b48-6743583b7bb8");
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        language = reader["Language"].ToString();
+                    }
+                    reader.Close();
+                }
+                con.Close();
+            }
+
+            if (language != lang)
+            {
+                using (SqlConnection con = new SqlConnection(conn))
+                {
+                    con.Open();
+
+                    SqlCommand comm = new SqlCommand("Update [AVFCoffee].[dbo].[User] set Language = @lange where UserID = @UserID", con);
+                    comm.Parameters.AddWithValue("@UserID", "0747ba8f-c8e3-42b6-9b48-6743583b7bb8");
+                    comm.Parameters.AddWithValue("@lange", lang);
+                    // int result = command.ExecuteNonQuery();
+                    comm.ExecuteNonQuery();
+                    con.Close();
+                }
+            } 
+        }
+
+        public Dictionary<string, object> getInputs(string Language)
+        {
+            English(Language);
             MetricsInputDTO minput = new MetricsInputDTO();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             using (SqlConnection con = new SqlConnection(conn))
@@ -609,13 +1425,17 @@ namespace CoffeeInfrastructure.Flexcel
                         minput.currencyusdollar = Convert.ToBoolean(reader["CurrencyUSDollar"].ToString());
                         minput.currencyvenezuelabolivar = Convert.ToBoolean(reader["CurrencyVenezuelaBolivar"].ToString());
                     }
+                    reader.Close();
+
                 }
+                con.Close();
             }
             MetricsDTO md = new MetricsDTO();
             if (minput.applicationmeasurekilograms)
             {
                 md.applicationmeasurekilograms = 1;
-            } else
+            }
+            else
             {
                 md.applicationmeasurekilograms = 0;
             }
@@ -841,9 +1661,7 @@ namespace CoffeeInfrastructure.Flexcel
             {
                 md.lengthmeasuremeters = 0;
             }
-            XlsFile xls = new XlsFile(true);
-            TWorkspace workspace = new TWorkspace();
-
+            Inputs_2 inputs_2 = new Inputs_2();
             InAdvanced inAdvanced = new InAdvanced();
             Language language = new Language();
             Metrics_English metrics_English = new Metrics_English();
@@ -872,74 +1690,66 @@ namespace CoffeeInfrastructure.Flexcel
             Output1_pre_metric_currency output1_Pre_Metric_Currency = new Output1_pre_metric_currency();
             OutcomeLAdjustment outcomeLAdjustment = new OutcomeLAdjustment();
             Output output = new Output();
+            InputsEnglish inputsEnglish = new InputsEnglish();
+            InputsSpanish inputsSpanish = new InputsSpanish();
             Inputs_1_Ref inputs_1_Ref = new Inputs_1_Ref();
+            Input_1 input_1 = new Input_1();
             Inputs inputs = new Inputs();
-            workspace.Add("Coffee Interactive Tool 2.0 08_10_18.xlsx", xls);
-            //databaseSchema.Database_Schema(xls, workspace);
-            ////xls.Recalc();
-            //conf_Summary_Spa.GeneralConfSummarySpa(xls);
-            ////xls.Recalc();
-            //inputs_1.CreateFile(xls);
-            ////xls.Recalc();
-            //inputs_2_Conv.Inputs_2_Conv_inputs(xls);
-            ////xls.Recalc();
-
-            //inputs_TOT_advanced.CreateFile(xls);
-            ////xls.Recalc();
-            //prporcion.ProporcionDeProductividad(xls);
-            ////xls.Recalc();
-            //proportions.proportions(xls);
-            ////xls.Recalc();
-            //advancedInputs.Budget_Supuestos(xls);
-            ////xls.Recalc();
-            //budget_Equipo.BudgetEquipo(xls);
-            ////xls.Recalc();
-            //budget_Establecimiento.BudgetEstablecimiento(xls);
-            ////xls.Recalc();
-            //budget_M_Obra.BudgetMObra(xls);
-            ////xls.Recalc();
-            //budget_Presupuesto.BudgetPresupuesto(xls);
-            ////xls.Recalc();
-            //budget_Sostenemiento.BudgetSostenemiento(xls);
-            ////xls.Recalc();
-            //budget_Valor_De_M_Obra.Budget_Valor_M_De_Obra(xls);
-            ////xls.Recalc();
-            //inputsAdvanced2English.InputAdvanced2English(xls);
-            ////xls.Recalc();
-            //inputsAdvanced2Spanish.InputAdvancedSpanish(xls);
-            //xls.Recalc();
+            XlsFile xls = new XlsFile(true);
+            TWorkspace workspace = new TWorkspace();
+            workspace.Add(xls.ActiveFileName, xls);
+            
+            metrics.metrics(xls, md);
             language.language(xls);
-            //xls.Recalc();
+            inputs_1.CreateFile(xls);
             metrics_English.MetricsEnglish(xls);
-            //xls.Recalc();
             metrics_Spanish.MetricsSpanish(xls);
-            //xls.Recalc();
-            outcomeLAdjustment.Outcome_L_Adjustment(xls);
-            //xls.Recalc();
-            outcomeYAdjustment.Outcome_Y_Adjustment(xls);
-            //xls.Recalc();
-            output1_Pre_Metric_Currency.Output1PreMetricCurrency(xls);
-            //xls.Recalc();
-            outcomeTotalAdj.Outcome_TOTAL_Adj(xls);
-            //xls.Recalc();
+            inputs_2.Inputs_2_Default(xls);
+            databaseSchema.Database_Schema(xls, workspace);
+            inputs_2_Conv.Inputs_2_Conv_inputs(xls);
+            inputsAdvanced2English.InputAdvanced2English(xls);
+            if (Language == "EN")
+            {
+                inputsAdvanced2Spanish.InputAdvancedSpanish(xls, Language);
+            }
+            inputsEnglish.InputEnglish(xls);
+            inputsSpanish.InputSpanish(xls);
+            input_1.Input_1_default(xls);
+            
             inputs_1_Ref.inputs1Ref(xls);
             //xls.Recalc();
             conversiones.conversiones(xls);
-            //xls.Recalc(true);
-            metrics.metrics(xls, md);
-            //xls.Recalc();
-
-            //xls.Recalc();
             gral_Conf.Gral_Conf_Summary(xls);
-            //xls.Recalc();
+            conf_Summary_Spa.GeneralConfSummarySpa(xls);
+            
 
 
+            double earlyHectares = 0;
+            double peakHectares = 0;
+            double oldHectares = 0;
+            bool conventional = false;
+            bool organic = false;
+            bool transition = false;
+            double workerSalarySoles = 0;
+            double productionQuintales = 0;
+            double costPriceSolesPerQuintal = 0;
+            double expSolesChem = 0;
+            double expSolesOrg = 0;
+            double transportCostSoles = 0;
+            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles,
+                costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
+            var advancedInputsDict = new Dictionary<string, object>();
+            
+            if (Language == "EN")
+            {
 
-            //inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles,
-            //    costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
-            var advancedInputsDict = inAdvanced.Inputs_Advanced(xls);
+                advancedInputsDict = inAdvanced.Inputs_Advanced(xls);
 
-
+            } else
+            {
+                advancedInputsDict = inputsAdvanced2Spanish.InputAdvancedSpanish(xls, Language); 
+            }
+            
             return advancedInputsDict;
         }
 
@@ -952,7 +1762,7 @@ namespace CoffeeInfrastructure.Flexcel
                 con.Open();
                 var id = "1234";
 
-                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid", con);
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid AND [TimeStamp] = (SELECT MAX(timestamp) FROM[AVFCoffee].[dbo].[UserInputsAdvanced] where UserID = @userid)", con);
                 comm.Parameters.AddWithValue("@userid", id);
                 // int result = command.ExecuteNonQuery();
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -1210,4 +2020,6 @@ namespace CoffeeInfrastructure.Flexcel
             return inputsAdvanced;
         }
     }
+
+
 }

@@ -2,6 +2,7 @@
 <!doctype html>
 @*@section Scripts {*@
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+
 <script>
         var apiURL = "@ViewData["apiURL"]";
 </script>
@@ -25,7 +26,7 @@
 </script>
 
 <script src="~/pages/TechnicianHome/AdvancedInputs/js/advancedInputs.js" asp-append-version="true"></script>
-
+<script src="~/js/language/translate.js" asp-append-version="true"></script>
 @*}*@
 
 
@@ -54,6 +55,9 @@
         </ul>
         <ul class="nav-profile">
             <li>
+                <a data-tag="layout-navitem4" href="Account/Signout">Sign out</a>
+            </li>
+            <li>
                 <a href=""><img src="avatar.png" width="36" height="36" alt="avatar"></a>
             </li>
             <li>
@@ -67,25 +71,33 @@
             <li class="nav-side-link">
                 <a href="">
                     <img class="menu-icon" src="~/icons/trending.svg" alt="">
-                    Analytics
+                    <c data-tag="SideAnalytics">
+                        Analytics
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link">
                 <a href="">
                     <img class="menu-icon" src="~/icons/list.svg" alt="">
-                    Farmers
+                    <c data-tag="SideFarmers">
+                        Farmers
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link active-section">
                 <a href="">
                     <img class="menu-icon" src="~/icons/settings-active.svg" alt="">
-                    Coop Settings
+                    <c data-tag="SideCoopSettings">
+                        Coop Settings
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link">
                 <a href="">
                     <img class="menu-icon" src="~/icons/help.svg" alt="">
-                    Help
+                    <c data-tag="SideHelp">
+                        Help
+                    </c>
                 </a>
             </li>
         </ul>
@@ -93,8 +105,8 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="tabs">
-            <div class="tab-link"><a href="TechnicianHome">METRICS</a></div>
-            <div class="tab-link tab-active"><a href="AdvancedInputs">ADVANCED INPUT</a></div>
+            <div class="tab-link"><a data-tag="TabMetrics" href="TechnicianHome">METRICS</a></div>
+            <div class="tab-link tab-active"><a data-tag="TabAdvancedInputs" href="AdvancedInputs">ADVANCED INPUT</a></div>
         </div>
         <div id="Inputs">
             <div class="breadcrumbs">

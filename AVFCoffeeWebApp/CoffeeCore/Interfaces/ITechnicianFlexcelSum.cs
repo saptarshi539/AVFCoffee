@@ -10,7 +10,7 @@ namespace CoffeeCore.Interfaces
         TechnicianLoginInfoDTO GetUserMetrics();
         void saveUserMetrics(String[] data);
         void saveUserAdvancedInputs(ChartInputAdvancedDTO advancedInputs);
-        Dictionary<string, object> getInputs();
+        Dictionary<string, object> getInputs(string language);
         ChartInputAdvancedDTO getInputValues();
     }
 }

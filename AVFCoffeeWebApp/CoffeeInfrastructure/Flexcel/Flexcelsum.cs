@@ -605,5 +605,10 @@ namespace CoffeeInfrastructure.Flexcel
             
             return userInfoDTO;
         }
+
+        public UserInfoDTO UpdateUserInfo(UserInfoDTO userInfoDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

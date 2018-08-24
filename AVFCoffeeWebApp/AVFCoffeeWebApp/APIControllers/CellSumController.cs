@@ -223,6 +223,30 @@ namespace Coffee.APIControllers
             }
 
         }
+
+        //public UserInfoDTO UpdateUser(UserInfoDTO user)
+        //{
+        //    try
+        //    {
+                
+
+        //        if (user.UserName == null)
+        //        {
+        //            user.UserName = "NoUserName";
+        //        }
+        //        var output = flexcelsum.UpdateUserInfo(user);
+
+        //        return output;
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.InnerException);
+        //        return null;
+        //        //return StatusCode(500);
+        //    }
+
+        //}
     }
 }
 

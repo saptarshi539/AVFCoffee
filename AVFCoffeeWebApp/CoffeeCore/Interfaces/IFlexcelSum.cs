@@ -19,5 +19,7 @@ namespace CoffeeCore.Interfaces
         ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO);
 
         UserInfoDTO SaveUserInfo(UserInfoDTO userInfoDTO);
+
+        UserInfoDTO UpdateUserInfo(UserInfoDTO userInfoDTO);
     }
 }

@@ -7,6 +7,7 @@
 <!doctype html>
 @*@section Scripts {*@
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/language/translate.js" asp-append-version="true"></script>
     <script>
         var apiURL = "@ViewData["apiURL"]";
     </script>
@@ -38,6 +39,9 @@
         </ul>
         <ul class="nav-profile">
             <li>
+                <a data-tag="layout-navitem4" href="Account/Signout">Sign out</a>
+            </li>
+            <li>
                 <a href=""><img src="avatar.png" width="36" height="36" alt="avatar"></a>
             </li>
             <li>
@@ -50,26 +54,34 @@
         <ul>
             <li class="nav-side-link">
                 <a href="">
-                    <img class="menu-icon" src="./icons/trending.svg" alt="">
-                    Analytics
+                    <img class="menu-icon" src="~/icons/trending.svg" alt="">
+                    <c data-tag="SideAnalytics">
+                        Analytics
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link">
                 <a href="">
-                    <img class="menu-icon" src="./icons/list.svg" alt="">
-                    Farmers
+                    <img class="menu-icon" src="~/icons/list.svg" alt="">
+                    <c data-tag="SideFarmers">
+                        Farmers
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link active-section">
                 <a href="">
-                    <img class="menu-icon" src="./icons/settings-active.svg" alt="">
-                    Coop Settings
+                    <img class="menu-icon" src="~/icons/settings-active.svg" alt="">
+                    <c data-tag="SideCoopSettings">
+                        Coop Settings
+                    </c>
                 </a>
             </li>
             <li class="nav-side-link">
                 <a href="">
-                    <img class="menu-icon" src="./icons/help.svg" alt="">
-                    Help
+                    <img class="menu-icon" src="~/icons/help.svg" alt="">
+                    <c data-tag="SideHelp">
+                        Help
+                    </c>
                 </a>
             </li>
         </ul>
@@ -77,82 +89,82 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="tabs">
-            <div class="tab-link tab-active"><a href="TechnicianHome">METRICS</a></div>
-            <div class="tab-link"><a href="AdvancedInputs">ADVANCED INPUT</a></div>
+            <div class="tab-link tab-active"><a data-tag="TabMetrics" href="TechnicianHome">METRICS</a></div>
+            <div class="tab-link"><a data-tag="TabAdvancedInputs" href="AdvancedInputs">ADVANCED INPUT</a></div>
         </div>
         <!-- List of Input Values -->
         <div class="list-item">
-            <div class="list-title-value">The most common measure for coffee parchment</div>
+            <div data-tag="CoffeeParchment" class="list-title-value">The most common measure for coffee parchment</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="coffeeparchment">
-                    <option selected="">Choose...</option>
-                    <option value="Kilograms">Kilograms</option>
-                    <option value="Pounds">Pounds</option>
-                    <option value="Quintales">Quintales</option>
-                    <option value="Arrobas">Arrobas</option>
-                    <option value="Cargas">Cargas</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="parchmentKilograms" value="Kilograms">Kilograms</option>
+                    <option data-tag="parchmentPounds" value="Pounds">Pounds</option>
+                    <option data-tag="parchmentQuintales" value="Quintales">Quintales</option>
+                    <option data-tag="parchmentArrobas" value="Arrobas">Arrobas</option>
+                    <option data-tag="parchmentCargas" value="Cargas">Cargas</option>
                 </select>
             </form>
         </div>
         <div class="list-item">
-            <div class="list-title-value">The most common measure of length</div>
+            <div data-tag="LengthMeasure" class="list-title-value">The most common measure of length</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="length">
-                    <option selected="">Choose...</option>
-                    <option value="Meters">Meters</option>
-                    <option value="Feet">Feet</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="LengthMeters" value="Meters">Meters</option>
+                    <option data-tag="LengthFeet" value="Feet">Feet</option>
                 </select>
             </form>
         </div>
         <div class="list-item">
-            <div class="list-title-value">The most common measure for the farm area</div>
+            <div data-tag="FarmAreaMeasure" class="list-title-value">The most common measure for the farm area</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="farmarea">
-                    <option selected="">Choose...</option>
-                    <option value="Hectares">Hectares</option>
-                    <option value="Manzanas">Manzanas</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="FarmAreaHectares" value="Hectares">Hectares</option>
+                    <option data-tag="FarmAreaManzanas" value="Manzanas">Manzanas</option>
                 </select>
             </form>
         </div>
         <div class="list-item">
-            <div class="list-title-value">The most common measure for input weight</div>
+            <div data-tag="WeightMeasure" class="list-title-value">The most common measure for input weight</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="weight">
-                    <option selected="">Choose...</option>
-                    <option value="Kilograms">Kilograms</option>
-                    <option value="Pounds">Pounds</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="WeightKilograms" value="Kilograms">Kilograms</option>
+                    <option data-tag="WeightPounds" value="Pounds">Pounds</option>
                 </select>
             </form>
         </div>
         <div class="list-item">
-            <div class="list-title-value">The most common measure for capacity</div>
+            <div data-tag="CapacityMeasure" class="list-title-value">The most common measure for capacity</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="capacity">
-                    <option selected="">Choose...</option>
-                    <option value="Liters">Liters</option>
-                    <option value="Gallons">Gallons</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="CapacityLiters" value="Liters">Liters</option>
+                    <option data-tag="CapacityGallons" value="Gallons">Gallons</option>
                 </select>
             </form>
         </div>
         <div class="list-item">
-            <div class="list-title-value">Country Currency</div>
+            <div data-tag="CurrencyMeasure" class="list-title-value">Country Currency</div>
             <form class="input-form" autocomplete="off">
                 <select onchange="change()" class="input-value drop-down" id="currency">
-                    <option selected="">Choose...</option>
-                    <option value="Bolivian Boliviano">Bolivian Boliviano</option>
-                    <option value="Brazilian Real">Brazilian Real</option>
-                    <option value="Colombian Peso">Colombian Peso</option>
-                    <option value="Costa Rican Colon">Costa Rican Colon</option>
-                    <option value="Cuban Peso">Cuban Peso</option>
-                    <option value="Guatemalan Quetzal">Guatemalan Quetzal</option>
-                    <option value="Jamaican Dollar">Jamaican Dollar</option>
-                    <option value="Honduran Lempira">Honduran Lempira</option>
-                    <option value="Haitian Gourde">Haitian Gourde</option>
-                    <option value="Mexican Peso">Mexican Peso</option>
-                    <option value="Nicaraguan Cordoba">Nicaraguan Cordoba</option>
-                    <option value="Peruvian Sol">Peruvian Sol</option>
-                    <option value="USD">USD</option>
-                    <option value="Venezuelan Bolivar">Venezuelan Bolivar</option>
+                    @*<option selected="">Choose...</option>*@
+                    <option data-tag="CurrencyBolivia" value="Bolivian Boliviano">Bolivian Boliviano</option>
+                    <option data-tag="CurrencyBrazil" value="Brazilian Real">Brazilian Real</option>
+                    <option data-tag="CurrencyColombia" value="Colombian Peso">Colombian Peso</option>
+                    <option data-tag="CurrencyCostaRica" value="Costa Rican Colon">Costa Rican Colon</option>
+                    <option data-tag="CurrencyCuba" value="Cuban Peso">Cuban Peso</option>
+                    <option data-tag="CurrencyGuatemala" value="Guatemalan Quetzal">Guatemalan Quetzal</option>
+                    <option data-tag="CurrencyJamaica" value="Jamaican Dollar">Jamaican Dollar</option>
+                    <option data-tag="CurrencyHondurus" value="Honduran Lempira">Honduran Lempira</option>
+                    <option data-tag="CurrencyHaiti" value="Haitian Gourde">Haitian Gourde</option>
+                    <option data-tag="CurrencyMexico" value="Mexican Peso">Mexican Peso</option>
+                    <option data-tag="CurrencyNicaragua" value="Nicaraguan Cordoba">Nicaraguan Cordoba</option>
+                    <option data-tag="CurrencyPeru" value="Peruvian Sol">Peruvian Sol</option>
+                    <option data-tag="CurrencyUSD" value="USD">USD</option>
+                    <option data-tag="CurrencyVenezuela" value="Venezuelan Bolivar">Venezuelan Bolivar</option>
                 </select>
             </form>
         </div>
@@ -163,8 +175,8 @@
     </div> -->
         <!-- Disabled Save Buttons -->
         <div class="input-buttons">
-            <button class="outlined-button-disabled" type="button" onclick="press()">DISCARD CHANGES</button>
-            <button class="contained-button-disabled" type="button" id="savebutton">SAVE</button>
+            <button data-tag="DiscardButton" class="outlined-button-disabled" type="button" onclick="press()">DISCARD CHANGES</button>
+            <button data-tag="SaveButton" class="contained-button-disabled" type="button" id="savebutton">SAVE</button>
         </div>
     </div>
     <!-- JavaScript -->
