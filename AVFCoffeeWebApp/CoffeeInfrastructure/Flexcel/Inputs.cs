@@ -479,7 +479,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(6, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(6, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E6,'Inputs 1.0_Eng'!E6)"));
+            //xls.SetCellValue(6, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E6,'Inputs 1.0_Eng'!E6)"));
+            xls.SetCellValue(6, 5, earlyHectares);
 
             fmt = xls.GetCellVisibleFormatDef(6, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -527,7 +528,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(7, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(7, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E7,'Inputs 1.0_Eng'!E7)"));
+            //xls.SetCellValue(7, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E7,'Inputs 1.0_Eng'!E7)"));
+            xls.SetCellValue(7, 5, peakHectares);
 
             fmt = xls.GetCellVisibleFormatDef(7, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -568,7 +570,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(8, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(8, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E8,'Inputs 1.0_Eng'!E8)"));
+            //xls.SetCellValue(8, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E8,'Inputs 1.0_Eng'!E8)"));
+            xls.SetCellValue(8, 5, oldHectares);
 
             fmt = xls.GetCellVisibleFormatDef(8, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -647,7 +650,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(10, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(10, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E10,'Inputs 1.0_Eng'!E10)"));
+            //xls.SetCellValue(10, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E10,'Inputs 1.0_Eng'!E10)"));
+            xls.SetCellValue(10, 5, conv);
 
             fmt = xls.GetCellVisibleFormatDef(10, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -688,7 +692,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(11, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(11, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E11,'Inputs 1.0_Eng'!E11)"));
+            //xls.SetCellValue(11, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E11,'Inputs 1.0_Eng'!E11)"));
+            xls.SetCellValue(11, 5, org);
 
             fmt = xls.GetCellVisibleFormatDef(11, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -729,7 +734,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(12, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(12, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E12,'Inputs 1.0_Eng'!E12)"));
+            //xls.SetCellValue(12, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E12,'Inputs 1.0_Eng'!E12)"));
+            xls.SetCellValue(12, 5, trans);
 
             fmt = xls.GetCellVisibleFormatDef(12, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -811,7 +817,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(14, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(14, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E14,'Inputs 1.0_Eng'!E14)"));
+            //xls.SetCellValue(14, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E14,'Inputs 1.0_Eng'!E14)"));
+            xls.SetCellValue(14, 5, workerSalarySoles);
 
             fmt = xls.GetCellVisibleFormatDef(14, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -855,7 +862,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(15, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(15, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E15,'Inputs 1.0_Eng'!E15)"));
+            //xls.SetCellValue(15, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E15,'Inputs 1.0_Eng'!E15)"));
+            xls.SetCellValue(15, 5, productionQuintales);
 
             fmt = xls.GetCellVisibleFormatDef(15, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -937,7 +945,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(17, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(17, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E17,'Inputs 1.0_Eng'!E17)"));
+            //xls.SetCellValue(17, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E17,'Inputs 1.0_Eng'!E17)"));
+            xls.SetCellValue(17, 5, transportCostSoles);
 
             fmt = xls.GetCellVisibleFormatDef(17, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -1019,7 +1028,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(19, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(19, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E19,'Inputs 1.0_Eng'!E19)"));
+            //xls.SetCellValue(19, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E19,'Inputs 1.0_Eng'!E19)"));
+            xls.SetCellValue(19, 5, costPriceSolesPerQuintal);
 
             fmt = xls.GetCellVisibleFormatDef(19, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -1230,7 +1240,7 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(24, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(24, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E24,'Inputs 1.0_Eng'!E24)"));
+            xls.SetCellValue(24, 5, expSolesChem);
 
             fmt = xls.GetCellVisibleFormatDef(24, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;
@@ -1274,7 +1284,8 @@ namespace CoffeeInfrastructure.Flexcel
             fmt.HAlignment = THFlxAlignment.center;
             fmt.VAlignment = TVFlxAlignment.center;
             xls.SetCellFormat(25, 5, xls.AddFormat(fmt));
-            xls.SetCellValue(25, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E25,'Inputs 1.0_Eng'!E25)"));
+            //xls.SetCellValue(25, 5, new TFormula("=IF(Language!$D$6=1,'Inputs 1.0_Spa'!E25,'Inputs 1.0_Eng'!E25)"));
+            xls.SetCellValue(25, 5, expSolesOrg);
 
             fmt = xls.GetCellVisibleFormatDef(25, 6);
             fmt.Borders.Right.Style = TFlxBorderStyle.Medium;

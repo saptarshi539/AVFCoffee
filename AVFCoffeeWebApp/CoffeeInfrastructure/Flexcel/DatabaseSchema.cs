@@ -7,7 +7,7 @@ namespace CoffeeInfrastructure.Flexcel
 {
     public class DatabaseSchema
     {
-        public ChartDataDTO Database_Schema(ExcelFile xls, TWorkspace workspace)
+        public ChartDataDTO Database_Schema(ExcelFile xls)
         {
             //xls.NewFile(20, TExcelFileFormat.v2016);    //Create a new Excel file with 20 sheets.
             ProducerOutputSpanishDTO producerOutputSpanishDTO = new ProducerOutputSpanishDTO();
@@ -2602,7 +2602,8 @@ namespace CoffeeInfrastructure.Flexcel
 
             //Cell selection and scroll position.
             xls.SelectCell(15, 4, false);
-            //xls.Recalc();
+            xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
+            xls.Recalc();
             var cp = Convert.ToDouble(xls.GetCellValue(15, 6));
             var cps = Convert.ToDouble(xls.GetCellValue(15, 7));
             var tcp = Convert.ToDouble(xls.GetCellValue(15, 8));

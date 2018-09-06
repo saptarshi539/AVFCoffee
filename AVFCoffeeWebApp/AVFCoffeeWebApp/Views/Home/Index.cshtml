@@ -1,107 +1,52 @@
-﻿
+﻿<!DOCTYPE html>
 
-@{
-
-
-    ViewData["Title"] = "View";
-    var apiURL = ViewData["apiURL"];
-}
-<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>CalcuCafé</title>
-
-    <!-- Required Meta Tags Always Come First -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="/lib/unify/assets/vendor/bootstrap/bootstrap.min.css" asp-append-version="true">
-
-    <!-- CSS Unify -->
-    <link rel="stylesheet" href="/lib/unify/assets/css/unify.css" asp-append-version="true">
-
-    <!-- CSS MDL -->
-    <link rel="stylesheet" href="~/lib/mdl/material.min.css" asp-append-version="true">
-    @*<link rel="stylesheet" href="~/bundle.css" asp-append-version="true">*@
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="~/css/login.css">
+    <title>CalcuCafé</title>
 </head>
-
 <body>
-    <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered" style="background-image: url(/images/background.jpg);">
-        <div class="container g-color-white text-center g-z-index-1">
-            <a class="g-font-size-20 g-color-white" id="english" href="#" data-tag="langLink1">English</a><span class="g-font-size-20 g-color-white">&nbsp;|&nbsp;</span><a class="g-font-size-20 g-color-white" data-tag="langLink2" href="#" id="spanish">Spanish</a>
-            @*<select class="custom-select mb-3" id="coffeeparchment" style="width:auto;background-color:rgba(0,0,0,0);-webkit-text-fill-color:white">
-                <option selected="">Choose...</option>
-                <option value="1">English</option>
-                <option value="2">Espaniol</option>
-            </select>*@
-            <!--welcome -->
-            <div class="g-px-30">
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6">
-                        <div id="" class="g-px-10" style="background-image: url(/images/calcucafe-logo.svg); width:544px; height:119px; margin-bottom:12px; margin-top:24px"></div>
-                        <p class="g-px-10" data-tag="home-subheader" style="font-size:19pt">A tool to help you calculate your cost of coffee production</p>
-                    </div>
-                </div>
-            </div>
-            <!--end welcome message-->
-
-            <div class="mdl-textfield mdl-js-textfield" style="margin-right:24px">
-                <input class="form-control form-rounded form-control-md" type="text" id="seedcoll" data-tag="EnterMobile" value="" placeholder="Enter your Mobile Number" style="background-color:rgba(0,0,0,0);border-color:white; -webkit-text-fill-color:azure" >
-                @*<div class="mdc-text-field mdc-text-field--box username">
-                    <input type="text" class="mdc-text-field__input" id="username-input" name="username" required>
-                    <label class="mdc-floating-label" for="username-input">Username</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-                <div class="mdc-text-field mdc-text-field--box password">
-                    <input type="password" class="mdc-text-field__input" id="password-input" name="password" required minlength="8">
-                    <label class="mdc-floating-label" for="password-input">Password</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>*@
-            </div>
-            
-
-            @*<button data-tag="home-loginbtn" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="btn u-btn-outline-white g-color-white g-bg-white-opacity-0_1 g-color-black--hover g-bg-white--hover g-font-weight-600 text-uppercase g-rounded-50 g-px-30 g-py-13" style="display: inline-block;">Login</button>*@
-            <!-- Raised button with ripple -->
-            
-            <button data-tag="home-loginbtn" style="color:white;height:43px; margin-bottom:7px" id="farmerlogin" onclick="abc('@ViewData["apiURL"]')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Login
-            </button>
-
-            <div class="container-fluid text-center g-color-gray-dark-v5 g-py-40">
-                <button style="color:white;" data-tag="TechnicianLogin" id="loginBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Technician Login</button>
-                @*<p class="mb-0 g-color-red" id="incorrectPhone"></p>
-                    <p class="mb-0 g-color-white">
-                        <a data-tag="technician">Are you a technician?</a>
-                        <a data-tag="signupbutton" class="g-color-primary" href="Demo">Signup</a>.
-                        <a data-tag="loginbutton" id="loginBtn" class="g-color-primary">Login</a>
-                    </p>*@
-            </div>
+    <!-- Wallpaper -->
+    <div class="wallpaper bg-ferns"></div>
+    <!-- Log-in Controls -->
+    <div id="login-area">
+        <!-- Logo and Subtitle  -->
+        <img id="login-logo" src="/logo.svg" width="544" height="119" alt="CalcuCafé">
+        <div data-tag="home-subheader" class="sub-text">
+            A tool to help you calculate your cost of coffee production
         </div>
-
-        
-    </section>
+        <!-- Mobile Number Entry and Log-In Button -->
+        <div id="farmer-sign-in">
+            <form id="farmer-mobile-number-field" autocomplete="off">
+                <input id="farmer-login-text-field" class="login-text-field" placeholder="Mobile Number" type="text" name="" value="">
+            </form>
+            <button data-tag="home-loginbtn" class="login-contained-button-disabled" onclick="abc('@ViewData["apiURL"]')" id="farmer-sign-in-button" type="button">LOG-IN</button>
+            <!-- <button class="login-contained-button" id="farmer-sign-in-button" type="button">LOG-IN</button> -->
+        </div>
+    </div>
+    <!-- Footer: Language Selection and Technician Sign-In Button -->
+    <div id="login-footer">
+        <form autocomplete="off">
+            <select id="language-selector">
+                <option id="english" data-tag="langLink1" value="meters">English (United States)</option>
+                <option id="spanish" data-tag="langLink2" value="feet" selected="selected">Español</option>
+            </select>
+        </form>
+        <button data-tag="TechnicianLogin" id="technician-login-button" class="login-text-button" type="button">TECHNICIAN LOG-IN</button>
+    </div>
 </body>
-@section Scripts{
-    <!--api url-->
-    <script>
-        var apiURL = "@ViewData["apiURL"]";
-    </script>
-    <!-- JS Global Compulsory -->
-
-}
+</html>
 
 <script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
-<script src="~/lib/mdl/material.min.js" asp-append-version="true"></script>
-@*<script src="~/bundle.js" asp-append-version="true"></script>*@
-
 <!-- highcarts javascript sources -->
 <script type="text/javascript" src="~/lib/highcharts/highcharts.src.js"></script>
 
 <!-- JS Custom -->
 <script src="/js/language/translate.js" asp-append-version="true"></script>
 <script src="~/pages/home/js/home.js" asp-append-version="true"></script>
-
-
-

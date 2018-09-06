@@ -67,12 +67,12 @@ var language = {
         "layout-navitem2": "Datos",
         "layout-navitem3": "Simulación",
         "layout-navitem4": "Cerrar Sesion",
-        "input-question1": "1. ¿Cuántas hectáreas de café tiene de acuerdo la edad de los árboles en su finca?",
-        "input-question1-option1": "Hectáreas con árboles jóvenes",
+        "input-question1": "1. ¿Cuántas manzanas de café tiene de acuerdo la edad de los árboles en su finca?",
+        "input-question1-option1": "Manazanas con árboles jóvenes",
         "input-question1-option1-tooltip": "Arboles que están dando sus primeros frutos.",
-        "input-question1-option2": "Hectáreas con árboles maduros",
+        "input-question1-option2": "Manzanas con árboles maduros",
         "input-question1-option2-tooltip": "Arboles que están dando el máximo de su producción.",
-        "input-question1-option3": "Hectáreas con árboles viejos",
+        "input-question1-option3": "Manzanas con árboles viejos",
         "input-question1-option3-tooltip": "Arboles que están dando menos que en el pasado.",
         "input-question2": "2. ¿Cuál es su método de cultivo?",
         "input-question2-option1": "Orgánico",
@@ -81,29 +81,29 @@ var language = {
         "input-question2-option2-tooltip": "Producción en la cual utiliza químicos.",
         "input-question2-option3": "En Transición ",
         "input-question2-option3-tooltip": "Está en el proceso de pasarse de sistema de producción químico a orgánico.",
-        "input-question3": "3. ¿Cuánto le paga a sus trabajadores por día?",
+        "input-question3": "3. ¿Cuánto le paga a sus trabajadores en pesos por día?",
         "input-question3-label": "Trabajadores",
-        "input-question3-units": "soles/día",
+        "input-question3-units": "pesos/día",
         "input-question3-option1-tooltip": "El sueldo promedio que sus trabajadores ganan en un día. Ejemplo: Jornal.",
-        "input-question4": "4. ¿En un año cuántos quintales de café produce en promedio en una hectárea de árboles maduros?",
+        "input-question4": "4. ¿En un año cuántos quintales de café produce en promedio en una manzana de árboles maduros?",
         "input-question4-label": "Producidos",
-        "input-question4-units": "quintales/hectárea",
+        "input-question4-units": "pounds/manzana",
         "input-question4-option1-tooltip": "Kilogramos de café producidos por hectárea durante un periodo de cosecha normal.",
         "input-submit": "Ingresar",
-        "input-question5": "5. ¿ En un año cuánto paga en soles para transportar su café de la granja a el centro de recogida ?",
+        "input-question5": "5. ¿ En un año cuánto paga en pesos para transportar su café de la granja a el centro de recogida ?",
         "input-question5-label": "Transporte",
-        "input-question5-units": "soles/año",
+        "input-question5-units": "pesos/año",
         "input-question5-option1-tooltip": "¿Cuánto paga para el transporte?",
-        "input-question6": "6. ¿Qué precio recibió por quintal de café?",
+        "input-question6": "6. ¿Qué precio recibió por libra de café?",
         "input-question6-label": "Precio",
-        "input-question6-units": "soles/quintal",
+        "input-question6-units": "pesos/libra",
         "input-question6-option1-tooltip": "Ingrese el precio que recibió.",
-        "input-question7": "7. En un año de producción normal cuánto gasta en los siguientes insumos ?",
+        "input-question7": "7. En un año de producción normal cuánto gasta en pesos siguientes insumos ?",
         "input-question7-option1": "Fertilizantes químicos",
-        "input-question7-option1-tooltip": "Ingrese el precio gastado en fertilizante por hectárea.",
+        "input-question7-option1-tooltip": "Ingrese el precio gastado en fertilizante por manzana.",
         "input-question7-option2": "Fertilizantes orgánicos",
-        "input-question7-option2-tooltip": "Ingrese el precio gastado en fertilizante por hectárea.",
-        "simulation-header1": "Hectáreas:",
+        "input-question7-option2-tooltip": "Ingrese el precio gastado en fertilizante por manzana.",
+        "simulation-header1": "Manzanas:",
         "simulation-header2": "Método:",
         "simulation-header3": "Trabajadores:",
         "simulation-header4": "Producción:",
@@ -116,8 +116,8 @@ var language = {
             categories: ["Productor", "Cooperativa"],
             simulationCategories: ["Productor", "Simulación"],
             yaxisLabel: {
-                "ES": "Soles por Quintal",
-                "EN": "Dólares por Libra"
+                "ES": "Pesos por Libra",
+                "EN": "Pesos por Libra"
             },
             plotLineLabel: "Precio<br/> Actual",
             seriesLabel: {
@@ -164,8 +164,8 @@ var language = {
             chartUnitsConversion: (101.4) * (3.16)
         },
         "chart-unitswitcher": "Ver unidades en: ",
-        "chart-altunits": "Dólares por Libra",
-        "chart-mainunits": "Soles por Quintal"
+        "chart-altunits": "Pesos por Libra",
+        "chart-mainunits": "Pesos por Libra"
 
     },
 
@@ -217,11 +217,11 @@ var language = {
         "HomeAllcategories": "All Categories",
         "home-subheader": "A tool to help you calculate your cost of coffee production",
         "home-demobtn": "Enter your phone number",
-        "home-loginbtn": "Login",
+        "home-loginbtn": "LOG-IN",
         "EnterMobile": "Enter your Mobile Number",
         "signupbutton": "SignUp",
         "loginbutton": "Login",
-        "TechnicianLogin": "Technician Login",
+        "TechnicianLogin": "TECHNICIAN LOG-IN",
         "technician": "Are you a technician?",
         "demo-screen": "Start by inputting some basic information",
         "demo-screen2": "Then you will see your cost breakdown",
@@ -236,7 +236,7 @@ var language = {
         "layout-navitem2": "Input",
         "layout-navitem3": "Simulation",
         "layout-navitem4": "Sign Out",
-        "input-question1": "1. How many hectares of each tree do you have?",
+        "input-question1": "1. How many manzanas of each tree do you have?",
         "input-question1-option1": "Young",
         "input-question1-option1-tooltip": "Trees that are not yet producing beans.",
         "input-question1-option2": "Mature",
@@ -250,29 +250,29 @@ var language = {
         "input-question2-option2-tooltip": "Chemical methods of production.",
         "input-question2-option3": "Transition",
         "input-question2-option3-tooltip": "Transitioning to organic production methods.",
-        "input-question3": "3. How much do you pay per day to your workers in soles on average?",
+        "input-question3": "3. How much do you pay per day to your workers in pesos on average?",
         "input-question3-label": "Laborers",
-        "input-question3-units": "soles/day",
+        "input-question3-units": "pesos/day",
         "input-question3-option1-tooltip": "How much do you pay for labor.",
-        "input-question4": "4. How many quintales of coffee do you produce on average in one year per hectare?",
+        "input-question4": "4. How many pounds of coffee do you produce on average in one year per manzana?",
         "input-question4-label": "Production",
-        "input-question4-units": "quintals/hectare",
+        "input-question4-units": "pounds/manzana",
         "input-question4-option1-tooltip": "Enter your yield in quintales/day.",
         "input-submit": "Submit",
-        "input-question5": "5. How​ ​much​ ​do​ ​you​ ​pay​ ​in​ ​soles​ ​to​ ​transport​ ​your​ ​coffee​ ​from​ ​the​ ​farm​ ​to the​ ​collection​ ​center​ ​in​ ​one​ ​year?​",
+        "input-question5": "5. How​ ​much​ ​do​ ​you​ ​pay​ ​in​ ​pesos​ ​to​ ​transport​ ​your​ ​coffee​ ​from​ ​the​ ​farm​ ​to the​ ​collection​ ​center​ ​in​ ​one​ ​year?​",
         "input-question5-label": "Transport",
-        "input-question5-units": "soles/year",
+        "input-question5-units": "pesos/year",
         "input-question5-option1-tooltip": "How much do you pay for transport.",
-        "input-question6": "6. What​ ​price​ ​did​ ​you​ ​receive​ ​per​ ​quintal​ ​of​ ​coffee?",
+        "input-question6": "6. What​ ​price​ ​did​ ​you​ ​receive​ in pesos ​per​ ​pound​ ​of​ ​coffee?",
         "input-question6-label": "Price",
-        "input-question6-units": "soles/quintal",
+        "input-question6-units": "pesos/pounds",
         "input-question6-option1-tooltip": "Enter the price you recieved.",
-        "input-question7": " 7. In one year, and during the pick of production, how much did you spend in your coffee farm in the following inputs per hectare?",
+        "input-question7": " 7. In one year, and during the pick of production, how much did you spend in pesos in your coffee farm in the following inputs per manzana?",
         "input-question7-option1": "Conventional Fertilizers",
-        "input-question7-option1-tooltip": "Enter price spent on fertilizer per hectacre.",
+        "input-question7-option1-tooltip": "Enter price spent on fertilizer per manzana.",
         "input-question7-option2": "Organic Fertilizers",
-        "input-question7-option2-tooltip": "Enter price spent on fertilizer per hectacre.",
-        "simulation-header1": "Hectares:",
+        "input-question7-option2-tooltip": "Enter price spent on fertilizer per manzana.",
+        "simulation-header1": "Manzanas:",
         "simulation-header2": "Method:",
         "simulation-header3": "Laborers:",
         "simulation-header4": "Production:",
@@ -285,8 +285,8 @@ var language = {
             categories: ["Your Farm", "Co-op Average"],
             simulationCategories: ["Producer", "Simulation"],
             yaxisLabel: {
-                "EN": "Dollars per Pound",
-                "ES": "Soles per Quintal"
+                "EN": "Pesos per Pound",
+                "ES": "Pesos per pound"
             },
             plotLineLabel: "Current<br/>Price",
             seriesLabel: {
@@ -333,8 +333,8 @@ var language = {
             chartUnitsConversion: ""
         },
         "chart-unitswitcher": "View units in: ",
-        "chart-altunits": "Soles per Quintal",
-        "chart-mainunits": "Dollars per Pound"
+        "chart-altunits": "Pesos per Pound",
+        "chart-mainunits": "Pesos per Pound"
 
     }
 }
@@ -377,7 +377,11 @@ function translate() {
     //filter the document to pull out just elements with a data-tag attribute
     var datas = $("*").filter("[data-tag]")
     var selected = localStorage.getItem("selectedLanguage")
-
+    if (selected === "ES") {
+        $("#farmer-login-text-field").attr('placeholder', 'Número de teléfono móvil');
+    } else {
+        $("#farmer-login-text-field").attr('placeholder', 'Mobile Number');
+    }
     debugger;
    //iterate through the data-tags, lookup the lang value and update the element
     datas.each(function (i, e) {
@@ -394,39 +398,56 @@ function translate() {
 }
 
 
-// click event for front page set language links
-$("#english").click(function () {
-    localStorage.setItem("selectedLanguage", "EN")
-    localStorage.setItem("selectedUnits", "EN")
-    $(".switchUnitsAlt").show();
-    $(".switchUnitsMain").hide();
 
+$('select').on('change', function () {
+    debugger;
+    if (localStorage.getItem("selectedLanguage") === "ES") {
+        localStorage.setItem("selectedLanguage", "EN")
+        localStorage.setItem("selectedUnits", "EN")
+        $(".switchUnitsAlt").show();
+        $(".switchUnitsMain").hide();
+        $("#farmer-login-text-field").attr('placeholder', 'Mobile Number');
 
-    translate()
-    if ($('#chartdiv1').highcharts()) {
-        createResultChart();
+        translate()
+        if ($('#chartdiv1').highcharts()) {
+            createResultChart();
+        }
+        if ($('#chartdiv2').highcharts()) {
+            createSimulationChart();
+        }
+    } else {
+        localStorage.setItem("selectedLanguage", "ES")
+        localStorage.setItem("selectedUnits", "ES")
+        $(".switchUnitsAlt").show();
+        $(".switchUnitsMain").hide();
+
+        $("#farmer-login-text-field").attr('placeholder', 'Número de teléfono móvil');
+        translate();
+        if ($('#chartdiv1').highcharts()) {
+            createResultChart();
+        }
+        if ($('#chartdiv2').highcharts()) {
+            createSimulationChart();
+        }
     }
-    if ($('#chartdiv2').highcharts()) {
-        createSimulationChart();
-    }
-   
+
 });
 
-$("#spanish").click(function () {
-    localStorage.setItem("selectedLanguage", "ES")
-    localStorage.setItem("selectedUnits", "ES")
-    $(".switchUnitsAlt").show();
-    $(".switchUnitsMain").hide();
+//$("#spanish").click(function () {
+//    localStorage.setItem("selectedLanguage", "ES")
+//    localStorage.setItem("selectedUnits", "ES")
+//    $(".switchUnitsAlt").show();
+//    $(".switchUnitsMain").hide();
 
 
-    translate();
-    if ($('#chartdiv1').highcharts()) {
-        createResultChart();
-    }
-    if ($('#chartdiv2').highcharts()) {
-        createSimulationChart();
-    }
-});
+//    translate();
+//    if ($('#chartdiv1').highcharts()) {
+//        createResultChart();
+//    }
+//    if ($('#chartdiv2').highcharts()) {
+//        createSimulationChart();
+//    }
+//});
 
 //click event for switching units view in chart
 $(".switchUnitsMain").click(function () {

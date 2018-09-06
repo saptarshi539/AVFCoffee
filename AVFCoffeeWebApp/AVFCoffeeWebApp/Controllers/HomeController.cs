@@ -55,7 +55,7 @@ namespace AVFCoffeeWebApp.Controllers
                     }
                     else if (stats == false)
                     {
-                        return RedirectToAction("", "Input");
+                        return RedirectToAction("", "TechnicianHome");
                     }
                     else
                     {

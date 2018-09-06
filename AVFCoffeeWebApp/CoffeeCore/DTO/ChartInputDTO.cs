@@ -18,5 +18,6 @@ namespace CoffeeCore.DTO
         public Double costPriceSolesPerQuintal { get; set; }
         public Double expSolesChem { get; set; }
         public Double expSolesOrg { get; set; }
+        public string phoneNumber { get; set; }
     }
 }

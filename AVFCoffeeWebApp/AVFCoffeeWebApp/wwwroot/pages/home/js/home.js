@@ -1,4 +1,4 @@
-﻿$("#loginBtn").click(function () {
+﻿$("#technician-login-button").click(function () {
     var selected = localStorage.getItem("selectedLanguage")
     window.location.href = "Account/SignIn?Lang=" + selected
 })
@@ -23,7 +23,9 @@
 //})
 
 function abc(apiURL) {
-    var phoneNumber = $("#seedcoll").val();
+    debugger;
+    var phoneNumber = $("#farmer-login-text-field").val();
+    localStorage.setItem("farmerPhone", phoneNumber);
     console.log(phoneNumber);
     $.ajax({
         type: "GET",
@@ -34,7 +36,7 @@ function abc(apiURL) {
             //console.log(result);
             if (result === true) {
                 console.log("true")
-                window.location.href = "/results"
+                window.location.href = "/input"
             } else {
                 $("#incorrectPhone").html("Please enter correct Phone number");
             }

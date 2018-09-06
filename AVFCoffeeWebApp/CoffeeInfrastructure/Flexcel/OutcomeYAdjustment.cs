@@ -414,21 +414,21 @@ namespace CoffeeInfrastructure.Flexcel
             xls.SetCellValue(10, 9, new TFormula("=H10*Conversiones!$F$24"));
 
             //Images
-            using (FileStream fs = new FileStream("imagename.png", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                TImageProperties ImgProps = new TImageProperties();
-                ImgProps.Anchor = new TClientAnchor(TFlxAnchorType.MoveAndDontResize, 16, 0, 3, 0, 44, 49, 8, 182);
-                ImgProps.ShapeName = "Picture 5";
-                ImgProps.AltText = "Screen Shot 2017-09-12 at 7.33.13 PM.png";
-                xls.AddImage(fs, ImgProps);
-            }
+            //using (FileStream fs = new FileStream("imagename.png", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            //{
+            //    TImageProperties ImgProps = new TImageProperties();
+            //    ImgProps.Anchor = new TClientAnchor(TFlxAnchorType.MoveAndDontResize, 16, 0, 3, 0, 44, 49, 8, 182);
+            //    ImgProps.ShapeName = "Picture 5";
+            //    ImgProps.AltText = "Screen Shot 2017-09-12 at 7.33.13 PM.png";
+            //    xls.AddImage(fs, ImgProps);
+            //}
 
             //Cell selection and scroll position.
             xls.SelectCell(16, 9, false);
 
             //Standard Document Properties - Most are only for xlsx files. In xls files FlexCel will only change the Creation Date and Modified Date.
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Author, "Mary Kate");
-
+            
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
             //    xls.DocumentProperties.SetStandardProperty(TPropertyId.LastSavedBy, "SAPTARSHI MALLICK");

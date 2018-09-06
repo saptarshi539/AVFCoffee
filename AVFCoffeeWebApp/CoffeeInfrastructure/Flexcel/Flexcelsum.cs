@@ -29,7 +29,13 @@ namespace CoffeeInfrastructure.Flexcel
         {
             //working in the develop branch
             //Excel sheet inputs from Juan
-            Inputs inputs = new Inputs();
+            Inputs_2 inputs_2 = new Inputs_2();
+            InAdvanced inAdvanced = new InAdvanced();
+            Language language = new Language();
+            Metrics_English metrics_English = new Metrics_English();
+            Metrics_Spanish metrics_Spanish = new Metrics_Spanish();
+            InputsAdvanced2English inputsAdvanced2English = new InputsAdvanced2English();
+            InputsAdvanced2Spanish inputsAdvanced2Spanish = new InputsAdvanced2Spanish();
             AdvancedInputs advancedInputs = new AdvancedInputs();
             Budget_Equipo budget_Equipo = new Budget_Equipo();
             Budget_Establecimiento budget_Establecimiento = new Budget_Establecimiento();
@@ -37,69 +43,100 @@ namespace CoffeeInfrastructure.Flexcel
             Budget_Presupuesto budget_Presupuesto = new Budget_Presupuesto();
             Budget_Sostenemiento budget_Sostenemiento = new Budget_Sostenemiento();
             Budget_Valor_de_M_Obra budget_Valor_De_M_Obra = new Budget_Valor_de_M_Obra();
+            Proportions proportions = new Proportions();
+            Gral_Conf gral_Conf = new Gral_Conf();
+            Metrics metrics = new Metrics();
             Conversiones conversiones = new Conversiones();
+            Prporcion_de_productividad prporcion = new Prporcion_de_productividad();
+            Inputs_TOT inputs_TOT_advanced = new Inputs_TOT();
+            Inputs_2_Conv inputs_2_Conv = new Inputs_2_Conv();
+            Inputs_1 inputs_1 = new Inputs_1();
             DatabaseSchema databaseSchema = new DatabaseSchema();
-            InAdvanced advanced = new InAdvanced();
-            Inputs_1_metric_currency inputs_1_Metric_Currency = new Inputs_1_metric_currency();
-            Inputs_1_Ref inputs_1_Ref = new Inputs_1_Ref();
-            OutcomeLAdjustment outcomeLAdjustment = new OutcomeLAdjustment();
+            General_Conf_Summary_Spa conf_Summary_Spa = new General_Conf_Summary_Spa();
             OutcomeTotalAdj outcomeTotalAdj = new OutcomeTotalAdj();
             OutcomeYAdjustment outcomeYAdjustment = new OutcomeYAdjustment();
+            Output1_pre_metric_currency output1_Pre_Metric_Currency = new Output1_pre_metric_currency();
+            OutcomeLAdjustment outcomeLAdjustment = new OutcomeLAdjustment();
             Output output = new Output();
-            Output1_pre_metric_currency pre_Metric_Currency = new Output1_pre_metric_currency();
-            Proportions proportions = new Proportions();
-            Prporcion_de_productividad prporcion_De_Productividad = new Prporcion_de_productividad();
-
+            InputsEnglish inputsEnglish = new InputsEnglish();
+            InputsSpanish inputsSpanish = new InputsSpanish();
+            Inputs_1_Ref inputs_1_Ref = new Inputs_1_Ref();
+            Input_1 input_1 = new Input_1();
+            Inputs inputs = new Inputs();
             XlsFile xls = new XlsFile(true);
-            //xls.Open("file");
             TWorkspace workspace = new TWorkspace();
+
+            //get metrics
+            MetricsDTO md = new MetricsDTO();
+            md = GetMetrics();
+            //xls.Open("file");
+
             workspace.Add(xls.ActiveFileName, xls);
             //actual calculation taking place in the excel sheet
-            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles, 
+            metrics.metrics(xls, md);
+            inputs.inputs(xls, earlyHectares, peakHectares, oldHectares, conventional, organic, transition, workerSalarySoles, productionQuintales, transportCostSoles,
                 costPriceSolesPerQuintal, expSolesChem, expSolesOrg);
-            xls.Recalc();
-            databaseSchema.Database_Schema(xls, workspace);
-            xls.Recalc();
-            conversiones.conversiones(xls);
-            xls.Recalc();
-            inputs_1_Ref.inputs1Ref(xls);
-            xls.Recalc();
-            inputs_1_Metric_Currency.Inputs1MetricCurrency(xls);
-            xls.Recalc();
-            advanced.Inputs_Advanced(xls);
-            xls.Recalc();
-            proportions.proportions(xls);
-            xls.Recalc();
-            advancedInputs.Budget_Supuestos(xls);
-            xls.Recalc();
-            budget_Equipo.BudgetEquipo(xls);
-            xls.Recalc();
-            budget_M_Obra.BudgetMObra(xls);
-            xls.Recalc();
-            budget_Valor_De_M_Obra.Budget_Valor_M_De_Obra(xls);
-            xls.Recalc();
-            budget_Establecimiento.BudgetEstablecimiento(xls);
-            
-            xls.Recalc();
-            budget_Sostenemiento.BudgetSostenemiento(xls);
-            xls.Recalc();
-            budget_Presupuesto.BudgetPresupuesto(xls);
-            xls.Recalc();
-            outcomeYAdjustment.Outcome_Y_Adjustment(xls);
-            xls.Recalc();
-            outcomeLAdjustment.Outcome_L_Adjustment(xls);
             //databaseSchema.Database_Schema(xls);
-            xls.Recalc();
+            
+            output.Outcome(xls);
+            language.language(xls);
+            inputsEnglish.InputEnglish(xls);
+            inputsSpanish.InputSpanish(xls);
+            input_1.Input_1_default(xls);
+            conversiones.conversiones(xls);
+            metrics_English.MetricsEnglish(xls);
+            metrics_Spanish.MetricsSpanish(xls);
+            inputs_2.Inputs_2_Default(xls);
+
+            //databaseSchema.Database_Schema(xls, workspace);
+            inputs_2_Conv.Inputs_2_Conv_inputs(xls);
+            inputsAdvanced2English.InputAdvanced2English(xls);
+
+            inputs_1.CreateFile(xls);
+            advancedInputs.Budget_Supuestos(xls);
+            proportions.proportions(xls);
+            budget_Equipo.BudgetEquipo(xls);
+            budget_Establecimiento.BudgetEstablecimiento(xls);
+            budget_M_Obra.BudgetMObra(xls);
+            budget_Sostenemiento.BudgetSostenemiento(xls);
+            budget_Valor_De_M_Obra.Budget_Valor_M_De_Obra(xls);
+            budget_Presupuesto.BudgetPresupuesto(xls);
+
+            //if (Language == "EN")
+            //{
+            inputsAdvanced2Spanish.InputAdvancedSpanish(xls, "EN");
+
+            prporcion.ProporcionDeProductividad(xls);
+            inputs_1_Ref.inputs1Ref(xls);
+
+            gral_Conf.Gral_Conf_Summary(xls);
+            conf_Summary_Spa.GeneralConfSummarySpa(xls);
+
+
+
+            inputs_TOT_advanced.CreateFile(xls);
+            ////var advancedInputsDict = new Dictionary<string, object>();
+
+            ////if (Language == "EN")
+            ////{
+
+            inAdvanced.Inputs_Advanced(xls);
+            outcomeYAdjustment.Outcome_Y_Adjustment(xls);
+            output1_Pre_Metric_Currency.Output1PreMetricCurrency(xls);
+            outcomeLAdjustment.Outcome_L_Adjustment(xls);
             outcomeTotalAdj.Outcome_TOTAL_Adj(xls);
-            
-            xls.Recalc();
-            pre_Metric_Currency.Output1PreMetricCurrency(xls);
-            
-            xls.Recalc();
-            prporcion_De_Productividad.ProporcionDeProductividad(xls);
-            
+            //}
+            //else
+            //{
+            //advancedInputsDict = inputsAdvanced2Spanish.InputAdvancedSpanish(xls, Language);
+            //}
+
+
+
             //var op = output.Outcome(xls, workspace);
-            var op = databaseSchema.Database_Schema(xls, workspace);
+            var op = databaseSchema.Database_Schema(xls);
+           
+            
             coopOutputDTO coopOutputDTO = new coopOutputDTO();
             coopOutputDTO.variableCostUSPound = 1.05;
             coopOutputDTO.fixedCostUSPound = 0.06;
@@ -110,13 +147,296 @@ namespace CoffeeInfrastructure.Flexcel
             outputDict = op.Output;
             outputDict.Add("Coop", coopOutputDTO);
             //var futuresPrice = getFuturesPrice();
-            
+
             //outputDict.Add("FuturesPrice", futuresPrice.Result);
             ChartDataDTO cdata = new ChartDataDTO();
             cdata.Output = outputDict;
             //Save the file as XLS
             //xls.Save(openFileDialog1.FileName);
             return cdata;
+        }
+
+        private MetricsDTO GetMetrics()
+        {
+            MetricsInputDTO minput = new MetricsInputDTO();
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                var id = "1234";
+
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[CoopGeneralConfig] where CoopID = @coopid", con);
+                comm.Parameters.AddWithValue("@coopid", id);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        minput.coffeemeasurekilograms = Convert.ToBoolean(reader["CoffeeMeasureKilograms"].ToString());
+                        minput.coffeemeasurepounds = Convert.ToBoolean(reader["CoffeeMeasurePounds"].ToString());
+                        minput.coffeemeasurequintales = Convert.ToBoolean(reader["CoffeeMeasureQuintales"].ToString());
+                        minput.coffeemeasurearrobas = Convert.ToBoolean(reader["CoffeeMeasureArrobas"].ToString());
+                        minput.coffeemeasurecargas = Convert.ToBoolean(reader["CoffeeMeasureCargas"].ToString());
+                        minput.lengthmeasuremeters = Convert.ToBoolean(reader["LengthMeasureMeters"].ToString());
+                        minput.lengthmeasurefeet = Convert.ToBoolean(reader["LengthMeasureFeet"].ToString());
+                        minput.farmareameasurehectares = Convert.ToBoolean(reader["FarmAreaMeasureHectares"].ToString());
+                        minput.farmareameasuremanzanas = Convert.ToBoolean(reader["FarmAreaMeasureManzanas"].ToString());
+                        minput.applicationmeasurekilograms = Convert.ToBoolean(reader["ApplicationMeasureKilograms"].ToString());
+                        minput.applicationmeasurepounds = Convert.ToBoolean(reader["ApplicationMeasurePounds"].ToString());
+                        minput.capacitymeasureliters = Convert.ToBoolean(reader["CapacityMeasureLiters"].ToString());
+                        minput.capacitymeasuregallons = Convert.ToBoolean(reader["CapacityMeasureGallons"].ToString());
+                        minput.currencyboliviaboliviano = Convert.ToBoolean(reader["CurrencyBoliviaBoliviano"].ToString());
+                        minput.currencybrazilreal = Convert.ToBoolean(reader["CurrencyBrazilReal"].ToString());
+                        minput.currencycolombiapeso = Convert.ToBoolean(reader["CurrencyColombiaPeso"].ToString());
+                        minput.currencycostaricacolon = Convert.ToBoolean(reader["CurrencyCostaRicaColon"].ToString());
+                        minput.currencycubapeso = Convert.ToBoolean(reader["CurrencyCubaPeso"].ToString());
+                        minput.currencyguatemalaquetzal = Convert.ToBoolean(reader["CurrencyGuatemalaQuetzal"].ToString());
+                        minput.currencyhaitigourde = Convert.ToBoolean(reader["CurrencyHaitiGourde"].ToString());
+                        minput.currencyhonduraslempira = Convert.ToBoolean(reader["CurrencyHondurasLempira"].ToString());
+                        minput.currencyjamaicadollar = Convert.ToBoolean(reader["CurrencyJamaicaDollar"].ToString());
+                        minput.currencymexicopeso = Convert.ToBoolean(reader["CurrencyMexicoPeso"].ToString());
+                        minput.currencynicaraguacordoba = Convert.ToBoolean(reader["CurrencyNicaraguaCordoba"].ToString());
+                        minput.currencyperusol = Convert.ToBoolean(reader["CurrencyPeruSol"].ToString());
+                        minput.currencyusdollar = Convert.ToBoolean(reader["CurrencyUSDollar"].ToString());
+                        minput.currencyvenezuelabolivar = Convert.ToBoolean(reader["CurrencyVenezuelaBolivar"].ToString());
+                    }
+                    reader.Close();
+
+                }
+                con.Close();
+            }
+            MetricsDTO md = new MetricsDTO();
+            if (minput.applicationmeasurekilograms)
+            {
+                md.applicationmeasurekilograms = 1;
+            }
+            else
+            {
+                md.applicationmeasurekilograms = 0;
+            }
+            if (minput.applicationmeasurepounds)
+            {
+                md.applicationmeasurepounds = 1;
+            }
+            else
+            {
+                md.applicationmeasurepounds = 0;
+            }
+            if (minput.capacitymeasuregallons)
+            {
+                md.capacitymeasuregallons = 1;
+            }
+            else
+            {
+                md.capacitymeasuregallons = 0;
+            }
+            if (minput.capacitymeasureliters)
+            {
+                md.capacitymeasureliters = 1;
+            }
+            else
+            {
+                md.capacitymeasureliters = 0;
+            }
+
+            if (minput.coffeemeasurearrobas)
+            {
+                md.coffeemeasurearrobas = 1;
+            }
+            else
+            {
+                md.coffeemeasurearrobas = 0;
+            }
+            if (minput.coffeemeasurecargas)
+            {
+                md.coffeemeasurecargas = 1;
+            }
+            else
+            {
+                md.coffeemeasurecargas = 0;
+            }
+
+            if (minput.coffeemeasurekilograms)
+            {
+                md.coffeemeasurekilograms = 1;
+            }
+            else
+            {
+                md.coffeemeasurekilograms = 0;
+            }
+
+            if (minput.coffeemeasurepounds)
+            {
+                md.coffeemeasurepounds = 1;
+            }
+            else
+            {
+                md.coffeemeasurepounds = 0;
+            }
+            if (minput.coffeemeasurequintales)
+            {
+                md.coffeemeasurequintales = 1;
+            }
+            else
+            {
+                md.coffeemeasurequintales = 0;
+            }
+            if (minput.currencyboliviaboliviano)
+            {
+                md.currencyboliviaboliviano = 1;
+            }
+            else
+            {
+                md.currencyboliviaboliviano = 0;
+            }
+            if (minput.currencybrazilreal)
+            {
+                md.currencybrazilreal = 1;
+            }
+            else
+            {
+                md.currencybrazilreal = 0;
+            }
+            if (minput.currencycolombiapeso)
+            {
+                md.currencycolombiapeso = 1;
+            }
+            else
+            {
+                md.currencycolombiapeso = 0;
+            }
+            if (minput.currencycostaricacolon)
+            {
+                md.currencycostaricacolon = 1;
+            }
+            else
+            {
+                md.currencycostaricacolon = 0;
+            }
+            if (minput.currencycubapeso)
+            {
+                md.currencycubapeso = 1;
+            }
+            else
+            {
+                md.currencycubapeso = 0;
+            }
+
+            if (minput.currencyguatemalaquetzal)
+            {
+                md.currencyguatemalaquetzal = 1;
+            }
+            else
+            {
+                md.currencyguatemalaquetzal = 0;
+            }
+
+            if (minput.currencyhaitigourde)
+            {
+                md.currencyhaitigourde = 1;
+            }
+            else
+            {
+                md.currencyhaitigourde = 0;
+            }
+
+            if (minput.currencyhonduraslempira)
+            {
+                md.currencyhonduraslempira = 1;
+            }
+            else
+            {
+                md.currencyhonduraslempira = 0;
+            }
+
+            if (minput.currencyjamaicadollar)
+            {
+                md.currencyjamaicadollar = 1;
+            }
+            else
+            {
+                md.currencyjamaicadollar = 0;
+            }
+
+            if (minput.currencymexicopeso)
+            {
+                md.currencymexicopeso = 1;
+            }
+            else
+            {
+                md.currencymexicopeso = 0;
+            }
+
+            if (minput.currencynicaraguacordoba)
+            {
+                md.currencynicaraguacordoba = 1;
+            }
+            else
+            {
+                md.currencynicaraguacordoba = 0;
+            }
+
+            if (minput.currencyperusol)
+            {
+                md.currencyperusol = 1;
+            }
+            else
+            {
+                md.currencyperusol = 0;
+            }
+
+            if (minput.currencyusdollar)
+            {
+                md.currencyusdollar = 1;
+            }
+            else
+            {
+                md.currencyusdollar = 0;
+            }
+
+            if (minput.currencyvenezuelabolivar)
+            {
+                md.currencyvenezuelabolivar = 1;
+            }
+            else
+            {
+                md.currencyvenezuelabolivar = 0;
+            }
+            if (minput.farmareameasurehectares)
+            {
+                md.farmareameasurehectares = 1;
+            }
+            else
+            {
+                md.farmareameasurehectares = 0;
+            }
+            if (minput.farmareameasuremanzanas)
+            {
+                md.farmareameasuremanzanas = 1;
+            }
+            else
+            {
+                md.farmareameasuremanzanas = 0;
+            }
+
+            if (minput.lengthmeasurefeet)
+            {
+                md.lengthmeasurefeet = 1;
+            }
+            else
+            {
+                md.lengthmeasurefeet = 0;
+            }
+
+            if (minput.lengthmeasuremeters)
+            {
+                md.lengthmeasuremeters = 1;
+            }
+            else
+            {
+                md.lengthmeasuremeters = 0;
+            }
+            return md;
         }
 
         private async Task<string> getFuturesPrice()
@@ -273,11 +593,11 @@ namespace CoffeeInfrastructure.Flexcel
             coop.Add(Math.Round(coopval2, 2));
             coop.Add(Math.Round(coopval3, 2));
             //cd.cooperative = coop;
-            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 11)),2));
-            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 12)),2));
-            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 10)),2));
+            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 11)), 2));
+            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 12)), 2));
+            prod.Add(Math.Round(Convert.ToDouble(xls.GetCellValue(9, 10)), 2));
             //cd.producer = prod;
-            
+
 
             //You will normally not set LastSavedBy, since this is a new file.
             //If you don't set it, FlexCel will use the creator instead.
@@ -292,13 +612,14 @@ namespace CoffeeInfrastructure.Flexcel
 
             xls.DocumentProperties.SetStandardProperty(TPropertyId.Company, "Cornell University");
 
-           
+
 
             return cd;//Convert.ToDouble(xls.GetCellValue(9, 12));
         }
 
         public void SaveUserInputs(string id, ChartInputDTO chartInputDTO)
         {
+            var userid = GetSmallHolderUserID(id);
             String timeStamp = DateTime.Now.ToString();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
             string sqlQuery = String.Format("Insert INTO [AVFCoffee].[dbo].[UserInput]" +
@@ -318,7 +639,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Parameters.AddWithValue("@YieldHect", chartInputDTO.productionQuintales);
                 command.Parameters.AddWithValue("@TransCost", chartInputDTO.transportCostSoles);
                 command.Parameters.AddWithValue("@FinalPrice", chartInputDTO.costPriceSolesPerQuintal);
-                command.Parameters.AddWithValue("@UserID", id);
+                command.Parameters.AddWithValue("@UserID", userid);
                 command.Parameters.AddWithValue("@ExpSolesChem", chartInputDTO.expSolesChem);
                 command.Parameters.AddWithValue("@ExpSolesOrg", chartInputDTO.expSolesOrg);
                 command.Parameters.AddWithValue("@TimeStamp", timeStamp);
@@ -331,12 +652,34 @@ namespace CoffeeInfrastructure.Flexcel
             }
         }
 
-        
 
-        public LoginInfoDTO GetUserInputs(String id)
+        private String GetSmallHolderUserID(String number)
+        {
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            var id = "";
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[SmallHolder] where [PhoneNumber] = @phone", con);
+                comm.Parameters.AddWithValue("@phone", number);
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        id = reader["FarmerID"].ToString();
+                    }
+                    reader.Close();
+                }
+                con.Close();
+            }
+            return id;
+        }
+        public LoginInfoDTO GetUserInputs(String number)
         {
             try
             {
+                var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+                var id = GetSmallHolderUserID(number);
                 UserInfoDTO uInfo = new UserInfoDTO();
                 Dictionary<String, object> cOut = new Dictionary<String, object>();
                 ChartDataDTO cData = new ChartDataDTO();
@@ -344,7 +687,7 @@ namespace CoffeeInfrastructure.Flexcel
                 ProducerOutputEnglishDTO pOutEnglishDTO = new ProducerOutputEnglishDTO();
                 ProducerOutputSpanishDTO pOutSpanishDTO = new ProducerOutputSpanishDTO();
                 LoginInfoDTO lInfo = new LoginInfoDTO();
-                var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+
                 using (SqlConnection con = new SqlConnection(conn))
                 {
                     con.Open();
@@ -399,7 +742,8 @@ namespace CoffeeInfrastructure.Flexcel
                             pOutSpanishDTO.totalCostUSHect = Convert.ToDouble(reader["TotalCostUSHect"].ToString());
                             pOutSpanishDTO.totalCostSolesHect = Convert.ToDouble(reader["TotalCostSolesHect"].ToString());
                             pOutSpanishDTO.breakEvenCostUSPound = Convert.ToDouble(reader["BreakEvenCostUSPound"].ToString());
-                        } else
+                        }
+                        else
                         {
                             pOutEnglishDTO.status = false;
                         }
@@ -422,7 +766,7 @@ namespace CoffeeInfrastructure.Flexcel
                             uInfo.Language = reader["Language"].ToString();
                             uInfo.UserName = reader["UserName"].ToString();
                             //var output = String.Format("{0}", reader["HectTreesEarly"]);
-                            
+
                         }
                     }
 
@@ -431,7 +775,8 @@ namespace CoffeeInfrastructure.Flexcel
                 if (uInfo.Language == "B2C_1_siupin_es")
                 {
                     uInfo.Language = "ES";
-                } else
+                }
+                else
                 {
                     uInfo.Language = "EN";
                 }
@@ -458,12 +803,13 @@ namespace CoffeeInfrastructure.Flexcel
             }
             catch (Exception e)
             {
-                return null; 
+                return null;
             }
         }
 
         public ChartDataDTO SaveUserOutputs(string id, ChartDataDTO chartDataDTO)
         {
+            var userid = GetSmallHolderUserID(id);
             String timeStamp = DateTime.Now.ToString();
             int resultProd, resultCoop;
             Dictionary<String, object> dict = new Dictionary<String, object>();
@@ -503,7 +849,7 @@ namespace CoffeeInfrastructure.Flexcel
             {
                 connect.Open();
                 SqlCommand command = new SqlCommand(sqlQuery);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", userid);
                 command.Parameters.AddWithValue("@variableCostUSPound", variableCostUSpound);
                 command.Parameters.AddWithValue("@fixedCostUSPound", fixedCostUSPound);
                 command.Parameters.AddWithValue("@totalCostAndDeprUSPound", totalCostAndDeprUSPound);
@@ -538,7 +884,7 @@ namespace CoffeeInfrastructure.Flexcel
                 command.Connection = connect;
                 resultCoop = command.ExecuteNonQuery();
                 connect.Close();
-                
+
             }
 
             if (resultCoop < 0 || resultProd < 0)
@@ -581,10 +927,11 @@ namespace CoffeeInfrastructure.Flexcel
                             connect.Close();
 
                         }
-                    } else
+                    }
+                    else
                     {
                         string sqlQueryUser = String.Format("Update [AVFCoffee].[dbo].[User]" +
-                   "Set [Language] = @language Where UserID = @userid");
+                   "Set [Language] = @language, [CoopID] = @coop Where UserID = @userid");
                         //var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
                         using (SqlConnection connect = new SqlConnection(conn))
                         {
@@ -592,6 +939,7 @@ namespace CoffeeInfrastructure.Flexcel
                             SqlCommand command = new SqlCommand(sqlQueryUser);
                             command.Parameters.AddWithValue("@language", userInfoDTO.Language);
                             command.Parameters.AddWithValue("@userid", userInfoDTO.UserID);
+                            command.Parameters.AddWithValue("@coop", userInfoDTO.CoopID);
                             command.Connection = connect;
                             resultUser = command.ExecuteNonQuery();
                             connect.Close();
@@ -602,7 +950,7 @@ namespace CoffeeInfrastructure.Flexcel
 
                 con.Close();
             }
-            
+
             return userInfoDTO;
         }
 

@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using CoffeeInfrastructure.Helpers;
 
 namespace CoffeeInfrastructure.Flexcel
 {
@@ -23,7 +24,7 @@ namespace CoffeeInfrastructure.Flexcel
 
         public TechnicianLoginInfoDTO GetUserMetrics()
         {
-
+            
             TechnicianLoginInfoDTO tlInfo = new TechnicianLoginInfoDTO();
             MetricsInputDTO minput = new MetricsInputDTO();
             var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
@@ -401,7 +402,7 @@ namespace CoffeeInfrastructure.Flexcel
             //xls.Recalc();
             metrics_Spanish.MetricsSpanish(xls);
             inputs_2.Inputs_2_Default(xls);
-            databaseSchema.Database_Schema(xls, workspace);
+            databaseSchema.Database_Schema(xls);
             inputs_2_Conv.Inputs_2_Conv_inputs(xls);
             inputsAdvanced2English.InputAdvanced2English(xls);
             //xls.Recalc();
@@ -1351,7 +1352,9 @@ namespace CoffeeInfrastructure.Flexcel
                 con.Open();
 
                 SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[User] where UserID = @UserID", con);
-                comm.Parameters.AddWithValue("@UserID", "0747ba8f-c8e3-42b6-9b48-6743583b7bb8");
+                //comm.Parameters.AddWithValue("@UserID", "0747ba8f-c8e3-42b6-9b48-6743583b7bb8");
+                comm.Parameters.AddWithValue("@UserID", "85c6c0f5-1ae7-4664-9d9b-ce2caf94cf8e");
+                //85c6c0f5 - 1ae7 - 4664 - 9d9b - ce2caf94cf8e
                 // int result = command.ExecuteNonQuery();
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -1705,7 +1708,7 @@ namespace CoffeeInfrastructure.Flexcel
             metrics_English.MetricsEnglish(xls);
             metrics_Spanish.MetricsSpanish(xls);
             inputs_2.Inputs_2_Default(xls);
-            databaseSchema.Database_Schema(xls, workspace);
+            //databaseSchema.Database_Schema(xls);
             inputs_2_Conv.Inputs_2_Conv_inputs(xls);
             inputsAdvanced2English.InputAdvanced2English(xls);
             if (Language == "EN")
@@ -2018,6 +2021,67 @@ namespace CoffeeInfrastructure.Flexcel
                 con.Close();
             }
             return inputsAdvanced;
+        }
+
+        public List<AnalysisDTO> GetAnalysis(string userID)
+        {
+            
+            var analyses = new List<AnalysisDTO>();
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[Analysis] where [UserID] = @userid", con);
+                comm.Parameters.AddWithValue("@userid", userID);
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AnalysisDTO analysis = new AnalysisDTO();
+                        analysis.TimeStamp = reader["TimeStamp"].ToString();
+                        analysis.Title = reader["Title"].ToString();
+                        analyses.Add(analysis);
+                    }
+                }
+                con.Close();
+            }
+            foreach (AnalysisDTO analysis in analyses)
+            {
+                var inputList = new List<string>();
+                inputList.Add("farm1");
+                inputList.Add("farm2");
+                inputList.Add("farm3");
+                analysis.Input = inputList;
+            }
+            return analyses;
+        }
+
+        public List<FarmInfoDTO> GetFarms(string coopid)
+        {
+            
+            var farms = new List<FarmInfoDTO>();
+            var conn = _iconfiguration.GetSection("ConnectionStrings").GetSection("CoffeeConnStr").Value;
+            using (SqlConnection con = new SqlConnection(conn))
+            {
+                con.Open();
+                SqlCommand comm = new SqlCommand("Select * from [AVFCoffee].[dbo].[SmallHolder] where CoopID = @coopid", con);
+                comm.Parameters.AddWithValue("@coopid", "1234");
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        FarmInfoDTO farmInfo = new FarmInfoDTO();
+                        farmInfo.FarmName = reader["FarmName"].ToString();
+                        farmInfo.Region = reader["Region"].ToString();
+                        farmInfo.Elevation = Convert.ToInt32(reader["Elevation"].ToString());
+                        farms.Add(farmInfo);
+                    }
+                }
+                con.Close();
+            }
+            return farms;
         }
     }
 

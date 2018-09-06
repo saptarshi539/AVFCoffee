@@ -1,0 +1,148 @@
+﻿<!doctype html>
+<script src="/lib/unify/assets/vendor/jquery/jquery.min.js" asp-append-version="true"></script>
+
+<script>
+        var apiURL = "@ViewData["apiURL"]";
+</script>
+@*<script src="~/pages/TechnicianHome/Analytics/js/analytics.js" asp-append-version="true"></script>*@
+<script src="~/js/language/translate.js" asp-append-version="true"></script>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- React  -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="~/style.css">
+    <link rel="stylesheet" href="~/css/analytics.css">
+    <title>CalcuCafé</title>
+</head>
+<body>
+    <!-- Scrim -->
+    <!-- <div class="scrim"></div> -->
+    <!-- Top Navigation -->
+    <div class="nav-top">
+        <ul>
+            <li id="hamburger">
+                <img src="menu.svg" width="24" height="24" alt="menu">
+            </li>
+            <li id="brand">
+                <a href=""><img src="logo.svg" width="146" height="32" alt="CalcuCafé"></a>
+            </li>
+        </ul>
+        <ul class="nav-profile">
+            <li>
+                <a data-tag="layout-navitem4" href="Account/Signout">Sign out</a>
+            </li>
+            <li>
+                <a href=""><img src="avatar.png" width="36" height="36" alt="avatar"></a>
+            </li>
+            <li>
+                <a id="user-name" href="">Martín Rojas</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Side Navigation Drawer -->
+    <div id="nav-drawer" class="nav-side">
+        <ul>
+            <li class="nav-side-link active-section">
+                <a href="Analytics">
+                    <img class="menu-icon" src="~/icons/trending-active.svg" alt="">
+                    <c data-tag="SideAnalytics">
+                        Analytics
+                    </c>
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/list.svg" alt="">
+                    <c data-tag="SideFarmers">
+                        Farmers
+                    </c>
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="TechnicianHome">
+                    <img class="menu-icon" src="~/icons/settings.svg" alt="">
+                    <c data-tag="SideCoopSettings">
+                        Coop Settings
+                    </c>
+                </a>
+            </li>
+            <li class="nav-side-link">
+                <a href="">
+                    <img class="menu-icon" src="~/icons/help.svg" alt="">
+                    <c data-tag="SideHelp">
+                        Help
+                    </c>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- New Analysis Modal -->
+    <!-- <div class="dialog-box">
+      <img class="close-icon" src="icons/close.svg">
+      <div class="new-analysis-dialog-title">New Analysis</div>
+      <div class="new-analysis-dialog-description">Choose farms to plot in a cost performance analysis.</div>
+
+      <form class="dialog-input-form" autocomplete="off">
+      <div class="dialog-input-title">Title</div>
+      <input class="input-value" type="text" name="" placeholder="Untitled">
+    </form>
+
+    <div class="tabs dialog-tabs">
+    <div class="tab-link tab-active">SELECTION</div>
+    <div class="tab-link">GROUP</div>
+    </div>
+
+    <!-- TODO: ADD SEARCH FUNCTIONALITY -->
+    <!--<div class="search-box">
+    <form autocomplete="off">
+    <img class="search-icon" src="icons/magnifying-glass.svg">
+    <input class="search-text-field" type="text" name="" placeholder="Search farms">
+    </form>
+    </div>
+
+    <div class="filters">
+    <div class="chip">Region</div>
+    <div class="chip">Area</div>
+    <div class="chip">Elevation</div>
+    </div>
+
+    <div class="dialog-farm-list">
+    <!-- TODO: ADD LIVE DATA HERE -->
+    <!--<div class="farm-item">ACUÑA SAMANIEGO CESAR AUGUSTO</div>
+    <div class="farm-item">ACUÑA SAMANIEGO INOCENTE</div>
+    <div class="farm-item">ACUÑA SAMANIEGO ROSA ELENA</div>
+    <div class="farm-item">ADRIANO QUEVEDO PRESENTACION</div>
+    <div class="farm-item">ADRIANO QUEVEDO SALOMON</div>
+    </div>
+
+    <button class="contained-button-disabled dialog-create-button" type="button">CREATE</button>
+    </div> -->
+    <!-- Main Content -->
+    <div id="analytics-main" class="main-content"></div>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Collapsable Hamburger Menu
+            $("#hamburger").click(function () {
+                if ($("#nav-drawer").css("display") == "block") {
+                    $("#nav-drawer").hide();
+                    $(".main-content").css('margin-left', '0px')
+                } else {
+                    $("#nav-drawer").show();
+                    $(".main-content").css('margin-left', '300px')
+                }
+            });
+        });
+    </script>
+    <!-- Load our React component. -->
+    <script src="~/pages/TechnicianHome/Analytics/js/analytics.js" asp-append-version="true"></script>
+</body>
+</html>

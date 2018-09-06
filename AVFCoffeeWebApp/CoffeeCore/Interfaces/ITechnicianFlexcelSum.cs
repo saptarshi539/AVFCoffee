@@ -12,5 +12,7 @@ namespace CoffeeCore.Interfaces
         void saveUserAdvancedInputs(ChartInputAdvancedDTO advancedInputs);
         Dictionary<string, object> getInputs(string language);
         ChartInputAdvancedDTO getInputValues();
+        List<AnalysisDTO> GetAnalysis(string userId);
+        List<FarmInfoDTO> GetFarms(string coopid);
     }
 }

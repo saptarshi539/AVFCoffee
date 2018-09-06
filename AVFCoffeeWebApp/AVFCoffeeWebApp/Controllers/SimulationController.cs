@@ -23,7 +23,7 @@ namespace AVFCoffeeWebApp.Controllers
         }
 
         // GET: /<controller>/
-        [Authorize]
+        //[Authorize]
         public IActionResult Index()
         {
             ViewData["apiURL"] = _iconfiguration.GetSection("ProjectVariables").GetSection("apiURL").Value;

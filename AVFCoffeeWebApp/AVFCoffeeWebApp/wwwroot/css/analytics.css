@@ -1,0 +1,215 @@
+.scrim {
+  background-color: rgba(0,0,0,.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 2;
+}
+
+#doc-cards-view {
+  margin: 0 24px 24px 0;
+}
+
+.doc-card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.doc-card {
+  display: inline-block;
+  min-height: 159px;
+  margin-top: 24px;
+  margin-left: 24px;
+  flex-grow: 1;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  padding: 16px;
+  position: relative;
+}
+
+.doc-card-subtitles .doc-card-sub-title:nth-child(2) {
+    display: inline-block;
+}
+
+.doc-card-subtitles .doc-card-sub-title:nth-child(last) {
+    margin-bottom: 54px;
+}
+
+.more-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 6px 3px 6px;
+  color: rgba(0,0,0,.6);
+  font-size: 12.19px;
+  background-color: #D8D8D8;
+  border-radius: 7px;
+}
+
+.doc-card:hover {
+  cursor: pointer;
+}
+
+.doc-card-title {
+  margin-right: 48px;
+  margin-bottom: 12px;
+  max-width: 300px;
+}
+
+.doc-card-sub-title {
+  font-size: 14.22px;
+  color: rgba(0,0,0,.6);
+  margin-bottom: 12px;
+  max-width: 300px;
+  min-height: 17px;
+}
+
+.doc-card-meta {
+  font-size: 12.19px;
+  color: rgba(0,0,0,.6);
+  margin-top: 12px;
+  max-width: 300px;
+}
+
+.doc-card-more-icon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.dialog-box {
+  position: absolute;
+  overflow: scroll;
+  z-index: 3;
+  top: 15%;
+  right: 15%;
+  bottom: 10%;
+  left: 15%;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+.close-icon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+}
+
+.new-analysis-dialog-title {
+  margin-left: 24px;
+  margin-top: 24px;
+  color: rgba(0,0,0,.87);
+  font-size: 20.32px;
+}
+
+.new-analysis-dialog-description {
+  margin-left: 24px;
+  margin-top: 12px;
+  color: rgba(0,0,0,.87);
+}
+
+.dialog-input-form {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  margin-left: 24px;
+}
+
+.dialog-input-form * {
+  display: inline-block;
+}
+
+.dialog-input-form .input-value {
+  width: 200px;
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.dialog-input-title {
+  display: inline-block;
+}
+
+.dialog-tabs {
+  border-top: 1px solid #E4E4E4;
+}
+
+.search-box {
+  position: relative;
+  margin-top: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  border: 1px solid #00838F;
+  border-radius: 6px;
+}
+
+.search-text-field {
+  border: none;
+  border-radius: 6px;
+  height: 48px;
+  padding-left: 48px;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.filters {
+  margin-left: 12px;
+  margin-top: 24px;
+  letter-spacing: .25px;
+}
+
+.chip {
+  padding: 6px 12px 6px 12px;
+  border: 1px solid rgba(0,131,143,.25);
+  border-radius: 16px;
+  display: inline-block;
+  font-size: 14.22px;
+  color: #00838F;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.dialog-farm-list {
+  margin: 24px 0 24px 0;
+  border-top: 1px solid #E4E4E4;
+  border-bottom: 1px solid #E4E4E4;
+  height: 172px;
+  overflow: scroll;
+}
+
+.farm-item {
+  padding: 12px 0 12px 24px;
+  color: rgba(0,0,0,.87);
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.dialog-farm-list .farm-item:last-child {
+  border-bottom: none;
+}
+
+.dialog-create-button {
+  float: right;
+  margin-right: 24px;
+}
+
+.add-FAB {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  padding: 0px;
+  min-width: 56px;
+  background-color: #00838F;
+  border: none;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}

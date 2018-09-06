@@ -1,7 +1,9 @@
 ﻿using CoffeeCore.DTO;
 using CoffeeCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using CoffeeInfrastructure.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace AVFCoffeeWebApp.APIControllers
 {
@@ -115,6 +117,55 @@ namespace AVFCoffeeWebApp.APIControllers
                 technianflexcelSum.saveUserAdvancedInputs(advancedInputsValues);
 
                 return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("GetAnalysis")]
+        [HttpGet]
+        [Produces("application/json")]
+        public IActionResult GetAnalyses()
+        {
+            try
+            {
+                var analyses = new Dictionary<string, List<AnalysisDTO>>();
+                //get userid
+                if (User.Identity.IsAuthenticated)
+                {
+                    var userid = User.GetId();
+                    var analysesList = technianflexcelSum.GetAnalysis(userid);
+                    analyses.Add("analyses", analysesList);
+                }
+                return Ok(analyses);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+                return StatusCode(500);
+            }
+
+        }
+
+        [Route("GetFarms")]
+        [HttpGet]
+        [Produces("application/json")]
+        public IActionResult GetFarms()
+        {
+            try
+            {
+                var farms = new List<FarmInfoDTO>();
+                //get coopid
+                if (User.Identity.IsAuthenticated)
+                {
+                    var coopid = User.GetCooperativeID();
+                    farms = technianflexcelSum.GetFarms(coopid);
+                }
+                return Ok(farms);
             }
             catch (Exception e)
             {

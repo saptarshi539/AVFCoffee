@@ -27,7 +27,8 @@ $("#submitInput").click(function () {
         "transportCostSoles": transportCostSoles,
         "costPriceSolesPerQuintal": costPriceSolesPerQuintal,
         "expSolesChem": convFert,
-        "expSolesOrg": orgFert
+        "expSolesOrg": orgFert,
+        "phoneNumber": localStorage.getItem("farmerPhone")
     }
 
 
@@ -41,6 +42,8 @@ $("#submitInput").click(function () {
         contentType: "application/json; charset=utf-8",
         success: function (result, status) {
             var userInputPromise = saveUserInput(userInputs);
+            console.log(result);
+            result["phoneNumber"] = localStorage.getItem("farmerPhone");
             userInputPromise.then(saveUserOutput(result)); 
         },
         error: function (res, status) {

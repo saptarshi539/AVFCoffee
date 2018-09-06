@@ -12,7 +12,7 @@ namespace CoffeeInfrastructure.B2C
         public const string ObjectId = "http://schemas.microsoft.com/identity/claims/objectidentifier";
         public const string Emails = "Emails";
         public const string Job = "extension_Job";
-        public const string CooperativeID = "extension_CooperativeID";
+        public const string CooperativeID = "extension_CoopID";
         public const string SiupinPolicy = "tfp";
 
     }

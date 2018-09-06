@@ -1,4 +1,5 @@
-﻿var UserData = {
+﻿var farmerPhone = localStorage.getItem("farmerPhone");
+var UserData = {
     input: {},
     output: {},
     resultChartDataObject: {},
@@ -8,11 +9,14 @@
     user: {}
 };
 
- 
- var globalDataPromise = $.ajax({
+//$(document).on('ready', function () {
+    
+    console.log(farmerPhone);
+    var globalDataPromise = $.ajax({
         type: "GET",
+        url: apiURL + "CellSum/getinput?",
+        data: "phoneNumber=" + farmerPhone,
         contentType: "application/json; charset=utf-8",
-        url: apiURL + "CellSum/getinput",
         success: function (content, status) {
             if (status != 'nocontent') {
                 console.log(content)
@@ -22,7 +26,7 @@
                 UserData.simulationInput = content.loginfo.Inputs;
                 UserData.user.language = content.loginfo.User.language;
                 //find out what page is requesting the info
-               
+
                 var path = window.location.pathname;
                 var page = path.split("/").pop();
 
@@ -64,6 +68,7 @@
             console.log('not successful');
         }
 
-});
+    });
+//});
 
-  
+

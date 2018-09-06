@@ -1,57 +1,66 @@
-﻿body {
-    font-family: 'Rubik', sans-serif;
+body {
+  font-family: 'Rubik', sans-serif;
 }
 
 a {
-    color: black;
+  color: black;
 }
 
-    a:hover {
-        color: black;
-    }
+a:hover {
+  color: black;
+}
 
 .content {
-    padding: 0px;
+  padding: 0px;
 }
 
 .nav-top ul {
-    padding: 0px;
-    list-style: none;
-    display: inline-block;
-    margin-bottom: 0px;
+  padding: 0px;
+  list-style: none;
+  display: inline-block;
+  margin-bottom: 0px;
 }
 
 .nav-profile li {
-    display: inline-block;
+  display: inline-block;
 }
 
 .nav-top li {
-    display: inline-block;
+  display: inline-block;
 }
 
 a:link {
     text-decoration: none;
 }
 
+ul {
+  padding-left: 0px;
+}
+
 .nav-top {
-    background-color: #7FB6A2;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 24px;
+  background-color: #7FB6A2;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
 }
 
 .nav-profile {
-    float: right;
-    margin-right: 24px;
+  float: right;
+  margin-right: 24px;
 }
 
 #hamburger {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #user-name {
-    color: white;
-    padding-left: 12px;
+  color: white;
+  padding-left: 12px;
 }
 
 #brand {
@@ -59,215 +68,225 @@ a:link {
 }
 
 .nav-side {
-    width: 300px;
-    background-color: #00838F;
-    font-size: 18px;
-    height: 945px;
-    padding-right: 0px;
-    position: fixed;
+  width: 300px;
+  background-color: #00838F;
+  font-size: 18px;
+  padding-right: 0px;
+  position: fixed;
+  bottom: 0px;
+  top: 84px;
+  left: 0px;
 }
 
-    .nav-side ul {
-        padding: 0px;
-        margin: 0px;
-    }
+.nav-side ul {
+  padding: 0px;
+  margin: 0px;
+}
 
 .nav-side-link {
-    color: rgba(255,255,255,.6);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    list-style: none;
-    margin-left: 24px;
+  color: rgba(255,255,255,.6);
+  padding-top: 24px;
+  padding-bottom: 24px;
+  list-style: none;
+  margin-left: 24px;
 }
-
 .active-section a {
-    color: white !important;
+  color: white !important;
 }
 
 .nav-side-link a {
-    color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.6);
 }
 
 .menu-icon {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 .main-content {
-    margin-left: 300px;
+  margin-left: 300px;
+  margin-top: 84px;
+  padding-bottom: 24px;
+  overflow: auto;
+  position: relative;
 }
 
 .tabs {
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 1px solid;
-    border-bottom-color: #E4E4E4;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid;
+  border-bottom-color: #E4E4E4;
 }
 
 .tab-link {
-    width: 100%;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    display: inline-block;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: inline-block;
+  color: rgba(0,0,0,.6);
+  display: block;
+  text-align: center;
+  cursor: pointer;
 }
 
-    .tab-link a {
-        color: rgba(0,0,0,.6);
-        display: block;
-        text-align: center;
-    }
+.tab-link a {
+  color: rgba(0,0,0,.6);
+  /* display: block; */
+  /* text-align: center; */
+}
 
 .tab-active {
-    border-bottom: 2px solid;
-    border-bottom-color: #00838F;
+  border-bottom: 2px solid;
+  border-bottom-color: #00838F;
+  color: #00838F;
 }
 
-    .tab-active a {
-        color: #00838F;
-    }
+.tab-active a {
+  color: #00838F;
+}
 
 .breadcrumbs {
-    padding: 12px 24px 12px 0;
-    border-bottom: 1px solid;
-    border-bottom-color: #E4E4E4;
+  padding: 12px 24px 12px 0;
+  border-bottom: 1px solid;
+  border-bottom-color: #E4E4E4;
 }
 
 .crumb {
-    display: inline-block;
-    vertical-align: middle;
-    color: rgba(0,0,0,.6);
+  display: inline-block;
+  vertical-align: middle;
+  color: rgba(0,0,0,.6);
 }
 
-    .crumb a {
-        color: rgba(0,0,0,.6);
-    }
+.crumb a {
+  color: rgba(0,0,0,.6);
+}
 
 #crumb-back {
-    padding-left: 24px;
-    padding-right: 20px;
-    position: absolute;
+  padding-left: 24px;
+  padding-right: 20px;
+  position: absolute;
 }
 
 .input-instructions {
-    padding: 24px 24px 24px 24px;
-    font-weight: 600;
-    border-bottom: 1px solid;
-    border-bottom-color: #E4E4E4;
+  padding: 24px 24px 24px 24px;
+  font-weight: 600;
+  border-bottom: 1px solid;
+  border-bottom-color: #E4E4E4;
 }
 
 .list-item {
-    padding-left: 24px;
-    border-bottom: 1px solid;
-    border-bottom-color: #E4E4E4;
-    overflow: auto;
+  padding-left: 24px;
+  border-bottom: 1px solid;
+  border-bottom-color: #E4E4E4;
+  overflow: auto;
 }
 
 .list-title {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    display: inline-block;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: inline-block;
 }
 
 .list-title-value {
-    padding-top: 42px;
-    display: inline-block;
+  padding-top: 42px;
+  display: inline-block;
 }
 
 .list-chevron {
-    display: inline-block;
-    float: right;
-    margin-right: 24px;
-    margin-top: 24px;
+  display: inline-block;
+  float: right;
+  margin-right: 24px;
+  margin-top: 24px;
 }
 
 .input-form {
-    display: inline-block;
-    float: right;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    margin-right: 24px;
+  display: inline-block;
+  float: right;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  margin-right: 24px;
 }
 
 .input-value {
-    background-color: white;
-    width: 135px;
-    height: 56px;
-    border: 1px solid #757575;
-    border-radius: 4px;
-    padding-left: 15px;
-    margin-right: 16px;
-    color: #666666;
+  background-color: white;
+  width: 135px;
+  height: 56px;
+  border: 1px solid #757575;
+  border-radius: 4px;
+  padding-left: 15px;
+  margin-right: 16px;
+  color: #666666;
 }
 
 .drop-down {
-    width: 180px;
+  width: 180px;
 }
 
 .back-button {
-    padding-left: 24px;
-    padding-top: 24px;
-    padding-right: 18px;
-    vertical-align: text-bottom;
+  padding-left: 24px;
+  padding-top: 24px;
+  padding-right: 18px;
+  vertical-align: text-bottom;
 }
 
 .input-buttons {
-    float: right;
-    margin-top: 24px;
+  float: right;
+  margin-top: 24px;
 }
 
-    .input-buttons button {
-        margin-right: 24px;
-    }
+.input-buttons button {
+  margin-right: 24px;
+}
 
 button {
-    padding: 10px 24px 10px 24px;
-    border-radius: 4px;
-    font-size: 14px;
-    min-width: 96px;
-    cursor: pointer;
+  padding: 10px 24px 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 96px;
+  cursor: pointer;
 }
 
 .outlined-button {
-    border: 1px solid #C4C4C4;
-    background-color: white;
-    color: #00838F;
+  border: 1px solid #C4C4C4;
+  background-color: white;
+  color: #00838F;
 }
 
 .outlined-button-disabled {
-    border: 1px solid #C4C4C4;
-    color: #9E9E9E;
+  border: 1px solid #C4C4C4;
+  color: #9E9E9E;
 }
 
 .contained-button {
-    border: none;
-    background-color: #00838F;
-    color: white;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  background-color: #00838F;
+  color: white;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .contained-button-disabled {
-    border: none;
-    background-color: #E4E4E4;
-    color: #8E8E8E;
+  border: none;
+  background-color: #E4E4E4;
+  color: #8E8E8E;
 }
 
 #doc-title {
-    font-family: 'Rubik', sans-serif;
-    font-size: 18px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
 }
 
 .active {
-    color: white;
+  color: white;
 }
 
 .navbar-brand {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #place-holder {
-    width: 700px;
-    height: 313px;
-    background-color: gray;
-    margin-left: 24px;
-    margin-top: 24px;
+  width: 700px;
+  height: 313px;
+  background-color: gray;
+  margin-left: 24px;
+  margin-top: 24px;
 }

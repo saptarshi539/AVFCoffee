@@ -7,6 +7,7 @@ namespace CoffeeInfrastructure.Flexcel
     {
 
         public Dictionary<String, object> Output { get; set; }
+        public string phoneNumber { get; set; }
         //public List<Double> cooperative { get; set; }
 
     }

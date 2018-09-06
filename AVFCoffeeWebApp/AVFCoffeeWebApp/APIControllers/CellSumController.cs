@@ -68,11 +68,11 @@ namespace Coffee.APIControllers
         {
             try
             {
-                if (User.Identity.IsAuthenticated)
-                {
-                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+                //if (User.Identity.IsAuthenticated)
+                //{
+                    var id = chartInputDTO.phoneNumber; //"e661c05f-dc88-48c3-8026-3718143c56d8";//
                     flexcelsum.SaveUserInputs(id, chartInputDTO);
-                }
+                //}
                 //ChartDataDTO sContent = null;
                 return Ok();
             }
@@ -91,11 +91,11 @@ namespace Coffee.APIControllers
         {
             try
             {
-                if (User.Identity.IsAuthenticated)
-                {
-                    var id = User.GetId(); //"e661c05f-dc88-48c3-8026-3718143c56d8";//
+                //if (User.Identity.IsAuthenticated)
+                //{
+                    var id = chartDataDTO.phoneNumber; //"e661c05f-dc88-48c3-8026-3718143c56d8";//
                     flexcelsum.SaveUserOutputs(id, chartDataDTO);
-                }
+                //}
                 //ChartDataDTO sContent = null;
                 return Ok();
             }
@@ -155,16 +155,16 @@ namespace Coffee.APIControllers
         [Route("getinput")]
         [HttpGet]
         [Produces("application/json")]
-        public IActionResult GetInputs()
+        public IActionResult GetInputs(String phoneNumber)
         {
             try
             {
                 LoginInfoDTO output = new LoginInfoDTO();
-                if (User.Identity.IsAuthenticated)
-                {
-                    var id = User.GetId();
-                    output = flexcelsum.GetUserInputs(id);
-                }
+                //if (User.Identity.IsAuthenticated)
+                //{
+                //var id = User.GetId();
+                output = flexcelsum.GetUserInputs(phoneNumber);
+                //}
                 //ChartDataDTO sContent = null;
                 return Ok(output);
             }
